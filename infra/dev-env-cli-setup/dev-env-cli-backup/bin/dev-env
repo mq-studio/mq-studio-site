@@ -1,0 +1,96 @@
+#!/bin/bash
+
+# dev-env - Development Environment CLI
+# Main command handler
+
+VERSION="0.1.0"
+COMMANDS_DIR="$(dirname "$0")/commands"
+
+# Display help information
+show_help() {
+  echo "Development Environment CLI v$VERSION"
+  echo ""
+  echo "Usage: dev-env COMMAND [options]"
+  echo ""
+  echo "Commands:"
+  echo "  initialize-project    Create a new project with standardized structure"
+  echo "  move-artifacts        Move artifacts between projects or locations"
+  echo "  update-prompts        Update AI assistant prompt templates"
+  echo "  validate-environment  Check environment configuration"
+  echo "  backup                Create backups of projects or configurations"
+  echo ""
+  echo "For command-specific help, use: dev-env COMMAND --help"
+}
+
+# Check if no arguments provided
+if [ $# -eq 0 ]; then
+  show_help
+  exit 0
+fi
+
+# Process commands
+COMMAND="$1"
+shift  # Remove command from arguments
+
+case "$COMMAND" in
+  "initialize-project")
+    # Check if the command script exists
+    if [ -f "$COMMANDS_DIR/initialize-project.sh" ]; then
+      # Execute the command script with all remaining arguments
+      "$COMMANDS_DIR/initialize-project.sh" "$@"
+    else
+      echo "Error: Command 'initialize-project' implementation not found."
+      exit 1
+    fi
+    ;;
+  
+  "move-artifacts")
+    if [ -f "$COMMANDS_DIR/move-artifacts.sh" ]; then
+      "$COMMANDS_DIR/move-artifacts.sh" "$@"
+    else
+      echo "Error: Command 'move-artifacts' implementation not found."
+      exit 1
+    fi
+    ;;
+    
+  "update-prompts")
+    if [ -f "$COMMANDS_DIR/update-prompts.sh" ]; then
+      "$COMMANDS_DIR/update-prompts.sh" "$@"
+    else
+      echo "Error: Command 'update-prompts' implementation not found."
+      exit 1
+    fi
+    ;;
+    
+  "validate-environment")
+    if [ -f "$COMMANDS_DIR/validate-environment.sh" ]; then
+      "$COMMANDS_DIR/validate-environment.sh" "$@"
+    else
+      echo "Error: Command 'validate-environment' implementation not found."
+      exit 1
+    fi
+    ;;
+    
+  "backup")
+    if [ -f "$COMMANDS_DIR/backup.sh" ]; then
+      "$COMMANDS_DIR/backup.sh" "$@"
+    else
+      echo "Error: Command 'backup' implementation not found."
+      exit 1
+    fi
+    ;;
+  
+  "--version")
+    echo "dev-env version $VERSION"
+    ;;
+    
+  "--help" | "-h")
+    show_help
+    ;;
+    
+  *)
+    echo "Error: Unknown command '$COMMAND'"
+    echo "Run 'dev-env --help' for usage information."
+    exit 1
+    ;;
+esac
