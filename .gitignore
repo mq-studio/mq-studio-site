@@ -1,3 +1,13 @@
+# =============================================================================
+# IDP GOVERNANCE - COMPREHENSIVE SECRETS PROTECTION
+# =============================================================================
+# This .gitignore follows IDP security-by-design principles
+# Generated: 2025-05-24 by governance automation
+# Enhanced from existing security template
+
+# =============================================================================
+# EXISTING RULES (PRESERVED)
+# =============================================================================
 .DS_Store
 node_modules/
 *.log
@@ -5,3 +15,150 @@ node_modules/
 *.tmp
 *.bak
 .env
+
+# =============================================================================
+# ENVIRONMENT VARIABLES AND SECRETS
+# =============================================================================
+.env.*
+.env.*.local
+.env.development
+.env.production
+.env.staging
+.env.test
+!.env.example
+!.env.template
+
+# =============================================================================
+# API KEYS AND CREDENTIALS
+# =============================================================================
+**/credentials.*
+**/serviceAccount.*
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.crt
+**/auth.json
+**/secrets.json
+**/tokens.json
+**/oauth2-secrets.*
+
+# 1Password Connect
+**/.op
+**/op-session-*
+
+# =============================================================================
+# CONFIGURATION FILES WITH POTENTIAL SECRETS
+# =============================================================================
+config.js
+config.json
+settings.json
+app-config.json
+server-config.json
+!example.config.*
+!template.config.*
+!*-template.*
+
+# =============================================================================
+# MCP SERVER SPECIFIC SECRETS
+# =============================================================================
+**/mcp-servers/**/config.json
+**/mcp-servers/**/.env
+**/mcp-config/environments/production.json
+**/mcp-config/environments/staging.json
+
+# =============================================================================
+# CLOUD PROVIDER CREDENTIALS
+# =============================================================================
+**/.aws/credentials
+**/.azure/credentials
+**/.gcp/credentials
+**/.vercel
+**/.netlify
+**/gcp-oauth.keys.json
+
+# =============================================================================
+# DATABASE AND SERVICE CREDENTIALS
+# =============================================================================
+**/database.conf
+**/db-config.*
+**/postgresql.conf
+**/mysql.conf
+
+# =============================================================================
+# LOGGING WITH POTENTIAL SENSITIVE DATA
+# =============================================================================
+**/logs/auth.log
+**/logs/credentials.log
+**/logs/secrets.log
+
+# =============================================================================
+# MCP STATUS AND GOVERNANCE LOGS (EXCLUDE FROM REPO)
+# =============================================================================
+infra/logs/
+**/logs/
+mcp-status-*.json
+governance-sync.log
+governance-sync-service.log
+**/mcp-status-*.json
+**/governance-*.log
+claude-desktop-governance.log
+mcp-hub.log
+
+# =============================================================================
+# BACKUP FILES WITH POTENTIAL SECRETS
+# =============================================================================
+*.backup
+*.sql.gz
+*.dump
+
+# =============================================================================
+# GOVERNANCE COMPLIANCE EXCEPTIONS
+# =============================================================================
+# Allow governance framework files
+!infra/security-tooling/**
+!infra/data/memory/governance-*.json
+!CLAUDE.md
+!infra/idp-governance/**
+
+# =============================================================================
+# TEMPORARY AND CACHE FILES
+# =============================================================================
+.tmp/
+.cache/
+tmp/
+temp/
+
+# =============================================================================
+# PYTHON SPECIFICS
+# =============================================================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.python-version
+venv/
+env/
+.venv/
+
+# =============================================================================
+# DOCKER SECRETS
+# =============================================================================
+docker-compose.override.yml
+Dockerfile.local
+.dockerignore.local
+
+# =============================================================================
+# IDE AND EDITOR FILES
+# =============================================================================
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# END IDP GOVERNANCE GITIGNORE
+# =============================================================================
