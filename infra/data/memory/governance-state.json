@@ -2,9 +2,9 @@
   "governance_framework": {
     "status": "active",
     "version": "1.0.1",
-    "last_updated": "2025-05-25T16:10:00Z",
+    "last_updated": "2025-05-25T17:30:00Z",
     "compliance_level": "enforced",
-    "last_refresh": "2025-05-25T16:10:00Z"
+    "last_refresh": "2025-05-25T17:30:00Z"
   },
   "mcp_servers": {
     "governance_compliant": [
@@ -15,7 +15,7 @@
         "path": "/home/ichardart/code/infra/mcp-servers/fetch-mcp"
       },
       {
-        "name": "wsl-helper-mcp",
+        "name": "wsl-helper-mcp", 
         "status": "operational",
         "risk_level": "medium",
         "path": "/home/ichardart/code/infra/wsl-helper-mcp"
@@ -28,7 +28,7 @@
       },
       {
         "name": "claude-projects-access-mcp",
-        "status": "setup_required",
+        "status": "setup_required", 
         "risk_level": "medium",
         "path": "/home/ichardart/code/infra/claude-projects-access-mcp"
       }
@@ -36,18 +36,20 @@
     "non_compliant_detected": {
       "security_risks": [
         "browser-tools-mcp",
-        "puppeteer",
-        "sequential-thinking"
+        "puppeteer"
       ],
       "redundant": [
         "filesystem"
       ],
       "potentially_valuable": [
         "github",
-        "e2b",
+        "e2b", 
         "memory",
         "context7",
-        "gdrive"
+        "gdrive",
+        "postgres",
+        "slack",
+        "sequential-thinking"
       ]
     }
   },
@@ -58,7 +60,7 @@
     },
     "a2a_protocol": {
       "status": "implemented",
-      "path": "/home/ichardart/code/infra/A2A"
+      "path": "/home/ichardart/code/infra/A2A-upstream"
     },
     "governance_framework": {
       "status": "active",
@@ -67,6 +69,11 @@
     "security_tooling": {
       "status": "configured",
       "path": "/home/ichardart/code/infra/security-tooling"
+    },
+    "governance_enforcement": {
+      "status": "active",
+      "compliance_score": 25,
+      "last_enforcement": "2025-05-25T17:30:00Z"
     }
   },
   "session_defaults": {
@@ -75,510 +82,8 @@
     "security_by_design": true,
     "multi_agent_platform": true
   },
-  "change_history": [
-    {
-      "timestamp": "2025-05-24T17:18:56.811193",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:18:56.823337",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:18:56.750676",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:18:56.805318",
-      "type": "CLAUDE_CODE_CONTEXT",
-      "file": "/home/ichardart/code/CLAUDE.md",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:00.524728",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:00.054316",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:00.498128",
-      "type": "CLAUDE_CODE_CONTEXT",
-      "file": "/home/ichardart/code/CLAUDE.md",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:02.583853",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:00.573559",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:04.604504",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:04.828105",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:04.847861",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:05.542264",
-      "type": "CLAUDE_CODE_CONTEXT",
-      "file": "/home/ichardart/code/CLAUDE.md",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:07.567841",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:09.578064",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:11.590223",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:13.612226",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:15.629375",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:17.638238",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:19.647900",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:21.658028",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:22.187759",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync-service.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:24.197787",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:26.216824",
-      "type": "GENERAL_GOVE"/home/,
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:28.219769",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:31.429672",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:32.052057",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:32.054956",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:33.890959",
-      "type": "CLAUDE_CODE_CONTEXT",
-      "file": "/home/ichardart/code/CLAUDE.md",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:35.910388",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:37.952607",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:39.959876",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:41.961732",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:42.395290",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/index.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:43.293017",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:43.290090",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:45.294516",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:47.296530",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:48.831220",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:48.822848",
-      "type": "CLAUDE_CODE_CONTEXT",
-      "file": "/home/ichardart/code/CLAUDE.md",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:48.826325",
-      "type": "GENERAL_GOVERNANCE",
-      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:50.263970",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/inherits/inherits_browser.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:50.521397",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/bytes/History.md",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:50.734419",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/iconv-lite/.idea/inspectionProfiles/Project_Default.xml",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:50.869324",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/zod/dist/cjs/v4/locales/en.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:51.132650",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/zod/dist/esm/index.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:50.880904",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/zod/dist/cjs/v4/classic/external.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:51.104224",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/zod/dist/cjs/v3/index.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:50.675034",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/iconv-lite/encodings/tables/cp936.json",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    },
-    {
-      "timestamp": "2025-05-24T17:19:51.051611",
-      "type": "MCP_SERVER_CHANGE",
-      "file": "/home/ichardart/code/infra/mcp-servers/onepassword-mcp/node_modules/zod/dist/esm/v4/locales/hu.js",
-      "sync_clients": [
-        "claude_code",
-        "claude_desktop",
-        "cline"
-      ]
-    }
-  ],
   "last_sync": {
-    "timestamp": "2025-05-24T17:19:51.051611",
-    "change_type": "MCP_SERVER_CHANGE"
+    "timestamp": "2025-05-25T17:30:00Z",
+    "change_type": "GOVERNANCE_ENFORCEMENT_IMPLEMENTATION"
   }
 }

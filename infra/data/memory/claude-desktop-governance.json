@@ -1,0 +1,148 @@
+{
+  "session_type": "Claude Desktop",
+  "governance_framework": {
+    "status": "ACTIVE",
+    "mode": "ENFORCED",
+    "last_updated": "2025-05-25T21:00:02.526569"
+  },
+  "workspace": {
+    "path": "/home/ichardart/code",
+    "type": "IDP Multi-Agent Platform"
+  },
+  "mcp_configuration": {
+    "timestamp": "2025-05-25T21:00:02.526500",
+    "total_servers": 12,
+    "governance_compliant": [
+      {
+        "name": "context7",
+        "risk_level": "Medium",
+        "compliance_status": "external_dependency",
+        "business_value": "Medium",
+        "command": "npx",
+        "has_env_vars": false
+      },
+      {
+        "name": "memory",
+        "risk_level": "Medium",
+        "compliance_status": "compliant",
+        "business_value": "High",
+        "command": "npx",
+        "has_env_vars": true
+      }
+    ],
+    "security_risks": [
+      {
+        "name": "filesystem",
+        "risk_level": "High",
+        "compliance_status": "security_risk",
+        "business_value": "Low",
+        "command": "npx",
+        "has_env_vars": false
+      },
+      {
+        "name": "puppeteer",
+        "risk_level": "Critical",
+        "compliance_status": "security_risk",
+        "business_value": "Low",
+        "command": "npx",
+        "has_env_vars": false
+      }
+    ],
+    "requires_setup": [
+      {
+        "name": "github",
+        "risk_level": "Medium",
+        "compliance_status": "requires_token",
+        "business_value": "High",
+        "command": "npx",
+        "has_env_vars": true
+      },
+      {
+        "name": "weather",
+        "risk_level": "Unknown",
+        "compliance_status": "unknown",
+        "business_value": "Unknown",
+        "command": "/home/ichardart/code/infra/mcp-servers/weather-mcp/venv/bin/python",
+        "has_env_vars": true
+      },
+      {
+        "name": "fetch",
+        "risk_level": "Unknown",
+        "compliance_status": "unknown",
+        "business_value": "Unknown",
+        "command": "node",
+        "has_env_vars": false
+      },
+      {
+        "name": "gdrive",
+        "risk_level": "Medium",
+        "compliance_status": "requires_oauth",
+        "business_value": "High",
+        "command": "npx",
+        "has_env_vars": true
+      },
+      {
+        "name": "postgres",
+        "risk_level": "High",
+        "compliance_status": "requires_config",
+        "business_value": "Medium",
+        "command": "npx",
+        "has_env_vars": true
+      },
+      {
+        "name": "slack",
+        "risk_level": "Medium",
+        "compliance_status": "requires_tokens",
+        "business_value": "Medium",
+        "command": "npx",
+        "has_env_vars": true
+      },
+      {
+        "name": "e2b",
+        "risk_level": "High",
+        "compliance_status": "requires_api_key",
+        "business_value": "High",
+        "command": "npx",
+        "has_env_vars": true
+      },
+      {
+        "name": "governance-mcp",
+        "risk_level": "Unknown",
+        "compliance_status": "unknown",
+        "business_value": "Unknown",
+        "command": "node",
+        "has_env_vars": false
+      }
+    ],
+    "governance_score": 0,
+    "recommendations": [
+      {
+        "priority": "CRITICAL",
+        "action": "Remove high-risk MCP servers",
+        "details": "Remove 2 security risk servers: filesystem, puppeteer"
+      },
+      {
+        "priority": "HIGH",
+        "action": "Complete API key/token setup",
+        "details": "Configure 8 servers requiring setup"
+      }
+    ]
+  },
+  "infrastructure": {
+    "mcp_server_hub": true,
+    "a2a_protocol": true,
+    "governance_framework": true,
+    "security_tooling": true
+  },
+  "security_posture": {
+    "governance_score": 0,
+    "security_risks_count": 2,
+    "compliance_level": "NON_COMPLIANT"
+  },
+  "current_priorities": [
+    "Validate MCP server governance compliance",
+    "Complete API key setup for valuable external integrations",
+    "Remove security risk servers",
+    "Maintain security-by-design principles"
+  ]
+}

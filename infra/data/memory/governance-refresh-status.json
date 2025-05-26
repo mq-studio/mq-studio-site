@@ -1,0 +1,235 @@
+{
+  "refresh_history": [
+    {
+      "timestamp": "2025-05-25T16:15:02.072640",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T16:30:02.587061",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T16:45:01.616721",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T17:00:01.839148",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T17:15:01.694092",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T17:30:01.668806",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T17:45:01.646397",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T18:00:01.996139",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T18:15:02.157705",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T18:30:01.448887",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T18:45:01.842244",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T19:00:01.464290",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T19:15:01.607844",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T19:30:01.679241",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T19:45:01.900695",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T20:00:02.293760",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T20:15:01.997307",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T20:30:01.631836",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T20:45:01.499397",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    },
+    {
+      "timestamp": "2025-05-25T21:00:01.474630",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
+    }
+  ],
+  "last_refresh": {
+    "timestamp": "2025-05-25T21:00:01.474630",
+    "claude_code": {
+      "success": true,
+      "message": "Claude Code context refreshed"
+    },
+    "claude_desktop": {
+      "success": true,
+      "message": "Claude Desktop context refreshed"
+    }
+  }
+}
