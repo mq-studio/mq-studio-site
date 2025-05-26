@@ -171,5 +171,5 @@ cat > .agent_context_summary.tmp << EOF
 }
 EOF
 
-echo "💾 Context summary saved to: .agent_context_summary.tmp"
+echo "💾 Context summary saved to: $CURRENT_DIR/.agent_context_summary.tmp"
 echo "   (This file can be shared with agents for context awareness)"
