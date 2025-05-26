@@ -105,6 +105,10 @@ governance-sync-service.log
 claude-desktop-governance.log
 mcp-hub.log
 
+# LARGE ANALYSIS FILES (EXCLUDE FROM REPO)
+# =============================================================================
+idp_directory_analysis_*.json
+
 # =============================================================================
 # BACKUP FILES WITH POTENTIAL SECRETS
 # =============================================================================

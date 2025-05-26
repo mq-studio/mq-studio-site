@@ -34,7 +34,16 @@ Integrated Development Platform (IDP) with active governance enforcement and mul
 - File structure governance enforced
 - Pre-commit validation active
 
+## Critical Discovery: Governance Gap Analysis
+🚨 **Scope Limitation Confirmed**: Current governance covers only `/home/ichardart/code` 
+- **Scale**: Comprehensive analysis of 13,417 directories across entire IDP
+- **Gap**: 15+ active projects in `/home/ichardart/idp-projects/` completely ungoverned
+- **Impact**: Major MCP server development hub outside governance scope
+- **Analysis**: Complete findings in `IDP_GOVERNANCE_EXPANSION_PLAN.md`
+- **Data**: Detailed analysis in `IDP_DIRECTORY_ANALYSIS_SUMMARY_*.md`
+
 ## Next Phase
-- Complete repository organization for remaining 95 files
+- **Priority 1**: Design federated governance architecture for IDP-wide coverage
+- **Priority 2**: Implement path-agnostic governance tooling
+- Complete repository organization for remaining files
 - Increase compliance score through continued enforcement
-- Expand governance automation across all development workflows
