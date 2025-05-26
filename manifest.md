@@ -4,13 +4,14 @@
 Integrated Development Platform (IDP) with active governance enforcement and multi-agent infrastructure.
 
 ## Last Updated
-2025-05-25 17:30:00
+2025-05-25 21:00:00
 
 ## Key Infrastructure Changes
 - **Active Governance Enforcement**: Pre-commit hooks and automated compliance validation
 - **Repository Integration**: A2A protocol added as submodule, embedded repos resolved
 - **MCP Server Compliance**: Automated enforcement disabled 2 high-risk servers
 - **Log Management**: .gitignore updated to exclude 1.7K+ log/artifact files
+- **Agent Onboarding**: Universal workflow for governance-compliant AI agent sessions
 
 ## Core Components
 - `infra/idp-governance/` - Governance framework and policies

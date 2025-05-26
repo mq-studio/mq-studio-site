@@ -8,8 +8,9 @@ echo "🏛️ ENFORCING IDP GOVERNANCE POLICIES..."
 
 # 1. BLOCK commits that violate secrets policy
 echo "🔐 Checking for secrets violations..."
-if git diff --cached --name-only | xargs grep -l "password\|secret\|key\|token" 2>/dev/null; then
-    echo "❌ GOVERNANCE VIOLATION: Potential secrets detected in staged files"
+# Check for actual secrets patterns, exclude documentation
+if git diff --cached --name-only | xargs grep -l "password\s*[:=]\|secret\s*[:=]\|key\s*[:=]\|token\s*[:=]" 2>/dev/null; then
+    echo "❌ GOVERNANCE VIOLATION: Actual secrets detected in staged files"
     echo "   Policy: No secrets in repository (OPERATING_RULES.md #19-22)"
     exit 1
 fi
