@@ -130,6 +130,23 @@ tmp/
 temp/
 
 # =============================================================================
+# DEVELOPMENT ENVIRONMENTS AND BUILD ARTIFACTS
+# =============================================================================
+infra/mcp-env/
+infra/governance-sync-env/
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+**/.nuxt/
+**/target/
+experiments/
+main
+products/
+test-hooks/
+web/test-project/
+
+# =============================================================================
 # PYTHON SPECIFICS
 # =============================================================================
 __pycache__/

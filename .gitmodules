@@ -1,0 +1,3 @@
+[submodule "infra/A2A-upstream"]
+	path = infra/A2A-upstream
+	url = https://github.com/google/A2A.git

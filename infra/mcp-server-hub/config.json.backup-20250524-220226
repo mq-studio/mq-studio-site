@@ -1,0 +1,90 @@
+{
+  "port": 3000,
+  "logLevel": "debug",
+  "logFile": "/home/ichardart/code/infra/logs/mcp-hub.log",
+  "serversAutoStart": true,
+  "servers": {
+    "github": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "weather": {
+      "enabled": true,
+      "command": "/home/ichardart/code/infra/mcp-servers/weather-mcp/venv/bin/python",
+      "args": ["/home/ichardart/code/infra/mcp-servers/weather-mcp/simple_weather_server.py"],
+      "env": {
+        "PYTHONPATH": "/home/ichardart/code/infra/mcp-servers/weather-mcp"
+      }
+    },
+    "fetch": {
+      "enabled": true,
+      "command": "node",
+      "args": ["/home/ichardart/code/infra/mcp-servers/fetch-mcp/index.js"],
+      "env": {}
+    },
+    "gdrive": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gdrive"],
+      "env": {
+        "GDRIVE_OAUTH_PATH": "/home/ichardart/.config/mcp/gdrive/gcp-oauth.keys.json",
+        "GDRIVE_CREDENTIALS_PATH": "/home/ichardart/.config/mcp/gdrive/credentials.json"
+      }
+    },
+    "context7": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {}
+    },
+    "filesystem": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "env": {}
+    },
+    "puppeteer": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "env": {}
+    },
+    "postgres": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "${POSTGRES_CONNECTION_STRING}"
+      }
+    },
+    "slack": {
+      "enabled": false,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
+        "SLACK_TEAM_ID": "${SLACK_TEAM_ID}"
+      }
+    },
+    "e2b": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@e2b/mcp-server"],
+      "env": {
+        "E2B_API_KEY": "${E2B_API_KEY}"
+      }
+    },
+    "memory": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "/home/ichardart/code/infra/data/memory/knowledge-graph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+#!/bin/bash
+# 🏛️ IDP GOVERNANCE ENFORCEMENT - Pre-commit Hook
+# This hook ENFORCES governance policies, not just documents them
+
+set -e
+
+echo "🏛️ ENFORCING IDP GOVERNANCE POLICIES..."
+
+# 1. BLOCK commits that violate secrets policy
+echo "🔐 Checking for secrets violations..."
+if git diff --cached --name-only | xargs grep -l "password\|secret\|key\|token" 2>/dev/null; then
+    echo "❌ GOVERNANCE VIOLATION: Potential secrets detected in staged files"
+    echo "   Policy: No secrets in repository (OPERATING_RULES.md #19-22)"
+    exit 1
+fi
+
+# 2. ENFORCE commit message standards
+echo "📝 Validating commit message format..."
+commit_msg_file="$1"
+if [ -n "$commit_msg_file" ]; then
+    first_line=$(head -n1 "$commit_msg_file")
+    if [[ ! "$first_line" =~ ^[A-Z] ]] || [ ${#first_line} -gt 72 ]; then
+        echo "❌ GOVERNANCE VIOLATION: Commit message format"
+        echo "   Policy: Descriptive, meaningful commit messages (OPERATING_RULES.md #13-18)"
+        exit 1
+    fi
+fi
+
+# 3. BLOCK large files that should be ignored
+echo "📁 Checking for oversized files..."
+max_size=$((1024*1024)) # 1MB
+large_files=$(git diff --cached --name-only | xargs ls -la 2>/dev/null | awk -v max=$max_size '$5 > max {print $9}')
+if [ -n "$large_files" ]; then
+    echo "❌ GOVERNANCE VIOLATION: Large files detected"
+    echo "   Files: $large_files"
+    echo "   Policy: Use .gitignore for large files"
+    exit 1
+fi
+
+# 4. ENFORCE manifest.md updates for infrastructure changes
+echo "📋 Checking manifest compliance..."
+infra_changes=$(git diff --cached --name-only | grep "^infra/" | wc -l)
+manifest_changes=$(git diff --cached --name-only | grep "manifest.md" | wc -l)
+if [ "$infra_changes" -gt 0 ] && [ "$manifest_changes" -eq 0 ]; then
+    echo "❌ GOVERNANCE VIOLATION: Infrastructure changes require manifest update"
+    echo "   Policy: Manifest files track project evolution (OPERATING_RULES.md #24-26)"
+    exit 1
+fi
+
+# 5. VALIDATE governance state consistency
+echo "🔍 Validating governance state..."
+if [ -f "infra/data/memory/governance-state.json" ]; then
+    if ! python3 -m json.tool infra/data/memory/governance-state.json >/dev/null 2>&1; then
+        echo "❌ GOVERNANCE VIOLATION: Invalid governance state JSON"
+        exit 1
+    fi
+fi
+
+echo "✅ All governance policies validated - commit allowed"
+exit 0
