@@ -12,6 +12,7 @@ Integrated Development Platform (IDP) with active governance enforcement and mul
 - **MCP Server Compliance**: Automated enforcement disabled 2 high-risk servers
 - **Log Management**: .gitignore updated to exclude 1.7K+ log/artifact files
 - **Agent Onboarding**: Universal workflow for governance-compliant AI agent sessions
+- **Context-Aware Initialization**: v2.0 agent workflows adapt to working directory
 
 ## Core Components
 - `infra/idp-governance/` - Governance framework and policies
