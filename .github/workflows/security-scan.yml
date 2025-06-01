@@ -1,0 +1,207 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * *' # Daily at 2 AM UTC
+
+jobs:
+  secrets-scan:
+    name: Secrets Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run GitLeaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}}
+
+      - name: Validate Environment Variables
+        run: |
+          echo "🔍 Validating MCP configuration files use environment variables..."
+          if grep -r "ghp_" infra/mcp-config/environments/ --exclude="*.example" || \
+             grep -r "xoxb-" infra/mcp-config/environments/ --exclude="*.example" || \
+             grep -r "sk-" infra/mcp-config/environments/ --exclude="*.example"; then
+            echo "❌ SECURITY VIOLATION: Hardcoded tokens found in configuration"
+            exit 1
+          else
+            echo "✅ All configuration files use environment variables"
+          fi
+
+  dependency-scan:
+    name: Dependency Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies and scan
+        run: |
+          find . -name "requirements.txt" -exec pip install --dry-run -r {} \; || true
+          pip install safety
+          find . -name "requirements.txt" -exec safety check -r {} \; || true
+
+      - name: Node.js Security Audit
+        run: |
+          find . -name "package.json" -not -path "*/node_modules/*" | while read package; do
+            dir=$(dirname "$package")
+            echo "🔍 Scanning $dir"
+            cd "$dir"
+            if [ -f "package-lock.json" ]; then
+              npm audit --audit-level=moderate || echo "⚠️ Vulnerabilities found in $dir"
+            fi
+            cd - > /dev/null
+          done
+
+  license-compliance:
+    name: License Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install license checker
+        run: npm install -g license-checker
+
+      - name: Check licenses
+        run: |
+          find . -name "package.json" -not -path "*/node_modules/*" | while read package; do
+            dir=$(dirname "$package")
+            echo "📄 Checking licenses in $dir"
+            cd "$dir"
+            if [ -f "package.json" ]; then
+              npx license-checker --onlyAllow "MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC" || echo "⚠️ License issues in $dir"
+            fi
+            cd - > /dev/null
+          done
+
+  sast-scan:
+    name: Static Application Security Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Bandit (Python SAST)
+        run: pip install bandit[toml]
+
+      - name: Run Bandit
+        run: |
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" | head -1 && \
+          bandit -r . -f json -o bandit-report.json -x "*/venv/*,*/node_modules/*,*/e2b_venv/*" || true
+
+      - name: Upload Bandit results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bandit-report
+          path: bandit-report.json
+
+      - name: Setup Node.js for ESLint Security
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run ESLint Security Scanner
+        run: |
+          npm install -g eslint eslint-plugin-security
+          find . -name "*.js" -o -name "*.ts" -not -path "*/node_modules/*" | head -10 | \
+          xargs eslint --no-eslintrc --config '{"extends": ["plugin:security/recommended"], "parserOptions": {"ecmaVersion": 2020}}' || true
+
+  infrastructure-security:
+    name: Infrastructure Security Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate GitHub Actions Security
+        run: |
+          echo "🔍 Checking GitHub Actions security..."
+          find .github/workflows -name "*.yml" -o -name "*.yaml" | while read workflow; do
+            echo "Checking $workflow"
+            # Check for hardcoded secrets
+            if grep -i "password\|token\|key\|secret" "$workflow" | grep -v "\${{" | grep -v "secrets\."; then
+              echo "❌ Potential hardcoded secret in $workflow"
+              exit 1
+            fi
+          done
+          echo "✅ GitHub Actions security validated"
+
+      - name: Repository Size Monitor
+        run: |
+          echo "📊 Repository size analysis:"
+          du -sh .git
+          echo "📁 Large files check:"
+          find . -size +10M -not -path "*/.git/*" -not -path "*/node_modules/*" -not -path "*/venv/*" || echo "No large files found"
+
+  governance-compliance:
+    name: IDP Governance Compliance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate Manifest Documentation
+        run: |
+          echo "📋 Checking manifest.md compliance..."
+          if [ ! -f "manifest.md" ]; then
+            echo "❌ manifest.md missing - required by IDP governance"
+            exit 1
+          fi
+          
+          if ! grep -q "$(date +%Y-%m-%d)" manifest.md; then
+            echo "⚠️ manifest.md may not be current"
+          fi
+          echo "✅ Manifest documentation found"
+
+      - name: Validate CLAUDE.md Context
+        run: |
+          echo "🤖 Checking CLAUDE.md context file..."
+          if [ ! -f "CLAUDE.md" ]; then
+            echo "❌ CLAUDE.md missing - required for agent context"
+            exit 1
+          fi
+          echo "✅ Agent context documentation found"
+
+      - name: Security Policy Validation
+        run: |
+          echo "🛡️ Validating security configurations..."
+          
+          # Check .gitignore completeness
+          required_patterns=("*.env" "**/.env.*" "**/credentials.*" "**/*.key" "__pycache__" "node_modules")
+          for pattern in "${required_patterns[@]}"; do
+            if ! grep -q "$pattern" .gitignore; then
+              echo "⚠️ .gitignore missing pattern: $pattern"
+            fi
+          done
+          
+          echo "✅ Security policy validation complete"

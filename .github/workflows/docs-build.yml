@@ -1,0 +1,407 @@
+name: Documentation Build & Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  generate-api-docs:
+    name: Generate API Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install documentation tools
+        run: |
+          pip install sphinx sphinx-rtd-theme pydoc-markdown
+
+      - name: Generate Python API Documentation
+        run: |
+          echo "📚 Generating Python API documentation..."
+          mkdir -p docs/api/python
+          
+          # Find Python modules and generate docs
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" -not -path "*/e2b_venv/*" | \
+          head -20 | while read py_file; do
+            module_name=$(basename "$py_file" .py)
+            dir_name=$(dirname "$py_file" | sed 's|^\./||')
+            
+            echo "Documenting $py_file"
+            python -c "
+import sys, os
+sys.path.insert(0, '$dir_name')
+try:
+    import $module_name
+    help($module_name)
+except Exception as e:
+    print(f'Could not import {module_name}: {e}')
+" > "docs/api/python/${module_name}.md" 2>/dev/null || echo "⚠️ Could not document $module_name"
+          done
+
+      - name: Setup Node.js for JS Documentation
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install JSDoc
+        run: npm install -g jsdoc
+
+      - name: Generate JavaScript API Documentation
+        run: |
+          echo "📚 Generating JavaScript API documentation..."
+          mkdir -p docs/api/javascript
+          
+          # Find JS/TS files and generate basic documentation
+          find . -name "*.js" -o -name "*.ts" -not -path "*/node_modules/*" -not -path "*/dist/*" | \
+          head -10 | while read js_file; do
+            echo "Documenting $js_file"
+            filename=$(basename "$js_file")
+            jsdoc "$js_file" -d "docs/api/javascript/${filename%.*}" || echo "⚠️ Could not document $js_file"
+          done
+
+      - name: Upload API Documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-documentation
+          path: docs/api/
+
+  update-readme:
+    name: Update README Files
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate Project Statistics
+        run: |
+          echo "📊 Generating project statistics..."
+          
+          # Count various file types
+          python_files=$(find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" | wc -l)
+          js_files=$(find . -name "*.js" -o -name "*.ts" -not -path "*/node_modules/*" | wc -l)
+          mcp_servers=$(find . -path "*/mcp-servers/*" -name "*.py" | wc -l)
+          
+          cat > project-stats.md << EOF
+          # Project Statistics
+          
+          - Python files: $python_files
+          - JavaScript/TypeScript files: $js_files
+          - MCP servers: $mcp_servers
+          - Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          
+          ## Repository Structure
+          \`\`\`
+          $(tree -L 2 -d . 2>/dev/null || find . -type d -maxdepth 2 | head -20)
+          \`\`\`
+          EOF
+
+      - name: Update Documentation Index
+        run: |
+          echo "📝 Creating documentation index..."
+          
+          cat > docs/index.md << 'EOF'
+          # IDP Documentation
+          
+          ## Overview
+          This is the Integrated Development Platform (IDP) with active governance enforcement and multi-agent infrastructure.
+          
+          ## Quick Links
+          - [Security Documentation](security/)
+          - [API Documentation](api/)
+          - [MCP Servers](mcp-servers/)
+          - [Governance Framework](governance/)
+          
+          ## Getting Started
+          
+          ### Prerequisites
+          - Python 3.11+
+          - Node.js 18+
+          - Git
+          
+          ### Installation
+          ```bash
+          git clone <repository-url>
+          cd code
+          
+          # Setup Python environment
+          python -m venv venv
+          source venv/bin/activate  # On Windows: venv\Scripts\activate
+          pip install -r requirements.txt
+          
+          # Setup Node.js dependencies (if applicable)
+          npm install
+          ```
+          
+          ### Configuration
+          1. Copy environment templates: `cp .env.example .env`
+          2. Configure your environment variables
+          3. Run governance setup: `./infra/tools/init-governance-session.sh`
+          
+          ## Architecture
+          
+          The IDP follows a governance-first approach with:
+          - **Security by Design**: All authentication uses environment variables
+          - **Multi-Agent Support**: Context-aware AI agent integration
+          - **Automated Compliance**: Pre-commit hooks and CI/CD validation
+          - **Performance Optimization**: Efficient file watching and caching
+          
+          EOF
+
+      - name: Generate MCP Server Documentation
+        run: |
+          echo "🔌 Documenting MCP servers..."
+          mkdir -p docs/mcp-servers
+          
+          if [ -d "infra/mcp-servers" ]; then
+            find infra/mcp-servers -name "*.py" -o -name "README.md" | while read file; do
+              server_name=$(echo "$file" | cut -d'/' -f3)
+              echo "## $server_name" >> docs/mcp-servers/index.md
+              echo "File: $file" >> docs/mcp-servers/index.md
+              echo "" >> docs/mcp-servers/index.md
+            done
+          fi
+
+      - name: Create Security Documentation
+        run: |
+          echo "🛡️ Creating security documentation..."
+          mkdir -p docs/security
+          
+          cat > docs/security/index.md << 'EOF'
+          # Security Documentation
+          
+          ## Security Policies
+          
+          ### Credential Management
+          - All API credentials and authentication must use environment variables
+          - No hardcoded authentication in any configuration files
+          - Environment templates provided in `.env.example`
+          
+          ### Git Security
+          - Comprehensive `.gitignore` prevents authentication leaks
+          - Pre-commit hooks scan for exposed credentials
+          - Regular security audits via GitHub Actions
+          
+          ### Dependencies
+          - Automated vulnerability scanning for Python and Node.js
+          - License compliance checking
+          - Regular dependency updates via Dependabot
+          
+          ## Incident Response
+          
+          If authentication data is accidentally committed:
+          1. Immediately revoke the exposed authentication data
+          2. Create new authentication with minimal necessary permissions
+          3. Update environment variables
+          4. Force push to remove from git history (if safe)
+          5. Notify security team
+          
+          EOF
+
+      - name: Upload Documentation Updates
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-documentation
+          path: docs/
+
+  build-mkdocs:
+    name: Build MkDocs Site
+    runs-on: ubuntu-latest
+    needs: [generate-api-docs, update-readme]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Download documentation artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: api-documentation
+          path: docs/api/
+
+      - name: Download updated docs
+        uses: actions/download-artifact@v4
+        with:
+          name: updated-documentation
+          path: docs/
+
+      - name: Install MkDocs
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-mermaid2-plugin
+
+      - name: Create MkDocs Configuration
+        run: |
+          cat > mkdocs.yml << 'EOF'
+          site_name: IDP Documentation
+          site_description: Integrated Development Platform Documentation
+          repo_url: https://github.com/rhart696/code
+          
+          theme:
+            name: material
+            palette:
+              - scheme: default
+                primary: blue
+                accent: blue
+            features:
+              - navigation.tabs
+              - navigation.sections
+              - navigation.expand
+              - search.highlight
+          
+          nav:
+            - Home: index.md
+            - Security: security/index.md
+            - API Documentation:
+              - Python: api/python/
+              - JavaScript: api/javascript/
+            - MCP Servers: mcp-servers/index.md
+          
+          plugins:
+            - search
+            - mermaid2
+          
+          markdown_extensions:
+            - admonition
+            - codehilite
+            - pymdownx.superfences:
+                custom_fences:
+                  - name: mermaid
+                    class: mermaid
+                    format: !!python/name:mermaid2.fence_mermaid
+          EOF
+
+      - name: Build MkDocs
+        run: |
+          # Ensure docs directory structure exists
+          mkdir -p docs
+          [ ! -f docs/index.md ] && echo "# IDP Documentation" > docs/index.md
+          
+          mkdocs build
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site/
+
+  deploy-github-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build-mkdocs
+    if: github.ref == 'refs/heads/main'
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Download site
+        uses: actions/download-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  validate-documentation:
+    name: Validate Documentation Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check documentation completeness
+        run: |
+          echo "📚 Validating documentation completeness..."
+          
+          required_files=(
+            "README.md"
+            "CLAUDE.md" 
+            "manifest.md"
+          )
+          
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing required file: $file"
+              exit 1
+            else
+              echo "✅ Found: $file"
+              
+              # Check if file is not empty
+              if [ ! -s "$file" ]; then
+                echo "⚠️ Warning: $file is empty"
+              fi
+              
+              # Check last modification (should be recent for active projects)
+              last_mod=$(date -r "$file" +%s)
+              now=$(date +%s)
+              days_old=$(( (now - last_mod) / 86400 ))
+              
+              if [ $days_old -gt 30 ]; then
+                echo "⚠️ Warning: $file is $days_old days old"
+              else
+                echo "✅ $file is current ($days_old days old)"
+              fi
+            fi
+          done
+
+      - name: Validate manifest.md structure
+        run: |
+          echo "📋 Validating manifest.md structure..."
+          
+          required_sections=(
+            "Repository Purpose"
+            "Last Updated"
+            "Automated Change Detection"
+          )
+          
+          for section in "${required_sections[@]}"; do
+            if grep -q "$section" manifest.md; then
+              echo "✅ Found section: $section"
+            else
+              echo "❌ Missing section: $section"
+              exit 1
+            fi
+          done
+
+      - name: Documentation metrics
+        run: |
+          echo "📊 Documentation metrics:"
+          echo "Total markdown files: $(find . -name "*.md" | wc -l)"
+          echo "Documentation size: $(find . -name "*.md" -exec wc -w {} + | tail -1)"
+          echo "Average file size: $(find . -name "*.md" -exec wc -w {} + | awk 'END{print int($1/NR)} NR>1')"

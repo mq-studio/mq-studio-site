@@ -29,6 +29,15 @@
         "**/venv": true,
         "**/e2b_venv": true,
         "**/__pycache__": true,
-        "**/*.pyc": true
+        "**/*.pyc": true,
+        "**/*.log": true,
+        "**/logs/**": true
+    },
+    "scm.defaultViewMode": "tree",
+    "scm.defaultViewSortKey": "status",
+    "git.decorations.enabled": true,
+    "git.ignoreRebaseWarning": true,
+    "files.associations": {
+        "*.log": "log"
     }
 }

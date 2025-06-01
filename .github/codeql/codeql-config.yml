@@ -1,0 +1,77 @@
+name: "IDP CodeQL Configuration"
+
+disable-default-queries: false
+
+queries:
+  - uses: security-and-quality
+  - uses: security-extended
+
+paths-ignore:
+  - "*/node_modules/**"
+  - "*/venv/**"
+  - "*/e2b_venv/**"
+  - "**/dist/**" 
+  - "**/build/**"
+  - "**/__pycache__/**"
+  - "**/logs/**"
+  - "**/temp/**"
+  - "**/tmp/**"
+
+paths:
+  - "infra/mcp-servers/**"
+  - ".github/workflows/**"
+  - "infra/tools/**"
+  - "infra/config/**"
+
+# Python-specific configuration
+python:
+  # Enable all security queries
+  security-queries: true
+  # Focus on common vulnerability patterns
+  include-queries:
+    - "py/sql-injection"
+    - "py/command-injection" 
+    - "py/path-injection"
+    - "py/code-injection"
+    - "py/unsafe-deserialization"
+    - "py/hardcoded-credentials"
+    - "py/clear-text-storage-sensitive-data"
+    - "py/weak-cryptographic-algorithm"
+
+# JavaScript/TypeScript specific configuration  
+javascript:
+  security-queries: true
+  include-queries:
+    - "js/sql-injection"
+    - "js/command-injection"
+    - "js/path-injection"
+    - "js/code-injection"
+    - "js/prototype-pollution"
+    - "js/hardcoded-credentials"
+    - "js/clear-text-storage"
+    - "js/weak-cryptography"
+    - "js/unsafe-html-construction"
+
+# Custom query filters for our specific environment
+query-filters:
+  - exclude:
+      id: "py/unused-import"
+      reason: "Dev environment may have temporary unused imports"
+  - exclude:
+      id: "js/unused-local-variable" 
+      reason: "Dev environment tolerance for temporary variables"
+
+# Security-focused analysis
+security:
+  # Enable all security-related analyses
+  enable-all: true
+  # Custom security patterns for IDP
+  custom-patterns:
+    - name: "MCP Configuration Security"
+      description: "Check for hardcoded secrets in MCP configs"
+      pattern: "ghp_|xoxb-|sk-"
+      severity: "error"
+    - name: "Environment Variable Usage"
+      description: "Ensure environment variables are used for secrets"
+      pattern: "process\\.env\\.|os\\.environ"
+      severity: "note"

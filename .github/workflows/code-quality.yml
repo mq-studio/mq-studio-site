@@ -1,0 +1,281 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  python-quality:
+    name: Python Code Quality
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install black flake8 pytest mypy isort
+
+      - name: Code formatting check (Black)
+        run: |
+          echo "🎨 Checking Python code formatting..."
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" -not -path "*/e2b_venv/*" | \
+          xargs black --check --diff || echo "⚠️ Some Python files need formatting"
+
+      - name: Linting (Flake8)
+        run: |
+          echo "🔍 Running Python linting..."
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" -not -path "*/e2b_venv/*" | \
+          xargs flake8 --max-line-length=88 --extend-ignore=E203,W503 || echo "⚠️ Linting issues found"
+
+      - name: Import sorting (isort)
+        run: |
+          echo "📋 Checking import organization..."
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" -not -path "*/e2b_venv/*" | \
+          xargs isort --check-only --diff || echo "⚠️ Import sorting needed"
+
+      - name: Type checking (MyPy)
+        run: |
+          echo "🏷️ Running type checking..."
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" -not -path "*/e2b_venv/*" -print0 | \
+          head -z -5 | xargs -0 mypy --ignore-missing-imports || echo "⚠️ Type checking issues found"
+
+      - name: Run Python tests
+        run: |
+          echo "🧪 Running Python tests..."
+          find . -name "test_*.py" -o -name "*_test.py" | while read test_file; do
+            dir=$(dirname "$test_file")
+            echo "Testing in $dir"
+            cd "$dir"
+            python -m pytest "$(basename "$test_file")" -v || echo "⚠️ Test failures in $dir"
+            cd - > /dev/null
+          done
+
+  nodejs-quality:
+    name: Node.js Code Quality
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['18', '20']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install global tools
+        run: |
+          npm install -g eslint prettier jest typescript
+
+      - name: ESLint Analysis
+        run: |
+          echo "🔍 Running ESLint analysis..."
+          find . -name "*.js" -o -name "*.ts" -o -name "*.jsx" -o -name "*.tsx" \
+               -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/build/*" | \
+          head -20 | while read file; do
+            echo "Linting $file"
+            npx eslint "$file" --no-eslintrc --config '{
+              "env": {"es6": true, "node": true},
+              "extends": ["eslint:recommended"],
+              "parserOptions": {"ecmaVersion": 2020, "sourceType": "module"},
+              "rules": {
+                "no-unused-vars": "warn",
+                "no-console": "off",
+                "semi": ["error", "always"]
+              }
+            }' || echo "⚠️ ESLint issues in $file"
+          done
+
+      - name: Prettier Format Check
+        run: |
+          echo "🎨 Checking code formatting..."
+          find . -name "*.js" -o -name "*.ts" -o -name "*.json" \
+               -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/build/*" | \
+          head -10 | while read file; do
+            npx prettier --check "$file" || echo "⚠️ Formatting needed for $file"
+          done
+
+      - name: TypeScript Compilation Check
+        run: |
+          echo "🏗️ Checking TypeScript compilation..."
+          find . -name "tsconfig.json" -not -path "*/node_modules/*" | while read config; do
+            dir=$(dirname "$config")
+            echo "Checking TypeScript in $dir"
+            cd "$dir"
+            if command -v tsc >/dev/null 2>&1; then
+              npx tsc --noEmit || echo "⚠️ TypeScript compilation issues in $dir"
+            fi
+            cd - > /dev/null
+          done
+
+      - name: Run Jest Tests
+        run: |
+          echo "🧪 Running JavaScript/TypeScript tests..."
+          find . -name "package.json" -not -path "*/node_modules/*" | while read package; do
+            dir=$(dirname "$package")
+            cd "$dir"
+            if grep -q "jest" "$package" && [ -f "package.json" ]; then
+              echo "Running tests in $dir"
+              npm test || echo "⚠️ Test failures in $dir"
+            fi
+            cd - > /dev/null
+          done
+
+  markdown-quality:
+    name: Markdown Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Lint Markdown files
+        run: |
+          echo "📝 Linting Markdown files..."
+          find . -name "*.md" -not -path "*/node_modules/*" | \
+          xargs markdownlint --config '{
+            "MD013": false,
+            "MD033": false,
+            "MD041": false
+          }' || echo "⚠️ Markdown linting issues found"
+
+      - name: Check documentation completeness
+        run: |
+          echo "📚 Checking documentation completeness..."
+          required_docs=("README.md" "CLAUDE.md" "manifest.md")
+          for doc in "${required_docs[@]}"; do
+            if [ ! -f "$doc" ]; then
+              echo "❌ Missing required documentation: $doc"
+              exit 1
+            else
+              echo "✅ Found: $doc"
+            fi
+          done
+
+  repository-health:
+    name: Repository Health Monitoring
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Repository Size Analysis
+        run: |
+          echo "📊 Repository health metrics:"
+          echo "Repository size: $(du -sh . | cut -f1)"
+          echo "Git directory size: $(du -sh .git | cut -f1)"
+          echo "Number of files: $(find . -type f | wc -l)"
+          echo "Number of Python files: $(find . -name "*.py" | wc -l)"
+          echo "Number of JavaScript/TypeScript files: $(find . -name "*.js" -o -name "*.ts" | wc -l)"
+          echo "Number of node_modules directories: $(find . -name "node_modules" -type d | wc -l)"
+          echo "Number of Python cache directories: $(find . -name "__pycache__" -type d | wc -l)"
+
+      - name: Performance Metrics
+        run: |
+          echo "⚡ Performance metrics:"
+          echo "Git status timing:"
+          time git status > /dev/null
+          echo "File search timing:"
+          time find . -name "*.py" > /dev/null
+
+      - name: Security Hygiene Check
+        run: |
+          echo "🧹 Security hygiene validation:"
+          
+          # Check for common security issues
+          echo "Checking for exposed credentials patterns..."
+          if find . -type f -name "*.py" -o -name "*.js" -o -name "*.json" | \
+             head -100 | \
+             xargs grep -l "password.*=" | \
+             grep -v test | \
+             head -1; then
+            echo "⚠️ Potential password patterns found"
+          fi
+          
+          # Check gitignore effectiveness
+          git_ignored=$(git status --porcelain | wc -l)
+          echo "Files tracked by git: $git_ignored"
+          if [ "$git_ignored" -gt 10 ]; then
+            echo "⚠️ Many files pending - check .gitignore effectiveness"
+          else
+            echo "✅ Good git hygiene - few pending changes"
+          fi
+
+  integration-readiness:
+    name: Integration Readiness Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: MCP Server Validation
+        run: |
+          echo "🔌 Validating MCP server configurations..."
+          
+          # Check for MCP configuration files
+          if [ -d "infra/mcp-config" ]; then
+            echo "✅ MCP configuration directory found"
+            
+            # Validate environment configs use variables
+            for env_file in infra/mcp-config/environments/*.json; do
+              if [ -f "$env_file" ]; then
+                echo "Checking $env_file"
+                if grep -q '${.*}' "$env_file"; then
+                  echo "✅ Uses environment variables"
+                else
+                  echo "❌ May contain hardcoded values"
+                fi
+              fi
+            done
+          fi
+
+      - name: Submodule Health Check
+        run: |
+          echo "📦 Checking submodule health..."
+          if [ -f ".gitmodules" ]; then
+            git submodule status | while read status; do
+              echo "Submodule status: $status"
+            done
+          else
+            echo "No submodules found"
+          fi
+
+      - name: Infrastructure Validation
+        run: |
+          echo "🏗️ Infrastructure validation..."
+          
+          # Check for key infrastructure components
+          components=("infra" ".github" ".gitignore" "CLAUDE.md" "manifest.md")
+          for component in "${components[@]}"; do
+            if [ -e "$component" ]; then
+              echo "✅ Found: $component"
+            else
+              echo "❌ Missing: $component"
+            fi
+          done

@@ -1,0 +1,311 @@
+name: Performance Monitoring
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+
+jobs:
+  repository-metrics:
+    name: Repository Performance Metrics
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for comprehensive analysis
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install analysis tools
+        run: |
+          pip install matplotlib seaborn pandas gitpython
+
+      - name: Repository Size Analysis
+        run: |
+          echo "📊 Repository Size Analysis"
+          echo "=========================="
+          
+          # Overall repository metrics
+          total_size=$(du -sh . | cut -f1)
+          git_size=$(du -sh .git | cut -f1)
+          files_count=$(find . -type f | wc -l)
+          
+          echo "📦 Total repository size: $total_size"
+          echo "🗂️ Git directory size: $git_size"
+          echo "📄 Total files: $files_count"
+          
+          # Language breakdown
+          echo ""
+          echo "📝 Language breakdown:"
+          find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" | wc -l | xargs echo "Python files:"
+          find . -name "*.js" -o -name "*.ts" -not -path "*/node_modules/*" | wc -l | xargs echo "JavaScript/TypeScript files:"
+          find . -name "*.md" | wc -l | xargs echo "Markdown files:"
+          find . -name "*.json" | wc -l | xargs echo "JSON files:"
+          find . -name "*.yml" -o -name "*.yaml" | wc -l | xargs echo "YAML files:"
+          
+          # Cache and generated file detection
+          echo ""
+          echo "🗑️ Cache and generated files:"
+          find . -name "__pycache__" -type d | wc -l | xargs echo "Python cache directories:"
+          find . -name "node_modules" -type d | wc -l | xargs echo "Node modules directories:"
+          find . -name "*.pyc" | wc -l | xargs echo "Python compiled files:"
+          find . -name "*.log" | wc -l | xargs echo "Log files:"
+
+      - name: Git Performance Benchmarks
+        run: |
+          echo ""
+          echo "⚡ Git Performance Benchmarks"
+          echo "============================="
+          
+          # Git status timing
+          echo "🔍 Git status performance:"
+          time git status > /dev/null
+          
+          # Git log timing
+          echo ""
+          echo "📜 Git log performance (last 100 commits):"
+          time git log --oneline -100 > /dev/null
+          
+          # File search timing
+          echo ""
+          echo "🔎 File search performance:"
+          time find . -name "*.py" > /dev/null
+          
+          # Git diff timing
+          echo ""
+          echo "📋 Git diff performance:"
+          time git diff --name-only > /dev/null
+
+      - name: Code Quality Metrics
+        run: |
+          echo ""
+          echo "📈 Code Quality Metrics"
+          echo "======================="
+          
+          # Python code metrics
+          python_files=$(find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*")
+          if [ -n "$python_files" ]; then
+            echo "🐍 Python code analysis:"
+            total_lines=$(echo "$python_files" | xargs wc -l | tail -1 | awk '{print $1}')
+            avg_lines=$(echo "$python_files" | xargs wc -l | awk 'END{if(NR>1) print int($1/(NR-1)); else print 0}')
+            echo "  Total Python lines: $total_lines"
+            echo "  Average lines per file: $avg_lines"
+            
+            # Check for very large files (>500 lines)
+            large_files=$(echo "$python_files" | xargs wc -l | awk '$1 > 500 {print $2 " (" $1 " lines)"}')
+            if [ -n "$large_files" ]; then
+              echo "  ⚠️ Large Python files (>500 lines):"
+              echo "$large_files"
+            else
+              echo "  ✅ No excessively large Python files"
+            fi
+          fi
+          
+          # JavaScript/TypeScript code metrics
+          js_files=$(find . -name "*.js" -o -name "*.ts" -not -path "*/node_modules/*")
+          if [ -n "$js_files" ]; then
+            echo ""
+            echo "📜 JavaScript/TypeScript code analysis:"
+            total_js_lines=$(echo "$js_files" | xargs wc -l | tail -1 | awk '{print $1}')
+            avg_js_lines=$(echo "$js_files" | xargs wc -l | awk 'END{if(NR>1) print int($1/(NR-1)); else print 0}')
+            echo "  Total JS/TS lines: $total_js_lines"
+            echo "  Average lines per file: $avg_js_lines"
+          fi
+
+      - name: Security Performance Metrics
+        run: |
+          echo ""
+          echo "🔒 Security Performance Metrics"
+          echo "==============================="
+          
+          # Check .gitignore effectiveness
+          ignored_patterns=$(wc -l < .gitignore)
+          echo "🚫 Gitignore patterns: $ignored_patterns"
+          
+          # Check git status for pending changes
+          pending_changes=$(git status --porcelain | wc -l)
+          echo "📝 Pending changes: $pending_changes"
+          
+          if [ "$pending_changes" -le 5 ]; then
+            echo "✅ Good git hygiene - few pending changes"
+          elif [ "$pending_changes" -le 15 ]; then
+            echo "⚠️ Moderate pending changes"
+          else
+            echo "❌ Many pending changes - check .gitignore effectiveness"
+          fi
+          
+          # Scan for potential security issues (basic patterns)
+          echo ""
+          echo "🛡️ Basic security scan:"
+          
+          # Check for common credential patterns (excluding known safe files)
+          credential_files=$(find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.json" \) \
+            -not -path "*/venv/*" -not -path "*/node_modules/*" \
+            -not -name "*.example*" -not -name "*template*" \
+            -not -path "*/.github/*" | \
+            head -50 | \
+            xargs grep -l "password.*=\|secret.*=\|key.*=" 2>/dev/null | \
+            grep -v test || echo "")
+          
+          if [ -n "$credential_files" ]; then
+            echo "⚠️ Files with potential credential patterns:"
+            echo "$credential_files"
+          else
+            echo "✅ No obvious credential patterns found"
+          fi
+
+      - name: Infrastructure Health Check
+        run: |
+          echo ""
+          echo "🏗️ Infrastructure Health Check"
+          echo "=============================="
+          
+          # MCP server health
+          if [ -d "infra/mcp-servers" ]; then
+            mcp_servers=$(find infra/mcp-servers -name "*.py" | wc -l)
+            echo "🔌 MCP servers: $mcp_servers Python files"
+            
+            # Check for requirements.txt files
+            requirements_files=$(find infra/mcp-servers -name "requirements.txt" | wc -l)
+            echo "📋 Requirements files: $requirements_files"
+          fi
+          
+          # GitHub Actions health
+          if [ -d ".github/workflows" ]; then
+            workflows=$(find .github/workflows -name "*.yml" -o -name "*.yaml" | wc -l)
+            echo "⚙️ GitHub Actions workflows: $workflows"
+          fi
+          
+          # Documentation health
+          docs=$(find . -name "*.md" | wc -l)
+          echo "📚 Documentation files: $docs"
+          
+          # Check for key files
+          key_files=("README.md" "CLAUDE.md" "manifest.md" ".gitignore")
+          echo ""
+          echo "📋 Key file presence:"
+          for file in "${key_files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✅ $file"
+            else
+              echo "❌ $file (missing)"
+            fi
+          done
+
+      - name: Generate Performance Report
+        run: |
+          echo ""
+          echo "📊 Performance Summary Report"
+          echo "============================"
+          
+          # Create a summary metrics file
+          cat > performance-summary.md << EOF
+          # IDP Performance Report
+          **Generated**: $(date -u)
+          **Commit**: ${{ github.sha }}
+          **Branch**: ${{ github.ref_name }}
+          
+          ## Repository Metrics
+          - **Total Size**: $(du -sh . | cut -f1)
+          - **Git Directory**: $(du -sh .git | cut -f1)
+          - **Total Files**: $(find . -type f | wc -l)
+          - **Pending Changes**: $(git status --porcelain | wc -l)
+          
+          ## Code Metrics
+          - **Python Files**: $(find . -name "*.py" -not -path "*/venv/*" -not -path "*/node_modules/*" | wc -l)
+          - **JavaScript/TypeScript Files**: $(find . -name "*.js" -o -name "*.ts" -not -path "*/node_modules/*" | wc -l)
+          - **Documentation Files**: $(find . -name "*.md" | wc -l)
+          
+          ## Infrastructure Health
+          - **MCP Servers**: $(find infra/mcp-servers -name "*.py" 2>/dev/null | wc -l || echo "0")
+          - **GitHub Actions**: $(find .github/workflows -name "*.yml" -o -name "*.yaml" 2>/dev/null | wc -l || echo "0")
+          - **Cache Directories**: $(find . -name "__pycache__" -o -name "node_modules" | wc -l)
+          
+          ## Performance Status
+          $(if [ $(git status --porcelain | wc -l) -le 5 ]; then echo "✅ Good"; elif [ $(git status --porcelain | wc -l) -le 15 ]; then echo "⚠️ Moderate"; else echo "❌ Needs Attention"; fi) - Git Performance
+          $(if [ $(find . -name "__pycache__" | wc -l) -eq 0 ]; then echo "✅ Clean"; else echo "⚠️ Cache Present"; fi) - Python Cache
+          $(if [ $(find . -name "node_modules" | wc -l) -lt 5 ]; then echo "✅ Controlled"; else echo "⚠️ Many Dependencies"; fi) - Node Dependencies
+          EOF
+
+      - name: Upload Performance Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-report-${{ github.run_number }}
+          path: performance-summary.md
+
+      - name: Performance Trending (Scheduled runs only)
+        if: github.event_name == 'schedule'
+        run: |
+          echo "📈 Recording performance trends..."
+          
+          # Create a metrics entry for trending
+          timestamp=$(date -u +"%Y-%m-%d %H:%M:%S")
+          repo_size=$(du -sb . | cut -f1)
+          git_size=$(du -sb .git | cut -f1)
+          file_count=$(find . -type f | wc -l)
+          pending_changes=$(git status --porcelain | wc -l)
+          
+          # Log metrics (in a real implementation, you'd send this to a monitoring system)
+          echo "METRICS,$timestamp,$repo_size,$git_size,$file_count,$pending_changes" > metrics.csv
+          
+          echo "Performance metrics recorded for trending analysis"
+
+  load-testing:
+    name: Load Testing
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Simulate high-load operations
+        run: |
+          echo "🔥 Simulating high-load operations..."
+          
+          # Test large file operations
+          echo "Testing large file search operations..."
+          time find . -name "*" -type f | wc -l
+          
+          # Test git operations under load
+          echo "Testing git operations..."
+          for i in {1..10}; do
+            time git status > /dev/null
+          done
+          
+          # Test concurrent file operations
+          echo "Testing concurrent operations..."
+          (find . -name "*.py" > /dev/null &)
+          (find . -name "*.js" > /dev/null &)
+          (find . -name "*.json" > /dev/null &)
+          wait
+          
+          echo "✅ Load testing completed"
+
+      - name: Memory usage analysis
+        run: |
+          echo "🧠 Memory usage analysis..."
+          
+          # Monitor memory during git operations
+          echo "Memory usage during git operations:"
+          /usr/bin/time -v git log --oneline -1000 > /dev/null 2>&1 || echo "Git log completed"
+          
+          # Check disk usage patterns
+          echo "Disk I/O analysis:"
+          df -h .
+          
+          echo "✅ Memory analysis completed"

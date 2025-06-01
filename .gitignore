@@ -233,4 +233,12 @@ Thumbs.db
 # Logs
 *.log
 logs/
+**/logs/**
+**/*.log
 infra/browser-automation/e2b_venv/
+
+# Additional VS Code optimization
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/c_cpp_properties.json
+.vscode/settings.json.bak

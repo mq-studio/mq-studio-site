@@ -1,0 +1,196 @@
+name: Security Issue
+description: Report a security vulnerability (use responsibly)
+title: "[SECURITY] "
+labels: ["security", "critical", "needs-immediate-attention"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🔒 Security Issue Report
+        
+        **⚠️ IMPORTANT SECURITY NOTICE ⚠️**
+        
+        If this is a **CRITICAL SECURITY VULNERABILITY** that could be exploited:
+        - **DO NOT** submit a public issue
+        - Contact the maintainers privately first
+        - Use email or private communication channels
+        
+        This form is for **NON-CRITICAL** security improvements, policy violations, or configuration issues.
+
+  - type: checkboxes
+    id: severity-acknowledgment
+    attributes:
+      label: Security Severity Acknowledgment
+      description: Please confirm the appropriate severity level
+      options:
+        - label: This is NOT a critical vulnerability that could be immediately exploited
+          required: true
+        - label: I understand that critical vulnerabilities should be reported privately
+          required: true
+        - label: I have followed responsible disclosure practices
+          required: true
+
+  - type: dropdown
+    id: security-type
+    attributes:
+      label: Security Issue Type
+      description: What type of security issue is this?
+      options:
+        - Configuration Security (non-critical)
+        - Policy Violation
+        - Security Enhancement
+        - Credential Management Issue
+        - Access Control Issue
+        - Audit/Compliance Gap
+        - Security Documentation Issue
+        - Dependency Security (non-critical)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Assessment
+      description: How would you rate the severity?
+      options:
+        - Low (Minor security improvement, documentation gap)
+        - Medium (Security enhancement, policy clarification needed)
+        - High (Significant security concern but not immediately exploitable)
+        - Critical (STOP - Report privately instead of using this form)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Security Issue Description
+      description: |
+        Describe the security concern (remove any sensitive details that could enable exploitation)
+      placeholder: |
+        Security concern overview:
+        - What is the issue?
+        - Which component is affected?
+        - What security principle is violated?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which component has the security issue?
+      options:
+        - GitHub Actions / CI/CD
+        - Configuration Management
+        - MCP Server Framework
+        - Authentication/Authorization
+        - Secrets Management
+        - Access Controls
+        - Logging/Monitoring
+        - Documentation
+        - Dependencies
+        - Infrastructure
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Potential Impact
+      description: |
+        What could happen if this issue is not addressed? (Do not include exploitation details)
+      placeholder: |
+        Potential impacts:
+        - Information disclosure risk
+        - Unauthorized access possibility
+        - Compliance violation
+        - Security policy gap
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-controls
+    attributes:
+      label: Current Security Controls
+      description: |
+        What existing security measures are in place? What mitigations currently exist?
+      placeholder: |
+        Existing protections:
+        - Control 1: [effectiveness]
+        - Control 2: [limitations]
+        - Mitigation: [current workarounds]
+
+  - type: textarea
+    id: recommended-solution
+    attributes:
+      label: Recommended Solution
+      description: |
+        What would you recommend to address this security concern?
+      placeholder: |
+        Recommended approach:
+        - Implementation suggestion
+        - Security best practices to follow
+        - Timeline considerations
+    validations:
+      required: true
+
+  - type: textarea
+    id: business-justification
+    attributes:
+      label: Business Justification
+      description: |
+        Why should this security issue be prioritized?
+      placeholder: |
+        Business rationale:
+        - Risk reduction benefit
+        - Compliance requirement
+        - Cost of not addressing
+        - Alignment with security strategy
+
+  - type: checkboxes
+    id: governance-compliance
+    attributes:
+      label: IDP Governance Alignment
+      description: Please confirm governance considerations
+      options:
+        - label: This issue aligns with IDP security-by-design principles
+          required: true
+        - label: Addressing this issue would improve our security posture
+          required: true
+        - label: This issue does not conflict with existing governance policies
+          required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References & Standards
+      description: |
+        Any relevant security standards, best practices, or references?
+      placeholder: |
+        Related standards/references:
+        - OWASP guideline: [link]
+        - Industry best practice: [reference]
+        - Internal policy: [policy name]
+
+  - type: checkboxes
+    id: responsible-disclosure
+    attributes:
+      label: Responsible Disclosure Confirmation
+      description: Please confirm responsible disclosure practices
+      options:
+        - label: I have not shared exploitation details publicly
+          required: true
+        - label: I have not included sensitive information that could enable attacks
+          required: true
+        - label: I understand this issue will be addressed according to project priorities
+          required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Any additional context that would be helpful for addressing this security concern

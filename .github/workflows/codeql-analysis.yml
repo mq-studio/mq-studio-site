@@ -1,0 +1,82 @@
+name: "CodeQL Security Analysis"
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '30 1 * * 1'  # Weekly Monday at 1:30 AM UTC
+
+jobs:
+  analyze:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'python' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        config-file: ./.github/codeql/codeql-config.yml
+
+    - name: Setup Python (for Python analysis)
+      if: matrix.language == 'python'
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install Python dependencies (for Python analysis)
+      if: matrix.language == 'python'
+      run: |
+        python -m pip install --upgrade pip
+        # Install dependencies for analysis (but avoid heavy packages)
+        find . -name "requirements.txt" -not -path "*/venv/*" | while read req; do
+          echo "Installing from $req"
+          pip install -r "$req" || echo "Failed to install from $req, continuing..."
+        done
+
+    - name: Setup Node.js (for JavaScript analysis) 
+      if: matrix.language == 'javascript'
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install JavaScript dependencies (for JavaScript analysis)
+      if: matrix.language == 'javascript'
+      run: |
+        # Install dependencies from package.json files found
+        find . -name "package.json" -not -path "*/node_modules/*" | while read package; do
+          dir=$(dirname "$package")
+          echo "Installing dependencies in $dir"
+          cd "$dir"
+          npm install || echo "Failed to install in $dir, continuing..."
+          cd - > /dev/null
+        done
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{matrix.language}}"
+
+    - name: Upload SARIF results
+      if: always()
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ../results/${{ matrix.language }}.sarif

@@ -1,0 +1,135 @@
+version: 2
+updates:
+  # Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "rhart696"
+    assignees:
+      - "rhart696"
+    commit-message:
+      prefix: "security"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "python"
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    ignore:
+      # Ignore major version updates for stable packages
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # Node.js dependencies in root
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:30"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "rhart696"
+    assignees:
+      - "rhart696"
+    commit-message:
+      prefix: "security"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "javascript"
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # MCP Servers Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/infra/mcp-servers"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "rhart696"
+    assignees:
+      - "rhart696"
+    commit-message:
+      prefix: "mcp-security"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "mcp-servers"
+      - "python"
+
+  # GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "rhart696"
+    assignees:
+      - "rhart696"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "github-actions"
+      - "ci-cd"
+
+  # Docker dependencies (if any Dockerfiles exist)
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "06:00"
+    open-pull-requests-limit: 2
+    reviewers:
+      - "rhart696"
+    assignees:
+      - "rhart696"
+    commit-message:
+      prefix: "docker-security"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+      - "docker"
+
+  # Submodule updates
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "first-monday"
+      time: "06:00"
+    open-pull-requests-limit: 2
+    reviewers:
+      - "rhart696"
+    assignees:
+      - "rhart696"
+    commit-message:
+      prefix: "submodule"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "submodules"

@@ -1,0 +1,178 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+title: "[FEATURE] "
+labels: ["enhancement", "needs-review"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Feature Request
+        Thank you for suggesting a new feature! Please provide as much detail as possible.
+
+  - type: checkboxes
+    id: governance-checklist
+    attributes:
+      label: IDP Governance Compliance
+      description: Please verify these items before submitting
+      options:
+        - label: I have searched existing issues and discussions for similar requests
+          required: true
+        - label: This feature aligns with IDP governance and security principles
+          required: true
+        - label: I understand this request will be evaluated against project priorities
+          required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature?
+      options:
+        - Critical (Blocks important workflows, security-related)
+        - High (Significantly improves productivity or user experience)
+        - Medium (Nice to have, would improve some workflows)
+        - Low (Minor enhancement or convenience feature)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: Which area does this feature relate to?
+      options:
+        - Security & Compliance
+        - Developer Experience
+        - CI/CD & Automation
+        - Documentation
+        - MCP Server Framework
+        - Performance Optimization
+        - Integration & APIs
+        - Monitoring & Observability
+        - Configuration Management
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? What's the current pain point?
+      placeholder: |
+        Currently, when I try to..., I face the following challenges:
+        - Challenge 1
+        - Challenge 2
+        - Impact on workflow...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your ideal solution to the problem
+      placeholder: |
+        I would like to be able to...
+        This would work by...
+        The expected outcome is...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative approaches?
+      placeholder: |
+        Other approaches I've considered:
+        1. Alternative 1 - but this has limitations...
+        2. Alternative 2 - but this doesn't address...
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Ideas
+      description: |
+        Do you have ideas about how this could be implemented? (Optional but helpful)
+      placeholder: |
+        This could be implemented by:
+        - Adding a new configuration option...
+        - Creating a new GitHub Action...
+        - Modifying the existing...
+        - Required dependencies might include...
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Implementation Scope
+      description: How large do you estimate this feature to be?
+      options:
+        - Small (Few hours, single file changes)
+        - Medium (Few days, multiple files, limited scope)
+        - Large (Weeks, significant architecture changes)
+        - Epic (Major feature requiring planning and multiple iterations)
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: |
+        What would need to be true for this feature to be considered complete?
+      placeholder: |
+        This feature would be complete when:
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Documentation is updated
+        - [ ] Tests are included
+        - [ ] Security review is passed (if applicable)
+
+  - type: textarea
+    id: business-value
+    attributes:
+      label: Business Value
+      description: |
+        What's the expected impact of this feature?
+      placeholder: |
+        This feature would:
+        - Improve developer productivity by...
+        - Reduce security risks by...
+        - Enable new workflows like...
+        - Save time by automating...
+
+  - type: checkboxes
+    id: governance-alignment
+    attributes:
+      label: Governance & Security Alignment
+      description: Please confirm alignment with IDP principles
+      options:
+        - label: This feature maintains or improves security posture
+          required: true
+        - label: This feature follows the principle of least privilege
+          required: true
+        - label: This feature includes appropriate documentation and testing considerations
+          required: true
+        - label: This feature is compatible with the existing governance framework
+          required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Any additional information, mockups, examples, or references that would be helpful
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution Interest
+      description: Are you interested in contributing to this feature?
+      options:
+        - label: I'm willing to help implement this feature
+        - label: I can help with testing and feedback
+        - label: I can help with documentation
+        - label: I need someone else to implement this
