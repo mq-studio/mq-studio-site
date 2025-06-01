@@ -182,4 +182,13 @@ Dockerfile.local
 
 # =============================================================================
 # END IDP GOVERNANCE GITIGNORE
-# =============================================================================
+# =============================================================================# Temporary data files
+infra/data/change-tracker-state.json
+infra/data/inventory-cache.json
+infra/data/memory/claude-context.json
+infra/data/memory/governance-*.json
+infra/data/memory/*.txt
+infra/logs/*.log
+infra/logs/*.json
+*.tmp
+*.cache

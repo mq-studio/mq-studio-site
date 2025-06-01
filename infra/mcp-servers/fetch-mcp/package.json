@@ -1,0 +1,20 @@
+{
+  "name": "fetch-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for fetching content from URLs",
+  "main": "index.js",
+  "bin": {
+    "fetch-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mcp", "fetch", "http", "url"],
+  "author": "IDP Governance",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "axios": "^1.9.0"
+  }
+}

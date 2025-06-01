@@ -1,0 +1,17 @@
+{
+  "name": "idp-filesystem-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Secure Filesystem MCP Server for IDP with governance integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0"
+  },
+  "keywords": ["filesystem", "mcp", "file-operations", "idp", "governance", "secure"],
+  "author": "IDP Team",
+  "license": "MIT"
+}

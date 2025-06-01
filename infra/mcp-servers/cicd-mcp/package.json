@@ -1,0 +1,18 @@
+{
+  "name": "cicd-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IDP CI/CD Pipeline MCP - Build automation and deployment management",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "yaml": "^2.3.0"
+  },
+  "keywords": ["mcp", "cicd", "pipeline", "build", "automation", "deployment"],
+  "author": "IDP Infrastructure Team",
+  "license": "MIT"
+}

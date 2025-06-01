@@ -1,0 +1,210 @@
+# 🎯 IDP Verification Configuration Profiles
+# Defines verification requirements for different operation types
+version: "1.0.0"
+
+# Default verification profile
+default:
+  action_verification:
+    command_syntax_check: true
+    exit_code_verification: true
+    execution_time_limit: 300  # 5 minutes
+    security_scan: true
+  output_verification:
+    file_existence_check: true
+    structure_compliance: true
+    permission_verification: true
+  outcome_verification:
+    basic_functionality: true
+    integration_test: false
+    performance_baseline: false
+  optimality_verification:
+    compliance_threshold: 80
+    security_best_practices: true
+    maintainability_check: false
+
+# Software installation profile
+software_installation:
+  action_verification:
+    command_syntax_check: true
+    dependency_check: true
+    permission_verification: true
+    security_scan: true
+    rollback_plan_required: true
+  output_verification:
+    binary_exists: true
+    configuration_valid: true
+    integration_points: true
+    path_accessibility: true
+  outcome_verification:
+    functional_test: true
+    workflow_integration: true
+    performance_baseline: true
+    user_experience_test: true
+  optimality_verification:
+    compliance_threshold: 90
+    security_best_practices: true
+    maintainability_check: true
+    resource_efficiency: true
+    documentation_complete: true
+  validation_rules:
+    - "command -v $INSTALLED_BINARY >/dev/null 2>&1"
+    - "test -x $(which $INSTALLED_BINARY)"
+    - "$INSTALLED_BINARY --version || $INSTALLED_BINARY -v || $INSTALLED_BINARY --help"
+
+# Development tool setup profile  
+development_tool_setup:
+  action_verification:
+    command_syntax_check: true
+    environment_compatibility: true
+    dependency_resolution: true
+    security_scan: true
+  output_verification:
+    tool_installation: true
+    configuration_files: true
+    integration_ready: true
+    documentation_generated: true
+  outcome_verification:
+    development_workflow: true
+    productivity_enhancement: true
+    team_compatibility: true
+    maintenance_simplicity: true
+  optimality_verification:
+    compliance_threshold: 85
+    development_best_practices: true
+    team_onboarding_ease: true
+    long_term_maintainability: true
+  validation_rules:
+    - "test -d $PROJECT_ROOT/.vscode || test -d $PROJECT_ROOT/.idea || test -f $PROJECT_ROOT/package.json"
+    - "test -f $PROJECT_ROOT/README.md"
+
+# Infrastructure change profile
+infrastructure_change:
+  action_verification:
+    command_syntax_check: true
+    backup_creation: true
+    rollback_plan: true
+    security_audit: true
+    impact_assessment: true
+  output_verification:
+    service_availability: true
+    configuration_integrity: true
+    monitoring_integration: true
+    documentation_updated: true
+  outcome_verification:
+    business_continuity: true
+    performance_improvement: true
+    operational_efficiency: true
+    stakeholder_satisfaction: true
+  optimality_verification:
+    compliance_threshold: 95
+    security_hardening: true
+    performance_optimization: true
+    cost_efficiency: true
+    future_scalability: true
+  validation_rules:
+    - "systemctl is-active $SERVICE_NAME"
+    - "curl -f $HEALTH_CHECK_URL"
+    - "test -f $BACKUP_LOCATION/backup-$(date +%Y%m%d).tar.gz"
+
+# MCP server deployment profile
+mcp_server_deployment:
+  action_verification:
+    package_integrity: true
+    dependency_resolution: true
+    configuration_validation: true
+    security_compliance: true
+  output_verification:
+    server_executable: true
+    configuration_files: true
+    logging_setup: true
+    monitoring_integration: true
+  outcome_verification:
+    server_responsiveness: true
+    agent_connectivity: true
+    performance_acceptable: true
+    governance_compliance: true
+  optimality_verification:
+    compliance_threshold: 90
+    performance_optimization: true
+    resource_efficiency: true
+    monitoring_completeness: true
+  validation_rules:
+    - "test -x $MCP_SERVER_PATH"
+    - "timeout 10 $MCP_SERVER_PATH --version"
+    - "test -f $MCP_CONFIG_PATH"
+
+# Agent onboarding profile
+agent_onboarding:
+  action_verification:
+    context_preparation: true
+    governance_awareness: true
+    tool_accessibility: true
+    environment_setup: true
+  output_verification:
+    agent_configuration: true
+    context_files_shared: true
+    permissions_granted: true
+    communication_established: true
+  outcome_verification:
+    task_execution_capability: true
+    governance_compliance: true
+    collaboration_effectiveness: true
+    learning_progression: true
+  optimality_verification:
+    compliance_threshold: 85
+    onboarding_efficiency: true
+    knowledge_transfer: true
+    long_term_effectiveness: true
+  validation_rules:
+    - "test -f /home/ichardart/code/CLAUDE.md"
+    - "test -f /home/ichardart/code/manifest.md"
+    - "test -f /home/ichardart/code/infra/dev-env-docs/OPERATING_RULES.md"
+
+# File management profile
+file_management:
+  action_verification:
+    syntax_validation: true
+    permission_check: true
+    backup_creation: false
+    path_validation: true
+  output_verification:
+    file_integrity: true
+    content_correctness: true
+    encoding_proper: true
+    permission_appropriate: true
+  outcome_verification:
+    functionality_preserved: true
+    system_stability: true
+    user_workflow_intact: true
+  optimality_verification:
+    compliance_threshold: 75
+    file_organization: true
+    documentation_quality: true
+  validation_rules:
+    - "test -f $TARGET_FILE"
+    - "file $TARGET_FILE | grep -E '(text|ASCII)'"
+
+# Documentation update profile
+documentation_update:
+  action_verification:
+    syntax_validation: true
+    content_accuracy: true
+    style_compliance: true
+  output_verification:
+    markdown_valid: true
+    links_functional: true
+    structure_consistent: true
+  outcome_verification:
+    user_comprehension: true
+    workflow_improvement: true
+    maintenance_ease: true
+  optimality_verification:
+    compliance_threshold: 80
+    accessibility_standards: true
+    future_maintainability: true
+  validation_rules:
+    - "test -f $DOC_FILE"
+    - "grep -q '# ' $DOC_FILE"  # Has headers
+    - "wc -l $DOC_FILE | awk '{print $1}' | grep -E '^[0-9]+$'"  # Has content
+
+# Custom operation profiles can be added here following the same structure

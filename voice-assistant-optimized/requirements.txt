@@ -1,0 +1,45 @@
+# Voice Assistant Core Dependencies
+# Generated from pip freeze for exact versioning
+
+# Core ML and Audio Processing
+openai-whisper
+torch
+torchaudio
+numpy
+librosa
+soundfile
+
+# Audio I/O and System Integration  
+pyaudio
+keyboard
+pynput
+pyautogui
+
+# Web and API Integration
+requests
+aiohttp
+
+# System and Process Management
+psutil
+pyperclip
+
+# Development and Testing
+pytest
+pytest-asyncio
+pytest-mock
+
+# Optional: Enhanced Audio Processing
+noisereduce
+webrtcvad
+
+# Optional: GUI Components (if needed)
+tkinter-tooltip
+
+# Platform-specific dependencies
+# Linux audio support
+# Note: portaudio19-dev should be installed via apt-get
+
+# Cloud provider SDKs (optional)
+google-cloud-speech
+azure-cognitiveservices-speech
+boto3

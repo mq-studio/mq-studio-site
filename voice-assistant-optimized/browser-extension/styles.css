@@ -1,0 +1,136 @@
+/* Voice Assistant Browser Extension Styles */
+
+.voice-assistant-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.voice-assistant-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.voice-assistant-btn:active {
+    transform: scale(0.95);
+}
+
+/* Recording state */
+.voice-assistant-btn.recording {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    animation: pulse 1.5s infinite;
+}
+
+/* Processing state */
+.voice-assistant-btn.processing {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    animation: spin 2s linear infinite;
+}
+
+/* Error state */
+.voice-assistant-btn.error {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+/* Requesting state */
+.voice-assistant-btn.requesting {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+/* Stopping state */
+.voice-assistant-btn.stopping {
+    background: linear-gradient(135deg, #607D8B, #455A64);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Notification styles */
+.voice-assistant-notification {
+    font-weight: 500;
+    max-width: 300px;
+    word-wrap: break-word;
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+/* Platform-specific adjustments */
+
+/* Claude.ai */
+[data-testid="composer"] .voice-assistant-btn,
+.composer .voice-assistant-btn {
+    position: absolute;
+    right: 50px;
+    bottom: 10px;
+}
+
+/* Gemini */
+.input-area-controls .voice-assistant-btn {
+    margin-left: 8px;
+}
+
+/* Perplexity */
+.search-input .voice-assistant-btn {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ChatGPT */
+.composer-controls .voice-assistant-btn {
+    margin-right: 8px;
+}
+
+/* General text area positioning */
+textarea + .voice-assistant-btn,
+[contenteditable] + .voice-assistant-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .voice-assistant-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+    
+    .voice-assistant-notification {
+        max-width: 250px;
+        font-size: 12px;
+        right: 10px;
+        top: 10px;
+    }
+}

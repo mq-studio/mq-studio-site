@@ -1,0 +1,229 @@
+{
+  "version": "2.0",
+  "created": "2025-05-26T16:26:35.609404",
+  "governance_patterns": {
+    "standards": {
+      "patterns": [
+        "standard",
+        "STD-\\d+",
+        "policy",
+        "guideline",
+        "IDP-STD",
+        "OPERATING_RULES",
+        "directive"
+      ],
+      "weight": 1.0,
+      "description": "Governance standards, policies, and formal guidelines"
+    },
+    "templates": {
+      "patterns": [
+        "template",
+        "boilerplate",
+        "scaffold",
+        "PROJECT_TEMPLATE",
+        "manifest-standard"
+      ],
+      "weight": 1.0,
+      "description": "Project templates and structural boilerplates"
+    },
+    "validation": {
+      "patterns": [
+        "validation",
+        "verify",
+        "check",
+        "audit",
+        "compliance",
+        "governance-check"
+      ],
+      "weight": 1.0,
+      "description": "Validation frameworks and compliance checking tools"
+    },
+    "methodology": {
+      "patterns": [
+        "methodology",
+        "method",
+        "process",
+        "procedure",
+        "framework",
+        "BMAD",
+        "OSAA"
+      ],
+      "weight": 1.0,
+      "description": "Development methodologies and process frameworks"
+    },
+    "monitoring": {
+      "patterns": [
+        "monitor",
+        "track",
+        "log",
+        "report",
+        "metrics",
+        "status-checker",
+        "watcher"
+      ],
+      "weight": 1.0,
+      "description": "Monitoring, tracking, and reporting tools"
+    },
+    "enforcement": {
+      "patterns": [
+        "enforce",
+        "hook",
+        "pre-commit",
+        "restrict",
+        "require",
+        "git.*hooks"
+      ],
+      "weight": 1.0,
+      "description": "Governance enforcement mechanisms"
+    },
+    "planning": {
+      "patterns": [
+        "plan",
+        "roadmap",
+        "strategy",
+        "vision",
+        "backlog",
+        "ACTION-PLAN"
+      ],
+      "weight": 1.0,
+      "description": "Planning and strategic documents"
+    },
+    "roles": {
+      "patterns": [
+        "role",
+        "responsibility",
+        "RACI",
+        "assign",
+        "actor",
+        "agent.*instructions"
+      ],
+      "weight": 1.0,
+      "description": "Role definitions and responsibility assignments"
+    },
+    "automation": {
+      "patterns": [
+        "automation",
+        "auto",
+        "script",
+        "workflow",
+        "AUTOMATION_PROTOCOL"
+      ],
+      "weight": 1.0,
+      "description": "Automation scripts and workflow definitions"
+    },
+    "security": {
+      "patterns": [
+        "security",
+        "secrets",
+        "auth",
+        "credential",
+        "1password",
+        "bitwarden"
+      ],
+      "weight": 1.2,
+      "description": "Security-related governance artifacts"
+    }
+  },
+  "governance_directories": [
+    "idp-governance",
+    "governance",
+    ".git/hooks",
+    "standards",
+    "templates",
+    "validation",
+    "audits",
+    "methodologies",
+    "dev-env-docs",
+    "infra/tools"
+  ],
+  "project_type_patterns": {
+    "idp_optimization": {
+      "directory_patterns": ["infra/"],
+      "file_patterns": ["mcp.*server", "governance.*", "dev.*env", "infrastructure"],
+      "content_patterns": ["IDP", "infrastructure", "development.?environment", "MCP.?server"],
+      "weight": 1.0,
+      "description": "Projects that enhance the IDP infrastructure itself"
+    },
+    "business_optimization": {
+      "directory_patterns": ["business/"],
+      "file_patterns": ["automation", "workflow", "process", "business.*logic"],
+      "content_patterns": ["business.?process", "operational.?efficiency", "workflow.?automation", "internal.?tools"],
+      "weight": 1.0,
+      "description": "Projects that optimize business operations using IDP capabilities"
+    },
+    "revenue_stream": {
+      "directory_patterns": ["products/", "web/"],
+      "file_patterns": ["product", "market", "revenue", "commercial"],
+      "content_patterns": ["revenue", "monetization", "customer", "market.*facing", "SaaS", "product.*development"],
+      "weight": 1.0,
+      "description": "Projects that develop products/services for external monetization"
+    },
+    "client_delivery": {
+      "directory_patterns": ["clients/"],
+      "file_patterns": ["client", "custom", "delivery", "contract"],
+      "content_patterns": ["client.*specific", "custom.*solution", "external.*client", "delivery.*project"],
+      "weight": 1.0,
+      "description": "Custom solutions for specific external clients"
+    },
+    "experimental": {
+      "directory_patterns": ["experiments/", "playground/", "prototypes/"],
+      "file_patterns": ["experiment", "prototype", "poc", "test"],
+      "content_patterns": ["experiment", "prototype", "proof.?of.?concept", "learning", "exploration"],
+      "weight": 0.8,
+      "description": "Learning, prototypes, and exploration across all categories"
+    }
+  },
+  "content_scan_extensions": [
+    ".md",
+    ".txt",
+    ".json",
+    ".yaml",
+    ".yml",
+    ".sh",
+    ".py",
+    ".js",
+    ".html",
+    ".css",
+    ".config",
+    ".ini",
+    ".conf",
+    ".xml",
+    ".toml"
+  ],
+  "exclusion_patterns": [
+    "node_modules",
+    ".git/objects",
+    ".git/refs",
+    "__pycache__",
+    ".vscode",
+    "vendor",
+    "dist",
+    "build"
+  ],
+  "confidence_thresholds": {
+    "high": 0.8,
+    "medium": 0.5,
+    "low": 0.2
+  },
+  "special_handling": {
+    "git_hooks": {
+      "preserve_location": true,
+      "create_registry": true,
+      "patterns": [
+        "pre-commit",
+        "post-commit",
+        "pre-push",
+        "post-receive"
+      ]
+    },
+    "config_files": {
+      "track_versions": true,
+      "patterns": [
+        "config",
+        ".config",
+        "settings",
+        ".env"
+      ]
+    }
+  }
+}

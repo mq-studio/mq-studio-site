@@ -1,0 +1,17 @@
+{
+  "name": "shell-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IDP Controlled Shell/Terminal MCP Server - Enterprise-grade command execution with security controls",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0"
+  },
+  "keywords": ["mcp", "shell", "terminal", "commands", "security", "governance"],
+  "author": "IDP Infrastructure Team",
+  "license": "MIT"
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant Settings</title>
+    <style>
+        body {
+            width: 320px;
+            min-height: 400px;
+            margin: 0;
+            padding: 16px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .header .subtitle {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .status.connected {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.disconnected {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-icon {
+            font-size: 16px;
+            margin-right: 8px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .section h3 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .setting-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .setting-label {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .setting-control {
+            display: flex;
+            align-items: center;
+        }
+        
+        .toggle {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .toggle.active {
+            background: #4CAF50;
+        }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .toggle.active::after {
+            transform: translateX(20px);
+        }
+        
+        select, input {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        
+        .hotkey-display {
+            background: #f1f3f4;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-family: monospace;
+            color: #333;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #45a049;
+        }
+        
+        .btn-secondary {
+            background: #f1f3f4;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e8eaed;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎤 Voice Assistant</h1>
+        <div class="subtitle">AI Platform Integration</div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        Loading...
+    </div>
+
+    <div id="content" style="display: none;">
+        <div id="status" class="status">
+            <span class="status-icon">⚡</span>
+            <span id="status-text">Checking connection...</span>
+        </div>
+
+        <div class="section">
+            <h3>General Settings</h3>
+            
+            <div class="setting-row">
+                <span class="setting-label">Enable Extension</span>
+                <div class="setting-control">
+                    <div id="enabled-toggle" class="toggle"></div>
+                </div>
+            </div>
+            
+            <div class="setting-row">
+                <span class="setting-label">Language</span>
+                <div class="setting-control">
+                    <select id="language-select">
+                        <option value="en-US">English (US)</option>
+                        <option value="en-GB">English (UK)</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="pt-BR">Portuguese</option>
+                        <option value="zh-CN">Chinese</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="ko-KR">Korean</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="setting-row">
+                <span class="setting-label">Hotkey</span>
+                <div class="setting-control">
+                    <div id="hotkey-display" class="hotkey-display">Ctrl+Shift+V</div>
+                </div>
+            </div>
+            
+            <div class="setting-row">
+                <span class="setting-label">Notifications</span>
+                <div class="setting-control">
+                    <div id="notifications-toggle" class="toggle"></div>
+                </div>
+            </div>
+            
+            <div class="setting-row">
+                <span class="setting-label">Web API Fallback</span>
+                <div class="setting-control">
+                    <div id="fallback-toggle" class="toggle"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Usage Statistics</h3>
+            <div class="stats">
+                <div class="stat-item">
+                    <div id="transcriptions-count" class="stat-value">0</div>
+                    <div class="stat-label">Transcriptions</div>
+                </div>
+                <div class="stat-item">
+                    <div id="success-rate" class="stat-value">--</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="test-btn" class="btn btn-primary">Test Voice</button>
+            <button id="help-btn" class="btn btn-secondary">Help</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

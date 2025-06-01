@@ -1,0 +1,90 @@
+{
+  "port": ${HUB_PORT},
+  "logLevel": "${LOG_LEVEL}",
+  "logFile": "${LOG_FILE_PATH}",
+  "serversAutoStart": ${SERVERS_AUTO_START},
+  "servers": {
+    "github": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "weather": {
+      "enabled": true,
+      "command": "${PYTHON_PATH}",
+      "args": ["${WEATHER_MCP_PATH}/simple_weather_server.py"],
+      "env": {
+        "PYTHONPATH": "${WEATHER_MCP_PATH}"
+      }
+    },
+    "fetch": {
+      "enabled": true,
+      "command": "node",
+      "args": ["${FETCH_MCP_PATH}/index.js"],
+      "env": {}
+    },
+    "gdrive": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gdrive"],
+      "env": {
+        "GDRIVE_OAUTH_PATH": "${GDRIVE_OAUTH_PATH}",
+        "GDRIVE_CREDENTIALS_PATH": "${GDRIVE_CREDENTIALS_PATH}"
+      }
+    },
+    "context7": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {}
+    },
+    "filesystem": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "env": {}
+    },
+    "puppeteer": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "env": {}
+    },
+    "postgres": {
+      "enabled": ${POSTGRES_ENABLED},
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "${POSTGRES_CONNECTION_STRING}"
+      }
+    },
+    "slack": {
+      "enabled": ${SLACK_ENABLED},
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
+        "SLACK_TEAM_ID": "${SLACK_TEAM_ID}"
+      }
+    },
+    "e2b": {
+      "enabled": ${E2B_ENABLED},
+      "command": "npx",
+      "args": ["-y", "@e2b/mcp-server"],
+      "env": {
+        "E2B_API_KEY": "${E2B_API_KEY}"
+      }
+    },
+    "memory": {
+      "enabled": ${MEMORY_ENABLED},
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "${MEMORY_FILE_PATH}"
+      }
+    }
+  }
+}

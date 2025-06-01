@@ -1,0 +1,18 @@
+{
+  "name": "graphiti-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Graphiti knowledge graph access in IDP",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "neo4j-driver": "^5.17.0",
+    "dotenv": "^16.4.1"
+  },
+  "keywords": ["mcp", "graphiti", "knowledge-graph", "idp"],
+  "author": "IDP Governance System",
+  "license": "MIT"
+}

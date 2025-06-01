@@ -1,0 +1,20 @@
+{
+  "name": "database-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IDP Database Management MCP - Secure SQL operations and database analysis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "sqlite3": "^5.1.0",
+    "mysql2": "^3.6.0",
+    "pg": "^8.11.0"
+  },
+  "keywords": ["mcp", "database", "sql", "sqlite", "mysql", "postgresql", "query"],
+  "author": "IDP Infrastructure Team",
+  "license": "MIT"
+}

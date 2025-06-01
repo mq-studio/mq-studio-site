@@ -1,0 +1,19 @@
+{
+  "name": "governance-mcp",
+  "version": "1.0.0",
+  "description": "IDP Governance MCP Server for compliance checking and governance awareness",
+  "main": "index.js",
+  "bin": {
+    "governance-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mcp", "governance", "compliance", "idp", "security"],
+  "author": "IDP Governance Team",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  }
+}

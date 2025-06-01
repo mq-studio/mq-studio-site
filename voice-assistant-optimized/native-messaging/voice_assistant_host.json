@@ -1,0 +1,9 @@
+{
+  "name": "com.voiceassistant.host",
+  "description": "Voice Assistant Native Messaging Host",
+  "path": "/home/ichardart/code/voice-assistant-optimized/native-messaging/voice_assistant_host.py",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://EXTENSION_ID_PLACEHOLDER/"
+  ]
+}
