@@ -38,13 +38,22 @@ if [ -n "$large_files" ]; then
     exit 1
 fi
 
-# 4. ENFORCE manifest.md updates for infrastructure changes
-echo "📋 Checking manifest compliance..."
+# 4. AUTOMATIC infrastructure change documentation
+echo "📋 Running automatic change documentation..."
 infra_changes=$(git diff --cached --name-only | grep "^infra/" | wc -l)
+if [ "$infra_changes" -gt 0 ]; then
+    echo "🔄 Infrastructure changes detected - running auto-documentation"
+    if [ -f "/home/ichardart/code/infra/tools/auto-documentation-hook.sh" ]; then
+        /home/ichardart/code/infra/tools/auto-documentation-hook.sh
+    fi
+fi
+
+# 4b. ENFORCE manifest.md updates for infrastructure changes (if auto-doc didn't handle it)
 manifest_changes=$(git diff --cached --name-only | grep "manifest.md" | wc -l)
 if [ "$infra_changes" -gt 0 ] && [ "$manifest_changes" -eq 0 ]; then
     echo "❌ GOVERNANCE VIOLATION: Infrastructure changes require manifest update"
     echo "   Policy: Manifest files track project evolution (OPERATING_RULES.md #24-26)"
+    echo "   Note: Auto-documentation may have failed - check logs"
     exit 1
 fi
 

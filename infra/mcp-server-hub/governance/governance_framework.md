@@ -77,4 +77,25 @@ The following server types are explicitly prohibited:
 - Automated vulnerability scanning
 - Policy adherence verification
 
-## Last Updated: 2025-05-25
+## Governance Extension Status
+
+### Coverage Expansion (2025-05-26)
+- **Extended to**: `/home/ichardart/idp-projects/servers/src/`
+- **Emergency Actions Taken**:
+  - Disabled prohibited servers: puppeteer, sequentialthinking
+  - Deployed emergency monitoring for ungoverned servers
+  - Created governance boundary markers
+  - Applied security hardening to high-value servers (github, fetch, postgres, slack, gdrive)
+
+### Current Governance Scope
+- **Primary**: `/home/ichardart/code/infra/mcp-servers/` (4 servers)
+- **Extended**: `/home/ichardart/idp-projects/servers/src/` (20 servers)
+- **Total Coverage**: 24 MCP servers under governance
+
+### Emergency Extension Results
+- **Critical Violations Resolved**: 2 prohibited servers disabled
+- **Security Configurations Applied**: 5 high-value servers hardened
+- **Monitoring Coverage**: 100% of MCP infrastructure
+- **Compliance Status**: Emergency extension active, full compliance pending
+
+## Last Updated: 2025-05-26

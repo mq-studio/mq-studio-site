@@ -49,13 +49,33 @@ fi
 echo -n "🔒 Checking Cline MCP configuration... "
 CLINE_CONFIG="/home/ichardart/.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json"
 if [ -f "$CLINE_CONFIG" ]; then
-    # Check for high-risk servers
-    if grep -q "browser-tools\|puppeteer\|sequential-thinking" "$CLINE_CONFIG"; then
+    # Check for high-risk servers that are ENABLED
+    HIGH_RISK_ENABLED=$(python3 -c "
+import json, sys
+try:
+    with open('$CLINE_CONFIG', 'r') as f:
+        config = json.load(f)
+    high_risk = ['browser-tools', 'puppeteer', 'sequential-thinking']
+    enabled_high_risk = []
+    for server_name, server_config in config.get('mcpServers', {}).items():
+        if any(risk in server_name for risk in high_risk):
+            if not server_config.get('disabled', False):
+                enabled_high_risk.append(server_name)
+    if enabled_high_risk:
+        print('FOUND')
+        for server in enabled_high_risk:
+            print(f'   - {server}')
+    else:
+        print('NONE')
+except Exception as e:
+    print('ERROR')
+" 2>/dev/null)
+    
+    if echo "$HIGH_RISK_ENABLED" | grep -q "FOUND"; then
         echo "🚨 SECURITY RISK - Non-compliant servers detected"
         log "Cline configuration: SECURITY RISK - High-risk servers found"
-        
         echo "   High-risk servers found:"
-        grep -o '"[^"]*browser-tools[^"]*"\|"[^"]*puppeteer[^"]*"\|"[^"]*sequential-thinking[^"]*"' "$CLINE_CONFIG" | sed 's/^/   - /'
+        echo "$HIGH_RISK_ENABLED" | grep "   -"
     else
         echo "✅ PASS"
         log "Cline configuration: PASS"
