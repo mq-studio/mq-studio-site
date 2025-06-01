@@ -1,7 +1,7 @@
 {
   "VERBOSE": true,
   "DEBUG_LEVEL": "mcp:*",
-  "GITHUB_TOKEN": "ghp_testing_token_here",
+  "GITHUB_TOKEN": "${GITHUB_TOKEN_TEST}",
   "PYTHON_PATH": "/home/ichardart/code/infra/mcp-servers/weather-mcp/venv/bin/python",
   "WEATHER_MCP_PATH": "/home/ichardart/code/infra/mcp-servers/weather-mcp",
   "HUB_PORT": 3001,
