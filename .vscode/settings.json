@@ -1,0 +1,34 @@
+{
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.env.linux": {
+        "IDP_GOVERNANCE_ACTIVE": "true",
+        "MCP_GOVERNANCE_MODE": "enforced",
+        "CLAUDE_WORKSPACE": "/home/ichardart/code"
+    },
+    "files.watcherExclude": {
+        "**/infra/logs/**": true,
+        "**/infra/data/memory/**": false,
+        "**/__pycache__/**": true,
+        "**/node_modules/**": true,
+        "**/venv/**": true,
+        "**/e2b_venv/**": true,
+        "**/.git/objects/**": true,
+        "**/dist/**": true,
+        "**/build/**": true
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/node_modules": true,
+        "**/venv": true,
+        "**/e2b_venv": true,
+        "**/*.pyc": true,
+        "**/.DS_Store": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/venv": true,
+        "**/e2b_venv": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    }
+}
