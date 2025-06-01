@@ -233,3 +233,4 @@ Thumbs.db
 # Logs
 *.log
 logs/
+infra/browser-automation/e2b_venv/

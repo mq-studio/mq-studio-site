@@ -1,17 +1,6 @@
 {
   "refresh_history": [
     {
-      "timestamp": "2025-06-01T08:00:01.929396",
-      "claude_code": {
-        "success": true,
-        "message": "Claude Code context refreshed"
-      },
-      "claude_desktop": {
-        "success": true,
-        "message": "Claude Desktop context refreshed"
-      }
-    },
-    {
       "timestamp": "2025-06-01T08:15:02.254977",
       "claude_code": {
         "success": true,
@@ -219,10 +208,21 @@
         "success": true,
         "message": "Claude Desktop context refreshed"
       }
+    },
+    {
+      "timestamp": "2025-06-01T13:00:01.945505",
+      "claude_code": {
+        "success": true,
+        "message": "Claude Code context refreshed"
+      },
+      "claude_desktop": {
+        "success": true,
+        "message": "Claude Desktop context refreshed"
+      }
     }
   ],
   "last_refresh": {
-    "timestamp": "2025-06-01T12:45:01.864223",
+    "timestamp": "2025-06-01T13:00:01.945505",
     "claude_code": {
       "success": true,
       "message": "Claude Code context refreshed"

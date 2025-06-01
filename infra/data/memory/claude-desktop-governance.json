@@ -3,14 +3,14 @@
   "governance_framework": {
     "status": "ACTIVE",
     "mode": "ENFORCED",
-    "last_updated": "2025-06-01T12:45:04.010501"
+    "last_updated": "2025-06-01T13:00:04.142799"
   },
   "workspace": {
     "path": "/home/ichardart/code",
     "type": "IDP Multi-Agent Platform"
   },
   "mcp_configuration": {
-    "timestamp": "2025-06-01T12:45:04.010358",
+    "timestamp": "2025-06-01T13:00:04.142717",
     "total_servers": 16,
     "governance_compliant": [
       {
