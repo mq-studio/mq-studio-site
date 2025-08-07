@@ -15,7 +15,7 @@
         "path": "/home/ichardart/code/infra/mcp-servers/fetch-mcp"
       },
       {
-        "name": "wsl-helper-mcp", 
+        "name": "wsl-helper-mcp",
         "status": "operational",
         "risk_level": "medium",
         "path": "/home/ichardart/code/infra/wsl-helper-mcp"
@@ -28,7 +28,7 @@
       },
       {
         "name": "claude-projects-access-mcp",
-        "status": "setup_required", 
+        "status": "setup_required",
         "risk_level": "medium",
         "path": "/home/ichardart/code/infra/claude-projects-access-mcp"
       }
@@ -43,7 +43,7 @@
       ],
       "potentially_valuable": [
         "github",
-        "e2b", 
+        "e2b",
         "memory",
         "context7",
         "gdrive",
@@ -83,7 +83,514 @@
     "multi_agent_platform": true
   },
   "last_sync": {
-    "timestamp": "2025-05-25T17:30:00Z",
-    "change_type": "GOVERNANCE_ENFORCEMENT_IMPLEMENTATION"
-  }
+    "timestamp": "2025-06-12T10:01:35.927967",
+    "change_type": "GENERAL_GOVERNANCE"
+  },
+  "change_history": [
+    {
+      "timestamp": "2025-06-12T10:00:04.573294",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:06.675704",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:07.016461",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:09.041615",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:09.736452",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:11.945500",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:14.117126",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:15.600105",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/claude-desktop-governance.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:17.687381",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:20.957170",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:25.446281",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:25.942537",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync-service.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:26.513970",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:29.072545",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:31.119642",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:32.826163",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:32.911479",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:34.966336",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:36.003473",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:38.086467",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:40.220796",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:43.462448",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:45.682818",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:47.544072",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:47.658566",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:49.760847",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:50.003935",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:52.850301",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync-service.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:52.900379",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:52.820409",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:55.685996",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:57.732778",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:00:57.822969",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:00.012767",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:00.964164",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:01.048170",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:01.246084",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:03.417037",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:05.506490",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:05.269898",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:13.626235",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:13.866125",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:17.904578",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:18.079259",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:22.666041",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:29.856468",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync-service.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:31.885253",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:37.970867",
+      "type": "CLAUDE_CODE_CONTEXT",
+      "file": "/home/ichardart/code/CLAUDE.md",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:34.281254",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/logs/governance-sync.log",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    },
+    {
+      "timestamp": "2025-06-12T10:01:35.927967",
+      "type": "GENERAL_GOVERNANCE",
+      "file": "/home/ichardart/code/infra/data/memory/governance-sync-state.json",
+      "sync_clients": [
+        "claude_code",
+        "claude_desktop",
+        "cline"
+      ]
+    }
+  ]
+}",
+        "cline"
+      ]
+    }
+  ]
 }
