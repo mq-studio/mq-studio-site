@@ -3,40 +3,23 @@
   "governance_framework": {
     "status": "ACTIVE",
     "mode": "ENFORCED",
-    "last_updated": "2025-06-01T13:00:04.142799"
+    "last_updated": "2025-08-06T17:30:03.484482"
   },
   "workspace": {
     "path": "/home/ichardart/code",
     "type": "IDP Multi-Agent Platform"
   },
   "mcp_configuration": {
-    "timestamp": "2025-06-01T13:00:04.142717",
-    "total_servers": 16,
-    "governance_compliant": [
-      {
-        "name": "context7",
-        "risk_level": "Medium",
-        "compliance_status": "external_dependency",
-        "business_value": "Medium",
-        "command": "npx",
-        "has_env_vars": false
-      },
-      {
-        "name": "memory",
-        "risk_level": "Medium",
-        "compliance_status": "compliant",
-        "business_value": "High",
-        "command": "npx",
-        "has_env_vars": true
-      }
-    ],
+    "timestamp": "2025-08-06T17:30:03.484418",
+    "total_servers": 6,
+    "governance_compliant": [],
     "security_risks": [],
     "requires_setup": [
       {
-        "name": "slack",
+        "name": "github",
         "risk_level": "Medium",
-        "compliance_status": "requires_tokens",
-        "business_value": "Medium",
+        "compliance_status": "requires_token",
+        "business_value": "High",
         "command": "npx",
         "has_env_vars": true
       },
@@ -47,14 +30,6 @@
         "business_value": "Unknown",
         "command": "node",
         "has_env_vars": false
-      },
-      {
-        "name": "github",
-        "risk_level": "Medium",
-        "compliance_status": "requires_token",
-        "business_value": "High",
-        "command": "npx",
-        "has_env_vars": true
       },
       {
         "name": "inventory-mcp",
@@ -81,76 +56,20 @@
         "has_env_vars": true
       },
       {
-        "name": "shell-mcp",
-        "risk_level": "Unknown",
-        "compliance_status": "unknown",
-        "business_value": "Unknown",
-        "command": "node",
-        "has_env_vars": true
-      },
-      {
-        "name": "language-server-mcp",
-        "risk_level": "Unknown",
-        "compliance_status": "unknown",
-        "business_value": "Unknown",
-        "command": "node",
-        "has_env_vars": true
-      },
-      {
-        "name": "docker-mcp",
-        "risk_level": "Unknown",
-        "compliance_status": "unknown",
-        "business_value": "Unknown",
-        "command": "node",
-        "has_env_vars": true
-      },
-      {
-        "name": "database-mcp",
-        "risk_level": "Unknown",
-        "compliance_status": "unknown",
-        "business_value": "Unknown",
-        "command": "node",
-        "has_env_vars": true
-      },
-      {
-        "name": "api-testing-mcp",
-        "risk_level": "Unknown",
-        "compliance_status": "unknown",
-        "business_value": "Unknown",
-        "command": "node",
-        "has_env_vars": true
-      },
-      {
-        "name": "cicd-mcp",
-        "risk_level": "Unknown",
-        "compliance_status": "unknown",
-        "business_value": "Unknown",
-        "command": "node",
-        "has_env_vars": true
-      },
-      {
         "name": "security-scanner-mcp",
         "risk_level": "Unknown",
         "compliance_status": "unknown",
         "business_value": "Unknown",
         "command": "node",
         "has_env_vars": true
-      },
-      {
-        "name": "e2b",
-        "risk_level": "High",
-        "compliance_status": "requires_api_key",
-        "business_value": "High",
-        "command": "npx",
-        "has_env_vars": true
       }
     ],
-    "governance_score": 12,
+    "governance_score": 0,
     "recommendations": [
       {
         "priority": "HIGH",
         "action": "Complete API key/token setup",
-        "details": "Configure 14 servers requiring setup"
+        "details": "Configure 6 servers requiring setup"
       }
     ]
   },
@@ -161,7 +80,7 @@
     "security_tooling": true
   },
   "security_posture": {
-    "governance_score": 12,
+    "governance_score": 0,
     "security_risks_count": 0,
     "compliance_level": "NON_COMPLIANT"
   },
