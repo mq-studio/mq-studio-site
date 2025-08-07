@@ -242,3 +242,8 @@ infra/browser-automation/e2b_venv/
 .vscode/tasks.json
 .vscode/c_cpp_properties.json
 .vscode/settings.json.bak
+
+# Embedded Git Repositories (handled separately)
+clients/shufa-and-leadership/
+infra/claude-code-router-integration/
+infra/mcp-servers/mcp-crawl4ai-install/mcp-crawl4ai-rag/
