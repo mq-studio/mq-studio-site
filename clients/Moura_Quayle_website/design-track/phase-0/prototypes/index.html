@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moura Quayle - Homepage Concepts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f0f0f0;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .concept-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #009698 0%, #D33479 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .concept-content {
+            padding: 1.5rem;
+        }
+        
+        .concept-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .concept-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .concept-link {
+            display: inline-block;
+            background: #009698;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .concept-link:hover {
+            background: #007678;
+        }
+        
+        .notes {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .notes h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .notes p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Moura Quayle Living Archive</h1>
+        <p class="subtitle">Homepage Concept Prototypes</p>
+        
+        <div class="concepts-grid">
+            <div class="concept-card">
+                <div class="concept-image">1</div>
+                <div class="concept-content">
+                    <h2 class="concept-title">The Living Canvas</h2>
+                    <p class="concept-description">
+                        Features animated watercolor textures with three main entry points. 
+                        Recent additions slide in from the left, emphasizing the "living" nature of the archive.
+                    </p>
+                    <a href="concept-1-living-canvas.html" class="concept-link">View Prototype</a>
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-image">2</div>
+                <div class="concept-content">
+                    <h2 class="concept-title">The Scholarly Garden</h2>
+                    <p class="concept-description">
+                        Split-screen design literally showing where scholarship meets art. 
+                        Features prominent search and organized content sections.
+                    </p>
+                    <a href="concept-2-scholarly-garden.html" class="concept-link">View Prototype</a>
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-image">3</div>
+                <div class="concept-content">
+                    <h2 class="concept-title">The Constellation</h2>
+                    <p class="concept-description">
+                        Interactive network visualization showing connections between works. 
+                        Encourages exploration and discovery through visual relationships.
+                    </p>
+                    <a href="concept-3-constellation.html" class="concept-link">View Prototype</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notes">
+            <h2>Design Notes</h2>
+            <p>
+                These prototypes demonstrate different approaches to the "Bright Academia" aesthetic 
+                while maintaining the core requirements of the Living Archive. Each concept balances 
+                scholarly credibility with artistic expression.
+            </p>
+            <p>
+                All concepts are built with the approved color palette and typography choices. 
+                They're responsive and focus on performance while delivering visual impact.
+            </p>
+            
+            <h3>Color Palette</h3>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #333333;">#333333</div>
+                <div class="color-swatch" style="background: #f8f8f4; color: #333;">#f8f8f4</div>
+                <div class="color-swatch" style="background: #009698;">#009698</div>
+                <div class="color-swatch" style="background: #D33479;">#D33479</div>
+                <div class="color-swatch" style="background: #cccccc; color: #333;">#cccccc</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
