@@ -1,7 +1,7 @@
-# shell-mcp
+# inventory-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+inventory-mcp is a Model Context Protocol (MCP) server that provides inventory capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

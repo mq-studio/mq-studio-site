@@ -1,7 +1,7 @@
-# shell-mcp
+# language-server-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+language-server-mcp is a Model Context Protocol (MCP) server that provides language server capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

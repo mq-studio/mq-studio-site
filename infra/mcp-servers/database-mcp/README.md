@@ -1,7 +1,7 @@
-# shell-mcp
+# database-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+database-mcp is a Model Context Protocol (MCP) server that provides database capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

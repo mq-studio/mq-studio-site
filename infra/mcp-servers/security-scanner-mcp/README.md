@@ -1,7 +1,7 @@
-# shell-mcp
+# security-scanner-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+security-scanner-mcp is a Model Context Protocol (MCP) server that provides security scanner capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

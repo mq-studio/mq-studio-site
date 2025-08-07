@@ -1,7 +1,7 @@
-# shell-mcp
+# docker-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+docker-mcp is a Model Context Protocol (MCP) server that provides docker capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

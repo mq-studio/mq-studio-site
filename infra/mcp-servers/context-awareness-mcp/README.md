@@ -1,7 +1,7 @@
-# shell-mcp
+# context-awareness-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+context-awareness-mcp is a Model Context Protocol (MCP) server that provides context awareness capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

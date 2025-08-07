@@ -1,7 +1,7 @@
-# shell-mcp
+# onepassword-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+onepassword-mcp is a Model Context Protocol (MCP) server that provides onepassword capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

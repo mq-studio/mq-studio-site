@@ -1,7 +1,7 @@
-# shell-mcp
+# api-testing-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+api-testing-mcp is a Model Context Protocol (MCP) server that provides api testing capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

@@ -1,7 +1,7 @@
-# shell-mcp
+# governance-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+governance-mcp is a Model Context Protocol (MCP) server that provides governance capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

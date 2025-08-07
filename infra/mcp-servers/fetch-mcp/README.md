@@ -1,7 +1,7 @@
-# shell-mcp
+# fetch-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+fetch-mcp is a Model Context Protocol (MCP) server that provides fetch capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls

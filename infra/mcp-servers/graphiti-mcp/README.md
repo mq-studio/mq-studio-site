@@ -1,7 +1,7 @@
-# shell-mcp
+# graphiti-mcp
 
 ## Description
-shell-mcp is a Model Context Protocol (MCP) server that provides shell capabilities for Claude AI integration.
+graphiti-mcp is a Model Context Protocol (MCP) server that provides graphiti capabilities for Claude AI integration.
 
 ## Features
 - 🔒 Enterprise-grade security controls
