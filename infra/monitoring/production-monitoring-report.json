@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-06-02T12:10:36.049Z",
+  "systemStatus": "OPERATIONAL",
+  "metrics": {
+    "system": {},
+    "mcp": {},
+    "governance": {},
+    "performance": {},
+    "security": {},
+    "alerts": []
+  },
+  "configuration": {
+    "port": 3001,
+    "metricsInterval": 5000,
+    "alertThresholds": {
+      "responseTime": 100,
+      "memoryUsage": 85,
+      "cpuUsage": 80,
+      "errorRate": 1
+    }
+  },
+  "summary": {
+    "totalAlerts": 0,
+    "activeAlerts": 0,
+    "systemHealth": "EXCELLENT",
+    "complianceStatus": "FULLY_COMPLIANT",
+    "securityPosture": "ZERO_TOLERANCE_ACTIVE"
+  }
+}

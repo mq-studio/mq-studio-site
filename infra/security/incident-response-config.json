@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "autoRemediation": true,
+  "escalationRules": {
+    "critical": {
+      "timeToResponse": "0_minutes",
+      "autoRemediate": true
+    },
+    "high": {
+      "timeToResponse": "5_minutes",
+      "autoRemediate": true
+    },
+    "medium": {
+      "timeToResponse": "30_minutes",
+      "autoRemediate": false
+    },
+    "low": {
+      "timeToResponse": "2_hours",
+      "autoRemediate": false
+    }
+  },
+  "notificationChannels": {
+    "console": true,
+    "file": true,
+    "monitoring": true
+  }
+}

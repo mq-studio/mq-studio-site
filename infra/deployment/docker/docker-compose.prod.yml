@@ -1,0 +1,294 @@
+version: '3.8'
+
+services:
+  # Production MCP Servers
+  api-testing-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-api-testing-mcp:latest
+    container_name: idp-api-testing-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${API_TESTING_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  cicd-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-cicd-mcp:latest
+    container_name: idp-cicd-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${CICD_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  context-awareness-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-context-awareness-mcp:latest
+    container_name: idp-context-awareness-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${CONTEXT_AWARENESS_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  database-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-database-mcp:latest
+    container_name: idp-database-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${DATABASE_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  docker-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-docker-mcp:latest
+    container_name: idp-docker-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${DOCKER_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  fetch-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-fetch-mcp:latest
+    container_name: idp-fetch-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${FETCH_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  filesystem-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-filesystem-mcp:latest
+    container_name: idp-filesystem-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${FILESYSTEM_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  git-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-git-mcp:latest
+    container_name: idp-git-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${GIT_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  governance-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-governance-mcp:latest
+    container_name: idp-governance-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${GOVERNANCE_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  graphiti-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-graphiti-mcp:latest
+    container_name: idp-graphiti-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${GRAPHITI_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  inventory-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-inventory-mcp:latest
+    container_name: idp-inventory-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${INVENTORY_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  language-server-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-language-server-mcp:latest
+    container_name: idp-language-server-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${LANGUAGE_SERVER_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  onepassword-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-onepassword-mcp:latest
+    container_name: idp-onepassword-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${ONEPASSWORD_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  security-scanner-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-security-scanner-mcp:latest
+    container_name: idp-security-scanner-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${SECURITY_SCANNER_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  shell-mcp:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-shell-mcp:latest
+    container_name: idp-shell-mcp-prod
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${SHELL_MCP_PORT:-3000}:3000"
+    networks:
+      - idp-prod
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Production Monitoring
+  monitoring:
+    image: ${REGISTRY_URL:-localhost:5000}/idp-monitoring:latest
+    container_name: idp-monitoring-prod
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - METRICS_INTERVAL=5000
+    networks:
+      - idp-prod
+    restart: always
+
+networks:
+  idp-prod:
+    driver: bridge
+
+volumes:
+  idp-prod-data:
+    driver: local

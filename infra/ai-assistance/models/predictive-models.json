@@ -1,0 +1,38 @@
+{
+  "bugPrediction": {
+    "name": "BugPredictor",
+    "accuracy": 0.87,
+    "features": [
+      "code_complexity",
+      "change_frequency",
+      "test_coverage",
+      "developer_experience"
+    ],
+    "predictionHorizon": "7_days",
+    "lastTraining": "2025-06-02T06:19:54.874Z"
+  },
+  "performancePrediction": {
+    "name": "PerformanceForecaster",
+    "accuracy": 0.91,
+    "features": [
+      "historical_metrics",
+      "load_patterns",
+      "resource_usage",
+      "deployment_changes"
+    ],
+    "predictionHorizon": "24_hours",
+    "lastTraining": "2025-06-02T06:19:54.874Z"
+  },
+  "capacityPrediction": {
+    "name": "CapacityPlanner",
+    "accuracy": 0.84,
+    "features": [
+      "growth_trends",
+      "seasonal_patterns",
+      "feature_releases",
+      "user_behavior"
+    ],
+    "predictionHorizon": "30_days",
+    "lastTraining": "2025-06-02T06:19:54.874Z"
+  }
+}

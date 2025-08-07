@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-06-02T06:04:27.406Z",
+  "userType": "DIGITAL_TWIN_SIMULATION",
+  "profile": {
+    "name": "DigitalTwin_User",
+    "role": "Senior_Developer",
+    "workflowPatterns": [
+      "code_development",
+      "testing_validation",
+      "deployment_operations",
+      "monitoring_analysis",
+      "security_compliance"
+    ],
+    "preferredTools": [
+      "mcp-servers",
+      "monitoring",
+      "ai-assistance"
+    ],
+    "productivityMetrics": {
+      "dailyCommands": 150,
+      "sessionDuration": 8,
+      "errorTolerance": "low",
+      "performanceExpectation": "high"
+    }
+  },
+  "simulationCapabilities": [
+    "realistic_command_execution",
+    "workflow_pattern_simulation",
+    "error_scenario_testing",
+    "performance_validation",
+    "business_outcome_tracking"
+  ],
+  "validationScope": [
+    "mcp_server_interactions",
+    "monitoring_dashboard_usage",
+    "security_system_testing",
+    "ai_assistance_validation",
+    "deployment_automation_testing"
+  ],
+  "behaviorPatterns": {
+    "commandFrequency": "realistic",
+    "errorHandling": "production_user",
+    "performanceExpectations": "enterprise_grade",
+    "workflowComplexity": "advanced"
+  }
+}

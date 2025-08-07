@@ -1,0 +1,104 @@
+services:
+  mcp-hub:
+    image: localhost:5000/idp/mcp-hub:latest
+    container_name: mcp-hub
+    ports:
+      - "3010:3010"  # Traditional MCP
+      - "3011:3011"  # A2A Protocol  
+      - "3012:3012"  # Docker Bridge
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - GOVERNANCE_ENABLED=true
+      - MCP_MODE=centralized
+      - DOCKER_MCP_ENABLED=true
+      - A2A_ENABLED=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config:/config:ro
+      - hub-data:/data
+    networks:
+      - mcp-public
+      - mcp-internal
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3010/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    labels:
+      - "mcp.server=hub"
+      - "mcp.governance.level=high"
+
+  # Containerized MCP Servers
+  fetch-mcp:
+    image: localhost:5000/idp/fetch-mcp:latest
+    container_name: fetch-mcp
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - GOVERNANCE_LOG=/logs/fetch-mcp.log
+      - MCP_SERVER_NAME=fetch-mcp
+    deploy:
+      resources:
+        limits:
+          memory: 128Mi
+          cpu: 100m
+        reservations:
+          memory: 64Mi
+          cpu: 50m
+    volumes:
+      - ./logs:/logs
+    networks:
+      - mcp-internal
+    restart: unless-stopped
+    labels:
+      - "mcp.server=fetch-mcp"
+      - "mcp.governance.level=low"
+      - "mcp.governance.audit=true"
+
+  # GitHub MCP (using official from MCP catalog)
+  github-mcp:
+    image: docker.io/modelcontextprotocol/server-github:latest
+    container_name: github-mcp
+    environment:
+      - GITHUB_PERSONAL_ACCESS_TOKEN=${GITHUB_TOKEN}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    networks:
+      - mcp-internal
+    restart: unless-stopped
+    labels:
+      - "mcp.server=github"
+      - "mcp.governance.level=medium"
+      - "mcp.governance.audit=true"
+
+  # Memory MCP (using official from MCP catalog)
+  memory-mcp:
+    image: docker.io/modelcontextprotocol/server-memory:latest
+    container_name: memory-mcp
+    environment:
+      - MEMORY_FILE_PATH=/data/knowledge-graph.json
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - memory-data:/data
+    networks:
+      - mcp-internal
+    restart: unless-stopped
+    labels:
+      - "mcp.server=memory"
+      - "mcp.governance.level=medium"
+
+networks:
+  mcp-public:
+    name: mcp-public
+    driver: bridge
+    
+  mcp-internal:
+    name: mcp-internal
+    driver: bridge
+    internal: true
+
+volumes:
+  hub-data:
+    driver: local
+  memory-data:
+    driver: local

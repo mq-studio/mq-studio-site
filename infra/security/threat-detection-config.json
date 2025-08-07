@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "detectionMethods": {
+    "vulnerabilityScanning": true,
+    "dependencyAnalysis": true,
+    "codeAnalysis": true,
+    "secretDetection": true,
+    "complianceChecking": true
+  },
+  "thresholds": {
+    "critical": 0,
+    "high": 1,
+    "medium": 5,
+    "low": 10
+  },
+  "autoRemediation": true
+}

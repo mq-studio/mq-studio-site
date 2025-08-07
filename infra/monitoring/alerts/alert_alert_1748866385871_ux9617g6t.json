@@ -1,0 +1,11 @@
+{
+  "id": "alert_1748866385871_ux9617g6t",
+  "type": "HIGH_MEMORY_USAGE",
+  "timestamp": "2025-06-02T12:13:05.872Z",
+  "level": "WARNING",
+  "metric": "Memory Usage",
+  "value": "88.9%",
+  "threshold": "85%",
+  "action": "Monitor for memory leaks",
+  "resolved": false
+}

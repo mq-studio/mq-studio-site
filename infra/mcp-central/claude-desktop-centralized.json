@@ -1,0 +1,19 @@
+{
+  "workspace": "/home/ichardart/code",
+  "verbose": "true",
+  "mcpServers": {
+    "centralized-mcp": {
+      "command": "curl",
+      "args": [
+        "-X", "GET",
+        "-H", "Content-Type: application/json",
+        "http://localhost:3010/api/health"
+      ],
+      "env": {
+        "MCP_CENTRAL_URL": "http://localhost:3010",
+        "MCP_A2A_URL": "http://localhost:3011", 
+        "MCP_DOCKER_URL": "http://localhost:3012"
+      }
+    }
+  }
+}

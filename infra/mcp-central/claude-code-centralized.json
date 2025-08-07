@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "centralized-mcp-gateway": {
+      "command": "node",
+      "args": [
+        "-e",
+        "const http = require('http'); const url = process.argv[1] || 'http://localhost:3010/api/health'; http.get(url, res => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log(data)); }).on('error', err => { console.error('Error:', err.message); process.exit(1); });",
+        "http://localhost:3010/api/health"
+      ],
+      "env": {
+        "MCP_CENTRAL_URL": "http://localhost:3010",
+        "MCP_A2A_URL": "http://localhost:3011",
+        "MCP_DOCKER_URL": "http://localhost:3012",
+        "LOG_LEVEL": "info",
+        "MCP_MODE": "centralized"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "CodeQualityAnalyzer",
+  "version": "1.0.0",
+  "type": "static_analysis",
+  "capabilities": [
+    "complexity_analysis",
+    "maintainability_scoring",
+    "technical_debt_detection",
+    "code_smell_identification",
+    "performance_bottleneck_detection"
+  ],
+  "accuracy": 0.92,
+  "trainingData": "enterprise_codebase_patterns",
+  "lastUpdated": "2025-06-02T06:19:54.866Z"
+}

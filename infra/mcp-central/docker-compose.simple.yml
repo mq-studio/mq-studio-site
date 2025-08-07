@@ -1,0 +1,68 @@
+services:
+  # GitHub MCP using existing configuration
+  github-mcp:
+    image: docker.io/modelcontextprotocol/server-github:latest
+    container_name: github-mcp
+    environment:
+      - GITHUB_PERSONAL_ACCESS_TOKEN=${GITHUB_TOKEN}
+      - DEBUG=mcp:*
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    labels:
+      - "mcp.server=github"
+      - "mcp.governance.level=medium"
+
+  # Memory MCP using existing configuration  
+  memory-mcp:
+    image: docker.io/modelcontextprotocol/server-memory:latest
+    container_name: memory-mcp
+    environment:
+      - MEMORY_FILE_PATH=/data/knowledge-graph.json
+    volumes:
+      - memory-data:/data
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    labels:
+      - "mcp.server=memory"
+      - "mcp.governance.level=medium"
+
+  # Fetch MCP (our containerized version)
+  fetch-mcp:
+    image: localhost:5000/idp/fetch-mcp:latest
+    container_name: fetch-mcp
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    labels:
+      - "mcp.server=fetch"
+      - "mcp.governance.level=low"
+
+  # Simple MCP proxy/gateway
+  mcp-gateway:
+    image: nginx:alpine
+    container_name: mcp-gateway
+    ports:
+      - "3010:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    depends_on:
+      - github-mcp
+      - memory-mcp
+      - fetch-mcp
+
+networks:
+  mcp-network:
+    name: mcp-network
+    driver: bridge
+
+volumes:
+  memory-data:
+    driver: local

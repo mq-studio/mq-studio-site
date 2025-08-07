@@ -1,0 +1,102 @@
+[
+  {
+    "id": "critical_path_1",
+    "name": "Daily Development Workflow",
+    "priority": "CRITICAL",
+    "businessValue": "HIGH",
+    "steps": [
+      "validate_mcp_ecosystem_health",
+      "execute_code_analysis_workflow",
+      "test_ai_powered_assistance",
+      "validate_monitoring_insights",
+      "verify_security_compliance"
+    ],
+    "expectedOutcomes": [
+      "100% MCP server availability",
+      "AI assistance response < 2 seconds",
+      "Zero security violations",
+      "Real-time monitoring data",
+      "Automated compliance validation"
+    ]
+  },
+  {
+    "id": "critical_path_2",
+    "name": "Production Deployment Simulation",
+    "priority": "CRITICAL",
+    "businessValue": "HIGH",
+    "steps": [
+      "validate_container_orchestration",
+      "test_deployment_automation",
+      "verify_monitoring_activation",
+      "validate_security_framework",
+      "confirm_performance_metrics"
+    ],
+    "expectedOutcomes": [
+      "Successful container deployment",
+      "Automated pipeline execution",
+      "Real-time monitoring active",
+      "Zero-tolerance security maintained",
+      "Performance targets achieved"
+    ]
+  },
+  {
+    "id": "business_value_1",
+    "name": "AI-Powered Development Assistance",
+    "priority": "HIGH",
+    "businessValue": "TRANSFORMATIONAL",
+    "steps": [
+      "activate_ai_assistance_system",
+      "test_predictive_analytics",
+      "validate_code_intelligence",
+      "verify_performance_predictions",
+      "measure_productivity_gains"
+    ],
+    "expectedOutcomes": [
+      "AI assistance operational",
+      "Predictive insights available",
+      "Code quality improvements",
+      "Performance optimization suggestions",
+      "Measurable productivity increase"
+    ]
+  },
+  {
+    "id": "business_value_2",
+    "name": "Enterprise Operations Validation",
+    "priority": "HIGH",
+    "businessValue": "HIGH",
+    "steps": [
+      "test_team_collaboration_tools",
+      "validate_knowledge_management",
+      "verify_automated_workflows",
+      "test_scaling_capabilities",
+      "measure_operational_efficiency"
+    ],
+    "expectedOutcomes": [
+      "Team tools operational",
+      "Knowledge accessible",
+      "Workflows automated",
+      "Scaling responsive",
+      "Efficiency gains measured"
+    ]
+  },
+  {
+    "id": "stress_test_1",
+    "name": "High Load System Validation",
+    "priority": "MEDIUM",
+    "businessValue": "MEDIUM",
+    "steps": [
+      "simulate_concurrent_users",
+      "test_resource_scaling",
+      "validate_performance_under_load",
+      "verify_error_handling",
+      "confirm_system_recovery"
+    ],
+    "expectedOutcomes": [
+      "System handles concurrent load",
+      "Auto-scaling responsive",
+      "Performance maintained",
+      "Graceful error handling",
+      "Quick recovery capability"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  registry:
+    image: registry:2
+    container_name: idp-registry
+    ports:
+      - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm"
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+    volumes:
+      - registry-data:/var/lib/registry
+      - ./auth:/auth:ro
+    restart: unless-stopped
+    networks:
+      - mcp-infrastructure
+
+  # registry-ui:
+  #   image: joxit/docker-registry-ui:latest
+  #   container_name: idp-registry-ui
+  #   ports:
+  #     - "8082:80"
+  #   environment:
+  #     REGISTRY_TITLE: "IDP MCP Registry"
+  #     REGISTRY_URL: http://registry:5000
+  #     DELETE_IMAGES: "true"
+  #   depends_on:
+  #     - registry
+  #   networks:
+  #     - mcp-infrastructure
+
+volumes:
+  registry-data:
+    driver: local
+
+networks:
+  mcp-infrastructure:
+    name: mcp-infrastructure
+    driver: bridge

@@ -1,0 +1,15 @@
+{
+  "name": "PerformancePredictor",
+  "version": "2.0.0",
+  "type": "predictive_analytics",
+  "capabilities": [
+    "response_time_prediction",
+    "throughput_forecasting",
+    "resource_usage_prediction",
+    "scaling_recommendations",
+    "bottleneck_identification"
+  ],
+  "accuracy": 0.89,
+  "predictionWindow": "24_hours",
+  "lastUpdated": "2025-06-02T06:19:54.870Z"
+}

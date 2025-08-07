@@ -1,0 +1,42 @@
+services:
+  # Our containerized fetch-mcp server
+  fetch-mcp:
+    image: localhost:5000/idp/fetch-mcp:latest
+    container_name: fetch-mcp
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - MCP_SERVER_NAME=fetch-mcp
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    labels:
+      - "mcp.server=fetch"
+      - "mcp.governance.level=low"
+      - "mcp.governance.audit=true"
+
+  # Simple status dashboard
+  mcp-dashboard:
+    image: nginx:alpine
+    container_name: mcp-dashboard
+    ports:
+      - "3010:80"
+      - "3011:81"  # A2A endpoint
+      - "3012:82"  # Docker bridge endpoint
+    volumes:
+      - ./dashboard:/usr/share/nginx/html:ro
+      - ./nginx-dashboard.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    depends_on:
+      - fetch-mcp
+
+networks:
+  mcp-network:
+    name: mcp-network
+    driver: bridge
+
+volumes:
+  mcp-data:
+    driver: local
