@@ -1,0 +1,32 @@
+# MCP Server Governance Configuration
+server_name: fetch-mcp
+governance_level: low
+created_date: 2025-06-15
+owner: infrastructure-team
+
+# Security configuration
+security:
+  scan_on_build: true
+  vulnerability_threshold: high
+  require_non_root: true
+  require_health_check: true
+
+# Resource configuration
+resources:
+  memory_limit: 128Mi
+  cpu_limit: 100m
+  memory_request: 64Mi
+  cpu_request: 50m
+
+# Compliance requirements
+compliance:
+  audit_logging: true
+  network_isolation: true
+  secrets_management: external
+  documentation_required: true
+
+# Monitoring configuration
+monitoring:
+  health_check_interval: 30s
+  log_level: info
+  metrics_enabled: true
