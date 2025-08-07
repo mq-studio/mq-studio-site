@@ -1,18 +1,54 @@
 {
   "name": "inventory-mcp-server",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "description": "MCP server for dynamic IDP inventory access",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "nodemon index.js",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "security:scan": "npm audit && npm run lint"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.6.0",
     "sqlite3": "^5.1.7"
   },
-  "keywords": ["mcp", "inventory", "governance", "idp"],
+  "keywords": [
+    "mcp",
+    "inventory",
+    "governance",
+    "idp"
+  ],
   "author": "IDP Governance Framework",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "@types/jest": "^29.5.8",
+    "eslint": "^8.54.0",
+    "nodemon": "^3.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "*.js",
+      "!coverage/**",
+      "!node_modules/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  }
 }
