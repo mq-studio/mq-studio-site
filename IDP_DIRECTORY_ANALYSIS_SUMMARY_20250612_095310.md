@@ -1,0 +1,923 @@
+# IDP Directory Analysis Summary
+
+**Generated**: 2025-06-12T16:51:31.233558+00:00
+
+## Overview
+- **Total Directories Scanned**: 20652
+- **Total Size Gb**: 0.08
+- **Governance Critical Dirs**: 363
+- **Active Project Dirs**: 7209
+- **Cleanup Candidates**: 719
+- **Development Artifacts**: 2286
+
+## Governance Expansion Candidates
+- `code/experiments/hello-react-firebase` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+  - Large directory - may need cleanup or archival
+- `code/products/dog-patio-vancouver` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+  - Large directory - may need cleanup or archival
+- `code/infra/A2A` (Readiness: medium)
+- `code/infra/A2A-upstream` (Readiness: medium)
+- `code/infra/dev-tools/shotgun-code` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+  - Large directory - may need cleanup or archival
+- `code/infra/dev-env-docs` (Readiness: medium)
+- `code/infra/mcp-servers/security-scanner-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/fetch-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/inventory-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/api-testing-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/context-awareness-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/database-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/cicd-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/filesystem-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/language-server-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/graphiti-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/docker-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/git-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/onepassword-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/mcp-servers/mcp-crawl4ai-install/mcp-crawl4ai-rag` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+- `code/infra/mcp-servers/shell-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `code/infra/claude-projects-access-mcp` (Readiness: medium)
+  - Large directory - may need cleanup or archival
+- `.local/share/mcp-servers/mcp-crawl4ai-rag` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+  - Large directory - may need cleanup or archival
+- `idp-projects/idp-core-assets` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+- `idp-projects/servers` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+- `idp-projects/servers/src/memory` (Readiness: medium)
+- `idp-projects/servers/src/google-maps` (Readiness: medium)
+- `idp-projects/servers/src/brave-search` (Readiness: medium)
+- `idp-projects/servers/src/everything` (Readiness: medium)
+- `idp-projects/servers/src/aws-kb-retrieval-server` (Readiness: medium)
+- `idp-projects/servers/src/sequentialthinking` (Readiness: medium)
+- `idp-projects/servers/src/gitlab` (Readiness: medium)
+- `idp-projects/servers/src/filesystem` (Readiness: medium)
+- `idp-projects/servers/src/puppeteer` (Readiness: medium)
+- `idp-projects/servers/src/everart` (Readiness: medium)
+- `idp-projects/servers/src/redis` (Readiness: medium)
+- `idp-projects/karakeep-integration` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+  - Large directory - may need cleanup or archival
+- `idp-projects/mcp` (Readiness: medium)
+  - Has uncommitted changes - needs attention
+
+## High-Priority Cleanup Candidates
+- `code/experiments/hello-react-firebase/.git/objects/info` (61 days old)
+  - Empty directory - candidate for removal
+- `code/experiments/hello-react-firebase/.git/objects/pack` (61 days old)
+  - Empty directory - candidate for removal
+- `code/experiments/hello-react-firebase/.git/branches` (61 days old)
+  - Empty directory - candidate for removal
+- `code/experiments/hello-react-firebase/.git/refs/tags` (61 days old)
+  - Empty directory - candidate for removal
+- `code/.github/PULL_REQUEST_TEMPLATE` (10 days old)
+  - Empty directory - candidate for removal
+- `code/test-hooks/.git/objects/info` (45 days old)
+  - Empty directory - candidate for removal
+- `code/test-hooks/.git/objects/pack` (45 days old)
+  - Empty directory - candidate for removal
+- `code/test-hooks/.git/branches` (45 days old)
+  - Empty directory - candidate for removal
+- `code/test-hooks/.git/refs/tags` (45 days old)
+  - Empty directory - candidate for removal
+- `code/projects/automations` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/templates` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/web` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/web/webpage-project` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/web/webpage-project/tests` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/web/webpage-project/docs` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/web/webpage-project/src` (36 days old)
+  - Empty directory - candidate for removal
+- `code/projects/web/webpage-project/public` (36 days old)
+  - Empty directory - candidate for removal
+- `code/products/agent-orchestrator/src` (48 days old)
+  - Empty directory - candidate for removal
+- `code/products/agent-orchestrator/.git/objects/info` (48 days old)
+  - Empty directory - candidate for removal
+- `code/products/agent-orchestrator/.git/objects/pack` (48 days old)
+  - Empty directory - candidate for removal
+- `code/products/agent-orchestrator/.git/refs/tags` (48 days old)
+  - Empty directory - candidate for removal
+- `code/products/dog-patio-vancouver/public/images` (51 days old)
+  - Empty directory - candidate for removal
+- `code/products/dog-patio-vancouver/.git/objects/info` (57 days old)
+  - Empty directory - candidate for removal
+- `code/products/dog-patio-vancouver/.git/objects/pack` (57 days old)
+  - Empty directory - candidate for removal
+- `code/products/dog-patio-vancouver/.git/branches` (57 days old)
+  - Empty directory - candidate for removal
+- `code/products/dog-patio-vancouver/.git/refs/tags` (57 days old)
+  - Empty directory - candidate for removal
+- `code/infra/tests` (37 days old)
+  - Empty directory - candidate for removal
+- `code/infra/markdown-formatting-mcp/venv/include` (14 days old)
+  - Empty directory - candidate for removal
+- `code/infra/markdown-formatting-mcp/venv/include/python3.12` (14 days old)
+  - Empty directory - candidate for removal
+- `code/infra/validation/metrics` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/infra` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/.git/objects/info` (18 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/.git/branches` (18 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/.git/modules/infra/A2A/objects/info` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/.git/modules/infra/A2A/branches` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/.git/modules/infra/A2A/refs/tags` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/A2A/.git/refs/tags` (18 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-tools/shotgun-code/.git/objects/info` (15 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-tools/shotgun-code/.git/branches` (15 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-tools/shotgun-code/.git/refs/tags` (15 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-docs/.git/objects/info` (59 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-docs/.git/objects/pack` (59 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-docs/.git/branches` (59 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-docs/.git/refs/tags` (59 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server/.git/objects/info` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server/.git/objects/pack` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server/.git/branches` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server/.git/refs/tags` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-servers/mcp-crawl4ai-install/mcp-crawl4ai-rag/.git/objects/info` (0 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-servers/mcp-crawl4ai-install/mcp-crawl4ai-rag/.git/branches` (0 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-servers/mcp-crawl4ai-install/mcp-crawl4ai-rag/.git/refs/tags` (0 days old)
+  - Empty directory - candidate for removal
+- `code/infra/agents/frameworks` (36 days old)
+  - Empty directory - candidate for removal
+- `code/infra/agents/tools` (36 days old)
+  - Empty directory - candidate for removal
+- `code/infra/agents/templates` (36 days old)
+  - Empty directory - candidate for removal
+- `code/infra/collaboration/workflows` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/wsl-helper-mcp/venv/include` (14 days old)
+  - Empty directory - candidate for removal
+- `code/infra/wsl-helper-mcp/venv/include/python3.12` (14 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-utils` (37 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-utils/fastapi_mcp` (37 days old)
+  - Empty directory - candidate for removal
+- `code/infra/tools/deprecated/data` (16 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/templates/project/default/docs` (45 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/templates/project/default/scripts` (45 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/templates/project/default/workflows` (45 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/templates/project/default/assets` (45 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/lib` (45 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/.git/objects/info` (46 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/.git/objects/pack` (46 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/.git/branches` (46 days old)
+  - Empty directory - candidate for removal
+- `code/infra/dev-env-cli/.git/refs/tags` (46 days old)
+  - Empty directory - candidate for removal
+- `code/infra/ai-assistance/analytics` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/ai-assistance/insights` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/ai-assistance/recommendations` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/monitoring/logs` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/monitoring/dashboards` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/monitoring/metrics` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security-tooling/.git/objects/info` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security-tooling/.git/objects/pack` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security-tooling/.git/branches` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security-tooling/.git/refs/tags` (47 days old)
+  - Empty directory - candidate for removal
+- `code/infra/transition-plan/backups` (31 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security/incidents` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security/logs` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security/quarantine` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/security/remediation` (10 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server-hub/.github` (37 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server-hub/.github/ISSUE_TEMPLATE` (37 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server-hub/venv/include` (18 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-server-hub/venv/include/python3.12` (18 days old)
+  - Empty directory - candidate for removal
+- `code/infra/mcp-core` (36 days old)
+  - Empty directory - candidate for removal
+- `code/archives/logs` (14 days old)
+  - Empty directory - candidate for removal
+- `code/idp-venv/include` (0 days old)
+  - Empty directory - candidate for removal
+- `code/idp-venv/include/python3.12` (0 days old)
+  - Empty directory - candidate for removal
+- `code/.git/objects/info` (44 days old)
+  - Empty directory - candidate for removal
+- `code/.git/objects/pack` (44 days old)
+  - Empty directory - candidate for removal
+- `code/.git/branches` (44 days old)
+  - Empty directory - candidate for removal
+- `code/.git/modules/infra/A2A-upstream/objects/info` (17 days old)
+  - Empty directory - candidate for removal
+- `code/.git/modules/infra/A2A-upstream/branches` (17 days old)
+  - Empty directory - candidate for removal
+- `code/.git/modules/infra/A2A-upstream/refs/tags` (17 days old)
+  - Empty directory - candidate for removal
+- `code/.git/refs/tags` (44 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/docs` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/scripts` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/workflows` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/assets` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/.git/objects/info` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/.git/objects/pack` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/.git/branches` (46 days old)
+  - Empty directory - candidate for removal
+- `code/web/test-project/.git/refs/tags` (46 days old)
+  - Empty directory - candidate for removal
+- `code/playground/experimental` (62 days old)
+  - Empty directory - candidate for removal
+- `code/voice-assistant-optimized/logs` (11 days old)
+  - Empty directory - candidate for removal
+- `demo-devcontainer/.git/objects/info` (48 days old)
+  - Empty directory - candidate for removal
+- `demo-devcontainer/.git/objects/pack` (48 days old)
+  - Empty directory - candidate for removal
+- `demo-devcontainer/.git/refs/tags` (48 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/artifact_templates` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/tests` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/docs` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/docs/api` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/docs/usage` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/docs/architecture` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/.github` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/ai_prompts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/ai_prompts/agents` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/ai_prompts/patterns` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/ai_prompts/context` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/scripts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/src/visualization` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/data-analysis/src/models` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/web-application/docs` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/web-application/.github` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/web-application/ai_prompts/agents` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/web-application/ai_prompts/patterns` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/web-application/scripts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/tests` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/docs` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/docs/api` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/docs/usage` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/docs/architecture` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/.github` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/ai_prompts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/ai_prompts/agents` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/ai_prompts/patterns` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/ai_prompts/context` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/scripts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/digital-automation/src/integrations` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/docs` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/.github` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/ai_prompts/agents` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/ai_prompts/patterns` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/scripts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/src/prompts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/ai-agent/data` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/library/docs` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/library/.github` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/library/ai_prompts/agents` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/library/ai_prompts/patterns` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/library/scripts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/product/docs` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/product/.github` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/product/ai_prompts/agents` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/product/ai_prompts/patterns` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/templates/product/scripts` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/.git/objects/info` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/.git/branches` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/idp-core-assets/.git/refs/tags` (34 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/pre-production_projects` (16 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/pre-production_projects/greenhouse_v01` (16 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/sequential-thinking-mcp` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/sequential-thinking-mcp/src` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/user_profile` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/user_needs` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/user_journeys` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/assets` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/assets/templates` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/service_definitions` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/ucf-phase1/prompts` (17 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/servers/.git/objects/info` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/servers/.git/branches` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/servers/.git/refs/tags` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/temp/mcp_hub_venv/include` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/temp/mcp_hub_venv/include/python3.12` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/objects` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/objects/info` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/objects/pack` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/branches` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/refs` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/refs/heads` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/.git/refs/tags` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/task-master-test/tasks` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/weather-mcp/venv/include` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/weather-mcp/venv/include/python3.12` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/weather-mcp/.venv/include` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/weather-mcp/.venv/include/python3.12` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/tests` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/tests/phase2` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/logs` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/docs` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/documentation` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/documentation/api-documentation` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/documentation/technical-docs` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/documentation/user-guides` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/venv/include` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/venv/include/python3.12` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/src/data` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/data` (11 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/project-management/phase-plans` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/architecture/component-specs` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/development/phase2-web-interface` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/development/phase3-ai-components` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/concierge-v2/development/phase4-integration` (13 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/memory-data` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/mcp-server-hub/mcp_hub_venv/include` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/mcp-server-hub/mcp_hub_venv/include/python3.12` (31 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/karakeep-integration/.git/objects/info` (2 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/karakeep-integration/.git/objects/pack` (2 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/karakeep-integration/.git/branches` (2 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/karakeep-integration/.git/refs/tags` (2 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/mcp/.git/objects/info` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/mcp/.git/branches` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/mcp/.git/refs/tags` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/claude-task-master/.git/objects/info` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/claude-task-master/.git/branches` (32 days old)
+  - Empty directory - candidate for removal
+- `idp-projects/claude-task-master/.git/refs/tags` (32 days old)
+  - Empty directory - candidate for removal
+- `docker-mcp` (40 days old)
+  - Empty directory - candidate for removal
+- `projects` (45 days old)
+  - Empty directory - candidate for removal
+- `projects/agent-orchestrator` (45 days old)
+  - Empty directory - candidate for removal
+- `test-hook/.git/objects/info` (45 days old)
+  - Empty directory - candidate for removal
+- `test-hook/.git/objects/pack` (45 days old)
+  - Empty directory - candidate for removal
+- `test-hook/.git/branches` (45 days old)
+  - Empty directory - candidate for removal
+- `test-hook/.git/refs/tags` (45 days old)
+  - Empty directory - candidate for removal
+- `BMAD-METHOD/.git/objects/info` (34 days old)
+  - Empty directory - candidate for removal
+- `BMAD-METHOD/.git/branches` (34 days old)
+  - Empty directory - candidate for removal
+- `BMAD-METHOD/.git/refs/tags` (34 days old)
+  - Empty directory - candidate for removal
+- `Cline/Workflows` (19 days old)
+  - Empty directory - candidate for removal
+- `Cline/Rules` (54 days old)
+  - Empty directory - candidate for removal
+- `Cline/MCP/cline-community/.git/objects/info` (54 days old)
+  - Empty directory - candidate for removal
+- `Cline/MCP/cline-community/.git/branches` (54 days old)
+  - Empty directory - candidate for removal
+- `Cline/MCP/cline-community/.git/refs/tags` (54 days old)
+  - Empty directory - candidate for removal
+- `Cline/MCP/git/venv/include` (54 days old)
+  - Empty directory - candidate for removal
+- `Cline/MCP/git/venv/include/python3.12` (54 days old)
+  - Empty directory - candidate for removal
+
+## Governance-Critical Directories
+- `.mcp` (Size: 0.0MB)
+- `.mcp/transitions` (Size: 0.0MB)
+- `.mcp/transitions/PROJECT_20250501_141855` (Size: 0.0MB)
+- `.mcp/snippets` (Size: 0.0MB)
+- `.mcp/cache` (Size: 0.0MB)
+- `.mcp/scripts` (Size: 0.0MB)
+- `.mcp/sessions` (Size: 0.0MB)
+- `.mcp/settings` (Size: 0.0MB)
+- `.mcp/history` (Size: 0.0MB)
+- `.mcp/.git` (Size: 0.0MB)
+- `.mcp/.git/logs` (Size: 0.0MB)
+- `.mcp/.git/logs/refs` (Size: 0.0MB)
+- `.mcp/.git/logs/refs/remotes` (Size: 0.0MB)
+- `.mcp/.git/logs/refs/remotes/origin` (Size: 0.0MB)
+- `.mcp/.git/logs/refs/heads` (Size: 0.0MB)
+- `.mcp/.git/objects` (Size: 0.0MB)
+- `.mcp/.git/objects/9e` (Size: 0.0MB)
+- `.mcp/.git/objects/b5` (Size: 0.0MB)
+- `.mcp/.git/objects/61` (Size: 0.0MB)
+- `.mcp/.git/objects/ab` (Size: 0.0MB)
+- `.mcp/.git/objects/a3` (Size: 0.0MB)
+- `.mcp/.git/objects/54` (Size: 0.0MB)
+- `.mcp/.git/objects/e1` (Size: 0.0MB)
+- `.mcp/.git/objects/0b` (Size: 0.0MB)
+- `.mcp/.git/objects/6e` (Size: 0.0MB)
+- `.mcp/.git/objects/02` (Size: 0.0MB)
+- `.mcp/.git/objects/28` (Size: 0.0MB)
+- `.mcp/.git/objects/b6` (Size: 0.0MB)
+- `.mcp/.git/objects/dc` (Size: 0.0MB)
+- `.mcp/.git/objects/73` (Size: 0.0MB)
+- `.mcp/.git/objects/0d` (Size: 0.0MB)
+- `.mcp/.git/objects/7f` (Size: 0.0MB)
+- `.mcp/.git/objects/0a` (Size: 0.0MB)
+- `.mcp/.git/objects/info` (Size: 0.0MB)
+- `.mcp/.git/objects/da` (Size: 0.0MB)
+- `.mcp/.git/objects/b3` (Size: 0.0MB)
+- `.mcp/.git/objects/a1` (Size: 0.0MB)
+- `.mcp/.git/objects/21` (Size: 0.0MB)
+- `.mcp/.git/objects/bc` (Size: 0.0MB)
+- `.mcp/.git/objects/d3` (Size: 0.0MB)
+- `.mcp/.git/objects/a0` (Size: 0.0MB)
+- `.mcp/.git/objects/22` (Size: 0.0MB)
+- `.mcp/.git/objects/c5` (Size: 0.0MB)
+- `.mcp/.git/objects/ec` (Size: 0.0MB)
+- `.mcp/.git/objects/88` (Size: 0.0MB)
+- `.mcp/.git/objects/c4` (Size: 0.0MB)
+- `.mcp/.git/objects/32` (Size: 0.0MB)
+- `.mcp/.git/objects/84` (Size: 0.0MB)
+- `.mcp/.git/objects/c6` (Size: 0.0MB)
+- `.mcp/.git/objects/pack` (Size: 0.0MB)
+- `.mcp/.git/objects/92` (Size: 0.0MB)
+- `.mcp/.git/objects/d1` (Size: 0.0MB)
+- `.mcp/.git/objects/45` (Size: 0.0MB)
+- `.mcp/.git/objects/a4` (Size: 0.0MB)
+- `.mcp/.git/objects/5b` (Size: 0.0MB)
+- `.mcp/.git/objects/91` (Size: 0.0MB)
+- `.mcp/.git/objects/25` (Size: 0.0MB)
+- `.mcp/.git/objects/14` (Size: 0.0MB)
+- `.mcp/.git/objects/fb` (Size: 0.0MB)
+- `.mcp/.git/objects/2e` (Size: 0.0MB)
+- `.mcp/.git/objects/f5` (Size: 0.0MB)
+- `.mcp/.git/objects/e2` (Size: 0.0MB)
+- `.mcp/.git/objects/df` (Size: 0.0MB)
+- `.mcp/.git/branches` (Size: 0.0MB)
+- `.mcp/.git/info` (Size: 0.0MB)
+- `.mcp/.git/refs` (Size: 0.0MB)
+- `.mcp/.git/refs/remotes` (Size: 0.0MB)
+- `.mcp/.git/refs/remotes/origin` (Size: 0.0MB)
+- `.mcp/.git/refs/heads` (Size: 0.0MB)
+- `.mcp/.git/refs/tags` (Size: 0.0MB)
+- `.mcp/.git/hooks` (Size: 0.0MB)
+- `.mcp/audits` (Size: 0.0MB)
+- `.mcp/sops` (Size: 0.0MB)
+- `.mcp/prompts` (Size: 0.0MB)
+- `.mcp/tasks` (Size: 0.0MB)
+- `.nvm` (Size: 0.0MB)
+- `code` (Size: 0.0MB)
+- `code/experiments` (Size: 0.0MB)
+- `code/.github` (Size: 0.0MB)
+- `code/clients` (Size: 0.0MB)
+- `code/business` (Size: 0.0MB)
+- `code/test-hooks` (Size: 0.0MB)
+- `code/projects` (Size: 0.0MB)
+- `code/products` (Size: 0.0MB)
+- `code/.claude` (Size: 0.0MB)
+- `code/templates` (Size: 0.0MB)
+- `code/data` (Size: 0.0MB)
+- `code/infra` (Size: 0.0MB)
+- `code/infra/mcp-server` (Size: 0.0MB)
+- `code/infra/mcp-server/governance-reference-mcp` (Size: 0.0MB)
+- `code/infra/governance` (Size: 0.0MB)
+- `code/infra/mcp-servers/governance-mcp` (Size: 0.0MB)
+- `code/infra/mcp-servers/governance-mcp/node_modules` (Size: 0.01MB)
+- `code/infra/.claude` (Size: 0.0MB)
+- `code/infra/dev-env-cli` (Size: 0.0MB)
+- `code/infra/security-tooling` (Size: 0.0MB)
+- `code/infra/idp-governance` (Size: 0.0MB)
+- `code/infra/idp-governance/feedback` (Size: 0.0MB)
+- `code/infra/idp-governance/feedback/insights` (Size: 0.0MB)
+- `code/infra/idp-governance/feedback/mechanisms` (Size: 0.0MB)
+- `code/infra/idp-governance/feedback/templates` (Size: 0.0MB)
+- `code/infra/idp-governance/feedback/analysis` (Size: 0.0MB)
+- `code/infra/idp-governance/assessment` (Size: 0.0MB)
+- `code/infra/idp-governance/assessment/procedures` (Size: 0.0MB)
+- `code/infra/idp-governance/assessment/checklists` (Size: 0.0MB)
+- `code/infra/idp-governance/assessment/reports` (Size: 0.0MB)
+- `code/infra/idp-governance/assessment/templates` (Size: 0.0MB)
+- `code/infra/idp-governance/reports` (Size: 0.0MB)
+- `code/infra/idp-governance/reports/quarterly` (Size: 0.0MB)
+- `code/infra/idp-governance/reports/dashboards` (Size: 0.0MB)
+- `code/infra/idp-governance/reports/monthly` (Size: 0.0MB)
+- `code/infra/idp-governance/reports/templates` (Size: 0.0MB)
+- `code/infra/idp-governance/planning` (Size: 0.0MB)
+- `code/infra/idp-governance/planning/vision` (Size: 0.0MB)
+- `code/infra/idp-governance/planning/backlog` (Size: 0.0MB)
+- `code/infra/idp-governance/planning/strategy` (Size: 0.0MB)
+- `code/infra/idp-governance/planning/roadmap` (Size: 0.0MB)
+- `code/infra/idp-governance/tools` (Size: 0.0MB)
+- `code/infra/idp-governance/metrics` (Size: 0.0MB)
+- `code/infra/idp-governance/metrics/dashboards` (Size: 0.0MB)
+- `code/infra/idp-governance/metrics/collection` (Size: 0.0MB)
+- `code/infra/idp-governance/metrics/definitions` (Size: 0.0MB)
+- `code/infra/idp-governance/metrics/historical` (Size: 0.0MB)
+- `code/infra/mcp-server-hub/governance` (Size: 0.0MB)
+- `code/infra/mcp-server-hub/config/governance` (Size: 0.0MB)
+- `code/share` (Size: 0.0MB)
+- `code/archives` (Size: 0.0MB)
+- `code/idp-venv` (Size: 0.0MB)
+- `code/.git` (Size: 0.0MB)
+- `code/.githooks` (Size: 0.0MB)
+- `code/web` (Size: 0.0MB)
+- `code/web/test-project` (Size: 0.0MB)
+- `code/playground` (Size: 0.0MB)
+- `code/temp-scripts` (Size: 0.0MB)
+- `code/.vscode` (Size: 0.0MB)
+- `code/voice-assistant-optimized` (Size: 0.0MB)
+- `.vscode-remote-containers` (Size: 0.0MB)
+- `.vscode-remote-containers/dist` (Size: 0.0MB)
+- `idp-projects/ucf-phase1/governance` (Size: 0.0MB)
+- `idp-projects/ucf-phase1/governance_operationalization` (Size: 0.0MB)
+- `idp-projects/temp/governance` (Size: 0.0MB)
+- `idp-projects/temp/config/governance` (Size: 0.0MB)
+- `idp-projects/.claude` (Size: 0.0MB)
+- `idp-projects/concierge-v2/governance` (Size: 0.0MB)
+- `idp-projects/concierge-v2/src/governance` (Size: 0.0MB)
+- `idp-projects/concierge-v2/src/governance/advanced` (Size: 0.0MB)
+- `idp-projects/concierge-v2/src/governance/advanced/__pycache__` (Size: 0.0MB)
+- `idp-projects/idp-governance` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/standards` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/validation` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/scripts` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts/6-Developer_Agent` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts/1-Analyst_BA_Agent` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts/3-Architect_Agent` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts/5-Scrum_Master_Agent` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts/2-Product_Manager_Agent` (Size: 0.0MB)
+- `idp-projects/idp-governance/methodologies/bmad_v2/prompts/4-Product_Owner_Agent` (Size: 0.0MB)
+- `idp-projects/idp-governance/validation` (Size: 0.0MB)
+- `idp-projects/idp-governance/validation/templates` (Size: 0.0MB)
+- `idp-projects/idp-governance/validation/results` (Size: 0.0MB)
+- `idp-projects/idp-governance/feedback` (Size: 0.0MB)
+- `idp-projects/idp-governance/.github` (Size: 0.0MB)
+- `idp-projects/idp-governance/.github/workflows` (Size: 0.0MB)
+- `idp-projects/idp-governance/reports` (Size: 0.0MB)
+- `idp-projects/idp-governance/planning` (Size: 0.0MB)
+- `idp-projects/idp-governance/planning/task_plans` (Size: 0.0MB)
+- `idp-projects/idp-governance/ideas_greenhouse` (Size: 0.0MB)
+- `idp-projects/idp-governance/ideas_greenhouse/methodology_enhancements` (Size: 0.0MB)
+- `idp-projects/idp-governance/ideas_greenhouse/development_tooling` (Size: 0.0MB)
+- `idp-projects/idp-governance/ideas_greenhouse/frameworks_integrations` (Size: 0.0MB)
+- `idp-projects/idp-governance/ideas_greenhouse/workflows` (Size: 0.0MB)
+- `idp-projects/idp-governance/ideas_greenhouse/ai_orchestration` (Size: 0.0MB)
+- `idp-projects/idp-governance/metrics` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/logs` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/logs/refs` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/logs/refs/remotes` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/logs/refs/remotes/origin` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/logs/refs/heads` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/3d` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/ab` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/d2` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/95` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/8d` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/f7` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/7a` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/80` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/48` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/info` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/21` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/30` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/pack` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/5a` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/d5` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/5c` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/58` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/f3` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/12` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/fb` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/f1` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/2e` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/9d` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/18` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/objects/fc` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/branches` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/info` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/refs` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/refs/remotes` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/refs/remotes/origin` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/refs/heads` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/refs/tags` (Size: 0.0MB)
+- `idp-projects/idp-governance/.git/hooks` (Size: 0.0MB)
+- `idp-projects/idp-governance/audits` (Size: 0.0MB)
+- `idp-projects/karakeep-integration/.claude` (Size: 0.0MB)
+- `idp-projects/claude-task-master` (Size: 0.0MB)
+- `idp-projects/claude-task-master/.governance` (Size: 0.0MB)
+- `.claude` (Size: 0.0MB)
+- `.claude/archive` (Size: 0.0MB)
+- `.claude/archive/mcp-tasks` (Size: 0.0MB)
+- `.claude/archive/mcp-tasks/0e13f781-c64e-4022-b904-8b4602c3c585` (Size: 0.0MB)
+- `.claude/statsig` (Size: 0.0MB)
+- `.claude/projects` (Size: 0.0MB)
+- `.claude/projects/-home-ichardart` (Size: 0.0MB)
+- `.claude/projects/-home-ichardart-idp-projects-karakeep-integration` (Size: 0.0MB)
+- `.claude/todos` (Size: 0.0MB)
+- `.claude/ide` (Size: 0.0MB)
+- `.vscode-server` (Size: 0.0MB)
+- `.vscode-server/bin` (Size: 0.0MB)
+- `.vscode-server/data` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost5/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost12/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost7/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost14/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost11/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost13/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost6/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost10/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost2/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost8/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost4/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost3/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250608T072617/exthost1/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250610T204115/exthost1/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250610T220023/exthost1/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250612T000800/exthost1/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250612T071808/exthost2/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250612T071808/exthost3/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250612T071808/exthost1/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250611T233011/exthost2/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250611T061711/exthost2/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250611T061711/exthost4/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250611T061711/exthost3/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/logs/20250611T061711/exthost1/Anthropic.claude-code` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/cache` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/settings` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1748447391026` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1749554219144` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1748095735335` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1746363714845` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1748096343007` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1748098261969` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1748096875677` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1748097116917` (Size: 0.0MB)
+- `.vscode-server/data/User/globalStorage/saoudrizwan.claude-dev/tasks/1746336330009` (Size: 0.0MB)
+- `.vscode-server/extensions` (Size: 0.01MB)
+- `.vscode-server/extensions/anthropic.claude-code-1.0.21` (Size: 0.0MB)
+- `.vscode-server/extensions/anthropic.claude-code-1.0.21/dist` (Size: 0.0MB)
+- `.vscode-server/extensions/anthropic.claude-code-1.0.21/resources` (Size: 0.0MB)
+- `.vscode-server/extensions/anthropic.claude-code-1.0.18` (Size: 0.0MB)
+- `.vscode-server/extensions/anthropic.claude-code-1.0.18/dist` (Size: 0.0MB)
+- `.vscode-server/extensions/anthropic.claude-code-1.0.18/resources` (Size: 0.0MB)
+- `.vscode-server/extensions/coderabbit.coderabbit-vscode-0.8.2/.claude` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/eslint-rules` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/node_modules` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/dist-standalone` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/dist-standalone/proto` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.github` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.github/scripts` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.github/scripts/tests` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.github/scripts/coverage_check` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.github/workflows` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.github/ISSUE_TEMPLATE` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/webview-ui` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/webview-ui/node_modules` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/webview-ui/build` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/webview-ui/build/assets` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/webview-ui/build/assets/fonts` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.clinerules` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.clinerules/workflows` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/scripts` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/dist` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/walkthrough` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/ja` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/de` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/zh-tw` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/ar-sa` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/zh-cn` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/ko` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/pt-BR` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/locales/es` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.changeset` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/src` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/src/integrations` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/src/integrations/theme` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/src/integrations/theme/default-themes` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/evals` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/evals/cli` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/proto` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/proto/host` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/.husky` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/assets` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/assets/docs` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/assets/icons` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/cline-customization` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/getting-started-new-coders` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/prompting` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/prompting/custom instructions library` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/prompting/custom instructions library/raw-instructions` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/tools` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/architecture` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/old_docs/mcp` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/standalone` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/standalone/runtime-files` (Size: 0.0MB)
+- `.vscode-server/extensions/saoudrizwan.claude-dev-3.17.12/standalone/runtime-files/vscode` (Size: 0.0MB)
+- `.vscode-server/extensions/ms-kubernetes-tools.vscode-kubernetes-tools-1.3.24` (Size: 0.0MB)
+- `idp-governance` (Size: 0.0MB)
+- `idp-governance/methodologies` (Size: 0.0MB)
+- `idp-governance/validation` (Size: 0.0MB)
+- `idp-governance/projects` (Size: 0.0MB)
+- `idp-governance/projects/code` (Size: 0.0MB)
+- `idp-governance/projects/idp-projects` (Size: 0.0MB)
+- `idp-governance/frameworks` (Size: 0.0MB)
+- `idp-governance/tools` (Size: 0.0MB)
+- `idp-governance/tooling` (Size: 0.0MB)
+- `idp-governance/monitoring` (Size: 0.0MB)
+- `idp-governance/monitoring/logs` (Size: 0.0MB)
+- `idp-governance/monitoring/reports` (Size: 0.0MB)
+- `idp-governance/monitoring/metrics` (Size: 0.0MB)
+- `idp-governance/core` (Size: 0.0MB)
+- `idp-governance/metrics` (Size: 0.0MB)
+- `idp-governance/archives` (Size: 0.0MB)
+- `idp-governance/security` (Size: 0.0MB)
+- `idp-governance/artifacts` (Size: 0.0MB)
+- `.codeium` (Size: 0.0MB)
+- `.codeium/changelog` (Size: 0.0MB)
+- `.codeium/memories` (Size: 0.0MB)
+- `.codeium/database` (Size: 0.0MB)
+- `.codeium/university` (Size: 0.0MB)
+- `.codeium/context_state` (Size: 0.0MB)
+- `.codeium/implicit` (Size: 0.0MB)
+- `.codeium/recipes` (Size: 0.0MB)
+- `.codeium/code_tracker` (Size: 0.0MB)
+- `.codeium/cascade` (Size: 0.0MB)
+- `.codeium/windsurf` (Size: 0.0MB)
