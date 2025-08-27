@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Value Dashboard - Healthcare Network Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0f0f23;
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+        
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-title {
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+        
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .header-metrics {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        
+        .header-metric {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .header-metric-label {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .header-metric-value {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .header-metric-change {
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .positive { color: #00ff88; }
+        .negative { color: #ff4757; }
+        .neutral { color: #ffd93d; }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .main-panel {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .side-panel {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .dashboard-card {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-badge {
+            background: rgba(102, 126, 234, 0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .metric-box {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .metric-label {
+            font-size: 0.85em;
+            color: #a8a8b3;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .metric-trend {
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        
+        .alert-list {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .alert-item {
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .alert-critical {
+            background: rgba(255, 71, 87, 0.2);
+            border-left: 3px solid #ff4757;
+        }
+        
+        .alert-warning {
+            background: rgba(255, 217, 61, 0.2);
+            border-left: 3px solid #ffd93d;
+        }
+        
+        .alert-info {
+            background: rgba(102, 126, 234, 0.2);
+            border-left: 3px solid #667eea;
+        }
+        
+        .alert-icon {
+            font-size: 1.5em;
+        }
+        
+        .alert-content {
+            flex: 1;
+        }
+        
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .alert-desc {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .location-card {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .location-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff88, #667eea);
+        }
+        
+        .location-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .location-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.9em;
+        }
+        
+        .progress-bar {
+            background: rgba(255,255,255,0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .innovation-pipeline {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .pipeline-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .pipeline-info {
+            display: grid;
+            gap: 5px;
+        }
+        
+        .pipeline-name {
+            font-weight: 600;
+        }
+        
+        .pipeline-stage {
+            font-size: 0.85em;
+            color: #a8a8b3;
+        }
+        
+        .pipeline-value {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #00ff88;
+        }
+        
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .data-table {
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .data-table th {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;
+            color: #a8a8b3;
+        }
+        
+        .data-table td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9em;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+        
+        .status-active {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+        }
+        
+        .status-pending {
+            background: rgba(255, 217, 61, 0.2);
+            color: #ffd93d;
+        }
+        
+        .status-at-risk {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .dashboard-card {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <div class="dashboard-header">
+            <div class="header-top">
+                <h1 class="dashboard-title">Healthcare Network Command Center</h1>
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    <span>LIVE DATA</span>
+                    <span style="opacity: 0.7;">Last updated: 2 min ago</span>
+                </div>
+            </div>
+            
+            <div class="header-metrics">
+                <div class="header-metric">
+                    <div class="header-metric-label">Network Revenue</div>
+                    <div class="header-metric-value">$1.2M</div>
+                    <div class="header-metric-change positive">↑ 12% MoM</div>
+                </div>
+                <div class="header-metric">
+                    <div class="header-metric-label">Active Patients</div>
+                    <div class="header-metric-value">8,453</div>
+                    <div class="header-metric-change positive">↑ 8% MoM</div>
+                </div>
+                <div class="header-metric">
+                    <div class="header-metric-label">Network EBITDA</div>
+                    <div class="header-metric-value">14.2%</div>
+                    <div class="header-metric-change neutral">→ 0% MoM</div>
+                </div>
+                <div class="header-metric">
+                    <div class="header-metric-label">Practitioner Utilization</div>
+                    <div class="header-metric-value">72%</div>
+                    <div class="header-metric-change positive">↑ 5% MoM</div>
+                </div>
+                <div class="header-metric">
+                    <div class="header-metric-label">AI Augmentation</div>
+                    <div class="header-metric-value">38%</div>
+                    <div class="header-metric-change positive">↑ 3% MoM</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Main Panel -->
+            <div class="main-panel">
+                <!-- Operational Excellence Metrics -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📊</span>
+                            <span>Operational Excellence Metrics</span>
+                        </div>
+                        <span class="card-badge">Real-time</span>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-label">Revenue per Practitioner</div>
+                            <div class="metric-value">$26.7K</div>
+                            <div class="metric-trend positive">↑ Target: $26.6K/mo</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Patient Acquisition Cost</div>
+                            <div class="metric-value">$127</div>
+                            <div class="metric-trend positive">↓ 15% from last month</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Patient Lifetime Value</div>
+                            <div class="metric-value">$3,450</div>
+                            <div class="metric-trend positive">↑ 8% QoQ</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Visit Completion Rate</div>
+                            <div class="metric-value">94%</div>
+                            <div class="metric-trend neutral">→ Industry avg: 92%</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Insurance Coverage Mix</div>
+                            <div class="metric-value">68%</div>
+                            <div class="metric-trend positive">↑ From 65% target</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-label">Virtual Care Utilization</div>
+                            <div class="metric-value">32%</div>
+                            <div class="metric-trend positive">↑ Target: 30%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location Performance -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📍</span>
+                            <span>Location Performance Matrix</span>
+                        </div>
+                        <span class="card-badge">5 Locations</span>
+                    </div>
+                    
+                    <div class="location-grid">
+                        <div class="location-card">
+                            <div class="location-name">Vancouver - Flagship</div>
+                            <div class="location-metrics">
+                                <div>Revenue: $385K</div>
+                                <div>Utilization: 78%</div>
+                                <div>Patients: 2,847</div>
+                                <div>NPS: 72</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-name">Calgary - Site 2</div>
+                            <div class="location-metrics">
+                                <div>Revenue: $245K</div>
+                                <div>Utilization: 65%</div>
+                                <div>Patients: 1,523</div>
+                                <div>NPS: 68</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-name">Toronto - Site 3</div>
+                            <div class="location-metrics">
+                                <div>Revenue: $312K</div>
+                                <div>Utilization: 71%</div>
+                                <div>Patients: 2,104</div>
+                                <div>NPS: 74</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 71%;"></div>
+                            </div>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-name">Victoria - Acquisition</div>
+                            <div class="location-metrics">
+                                <div>Revenue: $198K</div>
+                                <div>Utilization: 62%</div>
+                                <div>Patients: 1,456</div>
+                                <div>NPS: 70</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 62%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <!-- Critical Alerts -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>⚠️</span>
+                            <span>Critical Alerts</span>
+                        </div>
+                        <span class="card-badge">3 Active</span>
+                    </div>
+                    
+                    <div class="alert-list">
+                        <div class="alert-item alert-critical">
+                            <div class="alert-icon">🔴</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Practitioner Shortage</div>
+                                <div class="alert-desc">Calgary location at 70% staffing</div>
+                            </div>
+                        </div>
+                        <div class="alert-item alert-warning">
+                            <div class="alert-icon">🟡</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Insurance Change</div>
+                                <div class="alert-desc">Ontario coverage reduction Jan 2026</div>
+                            </div>
+                        </div>
+                        <div class="alert-item alert-info">
+                            <div class="alert-icon">🔵</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Tech Deployment</div>
+                                <div class="alert-desc">AI documentation pilot ready</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Innovation Pipeline -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🚀</span>
+                            <span>Innovation Pipeline</span>
+                        </div>
+                        <span class="card-badge">NPV: $3.2M</span>
+                    </div>
+                    
+                    <div class="innovation-pipeline">
+                        <div class="pipeline-item">
+                            <div class="pipeline-info">
+                                <div class="pipeline-name">Corporate Wellness Platform</div>
+                                <div class="pipeline-stage">Pilot Phase</div>
+                            </div>
+                            <div class="pipeline-value">$450K</div>
+                        </div>
+                        <div class="pipeline-item">
+                            <div class="pipeline-info">
+                                <div class="pipeline-name">Indigenous Partnership</div>
+                                <div class="pipeline-stage">MOU Stage</div>
+                            </div>
+                            <div class="pipeline-value">$800K</div>
+                        </div>
+                        <div class="pipeline-item">
+                            <div class="pipeline-info">
+                                <div class="pipeline-name">Data Products MVP</div>
+                                <div class="pipeline-stage">Development</div>
+                            </div>
+                            <div class="pipeline-value">$320K</div>
+                        </div>
+                        <div class="pipeline-item">
+                            <div class="pipeline-info">
+                                <div class="pipeline-name">AI Clinical Assistant</div>
+                                <div class="pipeline-stage">Testing</div>
+                            </div>
+                            <div class="pipeline-value">$650K</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Grid -->
+        <div class="bottom-grid">
+            <!-- Practitioner Performance -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>👥</span>
+                        <span>Practitioner Analytics</span>
+                    </div>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Practitioner</th>
+                            <th>Productivity</th>
+                            <th>Revenue</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dr. Sarah Chen, ND</td>
+                            <td>94%</td>
+                            <td>$38K</td>
+                            <td><span class="status-badge status-active">Top Performer</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Michael Ross, ND</td>
+                            <td>87%</td>
+                            <td>$32K</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Jennifer Wu, NP</td>
+                            <td>72%</td>
+                            <td>$26K</td>
+                            <td><span class="status-badge status-pending">Training</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dr. David Park, ND</td>
+                            <td>58%</td>
+                            <td>$19K</td>
+                            <td><span class="status-badge status-at-risk">Support Needed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Financial Health -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>💰</span>
+                        <span>Financial Health</span>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="metric-box">
+                        <div class="metric-label">Cash Runway</div>
+                        <div class="metric-value">18 months</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Burn Rate</div>
+                        <div class="metric-value">$195K/mo</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Working Capital</div>
+                        <div class="metric-value">$2.8M</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">AR Days</div>
+                        <div class="metric-value">42 days</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Risk Indicators -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>🎯</span>
+                        <span>Risk Indicators</span>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="metric-box">
+                        <div class="metric-label">Regulatory Risk</div>
+                        <div class="metric-value">Medium</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Competition Index</div>
+                        <div class="metric-value">3.2/5</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Tech Adoption</div>
+                        <div class="metric-value">On Track</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Market Position</div>
+                        <div class="metric-value">Strong</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

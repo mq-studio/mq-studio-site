@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provincial Scaling Strategy Canvas - Multi-Jurisdiction Healthcare Expansion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .map-container {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .map-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .provinces-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .province-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .province-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .bc-card::before { background: #28a745; }
+        .alberta-card::before { background: #ffc107; }
+        .ontario-card::before { background: #17a2b8; }
+        .quebec-card::before { background: #dc3545; }
+        .maritime-card::before { background: #6c757d; }
+        .future-card::before { background: #e9ecef; }
+        
+        .province-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .province-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .province-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .status-active { background: #d4edda; color: #155724; }
+        .status-ready { background: #fff3cd; color: #856404; }
+        .status-planning { background: #cce5ff; color: #004085; }
+        .status-restricted { background: #f8d7da; color: #721c24; }
+        .status-future { background: #e9ecef; color: #6c757d; }
+        
+        .province-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .metric-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .metric-label {
+            font-size: 0.8em;
+            color: #6c757d;
+            margin-bottom: 3px;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .province-factors {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .factors-title {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .factor-list {
+            display: grid;
+            gap: 5px;
+        }
+        
+        .factor-item {
+            font-size: 0.85em;
+            color: #6c757d;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .factor-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        
+        .regulatory-matrix {
+            padding: 40px;
+            background: white;
+        }
+        
+        .matrix-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .matrix-table th {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .matrix-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .matrix-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .check-yes {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .check-no {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        
+        .check-partial {
+            color: #ffc107;
+            font-weight: 600;
+        }
+        
+        .expansion-timeline {
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .timeline-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .timeline-track {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        .timeline-phase {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .phase-quarter {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .phase-locations {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .phase-activities {
+            font-size: 0.85em;
+            color: #6c757d;
+            text-align: left;
+        }
+        
+        .investment-breakdown {
+            padding: 40px;
+            background: white;
+        }
+        
+        .investment-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .investment-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .investment-province {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .investment-items {
+            display: grid;
+            gap: 10px;
+            text-align: left;
+        }
+        
+        .investment-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+        
+        .item-name {
+            color: #495057;
+        }
+        
+        .item-amount {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .investment-total {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #dee2e6;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #28a745;
+        }
+        
+        .success-factors {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 40px;
+            margin: 30px 40px;
+            border-radius: 15px;
+        }
+        
+        .factors-header {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #155724;
+        }
+        
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .success-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .success-title {
+            font-weight: 600;
+            color: #155724;
+            margin-bottom: 5px;
+        }
+        
+        .success-description {
+            font-size: 0.85em;
+            color: #495057;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Provincial Scaling Strategy Canvas</h1>
+            <p class="header-subtitle">Navigating Multi-Jurisdiction Healthcare Expansion Across Canada</p>
+        </div>
+        
+        <!-- Provincial Map -->
+        <div class="map-container">
+            <h2 class="map-title">Provincial Market Assessment & Entry Strategy</h2>
+            
+            <div class="provinces-grid">
+                <!-- British Columbia -->
+                <div class="province-card bc-card">
+                    <div class="province-header">
+                        <span class="province-name">British Columbia</span>
+                        <span class="province-status status-active">Active</span>
+                    </div>
+                    
+                    <div class="province-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Market Size</div>
+                            <div class="metric-value">$450M</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NDs Licensed</div>
+                            <div class="metric-value">750</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Insurance Coverage</div>
+                            <div class="metric-value">85%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Competition</div>
+                            <div class="metric-value">Moderate</div>
+                        </div>
+                    </div>
+                    
+                    <div class="province-factors">
+                        <div class="factors-title">Key Success Factors:</div>
+                        <div class="factor-list">
+                            <div class="factor-item">Full scope of practice</div>
+                            <div class="factor-item">Strong insurance coverage</div>
+                            <div class="factor-item">Established market acceptance</div>
+                            <div class="factor-item">BCNA supportive</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alberta -->
+                <div class="province-card alberta-card">
+                    <div class="province-header">
+                        <span class="province-name">Alberta</span>
+                        <span class="province-status status-ready">Ready Q2</span>
+                    </div>
+                    
+                    <div class="province-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Market Size</div>
+                            <div class="metric-value">$280M</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NDs Licensed</div>
+                            <div class="metric-value">450</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Insurance Coverage</div>
+                            <div class="metric-value">70%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Competition</div>
+                            <div class="metric-value">Low</div>
+                        </div>
+                    </div>
+                    
+                    <div class="province-factors">
+                        <div class="factors-title">Key Success Factors:</div>
+                        <div class="factor-list">
+                            <div class="factor-item">Growing market acceptance</div>
+                            <div class="factor-item">Oil sector benefits strong</div>
+                            <div class="factor-item">Less saturated market</div>
+                            <div class="factor-item">Calgary/Edmonton focus</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ontario -->
+                <div class="province-card ontario-card">
+                    <div class="province-header">
+                        <span class="province-name">Ontario</span>
+                        <span class="province-status status-planning">Q3-Q4</span>
+                    </div>
+                    
+                    <div class="province-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Market Size</div>
+                            <div class="metric-value">$850M</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NDs Licensed</div>
+                            <div class="metric-value">1,100</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Insurance Coverage</div>
+                            <div class="metric-value">60%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Competition</div>
+                            <div class="metric-value">High</div>
+                        </div>
+                    </div>
+                    
+                    <div class="province-factors">
+                        <div class="factors-title">Key Success Factors:</div>
+                        <div class="factor-list">
+                            <div class="factor-item">Largest market opportunity</div>
+                            <div class="factor-item">Insurance cuts risk</div>
+                            <div class="factor-item">GTA concentration</div>
+                            <div class="factor-item">Prescribing rights pending</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quebec -->
+                <div class="province-card quebec-card">
+                    <div class="province-header">
+                        <span class="province-name">Quebec</span>
+                        <span class="province-status status-restricted">Restricted</span>
+                    </div>
+                    
+                    <div class="province-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Market Size</div>
+                            <div class="metric-value">Limited</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NDs Licensed</div>
+                            <div class="metric-value">N/A</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Insurance Coverage</div>
+                            <div class="metric-value">Minimal</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Competition</div>
+                            <div class="metric-value">N/A</div>
+                        </div>
+                    </div>
+                    
+                    <div class="province-factors">
+                        <div class="factors-title">Barriers:</div>
+                        <div class="factor-list">
+                            <div class="factor-item">No ND regulation</div>
+                            <div class="factor-item">Language requirements</div>
+                            <div class="factor-item">Bill 29 restrictions</div>
+                            <div class="factor-item">Focus on other provinces</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Maritimes -->
+                <div class="province-card maritime-card">
+                    <div class="province-header">
+                        <span class="province-name">Atlantic Provinces</span>
+                        <span class="province-status status-future">Year 2+</span>
+                    </div>
+                    
+                    <div class="province-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Market Size</div>
+                            <div class="metric-value">$120M</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NDs Licensed</div>
+                            <div class="metric-value">150</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Insurance Coverage</div>
+                            <div class="metric-value">Variable</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Competition</div>
+                            <div class="metric-value">Minimal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="province-factors">
+                        <div class="factors-title">Opportunities:</div>
+                        <div class="factor-list">
+                            <div class="factor-item">Nova Scotia regulated</div>
+                            <div class="factor-item">Underserved markets</div>
+                            <div class="factor-item">Virtual care potential</div>
+                            <div class="factor-item">Lower competition</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Future Markets -->
+                <div class="province-card future-card">
+                    <div class="province-header">
+                        <span class="province-name">Prairies & North</span>
+                        <span class="province-status status-future">Future</span>
+                    </div>
+                    
+                    <div class="province-metrics">
+                        <div class="metric-item">
+                            <div class="metric-label">Market Size</div>
+                            <div class="metric-value">$80M</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NDs Licensed</div>
+                            <div class="metric-value">50</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Insurance Coverage</div>
+                            <div class="metric-value">Limited</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Competition</div>
+                            <div class="metric-value">None</div>
+                        </div>
+                    </div>
+                    
+                    <div class="province-factors">
+                        <div class="factors-title">Considerations:</div>
+                        <div class="factor-list">
+                            <div class="factor-item">Saskatchewan regulated</div>
+                            <div class="factor-item">Manitoba emerging</div>
+                            <div class="factor-item">Virtual-first strategy</div>
+                            <div class="factor-item">Indigenous partnerships</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Regulatory Comparison Matrix -->
+        <div class="regulatory-matrix">
+            <h2 class="matrix-title">Provincial Regulatory Comparison Matrix</h2>
+            
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>British Columbia</th>
+                        <th>Alberta</th>
+                        <th>Ontario</th>
+                        <th>Quebec</th>
+                        <th>Nova Scotia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ND Regulation</strong></td>
+                        <td class="check-yes">✓ Full</td>
+                        <td class="check-yes">✓ Full</td>
+                        <td class="check-yes">✓ Full</td>
+                        <td class="check-no">✗ None</td>
+                        <td class="check-yes">✓ Full</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prescribing Rights</strong></td>
+                        <td class="check-yes">✓ Yes</td>
+                        <td class="check-partial">◐ Limited</td>
+                        <td class="check-partial">◐ Pending</td>
+                        <td class="check-no">✗ N/A</td>
+                        <td class="check-partial">◐ Limited</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lab Access</strong></td>
+                        <td class="check-yes">✓ Full</td>
+                        <td class="check-yes">✓ Full</td>
+                        <td class="check-partial">◐ Partial</td>
+                        <td class="check-no">✗ None</td>
+                        <td class="check-partial">◐ Partial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insurance Coverage</strong></td>
+                        <td class="check-yes">✓ Strong</td>
+                        <td class="check-yes">✓ Good</td>
+                        <td class="check-partial">◐ Declining</td>
+                        <td class="check-no">✗ Minimal</td>
+                        <td class="check-partial">◐ Variable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Virtual Care</strong></td>
+                        <td class="check-yes">✓ Allowed</td>
+                        <td class="check-yes">✓ Allowed</td>
+                        <td class="check-yes">✓ Allowed</td>
+                        <td class="check-partial">◐ Restricted</td>
+                        <td class="check-yes">✓ Allowed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Corp. Structure</strong></td>
+                        <td class="check-yes">✓ Flexible</td>
+                        <td class="check-yes">✓ Flexible</td>
+                        <td class="check-partial">◐ Some limits</td>
+                        <td class="check-partial">◐ Complex</td>
+                        <td class="check-yes">✓ Flexible</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Expansion Timeline -->
+        <div class="expansion-timeline">
+            <h2 class="timeline-title">24-Month Provincial Expansion Timeline</h2>
+            
+            <div class="timeline-track">
+                <div class="timeline-phase">
+                    <div class="phase-quarter">Q1 2025</div>
+                    <div class="phase-locations">BC Optimization</div>
+                    <div class="phase-activities">
+                        • Flagship enhancement<br>
+                        • Virtual care launch<br>
+                        • Protocol development
+                    </div>
+                </div>
+                
+                <div class="timeline-phase">
+                    <div class="phase-quarter">Q2 2025</div>
+                    <div class="phase-locations">Alberta Entry</div>
+                    <div class="phase-activities">
+                        • Calgary clinic<br>
+                        • Licensing complete<br>
+                        • Team recruitment
+                    </div>
+                </div>
+                
+                <div class="timeline-phase">
+                    <div class="phase-quarter">Q3 2025</div>
+                    <div class="phase-locations">Ontario Launch</div>
+                    <div class="phase-activities">
+                        • Toronto location<br>
+                        • Acquisition close<br>
+                        • French services
+                    </div>
+                </div>
+                
+                <div class="timeline-phase">
+                    <div class="phase-quarter">Q4 2025</div>
+                    <div class="phase-locations">Multi-Site</div>
+                    <div class="phase-activities">
+                        • Edmonton site<br>
+                        • BC expansion<br>
+                        • Network effects
+                    </div>
+                </div>
+                
+                <div class="timeline-phase">
+                    <div class="phase-quarter">Q1-Q2 2026</div>
+                    <div class="phase-locations">Consolidation</div>
+                    <div class="phase-activities">
+                        • Optimize operations<br>
+                        • Platform build<br>
+                        • Data products
+                    </div>
+                </div>
+                
+                <div class="timeline-phase">
+                    <div class="phase-quarter">Q3-Q4 2026</div>
+                    <div class="phase-locations">Scale Phase</div>
+                    <div class="phase-activities">
+                        • Atlantic entry<br>
+                        • 12+ locations<br>
+                        • Exit prep
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Investment Breakdown -->
+        <div class="investment-breakdown">
+            <h2 class="investment-title">Provincial Investment Requirements</h2>
+            
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <div class="investment-province">British Columbia</div>
+                    <div class="investment-items">
+                        <div class="investment-item">
+                            <span class="item-name">Site development</span>
+                            <span class="item-amount">$450K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Working capital</span>
+                            <span class="item-amount">$200K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Technology</span>
+                            <span class="item-amount">$150K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Marketing</span>
+                            <span class="item-amount">$100K</span>
+                        </div>
+                    </div>
+                    <div class="investment-total">Total: $900K</div>
+                </div>
+                
+                <div class="investment-card">
+                    <div class="investment-province">Alberta</div>
+                    <div class="investment-items">
+                        <div class="investment-item">
+                            <span class="item-name">2 locations</span>
+                            <span class="item-amount">$800K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Regulatory</span>
+                            <span class="item-amount">$75K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Team building</span>
+                            <span class="item-amount">$150K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Launch costs</span>
+                            <span class="item-amount">$125K</span>
+                        </div>
+                    </div>
+                    <div class="investment-total">Total: $1.15M</div>
+                </div>
+                
+                <div class="investment-card">
+                    <div class="investment-province">Ontario</div>
+                    <div class="investment-items">
+                        <div class="investment-item">
+                            <span class="item-name">Toronto flagship</span>
+                            <span class="item-amount">$600K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Acquisition</span>
+                            <span class="item-amount">$500K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Bilingual setup</span>
+                            <span class="item-amount">$100K</span>
+                        </div>
+                        <div class="investment-item">
+                            <span class="item-name">Market entry</span>
+                            <span class="item-amount">$200K</span>
+                        </div>
+                    </div>
+                    <div class="investment-total">Total: $1.4M</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Success Factors -->
+        <div class="success-factors">
+            <h2 class="factors-header">Provincial Scaling Success Factors</h2>
+            
+            <div class="factors-grid">
+                <div class="success-card">
+                    <div class="success-icon">🎯</div>
+                    <div class="success-title">Local Partnerships</div>
+                    <div class="success-description">Provincial associations, regulatory bodies, local champions</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">🏛️</div>
+                    <div class="success-title">Regulatory Mastery</div>
+                    <div class="success-description">Deep understanding of provincial requirements and changes</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">💼</div>
+                    <div class="success-title">Insurance Navigation</div>
+                    <div class="success-description">Maximize coverage, direct billing, corporate benefits</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">🌐</div>
+                    <div class="success-title">Virtual Integration</div>
+                    <div class="success-description">Interprovincial care, remote consultations, digital-first</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">👥</div>
+                    <div class="success-title">Talent Pipeline</div>
+                    <div class="success-description">Provincial recruitment, local schools, retention programs</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">🏥</div>
+                    <div class="success-title">Acquisition Strategy</div>
+                    <div class="success-description">Identify targets, cultural fit, integration playbook</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">📊</div>
+                    <div class="success-title">Market Intelligence</div>
+                    <div class="success-description">Competition tracking, patient needs, trend analysis</div>
+                </div>
+                
+                <div class="success-card">
+                    <div class="success-icon">🤝</div>
+                    <div class="success-title">Corporate Contracts</div>
+                    <div class="success-description">Provincial employers, unions, government programs</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 TeamX Management Consulting | Provincial Scaling Strategy Canvas</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Navigating Canada's Complex Healthcare Landscape</p>
+        </div>
+    </div>
+</body>
+</html>

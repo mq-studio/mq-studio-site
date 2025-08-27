@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Alpha™ - Healthcare Automation Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .efficiency-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .efficiency-metric {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .metric-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        
+        .architecture-grid {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .architecture-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .delivery-models {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .delivery-model {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #e94560;
+        }
+        
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .model-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .automation-level {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .model-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .model-examples {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .examples-title {
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .example-item {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin: 5px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .example-item:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        
+        .model-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .metric-item {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .metric-item-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-bottom: 3px;
+        }
+        
+        .metric-item-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .automation-journey {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+        }
+        
+        .journey-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .journey-phases {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        .journey-phase {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        
+        .phase-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #e94560;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .phase-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .phase-automation {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        
+        .phase-focus {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        .automation-matrix {
+            padding: 40px;
+            background: white;
+        }
+        
+        .matrix-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .function-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .function-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .function-name {
+            font-weight: 600;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .automation-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        .automation-block {
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        .manual {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .assisted {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .automated {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .autonomous {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .roi-calculator {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 40px;
+            margin: 30px 40px;
+            border-radius: 15px;
+        }
+        
+        .calculator-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #155724;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .roi-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .roi-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .roi-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+        
+        .roi-detail {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .implementation-tools {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .tools-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .tool-category {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .category-header {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .tool-list {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .tool-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .tool-name {
+            font-weight: 500;
+            color: #34495e;
+        }
+        
+        .tool-status {
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .status-deployed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pilot {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-planned {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Operational Alpha™ Architecture</h1>
+            <p class="header-subtitle">Systematic Healthcare Automation & Efficiency Framework</p>
+            
+            <div class="efficiency-metrics">
+                <div class="efficiency-metric">
+                    <div class="metric-label">Current Automation</div>
+                    <div class="metric-value">15%</div>
+                </div>
+                <div class="efficiency-metric">
+                    <div class="metric-label">Year 1 Target</div>
+                    <div class="metric-value">40%</div>
+                </div>
+                <div class="efficiency-metric">
+                    <div class="metric-label">Year 2 Target</div>
+                    <div class="metric-value">60%</div>
+                </div>
+                <div class="efficiency-metric">
+                    <div class="metric-label">Efficiency Gain</div>
+                    <div class="metric-value">+167%</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Three Delivery Archetypes -->
+        <div class="architecture-grid">
+            <h2 class="architecture-title">Three Healthcare Delivery Archetypes</h2>
+            
+            <div class="delivery-models">
+                <!-- High-Impact Sprints -->
+                <div class="delivery-model">
+                    <div class="model-header">
+                        <span class="model-name">High-Impact Sprints</span>
+                        <span class="automation-level">30% Auto</span>
+                    </div>
+                    
+                    <p class="model-description">
+                        Intensive, personalized interventions requiring high practitioner involvement and clinical judgment.
+                    </p>
+                    
+                    <div class="model-examples">
+                        <div class="examples-title">Healthcare Applications:</div>
+                        <div class="example-item">Initial patient assessments</div>
+                        <div class="example-item">Complex diagnosis sessions</div>
+                        <div class="example-item">Treatment plan development</div>
+                        <div class="example-item">Crisis interventions</div>
+                    </div>
+                    
+                    <div class="model-metrics">
+                        <div class="metric-item">
+                            <div class="metric-item-label">Duration</div>
+                            <div class="metric-item-value">60-90 min</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Revenue/Visit</div>
+                            <div class="metric-item-value">$495-695</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">AI Support</div>
+                            <div class="metric-item-value">Documentation</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Frequency</div>
+                            <div class="metric-item-value">20% of visits</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Core Transformation -->
+                <div class="delivery-model">
+                    <div class="model-header">
+                        <span class="model-name">Core Transformation</span>
+                        <span class="automation-level">60% Auto</span>
+                    </div>
+                    
+                    <p class="model-description">
+                        Structured treatment protocols with balanced automation and personalization using 60/40 framework.
+                    </p>
+                    
+                    <div class="model-examples">
+                        <div class="examples-title">Healthcare Applications:</div>
+                        <div class="example-item">Active treatment visits</div>
+                        <div class="example-item">Progress monitoring</div>
+                        <div class="example-item">Protocol adjustments</div>
+                        <div class="example-item">Lifestyle counseling</div>
+                    </div>
+                    
+                    <div class="model-metrics">
+                        <div class="metric-item">
+                            <div class="metric-item-label">Duration</div>
+                            <div class="metric-item-value">30-45 min</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Revenue/Visit</div>
+                            <div class="metric-item-value">$165-225</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">AI Support</div>
+                            <div class="metric-item-value">Protocols + Docs</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Frequency</div>
+                            <div class="metric-item-value">50% of visits</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scalable Recurring -->
+                <div class="delivery-model">
+                    <div class="model-header">
+                        <span class="model-name">Scalable Recurring</span>
+                        <span class="automation-level">85% Auto</span>
+                    </div>
+                    
+                    <p class="model-description">
+                        Highly standardized, AI-driven maintenance care with minimal practitioner intervention required.
+                    </p>
+                    
+                    <div class="model-examples">
+                        <div class="examples-title">Healthcare Applications:</div>
+                        <div class="example-item">Maintenance visits</div>
+                        <div class="example-item">Prescription renewals</div>
+                        <div class="example-item">Lab review sessions</div>
+                        <div class="example-item">Virtual check-ins</div>
+                    </div>
+                    
+                    <div class="model-metrics">
+                        <div class="metric-item">
+                            <div class="metric-item-label">Duration</div>
+                            <div class="metric-item-value">15-20 min</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Revenue/Visit</div>
+                            <div class="metric-item-value">$135-185</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">AI Support</div>
+                            <div class="metric-item-value">Full automation</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-item-label">Frequency</div>
+                            <div class="metric-item-value">30% of visits</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Automation Journey -->
+        <div class="automation-journey">
+            <h2 class="journey-title">Progressive Automation Journey</h2>
+            
+            <div class="journey-phases">
+                <div class="journey-phase">
+                    <div class="phase-number">1</div>
+                    <div class="phase-name">Manual</div>
+                    <div class="phase-automation">15%</div>
+                    <div class="phase-focus">Basic EMR, paper forms, manual scheduling</div>
+                </div>
+                
+                <div class="journey-phase">
+                    <div class="phase-number">2</div>
+                    <div class="phase-name">Assisted</div>
+                    <div class="phase-automation">40%</div>
+                    <div class="phase-focus">AI documentation, automated reminders, digital intake</div>
+                </div>
+                
+                <div class="journey-phase">
+                    <div class="phase-number">3</div>
+                    <div class="phase-name">Automated</div>
+                    <div class="phase-automation">60%</div>
+                    <div class="phase-focus">Protocol suggestions, predictive scheduling, auto-billing</div>
+                </div>
+                
+                <div class="journey-phase">
+                    <div class="phase-number">4</div>
+                    <div class="phase-name">Autonomous</div>
+                    <div class="phase-automation">85%</div>
+                    <div class="phase-focus">AI triage, personalized care paths, self-optimization</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Function Automation Matrix -->
+        <div class="automation-matrix">
+            <h2 class="matrix-title">Function-by-Function Automation Roadmap</h2>
+            
+            <div class="function-grid">
+                <div class="function-row">
+                    <div class="function-name">Patient Intake</div>
+                    <div class="automation-timeline">
+                        <div class="automation-block manual">Current: Paper</div>
+                        <div class="automation-block assisted">Q2: Digital forms</div>
+                        <div class="automation-block automated">Q4: Smart intake</div>
+                        <div class="automation-block autonomous">Year 2: AI triage</div>
+                    </div>
+                </div>
+                
+                <div class="function-row">
+                    <div class="function-name">Documentation</div>
+                    <div class="automation-timeline">
+                        <div class="automation-block manual">Current: Manual</div>
+                        <div class="automation-block assisted">Q1: Ambient AI</div>
+                        <div class="automation-block automated">Q3: Auto-notes</div>
+                        <div class="automation-block autonomous">Year 2: Full auto</div>
+                    </div>
+                </div>
+                
+                <div class="function-row">
+                    <div class="function-name">Treatment Planning</div>
+                    <div class="automation-timeline">
+                        <div class="automation-block manual">Current: Manual</div>
+                        <div class="automation-block assisted">Q2: Templates</div>
+                        <div class="automation-block automated">Q4: AI suggest</div>
+                        <div class="automation-block autonomous">Year 3: Personalized</div>
+                    </div>
+                </div>
+                
+                <div class="function-row">
+                    <div class="function-name">Scheduling</div>
+                    <div class="automation-timeline">
+                        <div class="automation-block assisted">Current: Basic</div>
+                        <div class="automation-block automated">Q1: Smart booking</div>
+                        <div class="automation-block automated">Q3: Predictive</div>
+                        <div class="automation-block autonomous">Year 2: Self-optimize</div>
+                    </div>
+                </div>
+                
+                <div class="function-row">
+                    <div class="function-name">Billing/Insurance</div>
+                    <div class="automation-timeline">
+                        <div class="automation-block assisted">Current: Semi-auto</div>
+                        <div class="automation-block automated">Q2: Auto-verify</div>
+                        <div class="automation-block automated">Q3: Direct bill</div>
+                        <div class="automation-block autonomous">Q4: Full auto</div>
+                    </div>
+                </div>
+                
+                <div class="function-row">
+                    <div class="function-name">Patient Follow-up</div>
+                    <div class="automation-timeline">
+                        <div class="automation-block manual">Current: Manual</div>
+                        <div class="automation-block assisted">Q2: Reminders</div>
+                        <div class="automation-block automated">Q3: Campaigns</div>
+                        <div class="automation-block autonomous">Year 2: AI engage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROI Calculator -->
+        <div class="roi-calculator">
+            <h2 class="calculator-title">Operational Alpha™ ROI Impact</h2>
+            
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <div class="roi-label">Time Savings</div>
+                    <div class="roi-value">45%</div>
+                    <div class="roi-detail">2.5 hrs/practitioner/day</div>
+                </div>
+                
+                <div class="roi-card">
+                    <div class="roi-label">Cost Reduction</div>
+                    <div class="roi-value">$380K</div>
+                    <div class="roi-detail">Annual operational savings</div>
+                </div>
+                
+                <div class="roi-card">
+                    <div class="roi-label">Capacity Increase</div>
+                    <div class="roi-value">+35%</div>
+                    <div class="roi-detail">8 more patients/day</div>
+                </div>
+                
+                <div class="roi-card">
+                    <div class="roi-label">Revenue Impact</div>
+                    <div class="roi-value">$1.2M</div>
+                    <div class="roi-detail">Additional annual revenue</div>
+                </div>
+                
+                <div class="roi-card">
+                    <div class="roi-label">Quality Score</div>
+                    <div class="roi-value">+22%</div>
+                    <div class="roi-detail">Clinical outcomes improvement</div>
+                </div>
+                
+                <div class="roi-card">
+                    <div class="roi-label">Payback Period</div>
+                    <div class="roi-value">8 months</div>
+                    <div class="roi-detail">Full investment recovery</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Implementation Tools -->
+        <div class="implementation-tools">
+            <h2 class="tools-title">Technology Implementation Stack</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <div class="category-header">Clinical Automation</div>
+                    <div class="tool-list">
+                        <div class="tool-item">
+                            <span class="tool-name">DeepScribe - Ambient AI Documentation</span>
+                            <span class="tool-status status-pilot">Pilot</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Jane App - Practice Management</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Fullscript - Supplement Dispensary</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">AI Protocol Assistant</span>
+                            <span class="tool-status status-planned">Q3 2025</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <div class="category-header">Operational Automation</div>
+                    <div class="tool-list">
+                        <div class="tool-item">
+                            <span class="tool-name">Acuity - Smart Scheduling</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Eligible - Insurance Verification</span>
+                            <span class="tool-status status-pilot">Pilot</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Klaviyo - Patient Engagement</span>
+                            <span class="tool-status status-planned">Q2 2025</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Zapier - Workflow Automation</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <div class="category-header">Analytics & Intelligence</div>
+                    <div class="tool-list">
+                        <div class="tool-item">
+                            <span class="tool-name">PowerBI - Operational Dashboards</span>
+                            <span class="tool-status status-pilot">Pilot</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Custom ML Models - Predictions</span>
+                            <span class="tool-status status-planned">Q4 2025</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">REDCap - Outcome Tracking</span>
+                            <span class="tool-status status-planned">Q3 2025</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Segment - Data Pipeline</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <div class="category-header">Virtual Care & Communication</div>
+                    <div class="tool-list">
+                        <div class="tool-item">
+                            <span class="tool-name">Doxy.me - Telehealth Platform</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Twilio - SMS/Voice Automation</span>
+                            <span class="tool-status status-pilot">Pilot</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">AI Chatbot - Patient Triage</span>
+                            <span class="tool-status status-planned">Q4 2025</span>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Secure Messaging Portal</span>
+                            <span class="tool-status status-deployed">Deployed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 TeamX Management Consulting | Operational Alpha™ Healthcare Architecture</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Transforming Healthcare Operations Through Systematic Automation</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Risk Management & Mitigation Canvas - Healthcare Scaling</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .risk-matrix-section {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .matrix-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: 100px repeat(5, 1fr);
+            grid-template-rows: repeat(6, 100px);
+            gap: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .matrix-header {
+            background: #34495e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            padding: 10px;
+        }
+        
+        .matrix-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .impact-label {
+            background: #34495e;
+            color: white;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .low-low { background: #d4edda; }
+        .low-med { background: #fff3cd; }
+        .low-high { background: #ffeeba; }
+        .med-low { background: #fff3cd; }
+        .med-med { background: #ffeeba; }
+        .med-high { background: #f8d7da; }
+        .high-low { background: #ffeeba; }
+        .high-med { background: #f8d7da; }
+        .high-high { background: #dc3545; color: white; }
+        
+        .risk-item {
+            background: white;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .risk-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .risk-categories {
+            padding: 40px;
+            background: white;
+        }
+        
+        .categories-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .risk-category {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .category-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .category-score {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .score-high { background: #f8d7da; color: #721c24; }
+        .score-medium { background: #fff3cd; color: #856404; }
+        .score-low { background: #d4edda; color: #155724; }
+        
+        .risk-list {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .risk-detail {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .risk-name {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        
+        .risk-impact {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+        
+        .risk-mitigation {
+            font-size: 0.85em;
+            color: #28a745;
+            font-style: italic;
+        }
+        
+        .mitigation-strategies {
+            padding: 40px;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        }
+        
+        .strategies-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #155724;
+        }
+        
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .strategy-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .strategy-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-steps {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .strategy-step {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+            font-size: 0.9em;
+        }
+        
+        .contingency-plans {
+            padding: 40px;
+            background: white;
+        }
+        
+        .contingency-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .contingency-scenarios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .scenario-card {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            padding: 25px;
+            border-radius: 12px;
+        }
+        
+        .scenario-name {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .scenario-trigger {
+            font-size: 0.9em;
+            color: #856404;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(133, 100, 4, 0.2);
+        }
+        
+        .scenario-actions {
+            font-size: 0.85em;
+            color: #495057;
+        }
+        
+        .scenario-actions li {
+            margin: 5px 0;
+        }
+        
+        .monitoring-dashboard {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .monitoring-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .monitoring-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .monitor-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .monitor-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .monitor-metric {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .monitor-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .value-normal { color: #28a745; }
+        .value-warning { color: #ffc107; }
+        .value-critical { color: #dc3545; }
+        
+        .monitor-threshold {
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Comprehensive Risk Management & Mitigation Canvas</h1>
+            <p class="header-subtitle">Systematic Risk Assessment and Response Framework for Healthcare Scaling</p>
+        </div>
+        
+        <!-- Risk Matrix -->
+        <div class="risk-matrix-section">
+            <h2 class="matrix-title">Risk Probability-Impact Matrix</h2>
+            
+            <div class="risk-matrix">
+                <!-- Headers -->
+                <div class="matrix-header">Impact →<br>Probability ↓</div>
+                <div class="matrix-header">Very Low</div>
+                <div class="matrix-header">Low</div>
+                <div class="matrix-header">Medium</div>
+                <div class="matrix-header">High</div>
+                <div class="matrix-header">Very High</div>
+                
+                <!-- High Probability Row -->
+                <div class="matrix-header impact-label">High</div>
+                <div class="matrix-cell high-low"></div>
+                <div class="matrix-cell high-low">
+                    <div class="risk-item">Tech Adoption Resistance</div>
+                </div>
+                <div class="matrix-cell high-med">
+                    <div class="risk-item">Competition Response</div>
+                </div>
+                <div class="matrix-cell high-high">
+                    <div class="risk-item">Practitioner Shortage</div>
+                </div>
+                <div class="matrix-cell high-high">
+                    <div class="risk-item">Insurance Cuts</div>
+                </div>
+                
+                <!-- Medium Probability Row -->
+                <div class="matrix-header impact-label">Medium</div>
+                <div class="matrix-cell med-low"></div>
+                <div class="matrix-cell med-low">
+                    <div class="risk-item">Brand Issues</div>
+                </div>
+                <div class="matrix-cell med-med">
+                    <div class="risk-item">Integration Failure</div>
+                </div>
+                <div class="matrix-cell med-high">
+                    <div class="risk-item">Regulatory Changes</div>
+                </div>
+                <div class="matrix-cell med-high">
+                    <div class="risk-item">Cash Flow Crisis</div>
+                </div>
+                
+                <!-- Low Probability Row -->
+                <div class="matrix-header impact-label">Low</div>
+                <div class="matrix-cell low-low">
+                    <div class="risk-item">Minor Tech Issues</div>
+                </div>
+                <div class="matrix-cell low-low">
+                    <div class="risk-item">Staff Turnover</div>
+                </div>
+                <div class="matrix-cell low-med">
+                    <div class="risk-item">Data Breach</div>
+                </div>
+                <div class="matrix-cell low-high">
+                    <div class="risk-item">Pandemic 2.0</div>
+                </div>
+                <div class="matrix-cell low-high">
+                    <div class="risk-item">Major Lawsuit</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Categories -->
+        <div class="risk-categories">
+            <h2 class="categories-title">Risk Categories & Mitigation Strategies</h2>
+            
+            <div class="categories-grid">
+                <!-- Market & Competition Risks -->
+                <div class="risk-category">
+                    <div class="category-header">
+                        <span class="category-name">Market & Competition</span>
+                        <span class="category-score score-high">High Risk</span>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-detail">
+                            <div class="risk-name">Aggressive Competition</div>
+                            <div class="risk-impact">Impact: Market share loss, price pressure</div>
+                            <div class="risk-mitigation">Mitigation: First-mover advantage, network effects, brand loyalty</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Market Saturation</div>
+                            <div class="risk-impact">Impact: Slower growth, reduced margins</div>
+                            <div class="risk-mitigation">Mitigation: Geographic diversification, service innovation</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Patient Acquisition Costs</div>
+                            <div class="risk-impact">Impact: CAC increase by 50%+</div>
+                            <div class="risk-mitigation">Mitigation: Referral programs, corporate contracts, SEO</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Operational Risks -->
+                <div class="risk-category">
+                    <div class="category-header">
+                        <span class="category-name">Operational</span>
+                        <span class="category-score score-medium">Medium Risk</span>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-detail">
+                            <div class="risk-name">Practitioner Shortage</div>
+                            <div class="risk-impact">Impact: Cannot staff new locations</div>
+                            <div class="risk-mitigation">Mitigation: Training institute, hybrid model, competitive comp</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Technology Failure</div>
+                            <div class="risk-impact">Impact: Service disruption, data loss</div>
+                            <div class="risk-mitigation">Mitigation: Redundancy, backups, vendor SLAs</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Quality Control</div>
+                            <div class="risk-impact">Impact: Patient outcomes, reputation</div>
+                            <div class="risk-mitigation">Mitigation: Protocols, training, audits, KPIs</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Financial Risks -->
+                <div class="risk-category">
+                    <div class="category-header">
+                        <span class="category-name">Financial</span>
+                        <span class="category-score score-high">High Risk</span>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-detail">
+                            <div class="risk-name">Cash Flow Shortage</div>
+                            <div class="risk-impact">Impact: Cannot meet obligations</div>
+                            <div class="risk-mitigation">Mitigation: 24-month runway, milestone funding</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Insurance Coverage Cuts</div>
+                            <div class="risk-impact">Impact: 20-30% revenue reduction</div>
+                            <div class="risk-mitigation">Mitigation: Direct pay, corporate contracts, diversification</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Acquisition Overpayment</div>
+                            <div class="risk-impact">Impact: ROI failure, cash drain</div>
+                            <div class="risk-mitigation">Mitigation: Strict criteria, earnouts, due diligence</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regulatory Risks -->
+                <div class="risk-category">
+                    <div class="category-header">
+                        <span class="category-name">Regulatory & Legal</span>
+                        <span class="category-score score-medium">Medium Risk</span>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-detail">
+                            <div class="risk-name">Provincial Regulation Changes</div>
+                            <div class="risk-impact">Impact: Scope restrictions, compliance costs</div>
+                            <div class="risk-mitigation">Mitigation: Active monitoring, relationships, advocacy</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Privacy Breach</div>
+                            <div class="risk-impact">Impact: Fines, reputation, lawsuits</div>
+                            <div class="risk-mitigation">Mitigation: PIPEDA compliance, security audits, insurance</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Malpractice Claims</div>
+                            <div class="risk-impact">Impact: Financial loss, reputation damage</div>
+                            <div class="risk-mitigation">Mitigation: Quality protocols, insurance, documentation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technology Risks -->
+                <div class="risk-category">
+                    <div class="category-header">
+                        <span class="category-name">Technology & Data</span>
+                        <span class="category-score score-medium">Medium Risk</span>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-detail">
+                            <div class="risk-name">AI Implementation Failure</div>
+                            <div class="risk-impact">Impact: Efficiency targets missed</div>
+                            <div class="risk-mitigation">Mitigation: Phased rollout, pilot programs, training</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Cybersecurity Attack</div>
+                            <div class="risk-impact">Impact: Data breach, ransomware</div>
+                            <div class="risk-mitigation">Mitigation: Security protocols, backups, incident response</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Vendor Lock-in</div>
+                            <div class="risk-impact">Impact: Cost increases, flexibility loss</div>
+                            <div class="risk-mitigation">Mitigation: Multi-vendor, APIs, exit clauses</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Strategic Risks -->
+                <div class="risk-category">
+                    <div class="category-header">
+                        <span class="category-name">Strategic</span>
+                        <span class="category-score score-low">Low Risk</span>
+                    </div>
+                    <div class="risk-list">
+                        <div class="risk-detail">
+                            <div class="risk-name">Mission Drift</div>
+                            <div class="risk-impact">Impact: Loss of focus, brand confusion</div>
+                            <div class="risk-mitigation">Mitigation: Clear vision, governance, KPIs</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Partnership Failures</div>
+                            <div class="risk-impact">Impact: Lost opportunities, reputation</div>
+                            <div class="risk-mitigation">Mitigation: Due diligence, pilots, clear agreements</div>
+                        </div>
+                        <div class="risk-detail">
+                            <div class="risk-name">Exit Strategy Risk</div>
+                            <div class="risk-impact">Impact: Suboptimal valuation</div>
+                            <div class="risk-mitigation">Mitigation: Multiple options, early prep, advisor engagement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mitigation Strategies -->
+        <div class="mitigation-strategies">
+            <h2 class="strategies-title">Core Mitigation Strategies</h2>
+            
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <div class="strategy-title">🛡️ Preventive Controls</div>
+                    <ul class="strategy-steps">
+                        <li class="strategy-step">Comprehensive due diligence for all acquisitions</li>
+                        <li class="strategy-step">Robust compliance framework and regular audits</li>
+                        <li class="strategy-step">Diversified revenue streams across provinces</li>
+                        <li class="strategy-step">Strong cash reserves (24-month runway)</li>
+                        <li class="strategy-step">Proactive practitioner pipeline development</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-title">🔍 Detective Controls</div>
+                    <ul class="strategy-steps">
+                        <li class="strategy-step">Real-time KPI monitoring dashboard</li>
+                        <li class="strategy-step">Monthly risk assessment reviews</li>
+                        <li class="strategy-step">Patient satisfaction tracking (NPS)</li>
+                        <li class="strategy-step">Financial variance analysis</li>
+                        <li class="strategy-step">Competitive intelligence gathering</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-title">🔧 Corrective Actions</div>
+                    <ul class="strategy-steps">
+                        <li class="strategy-step">Rapid response teams for critical issues</li>
+                        <li class="strategy-step">Pivot strategies for underperforming sites</li>
+                        <li class="strategy-step">Service recovery protocols</li>
+                        <li class="strategy-step">Crisis communication plans</li>
+                        <li class="strategy-step">Legal and PR support on standby</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-title">🔄 Adaptive Responses</div>
+                    <ul class="strategy-steps">
+                        <li class="strategy-step">Quarterly strategy reviews and adjustments</li>
+                        <li class="strategy-step">Flexible staffing models</li>
+                        <li class="strategy-step">Technology stack modularity</li>
+                        <li class="strategy-step">Dynamic pricing strategies</li>
+                        <li class="strategy-step">Continuous learning and improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contingency Plans -->
+        <div class="contingency-plans">
+            <h2 class="contingency-title">Contingency Scenarios & Response Plans</h2>
+            
+            <div class="contingency-scenarios">
+                <div class="scenario-card">
+                    <div class="scenario-name">Scenario A: Major Funding Shortfall</div>
+                    <div class="scenario-trigger">Trigger: Unable to raise Series A</div>
+                    <ul class="scenario-actions">
+                        <li>Immediately pause expansion plans</li>
+                        <li>Focus on BC profitability</li>
+                        <li>Reduce burn rate by 40%</li>
+                        <li>Explore debt financing</li>
+                        <li>Consider strategic partnership</li>
+                    </ul>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-name">Scenario B: Regulatory Shutdown</div>
+                    <div class="scenario-trigger">Trigger: Province restricts ND practice</div>
+                    <ul class="scenario-actions">
+                        <li>Pivot to allied health model</li>
+                        <li>Accelerate other provinces</li>
+                        <li>Launch virtual care focus</li>
+                        <li>Legal challenge preparation</li>
+                        <li>Public advocacy campaign</li>
+                    </ul>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-name">Scenario C: Acquisition Failure</div>
+                    <div class="scenario-trigger">Trigger: Major acquisition integration fails</div>
+                    <ul class="scenario-actions">
+                        <li>Implement turnaround team</li>
+                        <li>Consider divestiture</li>
+                        <li>Pause further acquisitions</li>
+                        <li>Focus on organic growth</li>
+                        <li>Revise integration playbook</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Monitoring Dashboard -->
+        <div class="monitoring-dashboard">
+            <h2 class="monitoring-title">Risk Monitoring Dashboard</h2>
+            
+            <div class="monitoring-grid">
+                <div class="monitor-card">
+                    <div class="monitor-icon">💰</div>
+                    <div class="monitor-metric">Cash Runway</div>
+                    <div class="monitor-value value-normal">18 mo</div>
+                    <div class="monitor-threshold">Target: >12 months</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">👥</div>
+                    <div class="monitor-metric">Practitioner Vacancy</div>
+                    <div class="monitor-value value-warning">15%</div>
+                    <div class="monitor-threshold">Target: <10%</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">📊</div>
+                    <div class="monitor-metric">Patient Churn</div>
+                    <div class="monitor-value value-normal">25%</div>
+                    <div class="monitor-threshold">Target: <30%</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">⚠️</div>
+                    <div class="monitor-metric">Risk Score</div>
+                    <div class="monitor-value value-warning">6.2/10</div>
+                    <div class="monitor-threshold">Target: <5.0</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">🔒</div>
+                    <div class="monitor-metric">Compliance Score</div>
+                    <div class="monitor-value value-normal">94%</div>
+                    <div class="monitor-threshold">Target: >90%</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">💻</div>
+                    <div class="monitor-metric">System Uptime</div>
+                    <div class="monitor-value value-normal">99.8%</div>
+                    <div class="monitor-threshold">Target: >99.5%</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">🏥</div>
+                    <div class="monitor-metric">Quality Score</div>
+                    <div class="monitor-value value-normal">92%</div>
+                    <div class="monitor-threshold">Target: >85%</div>
+                </div>
+                
+                <div class="monitor-card">
+                    <div class="monitor-icon">📈</div>
+                    <div class="monitor-metric">Growth Rate</div>
+                    <div class="monitor-value value-warning">8%</div>
+                    <div class="monitor-threshold">Target: >10% MoM</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 TeamX Management Consulting | Risk Management & Mitigation Framework</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Proactive Risk Management for Healthcare Scaling Success</p>
+        </div>
+    </div>
+</body>
+</html>

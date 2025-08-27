@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Naturopathic Expansion Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2a5298;
+        }
+        
+        .metric-label {
+            color: #6c757d;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        
+        .timeline {
+            padding: 40px;
+            background: white;
+            position: relative;
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .timeline-bar {
+            display: flex;
+            height: 80px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-phase {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .timeline-phase:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .phase-1 { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            flex: 3;
+        }
+        
+        .phase-2 { 
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); 
+            flex: 6;
+        }
+        
+        .phase-3 { 
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+            flex: 6;
+        }
+        
+        .phase-4 { 
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); 
+            flex: 3;
+        }
+        
+        .phase-content {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .phase-content.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .phase-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .phase-dates {
+            color: #6c757d;
+            font-size: 1.1em;
+        }
+        
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .week-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .week-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .week-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .week-card li {
+            padding: 5px 0;
+            color: #495057;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .week-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+        
+        .investment-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .investment-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .investment-item strong {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .metrics-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        
+        .metrics-table th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .metrics-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .risk-register {
+            margin-top: 40px;
+            padding: 30px;
+            background: #fff3cd;
+            border-radius: 15px;
+            border: 2px solid #ffc107;
+        }
+        
+        .risk-register h2 {
+            color: #856404;
+            margin-bottom: 20px;
+        }
+        
+        .risk-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .risk-level {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .risk-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .risk-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .risk-low {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .success-factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .success-factor {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .provincial-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .bc-badge { background: #e3f2fd; color: #1565c0; }
+        .ab-badge { background: #fff3e0; color: #e65100; }
+        .on-badge { background: #f3e5f5; color: #6a1b9a; }
+        .qc-badge { background: #e8f5e9; color: #2e7d32; }
+        
+        .toggle-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+        
+        .toggle-button:hover {
+            background: #764ba2;
+        }
+        
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .hidden-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍁 Canadian Naturopathic Clinic Expansion Roadmap</h1>
+            <p>18-Month Strategic Implementation Plan | BC → Alberta → Ontario → Quebec Prep</p>
+        </div>
+        
+        <div class="metrics-bar">
+            <div class="metric">
+                <div class="metric-value">$4.1M</div>
+                <div class="metric-label">Total Investment</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Target Locations</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Provinces</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">$7.5M</div>
+                <div class="metric-label">Projected Revenue</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">20-24%</div>
+                <div class="metric-label">Target EBITDA</div>
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-header">
+                <div>
+                    <strong>Start Date:</strong> January 2025
+                </div>
+                <div>
+                    <strong>Completion:</strong> June 2026
+                </div>
+                <div>
+                    <strong>Status:</strong> Planning Phase
+                </div>
+            </div>
+            
+            <div class="timeline-bar">
+                <div class="timeline-phase phase-1" onclick="togglePhase(1)">
+                    PHASE 1<br>BC Foundation
+                </div>
+                <div class="timeline-phase phase-2" onclick="togglePhase(2)">
+                    PHASE 2<br>Alberta Launch
+                </div>
+                <div class="timeline-phase phase-3" onclick="togglePhase(3)">
+                    PHASE 3<br>Ontario Expansion
+                </div>
+                <div class="timeline-phase phase-4" onclick="togglePhase(4)">
+                    PHASE 4<br>Optimization
+                </div>
+            </div>
+            
+            <!-- PHASE 1 -->
+            <div class="phase-content active" id="phase-1">
+                <div class="phase-header">
+                    <div class="phase-title">Phase 1: BC Foundation & Alberta Prep <span class="provincial-badge bc-badge">BC</span><span class="provincial-badge ab-badge">AB Prep</span></div>
+                    <div class="phase-dates">Months 1-3 (Jan-Mar 2025)</div>
+                </div>
+                
+                <h3>Week-by-Week Implementation</h3>
+                <div class="week-grid">
+                    <div class="week-card">
+                        <h4>Weeks 1-2: Foundation Setup</h4>
+                        <ul>
+                            <li>Secure $1.5M initial funding tranche</li>
+                            <li>Hire VP Operations (healthcare veteran)</li>
+                            <li>Establish BC operational baseline metrics</li>
+                            <li>Select EMR system (TELUS Health or Accuro)</li>
+                            <li>Begin CNDA (Alberta) registration process</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Weeks 3-4: Clinical Standardization</h4>
+                        <ul>
+                            <li>Document top 20 condition protocols</li>
+                            <li>Create 60/40 standardization framework</li>
+                            <li>Adapt protocols for Alberta scope limitations</li>
+                            <li>Develop bilingual intake forms (future Quebec)</li>
+                            <li>Establish quality metrics dashboard</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Weeks 5-6: Alberta Regulatory</h4>
+                        <ul>
+                            <li>Submit CNDA license applications (3 NDs)</li>
+                            <li>Complete Alberta jurisprudence requirements</li>
+                            <li>Register Alberta professional corporation</li>
+                            <li>Secure Alberta liability insurance ($2M)</li>
+                            <li>Begin Calgary market analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Weeks 7-8: Technology Integration</h4>
+                        <ul>
+                            <li>Deploy EMR across BC locations</li>
+                            <li>Implement multi-provincial billing system</li>
+                            <li>Set up virtual care platform (Doxy.me)</li>
+                            <li>Configure Alberta insurance billing</li>
+                            <li>Establish interprovincial data compliance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Weeks 9-10: Recruitment Sprint</h4>
+                        <ul>
+                            <li>Partner with CCNM for Alberta NDs</li>
+                            <li>Recruit 2 Alberta-licensed NDs</li>
+                            <li>Hire 1 NP for prescriptive support</li>
+                            <li>Engage Calgary locum coverage</li>
+                            <li>Begin Ontario practitioner pipeline</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Weeks 11-12: Market Entry Prep</h4>
+                        <ul>
+                            <li>Finalize Calgary location (3,500 sq ft)</li>
+                            <li>Develop Alberta marketing strategy</li>
+                            <li>Establish Calgary physician referral network</li>
+                            <li>Create Alberta-compliant advertising</li>
+                            <li>Set Q2 launch date</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="investment-box">
+                    <h3>Phase 1 Investment Requirements</h3>
+                    <div class="investment-grid">
+                        <div class="investment-item">
+                            <strong>$180K</strong>
+                            Technology Infrastructure
+                        </div>
+                        <div class="investment-item">
+                            <strong>$120K</strong>
+                            Regulatory & Legal
+                        </div>
+                        <div class="investment-item">
+                            <strong>$150K</strong>
+                            Recruitment & Training
+                        </div>
+                        <div class="investment-item">
+                            <strong>$250K</strong>
+                            Working Capital
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Total Phase 1: $700K CAD</strong></p>
+                </div>
+                
+                <button class="toggle-button" onclick="toggleSection('phase1-success')">View Critical Success Factors</button>
+                <div id="phase1-success" class="hidden-content">
+                    <h3>Critical Success Factors - Phase 1</h3>
+                    <div class="success-factors">
+                        <div class="success-factor">
+                            <strong>✓ EMR Integration</strong><br>
+                            Complete deployment across all BC sites by Week 8
+                        </div>
+                        <div class="success-factor">
+                            <strong>✓ Alberta Licensing</strong><br>
+                            All practitioner licenses approved by Week 10
+                        </div>
+                        <div class="success-factor">
+                            <strong>✓ Clinical Protocols</strong><br>
+                            20 conditions standardized with provincial variations
+                        </div>
+                        <div class="success-factor">
+                            <strong>✓ Financial Baseline</strong><br>
+                            BC operations at 15%+ EBITDA before expansion
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PHASE 2 -->
+            <div class="phase-content" id="phase-2">
+                <div class="phase-header">
+                    <div class="phase-title">Phase 2: Alberta Launch <span class="provincial-badge ab-badge">AB</span></div>
+                    <div class="phase-dates">Months 4-9 (Apr-Sep 2025)</div>
+                </div>
+                
+                <h3>Calgary Market Entry Strategy</h3>
+                
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Target Date</th>
+                            <th>Success Metrics</th>
+                            <th>Investment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Clinic Build-Out Complete</td>
+                            <td>April 15, 2025</td>
+                            <td>3,500 sq ft, 5 treatment rooms</td>
+                            <td>$350K</td>
+                        </tr>
+                        <tr>
+                            <td>Grand Opening</td>
+                            <td>May 1, 2025</td>
+                            <td>200 pre-booked patients</td>
+                            <td>$50K marketing</td>
+                        </tr>
+                        <tr>
+                            <td>Break-Even Point</td>
+                            <td>August 2025</td>
+                            <td>450 active patients</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Profitability Target</td>
+                            <td>September 2025</td>
+                            <td>10% EBITDA margin</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Alberta-Specific Operational Adaptations</h3>
+                <ul style="margin-top: 20px;">
+                    <li><strong>Prescriptive Authority:</strong> Limited vs BC - partner with local MD for Schedule I medications</li>
+                    <li><strong>Insurance Billing:</strong> Direct billing with Alberta Blue Cross, Manulife, Sun Life</li>
+                    <li><strong>Scope Limitations:</strong> No minor surgery, restricted IV therapy protocols</li>
+                    <li><strong>Marketing Restrictions:</strong> CNDA advertising standards more restrictive than CNPBC</li>
+                    <li><strong>Corporate Wellness:</strong> Target oil & gas sector (unique to Calgary market)</li>
+                </ul>
+                
+                <div class="investment-box">
+                    <h3>Phase 2 Financial Projections</h3>
+                    <div class="investment-grid">
+                        <div class="investment-item">
+                            <strong>$1.2M</strong>
+                            Total Investment
+                        </div>
+                        <div class="investment-item">
+                            <strong>$155</strong>
+                            Avg Visit Rate (vs $165 BC)
+                        </div>
+                        <div class="investment-item">
+                            <strong>$1.8M</strong>
+                            Year 1 Revenue Target
+                        </div>
+                        <div class="investment-item">
+                            <strong>Month 6</strong>
+                            Profitability Timeline
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="toggle-button" onclick="toggleSection('phase2-comparison')">BC vs Alberta Operations Comparison</button>
+                <div id="phase2-comparison" class="hidden-content">
+                    <h3>Provincial Operations Comparison</h3>
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>BC Operations</th>
+                                <th>Alberta Operations</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Average Visit Rate</td>
+                                <td>$165</td>
+                                <td>$155</td>
+                                <td>-6%</td>
+                            </tr>
+                            <tr>
+                                <td>Insurance Coverage</td>
+                                <td>$500-1,500/year</td>
+                                <td>$400-1,200/year</td>
+                                <td>-20%</td>
+                            </tr>
+                            <tr>
+                                <td>Practitioner Supply</td>
+                                <td>650 NDs</td>
+                                <td>180 NDs</td>
+                                <td>-72%</td>
+                            </tr>
+                            <tr>
+                                <td>Competition Intensity</td>
+                                <td>High (Vancouver)</td>
+                                <td>Medium (Calgary)</td>
+                                <td>Favorable</td>
+                            </tr>
+                            <tr>
+                                <td>Corporate Opportunity</td>
+                                <td>Tech sector</td>
+                                <td>Energy sector</td>
+                                <td>Different approach</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- PHASE 3 -->
+            <div class="phase-content" id="phase-3">
+                <div class="phase-header">
+                    <div class="phase-title">Phase 3: Ontario Expansion <span class="provincial-badge on-badge">ON</span><span class="provincial-badge bc-badge">BC #2</span></div>
+                    <div class="phase-dates">Months 10-15 (Oct 2025 - Mar 2026)</div>
+                </div>
+                
+                <h3>Toronto Market Entry - Highest Competition Strategy</h3>
+                
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                    <h4>Ontario Market Dynamics</h4>
+                    <ul style="margin-top: 10px;">
+                        <li><strong>Market Size:</strong> 1,400 NDs (56% of Canadian total)</li>
+                        <li><strong>Competition:</strong> 300+ clinics in GTA alone</li>
+                        <li><strong>Differentiation Strategy:</strong> Corporate wellness + specialized fertility services</li>
+                        <li><strong>Partnership Model:</strong> JV with established clinic to reduce risk</li>
+                    </ul>
+                </div>
+                
+                <h3>Dual-Province Execution Plan</h3>
+                
+                <div class="week-grid">
+                    <div class="week-card">
+                        <h4>Toronto Launch (Months 10-12)</h4>
+                        <ul>
+                            <li>CONO registration for 4 practitioners</li>
+                            <li>Partner with Conceive Health (fertility)</li>
+                            <li>Downtown location (King West)</li>
+                            <li>Target: Professional women 25-45</li>
+                            <li>$195 average visit rate</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>BC Location #2 (Month 11)</h4>
+                        <ul>
+                            <li>Surrey or North Vancouver</li>
+                            <li>Leverage existing team</li>
+                            <li>Lower capital requirement</li>
+                            <li>Suburban family focus</li>
+                            <li>Shared backend with Vancouver</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Integration & Optimization (Months 13-15)</h4>
+                        <ul>
+                            <li>Unified billing across 3 provinces</li>
+                            <li>National virtual care platform</li>
+                            <li>Interprovincial referral protocol</li>
+                            <li>Centralized marketing team</li>
+                            <li>Shared clinical governance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Eastern vs Western Canada Operational Differences</h3>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Western (BC/AB)</th>
+                            <th>Eastern (ON)</th>
+                            <th>Adaptation Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Regulatory Environment</td>
+                            <td>More progressive</td>
+                            <td>More restrictive</td>
+                            <td>Conservative marketing approach</td>
+                        </tr>
+                        <tr>
+                            <td>Patient Demographics</td>
+                            <td>Wellness-focused</td>
+                            <td>Evidence-focused</td>
+                            <td>Emphasize clinical studies</td>
+                        </tr>
+                        <tr>
+                            <td>Referral Patterns</td>
+                            <td>Self-referral dominant</td>
+                            <td>MD referral important</td>
+                            <td>Build physician network</td>
+                        </tr>
+                        <tr>
+                            <td>Price Sensitivity</td>
+                            <td>Moderate</td>
+                            <td>High</td>
+                            <td>Insurance optimization critical</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="investment-box">
+                    <h3>Phase 3 Investment & Returns</h3>
+                    <div class="investment-grid">
+                        <div class="investment-item">
+                            <strong>$800K</strong>
+                            Toronto JV Investment
+                        </div>
+                        <div class="investment-item">
+                            <strong>$400K</strong>
+                            BC Location #2
+                        </div>
+                        <div class="investment-item">
+                            <strong>$2.5M</strong>
+                            Combined Revenue Target
+                        </div>
+                        <div class="investment-item">
+                            <strong>15%</strong>
+                            System EBITDA Target
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="toggle-button" onclick="toggleSection('phase3-quebec')">Quebec Preparation Strategy</button>
+                <div id="phase3-quebec" class="hidden-content">
+                    <h3>Quebec Market Preparation (Concurrent Planning)</h3>
+                    <ul>
+                        <li><strong>Language Requirements:</strong> All materials translated to French by Month 12</li>
+                        <li><strong>Regulatory Challenge:</strong> No ND regulation - operate as "Naturopathe"</li>
+                        <li><strong>Partnership Strategy:</strong> Align with Quebec wellness centers</li>
+                        <li><strong>Revenue Model:</strong> Cash-only (no insurance coverage)</li>
+                        <li><strong>Target Entry:</strong> Month 19-24 if metrics support</li>
+                        <li><strong>Investment Required:</strong> Additional $600-800K</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- PHASE 4 -->
+            <div class="phase-content" id="phase-4">
+                <div class="phase-header">
+                    <div class="phase-title">Phase 4: Optimization & Quebec Prep <span class="provincial-badge qc-badge">QC Prep</span></div>
+                    <div class="phase-dates">Months 16-18 (Apr-Jun 2026)</div>
+                </div>
+                
+                <h3>System-Wide Optimization Initiatives</h3>
+                
+                <div class="week-grid">
+                    <div class="week-card">
+                        <h4>Performance Optimization</h4>
+                        <ul>
+                            <li>Standardize best practices across provinces</li>
+                            <li>Implement AI documentation (30% time savings)</li>
+                            <li>Optimize practitioner schedules (85% utilization)</li>
+                            <li>Reduce patient acquisition cost to <$100</li>
+                            <li>Increase retention to 80%+ annually</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>National Brand Development</h4>
+                        <ul>
+                            <li>Unified brand identity across provinces</li>
+                            <li>National SEO strategy implementation</li>
+                            <li>Corporate wellness - Fortune 500 targets</li>
+                            <li>Launch membership program ($149/month)</li>
+                            <li>Develop proprietary supplement line</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-card">
+                        <h4>Strategic Partnerships</h4>
+                        <ul>
+                            <li>Shoppers Drug Mart pilot program</li>
+                            <li>TELUS Health integration</li>
+                            <li>Insurance provider negotiations</li>
+                            <li>First Nations Health Authority expansion</li>
+                            <li>US medical tourism program launch</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Exit Readiness Checklist</h3>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Exit Criteria</th>
+                            <th>Target</th>
+                            <th>Month 18 Status</th>
+                            <th>Valuation Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Annual Revenue Run Rate</td>
+                            <td>$7.5M+</td>
+                            <td>Projected: $7.8M</td>
+                            <td>1.5-2x revenue multiple</td>
+                        </tr>
+                        <tr>
+                            <td>EBITDA Margin</td>
+                            <td>20-24%</td>
+                            <td>Target: 22%</td>
+                            <td>10-14x EBITDA multiple</td>
+                        </tr>
+                        <tr>
+                            <td>Provincial Presence</td>
+                            <td>3+ provinces</td>
+                            <td>BC, AB, ON confirmed</td>
+                            <td>+20% premium</td>
+                        </tr>
+                        <tr>
+                            <td>Digital Revenue</td>
+                            <td>15%+ of total</td>
+                            <td>Target: 18%</td>
+                            <td>+15% premium</td>
+                        </tr>
+                        <tr>
+                            <td>Corporate Contracts</td>
+                            <td>10+ active</td>
+                            <td>Target: 12</td>
+                            <td>Recurring revenue premium</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="investment-box">
+                    <h3>Projected Enterprise Value at Month 18</h3>
+                    <div class="investment-grid">
+                        <div class="investment-item">
+                            <strong>$11-15M</strong>
+                            Conservative Estimate
+                        </div>
+                        <div class="investment-item">
+                            <strong>$15-20M</strong>
+                            Base Case
+                        </div>
+                        <div class="investment-item">
+                            <strong>$20-28M</strong>
+                            Bull Case (Strategic Buyer)
+                        </div>
+                        <div class="investment-item">
+                            <strong>2.8-4.2x</strong>
+                            Return on Investment
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="toggle-button" onclick="toggleSection('phase4-buyers')">Potential Strategic Buyers</button>
+                <div id="phase4-buyers" class="hidden-content">
+                    <h3>Strategic Exit Opportunities</h3>
+                    <ul>
+                        <li><strong>WELL Health Technologies:</strong> Canadian consolidator, public company, 15-20x EBITDA</li>
+                        <li><strong>CloudMD:</strong> Digital health focus, needs physical presence, 12-18x EBITDA</li>
+                        <li><strong>Loblaw/Shoppers:</strong> Expanding health services, strategic fit, 10-14x EBITDA</li>
+                        <li><strong>US Entrants:</strong> One Medical, Forward Health seeking Canadian entry, 18-25x EBITDA</li>
+                        <li><strong>Private Equity:</strong> Healthcare roll-up strategy, 12-15x EBITDA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- REGULATORY RISK REGISTER -->
+            <div class="risk-register">
+                <h2>📋 Regulatory Risk Register</h2>
+                
+                <div class="risk-item">
+                    <div>
+                        <strong>BC Prescriptive Authority Changes</strong><br>
+                        <small>Potential expansion to Schedule II medications</small>
+                    </div>
+                    <span class="risk-level risk-low">LOW RISK</span>
+                </div>
+                
+                <div class="risk-item">
+                    <div>
+                        <strong>Alberta Scope Restrictions</strong><br>
+                        <small>Proposed limitations on IV therapy protocols</small>
+                    </div>
+                    <span class="risk-level risk-medium">MEDIUM RISK</span>
+                </div>
+                
+                <div class="risk-item">
+                    <div>
+                        <strong>Ontario Insurance Coverage Cuts</strong><br>
+                        <small>Major insurers reducing naturopathic benefits 20% annually</small>
+                    </div>
+                    <span class="risk-level risk-high">HIGH RISK</span>
+                </div>
+                
+                <div class="risk-item">
+                    <div>
+                        <strong>Quebec Regulatory Recognition</strong><br>
+                        <small>No progress on professional regulation expected before 2027</small>
+                    </div>
+                    <span class="risk-level risk-medium">MEDIUM RISK</span>
+                </div>
+                
+                <div class="risk-item">
+                    <div>
+                        <strong>Federal Tax Changes - Professional Corporations</strong><br>
+                        <small>Proposed changes could eliminate tax advantages</small>
+                    </div>
+                    <span class="risk-level risk-medium">MEDIUM RISK</span>
+                </div>
+                
+                <div class="risk-item">
+                    <div>
+                        <strong>Virtual Care Interprovincial Restrictions</strong><br>
+                        <small>Provinces tightening cross-border telehealth rules</small>
+                    </div>
+                    <span class="risk-level risk-high">HIGH RISK</span>
+                </div>
+                
+                <h3 style="margin-top: 25px;">Mitigation Strategies</h3>
+                <ul style="margin-top: 15px;">
+                    <li><strong>Insurance Independence:</strong> Build membership model to reduce insurance dependence to <40% of revenue</li>
+                    <li><strong>Regulatory Lobbying:</strong> Join CAND advocacy efforts, budget $50K annually for government relations</li>
+                    <li><strong>Corporate Focus:</strong> B2B contracts provide stability against consumer insurance changes</li>
+                    <li><strong>Service Diversification:</strong> Expand into unregulated wellness services as hedge</li>
+                    <li><strong>Provincial Flexibility:</strong> Maintain ability to pivot resources between provinces based on regulatory environment</li>
+                </ul>
+            </div>
+            
+            <!-- Comparison to US Patterns -->
+            <div style="margin-top: 40px; padding: 30px; background: #e3f2fd; border-radius: 15px;">
+                <h2>🇺🇸 Comparison to US Expansion Patterns</h2>
+                
+                <table class="metrics-table" style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Canadian Model</th>
+                            <th>US Model</th>
+                            <th>Key Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Regulatory</td>
+                            <td>Provincial regulation varies</td>
+                            <td>State-by-state licensing</td>
+                            <td>Canada has fewer regulated jurisdictions</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance</td>
+                            <td>Extended benefits $500-1,500</td>
+                            <td>Limited/no coverage</td>
+                            <td>Canada has better baseline coverage</td>
+                        </tr>
+                        <tr>
+                            <td>Market Size</td>
+                            <td>2,500 NDs for 39M people</td>
+                            <td>6,000 NDs for 330M people</td>
+                            <td>Canada has higher ND per capita</td>
+                        </tr>
+                        <tr>
+                            <td>Competition</td>
+                            <td>Fragmented, local</td>
+                            <td>VC-backed consolidators</td>
+                            <td>Canada has less competitive pressure</td>
+                        </tr>
+                        <tr>
+                            <td>Valuation</td>
+                            <td>6-14x EBITDA</td>
+                            <td>10-25x EBITDA</td>
+                            <td>US commands premium multiples</td>
+                        </tr>
+                        <tr>
+                            <td>Growth Rate</td>
+                            <td>20-30% annually</td>
+                            <td>40-60% annually</td>
+                            <td>US markets growing faster</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p style="margin-top: 20px;"><strong>Key Insight:</strong> Canadian expansion benefits from universal insurance coverage but faces greater regulatory complexity. US models show faster growth but higher capital requirements. The Canadian "middle path" offers sustainable growth with lower risk.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function togglePhase(phaseNum) {
+            // Hide all phases
+            const phases = document.querySelectorAll('.phase-content');
+            phases.forEach(phase => phase.classList.remove('active'));
+            
+            // Show selected phase
+            document.getElementById('phase-' + phaseNum).classList.add('active');
+        }
+        
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('show');
+        }
+        
+        // Add hover effects to timeline
+        document.querySelectorAll('.timeline-phase').forEach(phase => {
+            phase.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            phase.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Canadian Naturopathic Expansion Roadmap Loaded');
+            console.log('Total Investment: $4.1M CAD');
+            console.log('Timeline: 18 months');
+            console.log('Target: 4 locations across BC, AB, ON');
+        });
+    </script>
+</body>
+</html>

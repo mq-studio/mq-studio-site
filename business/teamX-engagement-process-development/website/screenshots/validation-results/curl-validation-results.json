@@ -1,0 +1,123 @@
+{
+  "timestamp": "2025-08-27T14:11:45.123Z",
+  "summary": {
+    "totalPages": 11,
+    "successfulPages": 0,
+    "failedPages": 0,
+    "totalIssues": 11,
+    "averageLoadTime": null,
+    "totalContentSize": 0
+  },
+  "results": {
+    "navigation": [],
+    "performance": [],
+    "seo": [],
+    "security": [
+      {
+        "page": "/",
+        "headers": "HTTP/1.1 200 OK\r\nVary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding\r\nx-nextjs-cache: HIT\r\nx-nextjs-prerender: 1\r\nx-nextjs-prerender: 1\r\nx-nextjs-stale-time: 300\r\nCache-Control: s-maxage=31536000\r\nETag: \"10yjc3kgtuhhv3\"\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: 23151\r\nDate: Wed, 27 Aug 2025 14:11:45 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n",
+        "hasCSP": false,
+        "hasHSTS": false,
+        "hasXFrameOptions": false,
+        "hasXContentType": false,
+        "hasReferrerPolicy": false,
+        "serverInfo": {
+          "server": "Not disclosed",
+          "poweredBy": "Not disclosed"
+        }
+      },
+      {
+        "page": "/about",
+        "headers": "HTTP/1.1 200 OK\r\nVary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding\r\nx-nextjs-cache: HIT\r\nx-nextjs-prerender: 1\r\nx-nextjs-prerender: 1\r\nx-nextjs-stale-time: 300\r\nCache-Control: s-maxage=31536000\r\nETag: \"izvwq5p7ft81b\"\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: 10415\r\nDate: Wed, 27 Aug 2025 14:11:45 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n",
+        "hasCSP": false,
+        "hasHSTS": false,
+        "hasXFrameOptions": false,
+        "hasXContentType": false,
+        "hasReferrerPolicy": false,
+        "serverInfo": {
+          "server": "Not disclosed",
+          "poweredBy": "Not disclosed"
+        }
+      },
+      {
+        "page": "/services",
+        "headers": "HTTP/1.1 200 OK\r\nVary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding\r\nx-nextjs-cache: HIT\r\nx-nextjs-prerender: 1\r\nx-nextjs-prerender: 1\r\nx-nextjs-stale-time: 300\r\nCache-Control: s-maxage=31536000\r\nETag: \"rf2x3724se84g\"\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: 10528\r\nDate: Wed, 27 Aug 2025 14:11:45 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n",
+        "hasCSP": false,
+        "hasHSTS": false,
+        "hasXFrameOptions": false,
+        "hasXContentType": false,
+        "hasReferrerPolicy": false,
+        "serverInfo": {
+          "server": "Not disclosed",
+          "poweredBy": "Not disclosed"
+        }
+      }
+    ],
+    "issues": [
+      {
+        "type": "Page Test Error",
+        "page": "/",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/about",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/about\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/services",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/services\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/process",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/process\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/case-studies",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/case-studies\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/team",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/team\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/frameworks",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/frameworks\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/resources",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/resources\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/investors",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/investors\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/contact",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/contact\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      },
+      {
+        "type": "Page Test Error",
+        "page": "/api/health",
+        "issue": "Command failed: curl -w \"@/dev/stdin\" -o /dev/null -s \"http://localhost:3000/api/health\" <<< 'time_namelookup:      %{time_namelookup}s\ntime_connect:         %{time_connect}s\ntime_appconnect:      %{time_appconnect}s\ntime_pretransfer:     %{time_pretransfer}s\ntime_redirect:        %{time_redirect}s\ntime_starttransfer:   %{time_starttransfer}s\ntime_total:           %{time_total}s\nspeed_download:       %{speed_download} bytes/sec\nspeed_upload:         %{speed_upload} bytes/sec\nhttp_code:            %{http_code}\nresponse_code:        %{response_code}\ncontent_type:         %{content_type}\nsize_download:        %{size_download} bytes'\n/bin/sh: 1: Syntax error: redirection unexpected\n"
+      }
+    ],
+    "timestamp": "2025-08-27T14:11:45.123Z"
+  },
+  "recommendations": [
+    {
+      "category": "Security",
+      "priority": "Medium",
+      "issue": "Missing Content Security Policy headers",
+      "recommendation": "Implement CSP headers to prevent XSS attacks"
+    }
+  ]
+}

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Operations Excellence Canvas - Canadian Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ff0000 0%, #0066cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            -webkit-text-fill-color: #6c757d;
+        }
+
+        .canvas-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .canvas-container::before {
+            content: '🍁';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            opacity: 0.1;
+        }
+
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+            min-height: 600px;
+        }
+
+        .grid-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .clinical::before { background: #007bff; }
+        .administrative::before { background: #28a745; }
+        .technology::before { background: #6f42c1; }
+        .regulatory::before { background: #dc3545; }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .grid-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .grid-item p {
+            font-size: 0.9rem;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        .hover-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 0 0 12px 12px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        .grid-item:hover .hover-content {
+            top: 60%;
+            opacity: 1;
+        }
+
+        .row-header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .scorecard {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .scorecard h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+
+        .provinces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .province-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .province-card:hover {
+            border-color: #007bff;
+            transform: scale(1.02);
+        }
+
+        .province-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .readiness-score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .score-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .score-high { background: #28a745; }
+        .score-medium { background: #ffc107; color: #2c3e50; }
+        .score-low { background: #dc3545; }
+
+        .compliance-status {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .maple-accent {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            opacity: 0.1;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .canvas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .provinces-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .canvas-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(12, 1fr);
+            }
+            
+            .provinces-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Clinical Operations Excellence Canvas</h1>
+        <p>Multi-Site Healthcare Scaling Framework - Canadian Edition</p>
+        <p style="font-size: 1rem; margin-top: 5px;">🍁 Designed for BC-based Naturopathic Clinics Expanding Across Canada 🍁</p>
+    </div>
+
+    <div class="canvas-container">
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #007bff;"></div>
+                <span>Clinical Protocols</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #28a745;"></div>
+                <span>Administrative Operations</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #6f42c1;"></div>
+                <span>Technology Systems</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #dc3545;"></div>
+                <span>Regulatory Compliance</span>
+            </div>
+        </div>
+
+        <div class="canvas-grid">
+            <!-- Row 1: Standardization & Compliance Framework -->
+            <div class="row-header" style="grid-column: 1 / -1; grid-row: 1;">
+                🏥 STANDARDIZATION & COMPLIANCE FRAMEWORK
+            </div>
+
+            <div class="grid-item clinical" style="grid-row: 2;">
+                <h3>Clinical Protocols Library</h3>
+                <p>Standardized treatment protocols with provincial adaptations for scope of practice variations.</p>
+                <div class="hover-content">
+                    <strong>Provincial Variations:</strong><br>
+                    • BC: Full IV therapy scope<br>
+                    • AB: Limited injection therapies<br>
+                    • ON: Restricted prescriptive authority<br>
+                    • QC: Requires French documentation<br>
+                    <strong>Benchmark:</strong> 200+ protocols standardized
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item regulatory" style="grid-row: 2;">
+                <h3>Provincial Regulatory Matrix</h3>
+                <p>Comprehensive compliance framework for BC, AB, ON, QC naturopathic regulations.</p>
+                <div class="hover-content">
+                    <strong>Key Requirements:</strong><br>
+                    • CNPBC (BC): Annual reporting<br>
+                    • AAND (AB): Continuing education<br>
+                    • BDDT-N (ON): Professional liability<br>
+                    • ANQ (QC): French language competency<br>
+                    <strong>Compliance Score:</strong> Target 95%+
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item administrative" style="grid-row: 2;">
+                <h3>Documentation Standards</h3>
+                <p>Unified documentation meeting all provincial requirements and federal privacy laws.</p>
+                <div class="hover-content">
+                    <strong>Standards Include:</strong><br>
+                    • PIPEDA compliance documentation<br>
+                    • Provincial health record requirements<br>
+                    • Bilingual templates (EN/FR)<br>
+                    • Digital signature protocols<br>
+                    <strong>Audit Readiness:</strong> 24/7 availability
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item regulatory" style="grid-row: 2;">
+                <h3>Bilingual Service Delivery</h3>
+                <p>French-English service capability for Quebec operations and federal compliance.</p>
+                <div class="hover-content">
+                    <strong>Quebec Requirements:</strong><br>
+                    • French as primary language<br>
+                    • Bilingual practitioners certified<br>
+                    • French marketing materials<br>
+                    • Cultural competency training<br>
+                    <strong>Target:</strong> 100% QC compliance
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <!-- Row 2: Technology Enablement -->
+            <div class="row-header" style="grid-column: 1 / -1; grid-row: 3;">
+                💻 TECHNOLOGY ENABLEMENT (CANADIAN CONTEXT)
+            </div>
+
+            <div class="grid-item technology" style="grid-row: 4;">
+                <h3>EMR Integration</h3>
+                <p>Canada Health Infoway certified EMR with provincial interoperability features.</p>
+                <div class="hover-content">
+                    <strong>Certification Requirements:</strong><br>
+                    • Health Level 7 (HL7) standards<br>
+                    • Provincial health network integration<br>
+                    • PIPEDA privacy compliance<br>
+                    • Indigenous health data protocols<br>
+                    <strong>Benchmark:</strong> 99.9% uptime required
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item technology" style="grid-row: 4;">
+                <h3>Virtual Care Platform</h3>
+                <p>Telehealth solution compliant with provincial virtual care regulations and billing.</p>
+                <div class="hover-content">
+                    <strong>Provincial Telehealth Rules:</strong><br>
+                    • BC: Full coverage for established patients<br>
+                    • AB: Initial visit restrictions<br>
+                    • ON: OHIP billing integration<br>
+                    • QC: French language platform required<br>
+                    <strong>Usage Target:</strong> 30% of consultations
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item technology" style="grid-row: 4;">
+                <h3>Patient Portal</h3>
+                <p>Bilingual patient engagement platform with PIPEDA compliance and provincial integrations.</p>
+                <div class="hover-content">
+                    <strong>Portal Features:</strong><br>
+                    • Bilingual interface (EN/FR)<br>
+                    • PIPEDA consent management<br>
+                    • Provincial health card integration<br>
+                    • Indigenous cultural considerations<br>
+                    <strong>Adoption Target:</strong> 75% patient enrollment
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item administrative" style="grid-row: 4;">
+                <h3>Provincial Billing Integration</h3>
+                <p>Multi-provincial billing system supporting MSP, AHCIP, OHIP, and private pay structures.</p>
+                <div class="hover-content">
+                    <strong>Billing Systems:</strong><br>
+                    • BC MSP: Partial coverage<br>
+                    • AB AHCIP: Extended health benefits<br>
+                    • ON OHIP: Limited naturopathic coverage<br>
+                    • QC RAMQ: Private billing required<br>
+                    <strong>Processing Time:</strong> 48hr claim turnaround
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <!-- Row 3: Operational Efficiency -->
+            <div class="row-header" style="grid-column: 1 / -1; grid-row: 5;">
+                ⚡ OPERATIONAL EFFICIENCY
+            </div>
+
+            <div class="grid-item clinical" style="grid-row: 6;">
+                <h3>Patient Flow Optimization</h3>
+                <p>Scheduling and workflow optimized for 60-90 minute naturopathic consultation standards.</p>
+                <div class="hover-content">
+                    <strong>Canadian Naturopathic Standards:</strong><br>
+                    • Initial visit: 90 minutes<br>
+                    • Follow-up: 60 minutes<br>
+                    • Treatment sessions: 30-45 minutes<br>
+                    • Buffer time: 15 minutes between patients<br>
+                    <strong>Utilization Target:</strong> 85% capacity
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item administrative" style="grid-row: 6;">
+                <h3>Revenue Cycle Management</h3>
+                <p>Mixed private/public payment processing with provincial insurance integration capabilities.</p>
+                <div class="hover-content">
+                    <strong>Canadian Payment Mix:</strong><br>
+                    • Private pay: 70-80%<br>
+                    • Extended health benefits: 15-25%<br>
+                    • Provincial coverage: 5-10%<br>
+                    • Collection rate target: 95%<br>
+                    <strong>Avg Visit Value:</strong> $150 CAD
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item clinical" style="grid-row: 6;">
+                <h3>Inventory Management</h3>
+                <p>Health Canada NPN-compliant supplement inventory with provincial distribution tracking.</p>
+                <div class="hover-content">
+                    <strong>Health Canada Requirements:</strong><br>
+                    • Natural Product Number (NPN) tracking<br>
+                    • Good Manufacturing Practices (GMP)<br>
+                    • Adverse event reporting<br>
+                    • Provincial distribution licenses<br>
+                    <strong>Inventory Turns:</strong> 6x annually target
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+
+            <div class="grid-item clinical" style="grid-row: 6;">
+                <h3>Practitioner Productivity</h3>
+                <p>Performance metrics adapted for Canadian naturopathic practice patterns and billing structures.</p>
+                <div class="hover-content">
+                    <strong>Canadian ND Benchmarks:</strong><br>
+                    • Patients/day: 8-12 (vs 15-20 MD)<br>
+                    • Revenue/practitioner: $200-300K CAD<br>
+                    • Patient satisfaction: 90%+ target<br>
+                    • Retention rate: 80%+ annually<br>
+                    <strong>Efficiency Score:</strong> Multi-metric dashboard
+                </div>
+                <div class="maple-accent">🍁</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scorecard">
+        <h2>🍁 Provincial Readiness Scorecard 🍁</h2>
+        <p style="text-align: center; margin-bottom: 25px; color: #6c757d;">
+            Evaluate readiness to enter each major Canadian market
+        </p>
+        
+        <div class="provinces-grid">
+            <div class="province-card" onclick="showProvinceDetails('BC')">
+                <div class="province-name">British Columbia</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-high">95</div>
+                    <span>Ready to Scale</span>
+                </div>
+                <div class="compliance-status">✅ Home base advantage<br>📋 Full regulatory compliance</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('AB')">
+                <div class="province-name">Alberta</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-high">88</div>
+                    <span>High Readiness</span>
+                </div>
+                <div class="compliance-status">✅ Similar scope of practice<br>⚠️ Minor protocol adjustments</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('ON')">
+                <div class="province-name">Ontario</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-medium">72</div>
+                    <span>Moderate Prep Needed</span>
+                </div>
+                <div class="compliance-status">⚠️ Scope restrictions<br>📋 Additional documentation</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('QC')">
+                <div class="province-name">Quebec</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-medium">65</div>
+                    <span>Significant Prep</span>
+                </div>
+                <div class="compliance-status">🇫🇷 Bilingual requirements<br>📋 Cultural adaptation needed</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('SK')">
+                <div class="province-name">Saskatchewan</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-high">78</div>
+                    <span>Good Readiness</span>
+                </div>
+                <div class="compliance-status">✅ Favorable regulations<br>📊 Market research needed</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('MB')">
+                <div class="province-name">Manitoba</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-medium">75</div>
+                    <span>Good Potential</span>
+                </div>
+                <div class="compliance-status">✅ Growing market<br>⚠️ Limited precedent</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('ATL')">
+                <div class="province-name">Atlantic Provinces</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-low">55</div>
+                    <span>Long-term Target</span>
+                </div>
+                <div class="compliance-status">📊 Market development needed<br>🏥 Limited infrastructure</div>
+            </div>
+
+            <div class="province-card" onclick="showProvinceDetails('TER')">
+                <div class="province-name">Territories</div>
+                <div class="readiness-score">
+                    <div class="score-circle score-low">45</div>
+                    <span>Future Opportunity</span>
+                </div>
+                <div class="compliance-status">🏔️ Unique challenges<br>📡 Telehealth focus</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+            <h3 style="color: #2c3e50; margin-bottom: 15px;">📊 National Expansion Strategy</h3>
+            <p style="color: #6c757d; line-height: 1.6;">
+                <strong>Phase 1:</strong> Alberta expansion (6-9 months) •
+                <strong>Phase 2:</strong> Saskatchewan & Manitoba (12-18 months) •
+                <strong>Phase 3:</strong> Ontario market entry (18-24 months) •
+                <strong>Phase 4:</strong> Quebec preparation (24-36 months)
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showProvinceDetails(province) {
+            const details = {
+                'BC': {
+                    title: 'British Columbia - Home Base',
+                    details: 'Full operational base with established regulatory relationships. CNPBC registration complete. Focus on scaling operational excellence across new locations.'
+                },
+                'AB': {
+                    title: 'Alberta - High Priority Target',
+                    details: 'Strong naturopathic recognition. AAND registration required. Similar scope of practice to BC. Conservative patient base aligns with naturopathic values.'
+                },
+                'ON': {
+                    title: 'Ontario - Major Market Opportunity',
+                    details: 'Largest Canadian market but restricted scope. BDDT-N registration required. Focus on wellness and prevention within regulatory constraints.'
+                },
+                'QC': {
+                    title: 'Quebec - Cultural Adaptation Required',
+                    details: 'Requires French fluency and cultural competency. ANQ registration essential. Strong holistic health culture but unique regulatory environment.'
+                },
+                'SK': {
+                    title: 'Saskatchewan - Emerging Market',
+                    details: 'Growing recognition of naturopathic medicine. Favorable regulatory environment. Rural/urban service delivery considerations.'
+                },
+                'MB': {
+                    title: 'Manitoba - Steady Growth Potential',
+                    details: 'Established but small naturopathic community. Focus on complementary care relationships with conventional medicine.'
+                },
+                'ATL': {
+                    title: 'Atlantic Provinces - Long-term Vision',
+                    details: 'Limited current naturopathic infrastructure. Opportunity for market development and education. Consider maritime health challenges.'
+                },
+                'TER': {
+                    title: 'Territories - Telehealth Focus',
+                    details: 'Unique opportunity for virtual care delivery. Address remote access challenges. Cultural sensitivity for Indigenous communities essential.'
+                }
+            };
+
+            const provinceData = details[province];
+            alert(`${provinceData.title}\n\n${provinceData.details}`);
+        }
+
+        // Add hover effects for grid items
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridItems = document.querySelectorAll('.grid-item');
+            
+            gridItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add click effect for province cards
+            const provinceCards = document.querySelectorAll('.province-card');
+            provinceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.02)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--browser", "chromium", "--viewport-size", "1920,1080"],
+      "description": "Playwright MCP server for browser automation and testing"
+    },
+    "playwright-headless": {
+      "command": "npx", 
+      "args": ["@playwright/mcp@latest", "--browser", "chromium", "--headless", "--viewport-size", "1920,1080"],
+      "description": "Playwright MCP server for headless browser automation"
+    },
+    "playwright-firefox": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--browser", "firefox", "--viewport-size", "1920,1080"],
+      "description": "Playwright MCP server with Firefox browser"
+    },
+    "playwright-webkit": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--browser", "webkit", "--viewport-size", "1920,1080"],
+      "description": "Playwright MCP server with WebKit browser"
+    }
+  }
+}

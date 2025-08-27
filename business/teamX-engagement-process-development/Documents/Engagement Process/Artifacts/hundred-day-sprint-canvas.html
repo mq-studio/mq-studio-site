@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100-Day Sprint Execution Canvas - Rapid Healthcare Scaling Launch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f94144 0%, #f3722c 50%, #f8961e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .time-block {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+        
+        .time-number {
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        .time-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .sprint-phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 40px;
+            background: #f8f9fa;
+            gap: 30px;
+        }
+        
+        .phase-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .phase-1::before { background: #f94144; }
+        .phase-2::before { background: #f3722c; }
+        .phase-3::before { background: #f8961e; }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .phase-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .phase-days {
+            background: #e9ecef;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .phase-objective {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            color: #495057;
+        }
+        
+        .week-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .week-block {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .week-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .week-status {
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-active { background: #cce5ff; color: #004085; }
+        .status-complete { background: #d4edda; color: #155724; }
+        
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .task-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f8f9fa;
+            font-size: 0.9em;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        .task-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #dee2e6;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .task-checkbox.checked {
+            background: #28a745;
+            border-color: #28a745;
+            position: relative;
+        }
+        
+        .task-checkbox.checked::after {
+            content: '✓';
+            color: white;
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            font-size: 14px;
+        }
+        
+        .critical-milestones {
+            padding: 40px;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+        }
+        
+        .milestones-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #dc3545;
+        }
+        
+        .milestones-timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        .milestone-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .milestone-day {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f94144 0%, #f3722c 100%);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .milestone-target {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .quick-wins {
+            padding: 40px;
+            background: white;
+        }
+        
+        .wins-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #28a745;
+        }
+        
+        .wins-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .win-card {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .win-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .win-title {
+            font-weight: 600;
+            color: #155724;
+            margin-bottom: 5px;
+        }
+        
+        .win-impact {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+        
+        .win-timeline {
+            font-size: 0.85em;
+            color: #155724;
+        }
+        
+        .resource-allocation {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .resource-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .resource-category {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .category-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+        
+        .category-budget {
+            font-weight: 700;
+            color: #dc3545;
+        }
+        
+        .resource-items {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+        
+        .resource-name {
+            color: #495057;
+        }
+        
+        .resource-status {
+            font-weight: 600;
+        }
+        
+        .status-ready { color: #28a745; }
+        .status-partial { color: #ffc107; }
+        .status-needed { color: #dc3545; }
+        
+        .risk-mitigation {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            padding: 40px;
+            margin: 30px 40px;
+            border-radius: 15px;
+        }
+        
+        .risk-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #856404;
+        }
+        
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .risk-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .risk-name {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .risk-mitigation-text {
+            font-size: 0.9em;
+            color: #495057;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>100-Day Sprint Execution Canvas</h1>
+            <p style="font-size: 1.2em; opacity: 0.9;">Rapid Healthcare Network Launch & Optimization</p>
+            
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <div class="time-number">100</div>
+                    <div class="time-label">DAYS</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-number">14</div>
+                    <div class="time-label">WEEKS</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-number">5</div>
+                    <div class="time-label">MILESTONES</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-number">$1.5M</div>
+                    <div class="time-label">BUDGET</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sprint Phases -->
+        <div class="sprint-phases">
+            <!-- Phase 1: Foundation -->
+            <div class="phase-card phase-1">
+                <div class="phase-header">
+                    <span class="phase-title">Phase 1: Foundation</span>
+                    <span class="phase-days">Days 1-30</span>
+                </div>
+                
+                <div class="phase-objective">
+                    <strong>Objective:</strong> Establish core infrastructure and team while optimizing BC flagship location
+                </div>
+                
+                <div class="week-grid">
+                    <div class="week-block">
+                        <div class="week-header">
+                            <span class="week-label">Week 1-2</span>
+                            <span class="week-status status-complete">Complete</span>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <span class="task-checkbox checked"></span>
+                                <span>Deploy Jane App EMR</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox checked"></span>
+                                <span>Hire VP Operations</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox checked"></span>
+                                <span>Insurance optimization audit</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox checked"></span>
+                                <span>Launch virtual care platform</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-block">
+                        <div class="week-header">
+                            <span class="week-label">Week 3-4</span>
+                            <span class="week-status status-active">Active</span>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Standardize top 20 protocols</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Implement AI documentation pilot</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Establish quality metrics</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Corporate wellness outreach</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 2: Validation -->
+            <div class="phase-card phase-2">
+                <div class="phase-header">
+                    <span class="phase-title">Phase 2: Validation</span>
+                    <span class="phase-days">Days 31-60</span>
+                </div>
+                
+                <div class="phase-objective">
+                    <strong>Objective:</strong> Prove model viability and prepare for multi-site expansion
+                </div>
+                
+                <div class="week-grid">
+                    <div class="week-block">
+                        <div class="week-header">
+                            <span class="week-label">Week 5-6</span>
+                            <span class="week-status status-pending">Pending</span>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>First acquisition LOI</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Alberta licensing complete</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Corporate pilot launch (3 companies)</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Practitioner pipeline established</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-block">
+                        <div class="week-header">
+                            <span class="week-label">Week 7-8</span>
+                            <span class="week-status status-pending">Pending</span>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Calgary site selection</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Indigenous partnership MOU</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Data infrastructure setup</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Series A prep begins</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 3: Acceleration -->
+            <div class="phase-card phase-3">
+                <div class="phase-header">
+                    <span class="phase-title">Phase 3: Acceleration</span>
+                    <span class="phase-days">Days 61-100</span>
+                </div>
+                
+                <div class="phase-objective">
+                    <strong>Objective:</strong> Launch expansion sites and activate network effects
+                </div>
+                
+                <div class="week-grid">
+                    <div class="week-block">
+                        <div class="week-header">
+                            <span class="week-label">Week 9-11</span>
+                            <span class="week-status status-pending">Pending</span>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Calgary clinic launch</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>First acquisition close</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>10 practitioners hired</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Training institute launch</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="week-block">
+                        <div class="week-header">
+                            <span class="week-label">Week 12-14</span>
+                            <span class="week-status status-pending">Pending</span>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Network dashboard live</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>5,000 patient milestone</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>Data product MVP</span>
+                            </li>
+                            <li class="task-item">
+                                <span class="task-checkbox"></span>
+                                <span>$2M run rate achieved</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Critical Milestones -->
+        <div class="critical-milestones">
+            <h2 class="milestones-title">Critical Go/No-Go Milestones</h2>
+            
+            <div class="milestones-timeline">
+                <div class="milestone-card">
+                    <div class="milestone-day">20</div>
+                    <div class="milestone-name">BC Optimization</div>
+                    <div class="milestone-target">75% utilization</div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-day">40</div>
+                    <div class="milestone-name">Acquisition LOI</div>
+                    <div class="milestone-target">Terms agreed</div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-day">60</div>
+                    <div class="milestone-name">Alberta Ready</div>
+                    <div class="milestone-target">Site + team secured</div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-day">80</div>
+                    <div class="milestone-name">Network Active</div>
+                    <div class="milestone-target">3 sites operational</div>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-day">100</div>
+                    <div class="milestone-name">Series A Ready</div>
+                    <div class="milestone-target">$2M ARR proven</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Wins -->
+        <div class="quick-wins">
+            <h2 class="wins-title">30-Day Quick Wins for Immediate Impact</h2>
+            
+            <div class="wins-grid">
+                <div class="win-card">
+                    <div class="win-icon">💰</div>
+                    <div class="win-title">Insurance Optimization</div>
+                    <div class="win-impact">+$25K/mo</div>
+                    <div class="win-timeline">Week 1-2</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">📱</div>
+                    <div class="win-title">Virtual Care Launch</div>
+                    <div class="win-impact">+30% capacity</div>
+                    <div class="win-timeline">Week 1</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">🤖</div>
+                    <div class="win-title">AI Documentation</div>
+                    <div class="win-impact">-2 hrs/day</div>
+                    <div class="win-timeline">Week 3-4</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">📊</div>
+                    <div class="win-title">EMR Deployment</div>
+                    <div class="win-impact">+40% efficiency</div>
+                    <div class="win-timeline">Week 1</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">🏢</div>
+                    <div class="win-title">Corporate Pilots</div>
+                    <div class="win-impact">3 contracts</div>
+                    <div class="win-timeline">Week 3-4</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">📈</div>
+                    <div class="win-title">Pricing Optimization</div>
+                    <div class="win-impact">+10% revenue</div>
+                    <div class="win-timeline">Week 2</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">👥</div>
+                    <div class="win-title">Referral Program</div>
+                    <div class="win-impact">+50 patients</div>
+                    <div class="win-timeline">Week 2-3</div>
+                </div>
+                
+                <div class="win-card">
+                    <div class="win-icon">📋</div>
+                    <div class="win-title">Protocol Standards</div>
+                    <div class="win-impact">+15% quality</div>
+                    <div class="win-timeline">Week 3-4</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Resource Allocation -->
+        <div class="resource-allocation">
+            <h2 class="resource-title">Resource Allocation & Readiness</h2>
+            
+            <div class="resource-grid">
+                <div class="resource-category">
+                    <div class="category-header">
+                        <span class="category-name">Human Capital</span>
+                        <span class="category-budget">$450K</span>
+                    </div>
+                    <div class="resource-items">
+                        <div class="resource-item">
+                            <span class="resource-name">VP Operations</span>
+                            <span class="resource-status status-ready">Hired</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Chief Medical Officer</span>
+                            <span class="resource-status status-partial">Interviewing</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">5 New Practitioners</span>
+                            <span class="resource-status status-needed">Pipeline Active</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Tech Implementation Team</span>
+                            <span class="resource-status status-ready">Contracted</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-category">
+                    <div class="category-header">
+                        <span class="category-name">Technology</span>
+                        <span class="category-budget">$200K</span>
+                    </div>
+                    <div class="resource-items">
+                        <div class="resource-item">
+                            <span class="resource-name">Jane App EMR</span>
+                            <span class="resource-status status-ready">Licensed</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Doxy.me Virtual</span>
+                            <span class="resource-status status-ready">Active</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">DeepScribe AI</span>
+                            <span class="resource-status status-partial">Trial</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Analytics Platform</span>
+                            <span class="resource-status status-needed">Selecting</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-category">
+                    <div class="category-header">
+                        <span class="category-name">Capital</span>
+                        <span class="category-budget">$850K</span>
+                    </div>
+                    <div class="resource-items">
+                        <div class="resource-item">
+                            <span class="resource-name">Working Capital</span>
+                            <span class="resource-status status-ready">$500K secured</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Acquisition Fund</span>
+                            <span class="resource-status status-partial">$200K ready</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Marketing Budget</span>
+                            <span class="resource-status status-ready">$100K allocated</span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Contingency</span>
+                            <span class="resource-status status-ready">$50K reserved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Mitigation -->
+        <div class="risk-mitigation">
+            <h2 class="risk-title">Sprint Risk Mitigation</h2>
+            
+            <div class="risk-grid">
+                <div class="risk-card">
+                    <div class="risk-name">Practitioner Shortage</div>
+                    <div class="risk-mitigation-text">
+                        Active pipeline with 15 candidates, accelerated training program, hybrid model with NPs/RNs
+                    </div>
+                </div>
+                
+                <div class="risk-card">
+                    <div class="risk-name">Technology Adoption</div>
+                    <div class="risk-mitigation-text">
+                        Phased rollout, dedicated support team, practitioner champions, parallel systems during transition
+                    </div>
+                </div>
+                
+                <div class="risk-card">
+                    <div class="risk-name">Acquisition Delays</div>
+                    <div class="risk-mitigation-text">
+                        Multiple targets in pipeline, greenfield backup plan, partnership alternatives ready
+                    </div>
+                </div>
+                
+                <div class="risk-card">
+                    <div class="risk-name">Cash Flow</div>
+                    <div class="risk-mitigation-text">
+                        18-month runway secured, milestone-based funding, revenue acceleration focus
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 TeamX Management Consulting | 100-Day Sprint Execution Framework</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Rapid Healthcare Network Launch & Optimization</p>
+        </div>
+    </div>
+</body>
+</html>

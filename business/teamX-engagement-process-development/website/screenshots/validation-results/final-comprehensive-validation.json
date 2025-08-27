@@ -1,0 +1,1734 @@
+{
+  "summary": {
+    "totalPages": 10,
+    "successfulPages": 10,
+    "failedPages": 0,
+    "criticalPagesFailed": 0,
+    "averageScore": 67,
+    "totalIssues": 13,
+    "highSeverityIssues": 0,
+    "mediumSeverityIssues": 13,
+    "lowSeverityIssues": 0,
+    "validationTimestamp": "2025-08-27T17:17:10.093Z",
+    "overallStatus": "Fair - Several Issues Need Attention"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "name": "Home Page",
+      "critical": true,
+      "expectedComponents": [
+        "Hero",
+        "Services",
+        "ProcessOverview",
+        "CaseStudiesPreview",
+        "Team",
+        "Testimonials",
+        "Contact"
+      ],
+      "expectedFeatures": [
+        "ROI Calculator",
+        "Call to Action",
+        "Company Stats",
+        "Navigation Menu"
+      ],
+      "timestamp": "2025-08-27T17:17:10.097Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 28,
+          "contentLength": 23151,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 689,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": true,
+          "hasCallToAction": false,
+          "hasProfessionalTone": true,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 50,
+            "wordCount": 689,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "TeamX - Healthcare Consulting Excellence",
+          "titleLength": 40,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "TeamX delivers transformative healthcare consulting services, specializing in operational optimization, strategic growth, and sustainable value creation for healthcare organizations.",
+          "metaDescriptionLength": 182,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": false,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 28,
+          "contentSize": 23151,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 4,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 4,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 7,
+          "componentsDetected": 2,
+          "componentResults": {
+            "Hero": {
+              "detected": false,
+              "confidence": 10,
+              "evidence": [
+                "H1 tag present",
+                "Hero section detected"
+              ]
+            },
+            "Services": {
+              "detected": true,
+              "confidence": 85,
+              "evidence": [
+                "Services content found",
+                "Grid or card layout detected"
+              ]
+            },
+            "ProcessOverview": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "ProcessOverview content references found"
+              ]
+            },
+            "CaseStudiesPreview": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "CaseStudiesPreview content references found"
+              ]
+            },
+            "Team": {
+              "detected": true,
+              "confidence": 70,
+              "evidence": [
+                "Team content references found"
+              ]
+            },
+            "Testimonials": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Testimonials content references found"
+              ]
+            },
+            "Contact": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Contact content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 29
+        },
+        "features": {
+          "expectedFeatures": 4,
+          "featuresDetected": 1,
+          "featureResults": {
+            "ROI Calculator": {
+              "present": true,
+              "functional": "Likely",
+              "notes": [
+                "ROI content detected"
+              ]
+            },
+            "Call to Action": {
+              "present": false,
+              "functional": "No",
+              "notes": [
+                "No clear CTAs found"
+              ]
+            },
+            "Company Stats": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Company Stats\""
+              ]
+            },
+            "Navigation Menu": {
+              "present": false,
+              "functional": "No",
+              "notes": [
+                "No navigation detected"
+              ]
+            }
+          },
+          "featuresCoverage": 25
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        },
+        {
+          "type": "Content Warning",
+          "severity": "Medium",
+          "issue": "Critical page missing clear call-to-action",
+          "impact": "Reduced conversion potential"
+        }
+      ],
+      "score": 72
+    },
+    {
+      "path": "/about",
+      "name": "About Page",
+      "critical": true,
+      "expectedComponents": [
+        "About Section",
+        "Team Overview",
+        "Mission Statement"
+      ],
+      "expectedFeatures": [
+        "Company History",
+        "Values",
+        "Leadership"
+      ],
+      "timestamp": "2025-08-27T17:17:10.133Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 29,
+          "contentLength": 10415,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 109,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": true,
+          "hasCallToAction": false,
+          "hasProfessionalTone": true,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 109,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "About TeamX - Healthcare Consulting Experts",
+          "titleLength": 43,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Learn about TeamX Healthcare Consulting, our mission, values, and 15+ years of experience transforming 150+ healthcare organizations across North America.",
+          "metaDescriptionLength": 154,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 29,
+          "contentSize": 10415,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 3,
+          "componentsDetected": 0,
+          "componentResults": {
+            "About Section": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "About Section content references found"
+              ]
+            },
+            "Team Overview": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Team Overview content references found"
+              ]
+            },
+            "Mission Statement": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Mission Statement content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 1,
+          "featureResults": {
+            "Company History": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Company History\""
+              ]
+            },
+            "Values": {
+              "present": true,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Values\""
+              ]
+            },
+            "Leadership": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Leadership\""
+              ]
+            }
+          },
+          "featuresCoverage": 33
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        },
+        {
+          "type": "Content Warning",
+          "severity": "Medium",
+          "issue": "Critical page missing clear call-to-action",
+          "impact": "Reduced conversion potential"
+        }
+      ],
+      "score": 70
+    },
+    {
+      "path": "/services",
+      "name": "Services Page",
+      "critical": true,
+      "expectedComponents": [
+        "Services Grid",
+        "Service Details",
+        "ROI Information"
+      ],
+      "expectedFeatures": [
+        "Service Categories",
+        "Benefits",
+        "Pricing Information"
+      ],
+      "timestamp": "2025-08-27T17:17:10.163Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 8,
+          "contentLength": 10528,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 91,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": false,
+          "hasCallToAction": false,
+          "hasProfessionalTone": false,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 91,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Healthcare Consulting Services - TeamX",
+          "titleLength": 38,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Comprehensive healthcare consulting services including operational optimization, strategic growth planning, digital transformation, and organizational development.",
+          "metaDescriptionLength": 163,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": false,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 8,
+          "contentSize": 10528,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 3,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Services Grid": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Services Grid content references found"
+              ]
+            },
+            "Service Details": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Service Details content references found"
+              ]
+            },
+            "ROI Information": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "ROI Information content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 0,
+          "featureResults": {
+            "Service Categories": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Service Categories\""
+              ]
+            },
+            "Benefits": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Benefits\""
+              ]
+            },
+            "Pricing Information": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Pricing Information\""
+              ]
+            }
+          },
+          "featuresCoverage": 0
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        },
+        {
+          "type": "Content Warning",
+          "severity": "Medium",
+          "issue": "Critical page missing clear call-to-action",
+          "impact": "Reduced conversion potential"
+        }
+      ],
+      "score": 62
+    },
+    {
+      "path": "/process",
+      "name": "Process Page",
+      "critical": false,
+      "expectedComponents": [
+        "Process Timeline",
+        "Step Details"
+      ],
+      "expectedFeatures": [
+        "Methodology",
+        "Timeline",
+        "Process Steps"
+      ],
+      "timestamp": "2025-08-27T17:17:10.172Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 10,
+          "contentLength": 10372,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 97,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": false,
+          "hasCallToAction": false,
+          "hasProfessionalTone": false,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 97,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Our Proven Consulting Process - TeamX",
+          "titleLength": 37,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Discover TeamX&#x27;s proven 6-phase consulting methodology that delivers measurable results and sustainable transformation for healthcare organizations.",
+          "metaDescriptionLength": 153,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 10,
+          "contentSize": 10372,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Process Timeline": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Process Timeline content references found"
+              ]
+            },
+            "Step Details": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Step Details content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 1,
+          "featureResults": {
+            "Methodology": {
+              "present": true,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Methodology\""
+              ]
+            },
+            "Timeline": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Timeline\""
+              ]
+            },
+            "Process Steps": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Process Steps\""
+              ]
+            }
+          },
+          "featuresCoverage": 33
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 65
+    },
+    {
+      "path": "/case-studies",
+      "name": "Case Studies Page",
+      "critical": false,
+      "expectedComponents": [
+        "Case Study Cards",
+        "Results Display"
+      ],
+      "expectedFeatures": [
+        "Success Stories",
+        "ROI Results",
+        "Client Testimonials"
+      ],
+      "timestamp": "2025-08-27T17:17:10.183Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 9,
+          "contentLength": 10374,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 98,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": true,
+          "hasCallToAction": false,
+          "hasProfessionalTone": false,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 98,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Healthcare Consulting Case Studies - TeamX",
+          "titleLength": 42,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Real-world success stories showcasing how TeamX has transformed healthcare organizations, delivering measurable ROI and sustainable growth.",
+          "metaDescriptionLength": 139,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 9,
+          "contentSize": 10374,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Case Study Cards": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Case Study Cards content references found"
+              ]
+            },
+            "Results Display": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Results Display content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 0,
+          "featureResults": {
+            "Success Stories": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Success Stories\""
+              ]
+            },
+            "ROI Results": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"ROI Results\""
+              ]
+            },
+            "Client Testimonials": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Client Testimonials\""
+              ]
+            }
+          },
+          "featuresCoverage": 0
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 70
+    },
+    {
+      "path": "/team",
+      "name": "Team Page",
+      "critical": false,
+      "expectedComponents": [
+        "Team Member Cards",
+        "Profile Information"
+      ],
+      "expectedFeatures": [
+        "Team Bios",
+        "Credentials",
+        "Experience"
+      ],
+      "timestamp": "2025-08-27T17:17:10.192Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 26,
+          "contentLength": 10339,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 108,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": false,
+          "hasCallToAction": false,
+          "hasProfessionalTone": true,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 108,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Our Expert Team - TeamX Healthcare Consulting",
+          "titleLength": 45,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Meet TeamX&#x27;s experienced healthcare consulting team with 60+ years of combined expertise in healthcare transformation and strategic growth.",
+          "metaDescriptionLength": 144,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 26,
+          "contentSize": 10339,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Team Member Cards": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Team Member Cards content references found"
+              ]
+            },
+            "Profile Information": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Profile Information content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 1,
+          "featureResults": {
+            "Team Bios": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Team Bios\""
+              ]
+            },
+            "Credentials": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Credentials\""
+              ]
+            },
+            "Experience": {
+              "present": true,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Experience\""
+              ]
+            }
+          },
+          "featuresCoverage": 33
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 65
+    },
+    {
+      "path": "/frameworks",
+      "name": "Frameworks Page",
+      "critical": false,
+      "expectedComponents": [
+        "Framework Gallery",
+        "Framework Viewer"
+      ],
+      "expectedFeatures": [
+        "Interactive Frameworks",
+        "Framework Details",
+        "PDF Viewer"
+      ],
+      "timestamp": "2025-08-27T17:17:10.219Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 5,
+          "contentLength": 10445,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 94,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": false,
+          "hasCallToAction": false,
+          "hasProfessionalTone": false,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 94,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Healthcare Consulting Frameworks - TeamX",
+          "titleLength": 40,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Explore TeamX&#x27;s proprietary consulting frameworks including the Integrated Master Framework, Operational Alpha Canvas, and Network Effects Canvas.",
+          "metaDescriptionLength": 151,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 5,
+          "contentSize": 10445,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Framework Gallery": {
+              "detected": false,
+              "confidence": 15,
+              "evidence": [
+                "Framework content found",
+                "Gallery layout detected"
+              ]
+            },
+            "Framework Viewer": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Framework Viewer content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 0,
+          "featureResults": {
+            "Interactive Frameworks": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Interactive Frameworks\""
+              ]
+            },
+            "Framework Details": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Framework Details\""
+              ]
+            },
+            "PDF Viewer": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"PDF Viewer\""
+              ]
+            }
+          },
+          "featuresCoverage": 0
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 65
+    },
+    {
+      "path": "/resources",
+      "name": "Resources Page",
+      "critical": false,
+      "expectedComponents": [
+        "Resource List",
+        "Download Links"
+      ],
+      "expectedFeatures": [
+        "Whitepapers",
+        "Tools",
+        "Documentation"
+      ],
+      "timestamp": "2025-08-27T17:17:10.226Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 8,
+          "contentLength": 10235,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 88,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": false,
+          "hasCallToAction": false,
+          "hasProfessionalTone": false,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 88,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Healthcare Consulting Resources - TeamX",
+          "titleLength": 39,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Access valuable healthcare consulting resources, whitepapers, industry insights, and tools to help transform your organization.",
+          "metaDescriptionLength": 127,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 8,
+          "contentSize": 10235,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Resource List": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Resource List content references found"
+              ]
+            },
+            "Download Links": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Download Links content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 2,
+          "featureResults": {
+            "Whitepapers": {
+              "present": true,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Whitepapers\""
+              ]
+            },
+            "Tools": {
+              "present": true,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Tools\""
+              ]
+            },
+            "Documentation": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Documentation\""
+              ]
+            }
+          },
+          "featuresCoverage": 67
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 65
+    },
+    {
+      "path": "/investors",
+      "name": "Investors Page",
+      "critical": false,
+      "expectedComponents": [
+        "Investment Information",
+        "Financial Data"
+      ],
+      "expectedFeatures": [
+        "Investment Opportunities",
+        "Financial Performance",
+        "Partnership Info"
+      ],
+      "timestamp": "2025-08-27T17:17:10.235Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 5,
+          "contentLength": 10221,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 87,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": true,
+          "hasCallToAction": false,
+          "hasProfessionalTone": false,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 87,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Investor Relations - TeamX",
+          "titleLength": 26,
+          "hasTitle": true,
+          "titleOptimal": false,
+          "metaDescription": "Investment opportunities and partnership information for TeamX Healthcare Consulting. Join us in transforming the healthcare industry.",
+          "metaDescriptionLength": 134,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 5,
+          "contentSize": 10221,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Investment Information": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Investment Information content references found"
+              ]
+            },
+            "Financial Data": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Financial Data content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 0,
+          "featureResults": {
+            "Investment Opportunities": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Investment Opportunities\""
+              ]
+            },
+            "Financial Performance": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Financial Performance\""
+              ]
+            },
+            "Partnership Info": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Partnership Info\""
+              ]
+            }
+          },
+          "featuresCoverage": 0
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 67
+    },
+    {
+      "path": "/contact",
+      "name": "Contact Page",
+      "critical": true,
+      "expectedComponents": [
+        "Contact Form",
+        "Contact Information"
+      ],
+      "expectedFeatures": [
+        "Form Validation",
+        "Contact Details",
+        "Location Information"
+      ],
+      "timestamp": "2025-08-27T17:17:10.242Z",
+      "tests": {
+        "navigation": {
+          "accessible": true,
+          "loadTime": 32,
+          "contentLength": 10211,
+          "contentType": "text/html; charset=utf-8",
+          "statusCode": 200,
+          "serverHeader": "Not disclosed",
+          "hasRedirect": false
+        },
+        "content": {
+          "wordCount": 102,
+          "hasHealthcareTerms": true,
+          "hasCanadianContext": false,
+          "hasROIContent": false,
+          "hasCallToAction": true,
+          "hasProfessionalTone": true,
+          "hasContactInformation": true,
+          "contentQuality": {
+            "score": 0,
+            "wordCount": 102,
+            "hasImages": false,
+            "hasStructure": false
+          }
+        },
+        "seo": {
+          "title": "Contact TeamX - Healthcare Consulting",
+          "titleLength": 37,
+          "hasTitle": true,
+          "titleOptimal": true,
+          "metaDescription": "Get in touch with TeamX Healthcare Consulting to discuss your transformation needs. Schedule a consultation with our expert team.",
+          "metaDescriptionLength": 129,
+          "hasMetaDescription": true,
+          "metaDescriptionOptimal": true,
+          "h1Count": 0,
+          "h1Content": null,
+          "hasProperH1": false,
+          "hasViewportMeta": true,
+          "hasCanonical": true,
+          "hasOpenGraph": true,
+          "hasStructuredData": false,
+          "hasRobotsMeta": true,
+          "internalLinks": 0,
+          "externalLinks": 0,
+          "imageAltTags": {
+            "total": 0,
+            "withAlt": 0,
+            "coverage": 100
+          }
+        },
+        "performance": {
+          "loadTime": 32,
+          "contentSize": 10211,
+          "sizeOptimal": true,
+          "hasCaching": true,
+          "hasEtag": true,
+          "hasLastModified": false,
+          "cacheControl": "s-maxage=31536000",
+          "compressionType": "None"
+        },
+        "accessibility": {
+          "imagesWithAlt": 0,
+          "totalImages": 0,
+          "altTagCoverage": 100,
+          "hasSkipLinks": false,
+          "ariaLabels": 0,
+          "ariaDescribedBy": 0,
+          "ariaHidden": 0,
+          "hasLangAttribute": true,
+          "hasProperHeadings": false,
+          "formLabels": {
+            "forms": 0,
+            "labels": 0,
+            "hasLabels": false
+          },
+          "colorContrast": "Not tested - requires browser analysis"
+        },
+        "components": {
+          "expectedComponents": 2,
+          "componentsDetected": 0,
+          "componentResults": {
+            "Contact Form": {
+              "detected": false,
+              "confidence": 5,
+              "evidence": [
+                "Form element present",
+                "Input fields detected"
+              ]
+            },
+            "Contact Information": {
+              "detected": false,
+              "confidence": 30,
+              "evidence": [
+                "Contact Information content references found"
+              ]
+            }
+          },
+          "componentsCoverage": 0
+        },
+        "features": {
+          "expectedFeatures": 3,
+          "featuresDetected": 0,
+          "featureResults": {
+            "Form Validation": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "No validation detected"
+              ]
+            },
+            "Contact Details": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Contact Details\""
+              ]
+            },
+            "Location Information": {
+              "present": false,
+              "functional": "Unknown",
+              "notes": [
+                "Feature search for \"Location Information\""
+              ]
+            }
+          },
+          "featuresCoverage": 0
+        }
+      },
+      "issues": [
+        {
+          "type": "SEO Warning",
+          "severity": "Medium",
+          "issue": "Incorrect H1 count: 0 (should be 1)",
+          "impact": "Suboptimal SEO structure"
+        }
+      ],
+      "score": 70
+    }
+  ],
+  "components": [],
+  "seo": [
+    {
+      "feature": "robots.txt",
+      "status": "Present",
+      "content": "User-Agent: *\nAllow: /\nDisallow: /private/\nDisallow: /admin/\n\nSitemap: https://teamx-healthcare.com/sitemap.xml\n"
+    },
+    {
+      "feature": "sitemap.xml",
+      "status": "Present",
+      "urlCount": 10
+    }
+  ],
+  "performance": [
+    {
+      "feature": "Health Check API",
+      "status": "Working",
+      "response": {
+        "status": "healthy",
+        "timestamp": "2025-08-27T17:17:10.334Z",
+        "uptime": 14781.474341361,
+        "environment": "production",
+        "version": "1.0.0"
+      }
+    }
+  ],
+  "accessibility": [],
+  "security": [],
+  "responsive": [],
+  "issues": [
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "Content Warning",
+      "severity": "Medium",
+      "issue": "Critical page missing clear call-to-action",
+      "impact": "Reduced conversion potential"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "Content Warning",
+      "severity": "Medium",
+      "issue": "Critical page missing clear call-to-action",
+      "impact": "Reduced conversion potential"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "Content Warning",
+      "severity": "Medium",
+      "issue": "Critical page missing clear call-to-action",
+      "impact": "Reduced conversion potential"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "issue": "Incorrect H1 count: 0 (should be 1)",
+      "impact": "Suboptimal SEO structure"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "Medium",
+      "category": "SEO",
+      "title": "Improve SEO Implementation",
+      "description": "10 SEO-related issues need attention",
+      "impact": "Medium - Affects search visibility",
+      "effort": "Low",
+      "timeframe": "1 week"
+    }
+  ],
+  "timestamp": "2025-08-27T17:17:10.093Z"
+}

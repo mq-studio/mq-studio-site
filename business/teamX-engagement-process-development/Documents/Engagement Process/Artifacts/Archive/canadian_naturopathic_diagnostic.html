@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Quick Wins Identifier for Canadian Naturopathic Clinics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .assessment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .category-title {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+
+        .option input {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .option label {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-card h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .quick-win {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+        }
+
+        .quick-win.high-priority {
+            border-left-color: #e74c3c;
+        }
+
+        .quick-win.medium-priority {
+            border-left-color: #f39c12;
+        }
+
+        .quick-win.low-priority {
+            border-left-color: #27ae60;
+        }
+
+        .quick-win h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .quick-win-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .detail-item h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .high-priority .priority-badge {
+            background: #e74c3c;
+        }
+
+        .medium-priority .priority-badge {
+            background: #f39c12;
+        }
+
+        .low-priority .priority-badge {
+            background: #27ae60;
+        }
+
+        .special-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .feature-card .score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .disclaimer h4 {
+            margin-bottom: 10px;
+            color: #d68910;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            background: #95a5a6;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #7f8c8d;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .current-step {
+            font-weight: 600;
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .quick-win-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .special-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍁 30-Day Quick Wins Identifier</h1>
+            <p>For Canadian Naturopathic Clinics - Interprovincial Scaling Assessment</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="assessmentForm">
+            <!-- Category 1: BC Operational Maturity -->
+            <div class="assessment-card" id="category1">
+                <h2 class="category-title">🏢 Current BC Operational Maturity</h2>
+                
+                <div class="question">
+                    <div class="question-text">1. How many years has your clinic been operational in BC?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q1" value="1" id="q1a"><label for="q1a">Less than 2 years</label></div>
+                        <div class="option"><input type="radio" name="q1" value="2" id="q1b"><label for="q1b">2-5 years</label></div>
+                        <div class="option"><input type="radio" name="q1" value="3" id="q1c"><label for="q1c">5-10 years</label></div>
+                        <div class="option"><input type="radio" name="q1" value="4" id="q1d"><label for="q1d">More than 10 years</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">2. What is your current monthly patient volume?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q2" value="1" id="q2a"><label for="q2a">Less than 100 patients</label></div>
+                        <div class="option"><input type="radio" name="q2" value="2" id="q2b"><label for="q2b">100-300 patients</label></div>
+                        <div class="option"><input type="radio" name="q2" value="3" id="q2c"><label for="q2c">300-500 patients</label></div>
+                        <div class="option"><input type="radio" name="q2" value="4" id="q2d"><label for="q2d">More than 500 patients</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">3. How standardized are your clinical protocols and procedures?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q3" value="1" id="q3a"><label for="q3a">Mostly ad-hoc, minimal documentation</label></div>
+                        <div class="option"><input type="radio" name="q3" value="2" id="q3b"><label for="q3b">Some protocols documented</label></div>
+                        <div class="option"><input type="radio" name="q3" value="3" id="q3c"><label for="q3c">Most protocols standardized and documented</label></div>
+                        <div class="option"><input type="radio" name="q3" value="4" id="q3d"><label for="q3d">Fully standardized with regular updates</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">4. What is your current staff structure?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q4" value="1" id="q4a"><label for="q4a">Solo practice, no staff</label></div>
+                        <div class="option"><input type="radio" name="q4" value="2" id="q4b"><label for="q4b">1-2 part-time administrative staff</label></div>
+                        <div class="option"><input type="radio" name="q4" value="3" id="q4c"><label for="q4c">2-4 staff including admin and clinical support</label></div>
+                        <div class="option"><input type="radio" name="q4" value="4" id="q4d"><label for="q4d">Full team with specialized roles</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">5. How do you currently handle patient scheduling and management?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q5" value="1" id="q5a"><label for="q5a">Paper-based or basic calendar</label></div>
+                        <div class="option"><input type="radio" name="q5" value="2" id="q5b"><label for="q5b">Simple online booking system</label></div>
+                        <div class="option"><input type="radio" name="q5" value="3" id="q5c"><label for="q5c">Integrated practice management software</label></div>
+                        <div class="option"><input type="radio" name="q5" value="4" id="q5d"><label for="q5d">Advanced EMR with automated workflows</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">6. What percentage of your revenue comes from insurance billing vs. cash pay?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q6" value="1" id="q6a"><label for="q6a">90%+ cash pay</label></div>
+                        <div class="option"><input type="radio" name="q6" value="2" id="q6b"><label for="q6b">70-90% cash pay</label></div>
+                        <div class="option"><input type="radio" name="q6" value="3" id="q6c"><label for="q6c">50-70% cash pay</label></div>
+                        <div class="option"><input type="radio" name="q6" value="4" id="q6d"><label for="q6d">Less than 50% cash pay</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">7. How established is your referral network with other healthcare providers?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q7" value="1" id="q7a"><label for="q7a">Minimal referral relationships</label></div>
+                        <div class="option"><input type="radio" name="q7" value="2" id="q7b"><label for="q7b">Few established relationships</label></div>
+                        <div class="option"><input type="radio" name="q7" value="3" id="q7c"><label for="q7c">Good network with NDs and some MDs</label></div>
+                        <div class="option"><input type="radio" name="q7" value="4" id="q7d"><label for="q7d">Strong network across multiple specialties</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">8. How do you currently market your practice?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q8" value="1" id="q8a"><label for="q8a">Word of mouth only</label></div>
+                        <div class="option"><input type="radio" name="q8" value="2" id="q8b"><label for="q8b">Basic website and social media</label></div>
+                        <div class="option"><input type="radio" name="q8" value="3" id="q8c"><label for="q8c">Regular content marketing and SEO</label></div>
+                        <div class="option"><input type="radio" name="q8" value="4" id="q8d"><label for="q8d">Comprehensive digital marketing strategy</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Technology Adoption -->
+            <div class="assessment-card" id="category2" style="display: none;">
+                <h2 class="category-title">💻 Technology Adoption Level - Canadian Standards</h2>
+                
+                <div class="question">
+                    <div class="question-text">9. Which EMR system are you currently using?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q9" value="1" id="q9a"><label for="q9a">Paper records or basic spreadsheets</label></div>
+                        <div class="option"><input type="radio" name="q9" value="2" id="q9b"><label for="q9b">Basic EMR (not Canadian-specific)</label></div>
+                        <div class="option"><input type="radio" name="q9" value="3" id="q9c"><label for="q9c">Jane App or similar Canadian EMR</label></div>
+                        <div class="option"><input type="radio" name="q9" value="4" id="q9d"><label for="q9d">Advanced Canadian EMR with integrations</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">10. Do you currently offer virtual consultations?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q10" value="1" id="q10a"><label for="q10a">No virtual services</label></div>
+                        <div class="option"><input type="radio" name="q10" value="2" id="q10b"><label for="q10b">Basic video calls for existing patients</label></div>
+                        <div class="option"><input type="radio" name="q10" value="3" id="q10c"><label for="q10c">Structured virtual care program</label></div>
+                        <div class="option"><input type="radio" name="q10" value="4" id="q10d"><label for="q10d">Comprehensive telehealth platform</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">11. How do you handle online supplement dispensing?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q11" value="1" id="q11a"><label for="q11a">No online dispensing</label></div>
+                        <div class="option"><input type="radio" name="q11" value="2" id="q11b"><label for="q11b">Basic retail partnerships</label></div>
+                        <div class="option"><input type="radio" name="q11" value="3" id="q11c"><label for="q11c">Fullscript or similar platform</label></div>
+                        <div class="option"><input type="radio" name="q11" value="4" id="q11d"><label for="q11d">Multiple integrated dispensing platforms</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">12. What is your current online presence and digital marketing setup?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q12" value="1" id="q12a"><label for="q12a">Minimal online presence</label></div>
+                        <div class="option"><input type="radio" name="q12" value="2" id="q12b"><label for="q12b">Basic website and Google My Business</label></div>
+                        <div class="option"><input type="radio" name="q12" value="3" id="q12c"><label for="q12c">Optimized for local SEO</label></div>
+                        <div class="option"><input type="radio" name="q12" value="4" id="q12d"><label for="q12d">Full digital marketing automation</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">13. How integrated is your billing system with insurance providers?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q13" value="1" id="q13a"><label for="q13a">Manual billing only</label></div>
+                        <div class="option"><input type="radio" name="q13" value="2" id="q13b"><label for="q13b">Some electronic billing</label></div>
+                        <div class="option"><input type="radio" name="q13" value="3" id="q13c"><label for="q13c">Direct billing for major insurers</label></div>
+                        <div class="option"><input type="radio" name="q13" value="4" id="q13d"><label for="q13d">Comprehensive direct billing integration</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">14. How do you handle patient communication and follow-up?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q14" value="1" id="q14a"><label for="q14a">Phone calls and in-person only</label></div>
+                        <div class="option"><input type="radio" name="q14" value="2" id="q14b"><label for="q14b">Email communication</label></div>
+                        <div class="option"><input type="radio" name="q14" value="3" id="q14c"><label for="q14c">Patient portal and messaging</label></div>
+                        <div class="option"><input type="radio" name="q14" value="4" id="q14d"><label for="q14d">Automated follow-up systems</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Financial Performance -->
+            <div class="assessment-card" id="category3" style="display: none;">
+                <h2 class="category-title">💰 Financial Performance in Canadian Context</h2>
+                
+                <div class="question">
+                    <div class="question-text">15. What is your current monthly gross revenue (CAD)?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q15" value="1" id="q15a"><label for="q15a">Less than $20,000</label></div>
+                        <div class="option"><input type="radio" name="q15" value="2" id="q15b"><label for="q15b">$20,000 - $50,000</label></div>
+                        <div class="option"><input type="radio" name="q15" value="3" id="q15c"><label for="q15c">$50,000 - $100,000</label></div>
+                        <div class="option"><input type="radio" name="q15" value="4" id="q15d"><label for="q15d">More than $100,000</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">16. What is your current profit margin?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q16" value="1" id="q16a"><label for="q16a">Breaking even or losing money</label></div>
+                        <div class="option"><input type="radio" name="q16" value="2" id="q16b"><label for="q16b">10-20% profit margin</label></div>
+                        <div class="option"><input type="radio" name="q16" value="3" id="q16c"><label for="q16c">20-35% profit margin</label></div>
+                        <div class="option"><input type="radio" name="q16" value="4" id="q16d"><label for="q16d">More than 35% profit margin</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">17. How predictable is your monthly revenue?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q17" value="1" id="q17a"><label for="q17a">Highly variable (30%+ fluctuation)</label></div>
+                        <div class="option"><input type="radio" name="q17" value="2" id="q17b"><label for="q17b">Somewhat predictable (15-30% fluctuation)</label></div>
+                        <div class="option"><input type="radio" name="q17" value="3" id="q17c"><label for="q17c">Fairly stable (5-15% fluctuation)</label></div>
+                        <div class="option"><input type="radio" name="q17" value="4" id="q17d"><label for="q17d">Very stable (less than 5% fluctuation)</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">18. What percentage of your revenue comes from recurring patients vs. new patients?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q18" value="1" id="q18a"><label for="q18a">Less than 40% recurring</label></div>
+                        <div class="option"><input type="radio" name="q18" value="2" id="q18b"><label for="q18b">40-60% recurring</label></div>
+                        <div class="option"><input type="radio" name="q18" value="3" id="q18c"><label for="q18c">60-80% recurring</label></div>
+                        <div class="option"><input type="radio" name="q18" value="4" id="q18d"><label for="q18d">More than 80% recurring</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">19. How much working capital do you have available for expansion (CAD)?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q19" value="1" id="q19a"><label for="q19a">Less than $10,000</label></div>
+                        <div class="option"><input type="radio" name="q19" value="2" id="q19b"><label for="q19b">$10,000 - $30,000</label></div>
+                        <div class="option"><input type="radio" name="q19" value="3" id="q19c"><label for="q19c">$30,000 - $75,000</label></div>
+                        <div class="option"><input type="radio" name="q19" value="4" id="q19d"><label for="q19d">More than $75,000</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">20. What is your average revenue per patient visit (CAD)?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q20" value="1" id="q20a"><label for="q20a">Less than $150</label></div>
+                        <div class="option"><input type="radio" name="q20" value="2" id="q20b"><label for="q20b">$150 - $200</label></div>
+                        <div class="option"><input type="radio" name="q20" value="3" id="q20c"><label for="q20c">$200 - $300</label></div>
+                        <div class="option"><input type="radio" name="q20" value="4" id="q20d"><label for="q20d">More than $300</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Provincial Expansion Readiness -->
+            <div class="assessment-card" id="category4" style="display: none;">
+                <h2 class="category-title">🌎 Provincial Expansion Readiness</h2>
+                
+                <div class="question">
+                    <div class="question-text">21. Are you familiar with licensing requirements in other Canadian provinces?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q21" value="1" id="q21a"><label for="q21a">No knowledge of other provinces</label></div>
+                        <div class="option"><input type="radio" name="q21" value="2" id="q21b"><label for="q21b">Basic understanding of 1-2 provinces</label></div>
+                        <div class="option"><input type="radio" name="q21" value="3" id="q21c"><label for="q21c">Good knowledge of neighboring provinces</label></div>
+                        <div class="option"><input type="radio" name="q21" value="4" id="q21d"><label for="q21d">Comprehensive knowledge across Canada</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">22. How scalable are your current systems and processes?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q22" value="1" id="q22a"><label for="q22a">Highly dependent on my personal involvement</label></div>
+                        <div class="option"><input type="radio" name="q22" value="2" id="q22b"><label for="q22b">Some systems in place, but still hands-on</label></div>
+                        <div class="option"><input type="radio" name="q22" value="3" id="q22c"><label for="q22c">Most processes documented and delegatable</label></div>
+                        <div class="option"><input type="radio" name="q22" value="4" id="q22d"><label for="q22d">Fully systemized and scalable</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">23. Do you have capacity to take on patients from other provinces via virtual care?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q23" value="1" id="q23a"><label for="q23a">No current capacity</label></div>
+                        <div class="option"><input type="radio" name="q23" value="2" id="q23b"><label for="q23b">Limited capacity (5-10 patients/month)</label></div>
+                        <div class="option"><input type="radio" name="q23" value="3" id="q23c"><label for="q23c">Moderate capacity (20-30 patients/month)</label></div>
+                        <div class="option"><input type="radio" name="q23" value="4" id="q23d"><label for="q23d">High capacity (50+ patients/month)</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">24. How comfortable are you with managing different provincial regulations?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q24" value="1" id="q24a"><label for="q24a">Overwhelmed by the complexity</label></div>
+                        <div class="option"><input type="radio" name="q24" value="2" id="q24b"><label for="q24b">Somewhat concerned but willing to learn</label></div>
+                        <div class="option"><input type="radio" name="q24" value="3" id="q24c"><label for="q24c">Confident with proper guidance</label></div>
+                        <div class="option"><input type="radio" name="q24" value="4" id="q24d"><label for="q24d">Very comfortable with regulatory complexity</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">25. What is your timeline for potential expansion?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q25" value="1" id="q25a"><label for="q25a">Not planning expansion in next 2 years</label></div>
+                        <div class="option"><input type="radio" name="q25" value="2" id="q25b"><label for="q25b">Considering expansion in 1-2 years</label></div>
+                        <div class="option"><input type="radio" name="q25" value="3" id="q25c"><label for="q25c">Planning expansion within 6-12 months</label></div>
+                        <div class="option"><input type="radio" name="q25" value="4" id="q25d"><label for="q25d">Ready to expand within 3-6 months</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">26. Do you have professional connections in other provinces?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q26" value="1" id="q26a"><label for="q26a">No connections outside BC</label></div>
+                        <div class="option"><input type="radio" name="q26" value="2" id="q26b"><label for="q26b">Few connections in 1-2 provinces</label></div>
+                        <div class="option"><input type="radio" name="q26" value="3" id="q26c"><label for="q26c">Good network in western Canada</label></div>
+                        <div class="option"><input type="radio" name="q26" value="4" id="q26d"><label for="q26d">Strong network across Canada</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">27. How well do you understand the market differences between provinces?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q27" value="1" id="q27a"><label for="q27a">Assume all provinces are similar to BC</label></div>
+                        <div class="option"><input type="radio" name="q27" value="2" id="q27b"><label for="q27b">Basic understanding of major differences</label></div>
+                        <div class="option"><input type="radio" name="q27" value="3" id="q27c"><label for="q27c">Good understanding of target provinces</label></div>
+                        <div class="option"><input type="radio" name="q27" value="4" id="q27d"><label for="q27d">Detailed market analysis completed</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">28. What is your risk tolerance for expansion investments?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q28" value="1" id="q28a"><label for="q28a">Very risk-averse, need guaranteed returns</label></div>
+                        <div class="option"><input type="radio" name="q28" value="2" id="q28b"><label for="q28b">Conservative, but willing to invest modestly</label></div>
+                        <div class="option"><input type="radio" name="q28" value="3" id="q28c"><label for="q28c">Moderate risk tolerance for growth</label></div>
+                        <div class="option"><input type="radio" name="q28" value="4" id="q28d"><label for="q28d">High risk tolerance for high returns</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 5: Bilingual Capability -->
+            <div class="assessment-card" id="category5" style="display: none;">
+                <h2 class="category-title">🇫🇷 Bilingual Capability Assessment</h2>
+                
+                <div class="question">
+                    <div class="question-text">29. What is your French language proficiency level?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q29" value="1" id="q29a"><label for="q29a">No French proficiency</label></div>
+                        <div class="option"><input type="radio" name="q29" value="2" id="q29b"><label for="q29b">Basic conversational French</label></div>
+                        <div class="option"><input type="radio" name="q29" value="3" id="q29c"><label for="q29c">Professional French proficiency</label></div>
+                        <div class="option"><input type="radio" name="q29" value="4" id="q29d"><label for="q29d">Fluent in medical French terminology</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">30. Do you have bilingual staff or contractors available?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q30" value="1" id="q30a"><label for="q30a">No bilingual staff</label></div>
+                        <div class="option"><input type="radio" name="q30" value="2" id="q30b"><label for="q30b">Some staff with basic French</label></div>
+                        <div class="option"><input type="radio" name="q30" value="3" id="q30c"><label for="q30c">Dedicated bilingual administrative staff</label></div>
+                        <div class="option"><input type="radio" name="q30" value="4" id="q30d"><label for="q30d">Fully bilingual clinical and admin team</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">31. Are your marketing materials and website available in French?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q31" value="1" id="q31a"><label for="q31a">English only</label></div>
+                        <div class="option"><input type="radio" name="q31" value="2" id="q31b"><label for="q31b">Basic French translations available</label></div>
+                        <div class="option"><input type="radio" name="q31" value="3" id="q31c"><label for="q31c">Professional French marketing materials</label></div>
+                        <div class="option"><input type="radio" name="q31" value="4" id="q31d"><label for="q31d">Comprehensive bilingual brand presence</label></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">32. How important is serving French-speaking patients to your growth strategy?</div>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q32" value="1" id="q32a"><label for="q32a">Not a priority</label></div>
+                        <div class="option"><input type="radio" name="q32" value="2" id="q32b"><label for="q32b">Nice to have, but not essential</label></div>
+                        <div class="option"><input type="radio" name="q32" value="3" id="q32c"><label for="q32c">Important for specific markets (Quebec, NB)</label></div>
+                        <div class="option"><input type="radio" name="q32" value="4" id="q32d"><label for="q32d">Critical for national expansion strategy</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" onclick="changeStep(-1)" disabled>Previous</button>
+                <span class="current-step" id="stepInfo">Step 1 of 5</span>
+                <button class="nav-btn" id="nextBtn" onclick="changeStep(1)">Next</button>
+            </div>
+        </div>
+
+        <div id="results" class="results">
+            <div class="results-header">
+                <h1>🎯 Your Personalized 30-Day Quick Wins Report</h1>
+            </div>
+
+            <div class="score-card">
+                <h2 id="overallScore">0</h2>
+                <p>Overall Readiness Score</p>
+                <p id="readinessLevel">Calculating...</p>
+            </div>
+
+            <div class="special-features">
+                <div class="feature-card">
+                    <h3>🏆 Provincial Readiness</h3>
+                    <div class="score" id="provincialScore">0</div>
+                    <p id="nextProvince">Analyzing...</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🇫🇷 Bilingual ROI Potential</h3>
+                    <div class="score" id="bilingualROI">0%</div>
+                    <p>Revenue uplift potential</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💰 Insurance Opportunity</h3>
+                    <div class="score" id="insuranceOpportunity">$0</div>
+                    <p>Monthly revenue potential</p>
+                </div>
+            </div>
+
+            <div id="quickWins"></div>
+
+            <div class="disclaimer">
+                <h4>⚠️ Important Disclaimer</h4>
+                <p>This assessment provides general guidance based on common industry patterns. Provincial regulations for naturopathic practice vary significantly across Canada. Before implementing any recommendations, especially those related to interprovincial practice or virtual care, consult with:</p>
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>Your provincial naturopathic association</li>
+                    <li>Target province regulatory bodies</li>
+                    <li>Professional liability insurance providers</li>
+                    <li>Legal counsel familiar with healthcare regulations</li>
+                </ul>
+                <p>ROI estimates are based on industry averages and actual results may vary based on market conditions, implementation quality, and local competition.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="generatePDF()">📄 Download PDF Report (English/French)</button>
+                <button class="btn" onclick="resetAssessment()" style="background: #95a5a6; margin-left: 10px;">🔄 Take Assessment Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        let responses = {};
+
+        // Quick wins database with Canadian context
+        const quickWinsDatabase = [
+            {
+                id: 'jane-emr',
+                title: 'Jane App EMR Implementation',
+                description: 'Implement Jane App or similar Canadian-compliant EMR system',
+                efficiency: '20-25%',
+                investment: '$200-400 CAD/month',
+                roi: '300-500% within 6 months',
+                steps: ['Sign up for Jane App trial', 'Data migration planning', 'Staff training (2-3 days)', 'Patient onboarding', 'Insurance integration setup'],
+                metrics: ['Patient booking efficiency', 'Administrative time savings', 'Billing accuracy improvement'],
+                compliance: ['Canadian privacy standards (PIPEDA)', 'Provincial health records regulations'],
+                usComparison: 'Similar to SimplePractice in US, but with Canadian billing codes',
+                priority: 'high',
+                categories: ['operational', 'technology']
+            },
+            {
+                id: 'insurance-billing',
+                title: 'Provincial Insurance Billing Optimization',
+                description: 'Optimize billing processes for extended health benefits across provinces',
+                efficiency: '15-20%',
+                investment: '$1,000-3,000 CAD setup',
+                roi: '200-400% within 3 months',
+                steps: ['Audit current billing practices', 'Set up direct billing relationships', 'Train staff on provincial variations', 'Implement billing software integration'],
+                metrics: ['Revenue per patient increase', 'Collection rate improvement', 'Administrative overhead reduction'],
+                compliance: ['Each provincial association requirements', 'CRA billing standards'],
+                usComparison: 'More complex than US due to provincial variations',
+                priority: 'high',
+                categories: ['financial', 'operational']
+            },
+            {
+                id: 'virtual-care',
+                title: 'Interprovincial Virtual Care Setup',
+                description: 'Establish virtual consultation capabilities for patients across Canada',
+                efficiency: '30-40%',
+                investment: '$500-1,500 CAD/month',
+                roi: '250-600% within 4 months',
+                steps: ['Research provincial licensing requirements', 'Choose PIPEDA-compliant platform', 'Develop virtual care protocols', 'Train staff on interprovincial regulations'],
+                metrics: ['Patient reach expansion', 'Schedule utilization', 'Geographic revenue distribution'],
+                compliance: ['Provincial licensing limitations', 'PIPEDA privacy requirements', 'Professional liability coverage'],
+                usComparison: 'More restrictive than US interstate practice',
+                priority: 'high',
+                categories: ['expansion', 'technology']
+            },
+            {
+                id: 'fullscript',
+                title: 'Fullscript Integration',
+                description: 'Integrate with Fullscript for Canadian supplement dispensing',
+                efficiency: '6-10%',
+                investment: '$0 setup, revenue sharing model',
+                roi: '150-300% within 2 months',
+                steps: ['Create Fullscript practitioner account', 'Integrate with EMR system', 'Patient education on platform', 'Develop supplement protocols'],
+                metrics: ['Supplement revenue per patient', 'Patient compliance rates', 'Prescription fulfillment time'],
+                compliance: ['Health Canada supplement regulations', 'Provincial dispensing rules'],
+                usComparison: 'Similar to Metagenics/Xymogen models in US',
+                priority: 'medium',
+                categories: ['financial', 'technology']
+            },
+            {
+                id: 'google-my-business',
+                title: 'Bilingual Google My Business Optimization',
+                description: 'Optimize Google My Business presence in English and French',
+                efficiency: '12-18%',
+                investment: '$500-2,000 CAD',
+                roi: '400-800% within 3 months',
+                steps: ['Audit current GMB listing', 'Add French translations', 'Optimize for local SEO', 'Implement review management system'],
+                metrics: ['Local search ranking', 'Click-through rates', 'New patient acquisition'],
+                compliance: ['Quebec language laws (Bill 96)', 'Federal bilingual service standards'],
+                usComparison: 'Language requirements unique to Canada',
+                priority: 'medium',
+                categories: ['marketing', 'bilingual']
+            },
+            {
+                id: 'md-referrals',
+                title: 'MD Referral Network Development',
+                description: 'Build structured referral relationships with family physicians',
+                efficiency: '20-35%',
+                investment: '$1,000-3,000 CAD',
+                roi: '300-700% within 6 months',
+                steps: ['Identify target MDs', 'Develop referral materials', 'Schedule introduction meetings', 'Create referral tracking system'],
+                metrics: ['Referral volume', 'Patient quality scores', 'Physician satisfaction'],
+                compliance: ['Professional association guidelines', 'Patient privacy in referrals'],
+                usComparison: 'Similar dynamics, but with universal healthcare context',
+                priority: 'high',
+                categories: ['marketing', 'operational']
+            },
+            {
+                id: 'corporate-wellness',
+                title: 'Corporate Wellness Programs',
+                description: 'Develop B2B wellness programs for Canadian companies',
+                efficiency: '25-45%',
+                investment: '$2,000-5,000 CAD',
+                roi: '200-500% within 4 months',
+                steps: ['Develop corporate packages', 'Create sales materials', 'Target local businesses', 'Establish corporate contracts'],
+                metrics: ['Contract value', 'Employee participation rates', 'Program renewal rates'],
+                compliance: ['Workplace health regulations', 'Privacy in workplace health'],
+                usComparison: 'Higher success rate due to Canadian workplace culture',
+                priority: 'medium',
+                categories: ['financial', 'marketing']
+            },
+            {
+                id: 'direct-billing',
+                title: 'Extended Health Benefits Direct Billing',
+                description: 'Implement direct billing for major Canadian insurance providers',
+                efficiency: '40-60%',
+                investment: '$1,500-4,000 CAD',
+                roi: '300-600% within 3 months',
+                steps: ['Apply for direct billing status', 'Set up billing software', 'Train staff on claims process', 'Patient education campaign'],
+                metrics: ['Patient retention rates', 'Average revenue per visit', 'Collections timeline'],
+                compliance: ['Insurance provider requirements', 'CRA reporting standards'],
+                usComparison: 'More standardized than US insurance system',
+                priority: 'high',
+                categories: ['financial', 'operational']
+            },
+            {
+                id: 'cand-membership',
+                title: 'CAND Membership Optimization',
+                description: 'Maximize Canadian Association of Naturopathic Doctors membership benefits',
+                efficiency: '10-15%',
+                investment: '$500-1,000 CAD annually',
+                roi: '200-400% within 6 months',
+                steps: ['Optimize CAND directory listing', 'Participate in referral network', 'Attend professional development', 'Use CAND marketing resources'],
+                metrics: ['Referral network growth', 'Professional development hours', 'Directory engagement'],
+                compliance: ['CAND professional standards', 'Continuing education requirements'],
+                usComparison: 'More centralized than US naturopathic associations',
+                priority: 'low',
+                categories: ['marketing', 'operational']
+            },
+            {
+                id: 'provincial-directories',
+                title: 'Provincial Association Directory Optimization',
+                description: 'Optimize listings across all provincial naturopathic association directories',
+                efficiency: '8-12%',
+                investment: '$300-800 CAD',
+                roi: '250-500% within 4 months',
+                steps: ['Audit all provincial listings', 'Standardize practice information', 'Add bilingual descriptions', 'Monitor and update regularly'],
+                metrics: ['Directory search rankings', 'Patient source tracking', 'Cross-provincial inquiries'],
+                compliance: ['Each provincial association requirements', 'Professional standards maintenance'],
+                usComparison: 'More regulated than US state associations',
+                priority: 'low',
+                categories: ['marketing', 'expansion']
+            }
+        ];
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('stepInfo').textContent = `Step ${currentStep} of ${totalSteps}`;
+        }
+
+        function changeStep(direction) {
+            const currentCategory = document.getElementById(`category${currentStep}`);
+            
+            if (direction === 1) {
+                // Validate current step
+                if (!validateCurrentStep()) {
+                    alert('Please answer all questions in this section before proceeding.');
+                    return;
+                }
+                
+                // Save responses
+                saveCurrentStepResponses();
+                
+                currentCategory.style.display = 'none';
+                currentStep++;
+                
+                if (currentStep > totalSteps) {
+                    showResults();
+                    return;
+                }
+            } else {
+                currentCategory.style.display = 'none';
+                currentStep--;
+            }
+
+            document.getElementById(`category${currentStep}`).style.display = 'block';
+            updateProgress();
+            updateNavigationButtons();
+        }
+
+        function validateCurrentStep() {
+            const questions = document.querySelectorAll(`#category${currentStep} .question`);
+            for (let question of questions) {
+                const radios = question.querySelectorAll('input[type="radio"]');
+                let answered = false;
+                for (let radio of radios) {
+                    if (radio.checked) {
+                        answered = true;
+                        break;
+                    }
+                }
+                if (!answered) return false;
+            }
+            return true;
+        }
+
+        function saveCurrentStepResponses() {
+            const questions = document.querySelectorAll(`#category${currentStep} input[type="radio"]:checked`);
+            questions.forEach(radio => {
+                responses[radio.name] = parseInt(radio.value);
+            });
+        }
+
+        function updateNavigationButtons() {
+            document.getElementById('prevBtn').disabled = currentStep === 1;
+            document.getElementById('nextBtn').textContent = currentStep === totalSteps ? 'Get Results' : 'Next';
+        }
+
+        function showResults() {
+            saveCurrentStepResponses();
+            document.getElementById('assessmentForm').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            
+            const scores = calculateScores();
+            displayResults(scores);
+        }
+
+        function calculateScores() {
+            // Calculate category scores
+            const operationalMaturity = calculateCategoryScore([1,2,3,4,5,6,7,8]);
+            const technologyAdoption = calculateCategoryScore([9,10,11,12,13,14]);
+            const financialPerformance = calculateCategoryScore([15,16,17,18,19,20]);
+            const expansionReadiness = calculateCategoryScore([21,22,23,24,25,26,27,28]);
+            const bilingualCapability = calculateCategoryScore([29,30,31,32]);
+            
+            const overallScore = Math.round((operationalMaturity + technologyAdoption + financialPerformance + expansionReadiness + bilingualCapability) / 5);
+            
+            return {
+                overall: overallScore,
+                operational: operationalMaturity,
+                technology: technologyAdoption,
+                financial: financialPerformance,
+                expansion: expansionReadiness,
+                bilingual: bilingualCapability
+            };
+        }
+
+        function calculateCategoryScore(questionNumbers) {
+            let total = 0;
+            let count = 0;
+            questionNumbers.forEach(qNum => {
+                if (responses[`q${qNum}`]) {
+                    total += responses[`q${qNum}`];
+                    count++;
+                }
+            });
+            return count > 0 ? Math.round((total / count) * 25) : 0;
+        }
+
+        function displayResults(scores) {
+            document.getElementById('overallScore').textContent = scores.overall + '%';
+            
+            let readinessLevel = '';
+            if (scores.overall >= 80) readinessLevel = 'Excellent - Ready for Major Expansion';
+            else if (scores.overall >= 60) readinessLevel = 'Good - Ready for Strategic Growth';
+            else if (scores.overall >= 40) readinessLevel = 'Moderate - Optimization Needed';
+            else readinessLevel = 'Early Stage - Foundation Building Required';
+            
+            document.getElementById('readinessLevel').textContent = readinessLevel;
+            
+            // Provincial readiness
+            document.getElementById('provincialScore').textContent = scores.expansion + '%';
+            const nextProvince = determineNextProvince(scores);
+            document.getElementById('nextProvince').textContent = `Next target: ${nextProvince}`;
+            
+            // Bilingual ROI
+            const bilingualROI = Math.round(scores.bilingual * 0.3);
+            document.getElementById('bilingualROI').textContent = bilingualROI + '%';
+            
+            // Insurance opportunity
+            const insuranceOpportunity = Math.round(scores.financial * 50);
+            document.getElementById('insuranceOpportunity').textContent = `$${insuranceOpportunity.toLocaleString()}`;
+            
+            generateQuickWinsRecommendations(scores);
+        }
+
+        function determineNextProvince(scores) {
+            if (scores.bilingual >= 75) return 'Quebec';
+            if (scores.operational >= 70) return 'Alberta';
+            if (scores.technology >= 65) return 'Ontario';
+            return 'Saskatchewan';
+        }
+
+        function generateQuickWinsRecommendations(scores) {
+            const quickWinsContainer = document.getElementById('quickWins');
+            const prioritizedWins = prioritizeQuickWins(scores);
+            
+            quickWinsContainer.innerHTML = '<h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">🚀 Your Priority Quick Wins</h2>';
+            
+            prioritizedWins.forEach((win, index) => {
+                const quickWinElement = createQuickWinElement(win, index + 1);
+                quickWinsContainer.appendChild(quickWinElement);
+            });
+        }
+
+        function prioritizeQuickWins(scores) {
+            let recommendations = [];
+            
+            // Score-based recommendations
+            if (scores.technology < 60) recommendations.push(quickWinsDatabase.find(w => w.id === 'jane-emr'));
+            if (scores.financial < 70) recommendations.push(quickWinsDatabase.find(w => w.id === 'insurance-billing'));
+            if (scores.expansion >= 60) recommendations.push(quickWinsDatabase.find(w => w.id === 'virtual-care'));
+            if (scores.operational >= 50) recommendations.push(quickWinsDatabase.find(w => w.id === 'fullscript'));
+            if (scores.operational < 70) recommendations.push(quickWinsDatabase.find(w => w.id === 'google-my-business'));
+            if (scores.operational >= 60) recommendations.push(quickWinsDatabase.find(w => w.id === 'md-referrals'));
+            if (scores.financial >= 60) recommendations.push(quickWinsDatabase.find(w => w.id === 'corporate-wellness'));
+            if (scores.financial < 80) recommendations.push(quickWinsDatabase.find(w => w.id === 'direct-billing'));
+            
+            // Always include these based on scores
+            if (scores.operational >= 40) recommendations.push(quickWinsDatabase.find(w => w.id === 'cand-membership'));
+            if (scores.expansion >= 40) recommendations.push(quickWinsDatabase.find(w => w.id === 'provincial-directories'));
+            
+            // Remove duplicates and limit to top 6
+            recommendations = [...new Set(recommendations)].filter(Boolean).slice(0, 6);
+            
+            // Sort by priority
+            return recommendations.sort((a, b) => {
+                const priorityOrder = { high: 3, medium: 2, low: 1 };
+                return priorityOrder[b.priority] - priorityOrder[a.priority];
+            });
+        }
+
+        function createQuickWinElement(win, index) {
+            const div = document.createElement('div');
+            div.className = `quick-win ${win.priority}-priority`;
+            
+            div.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3>${index}. ${win.title}</h3>
+                    <span class="priority-badge">${win.priority} priority</span>
+                </div>
+                <p style="margin-bottom: 20px; color: #7f8c8d; font-size: 1.1em;">${win.description}</p>
+                
+                <div class="quick-win-details">
+                    <div class="detail-item">
+                        <h4>💰 Investment Required</h4>
+                        <p>${win.investment}</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>📈 Expected ROI</h4>
+                        <p>${win.roi}</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>⚡ Efficiency Gain</h4>
+                        <p>${win.efficiency} improvement</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>🇺🇸 US Comparison</h4>
+                        <p>${win.usComparison}</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #3498db; margin-bottom: 10px;">📋 Implementation Steps:</h4>
+                    <ol style="margin-left: 20px;">
+                        ${win.steps.map(step => `<li style="margin-bottom: 5px;">${step}</li>`).join('')}
+                    </ol>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #e74c3c; margin-bottom: 10px;">⚖️ Compliance Checkpoints:</h4>
+                    <ul style="margin-left: 20px;">
+                        ${win.compliance.map(item => `<li style="margin-bottom: 5px;">${item}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #27ae60; margin-bottom: 10px;">📊 Success Metrics:</h4>
+                    <ul style="margin-left: 20px;">
+                        ${win.metrics.map(metric => `<li style="margin-bottom: 5px;">${metric}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        function generatePDF() {
+            // Simulate PDF generation
+            alert('PDF Report Generation\n\nThis would generate a comprehensive bilingual PDF report including:\n\n• Complete assessment results\n• Detailed implementation roadmap\n• Provincial expansion timeline\n• Regulatory compliance checklist\n• ROI projections and success metrics\n• French translations for Quebec market\n\nIn a real implementation, this would integrate with a PDF generation service.');
+        }
+
+        function resetAssessment() {
+            responses = {};
+            currentStep = 1;
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('assessmentForm').style.display = 'block';
+            
+            // Reset all forms
+            for (let i = 1; i <= totalSteps; i++) {
+                const category = document.getElementById(`category${i}`);
+                if (i === 1) {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+                
+                const inputs = category.querySelectorAll('input[type="radio"]');
+                inputs.forEach(input => input.checked = false);
+            }
+            
+            updateProgress();
+            updateNavigationButtons();
+        }
+
+        // Initialize
+        updateProgress();
+        updateNavigationButtons();
+    </script>
+</body>
+</html>

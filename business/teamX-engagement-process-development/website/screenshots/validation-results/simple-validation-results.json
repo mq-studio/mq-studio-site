@@ -1,0 +1,1042 @@
+{
+  "timestamp": "2025-08-27T14:13:21.189Z",
+  "summary": {
+    "totalPages": 11,
+    "successfulPages": 11,
+    "failedPages": 0,
+    "criticalPagesFailed": 0,
+    "totalIssues": 23,
+    "highSeverityIssues": 0,
+    "mediumSeverityIssues": 13,
+    "lowSeverityIssues": 10,
+    "averageLoadTime": 35,
+    "totalContentSize": 116420,
+    "pagesWithSEOIssues": 10,
+    "overallHealthScore": 15
+  },
+  "navigation": [
+    {
+      "page": "/",
+      "name": "Home Page",
+      "critical": true,
+      "status": 200,
+      "loadTime": 50,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "23151",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/about",
+      "name": "About Page",
+      "critical": true,
+      "status": 200,
+      "loadTime": 4,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10415",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/services",
+      "name": "Services Page",
+      "critical": true,
+      "status": 200,
+      "loadTime": 67,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10528",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/process",
+      "name": "Process Page",
+      "critical": false,
+      "status": 200,
+      "loadTime": 9,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10372",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/case-studies",
+      "name": "Case Studies Page",
+      "critical": false,
+      "status": 200,
+      "loadTime": 8,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10374",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/team",
+      "name": "Team Page",
+      "critical": false,
+      "status": 200,
+      "loadTime": 7,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10339",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/frameworks",
+      "name": "Frameworks Page",
+      "critical": false,
+      "status": 200,
+      "loadTime": 145,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10445",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/resources",
+      "name": "Resources Page",
+      "critical": false,
+      "status": 200,
+      "loadTime": 8,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10235",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/investors",
+      "name": "Investors Page",
+      "critical": false,
+      "status": 200,
+      "loadTime": 8,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10221",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/contact",
+      "name": "Contact Page",
+      "critical": true,
+      "status": 200,
+      "loadTime": 21,
+      "success": true,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": "10211",
+      "serverHeader": "Not disclosed"
+    },
+    {
+      "page": "/api/health",
+      "name": "Health API",
+      "critical": true,
+      "status": 200,
+      "loadTime": 56,
+      "success": true,
+      "contentType": "application/json",
+      "contentLength": 129,
+      "serverHeader": "Not disclosed"
+    }
+  ],
+  "content": [
+    {
+      "page": "/",
+      "name": "Home Page",
+      "contentLength": 23151,
+      "wordCount": 689,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": true,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 4,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/about",
+      "name": "About Page",
+      "contentLength": 10415,
+      "wordCount": 109,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": true,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/services",
+      "name": "Services Page",
+      "contentLength": 10528,
+      "wordCount": 91,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": true,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/process",
+      "name": "Process Page",
+      "contentLength": 10372,
+      "wordCount": 97,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": false,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/case-studies",
+      "name": "Case Studies Page",
+      "contentLength": 10374,
+      "wordCount": 98,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": true,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/team",
+      "name": "Team Page",
+      "contentLength": 10339,
+      "wordCount": 108,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": true,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/frameworks",
+      "name": "Frameworks Page",
+      "contentLength": 10445,
+      "wordCount": 94,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": false,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/resources",
+      "name": "Resources Page",
+      "contentLength": 10235,
+      "wordCount": 88,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": false,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/investors",
+      "name": "Investors Page",
+      "contentLength": 10221,
+      "wordCount": 87,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": true,
+      "hasCallToAction": false,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    },
+    {
+      "page": "/contact",
+      "name": "Contact Page",
+      "contentLength": 10211,
+      "wordCount": 102,
+      "hasHealthcareTerms": true,
+      "hasCanadianContext": false,
+      "hasROIContent": false,
+      "hasCallToAction": true,
+      "imageCount": 0,
+      "linkCount": 0,
+      "formCount": 0,
+      "buttonCount": 0,
+      "headingStructure": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "accessibility": {
+        "imagesWithAlt": 0,
+        "imagesWithoutAlt": 0,
+        "totalImages": 0,
+        "hasSkipLinks": false,
+        "ariaLabels": 0,
+        "ariaDescribedBy": 0
+      }
+    }
+  ],
+  "seo": [
+    {
+      "page": "/",
+      "name": "Home Page",
+      "title": "TeamX - Healthcare Consulting Excellence",
+      "titleLength": 40,
+      "hasTitle": true,
+      "metaDescription": "TeamX delivers transformative healthcare consulting services, specializing in operational optimization, strategic growth, and sustainable value creation for healthcare organizations.",
+      "metaDescriptionLength": 182,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/about",
+      "name": "About Page",
+      "title": "About TeamX - Healthcare Consulting Experts",
+      "titleLength": 43,
+      "hasTitle": true,
+      "metaDescription": "Learn about TeamX Healthcare Consulting, our mission, values, and 15+ years of experience transforming 150+ healthcare organizations across North America.",
+      "metaDescriptionLength": 154,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/services",
+      "name": "Services Page",
+      "title": "Healthcare Consulting Services - TeamX",
+      "titleLength": 38,
+      "hasTitle": true,
+      "metaDescription": "Comprehensive healthcare consulting services including operational optimization, strategic growth planning, digital transformation, and organizational development.",
+      "metaDescriptionLength": 163,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/process",
+      "name": "Process Page",
+      "title": "Our Proven Consulting Process - TeamX",
+      "titleLength": 37,
+      "hasTitle": true,
+      "metaDescription": "Discover TeamX&#x27;s proven 6-phase consulting methodology that delivers measurable results and sustainable transformation for healthcare organizations.",
+      "metaDescriptionLength": 153,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/case-studies",
+      "name": "Case Studies Page",
+      "title": "Healthcare Consulting Case Studies - TeamX",
+      "titleLength": 42,
+      "hasTitle": true,
+      "metaDescription": "Real-world success stories showcasing how TeamX has transformed healthcare organizations, delivering measurable ROI and sustainable growth.",
+      "metaDescriptionLength": 139,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/team",
+      "name": "Team Page",
+      "title": "Our Expert Team - TeamX Healthcare Consulting",
+      "titleLength": 45,
+      "hasTitle": true,
+      "metaDescription": "Meet TeamX&#x27;s experienced healthcare consulting team with 60+ years of combined expertise in healthcare transformation and strategic growth.",
+      "metaDescriptionLength": 144,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/frameworks",
+      "name": "Frameworks Page",
+      "title": "Healthcare Consulting Frameworks - TeamX",
+      "titleLength": 40,
+      "hasTitle": true,
+      "metaDescription": "Explore TeamX&#x27;s proprietary consulting frameworks including the Integrated Master Framework, Operational Alpha Canvas, and Network Effects Canvas.",
+      "metaDescriptionLength": 151,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/resources",
+      "name": "Resources Page",
+      "title": "Healthcare Consulting Resources - TeamX",
+      "titleLength": 39,
+      "hasTitle": true,
+      "metaDescription": "Access valuable healthcare consulting resources, whitepapers, industry insights, and tools to help transform your organization.",
+      "metaDescriptionLength": 127,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/investors",
+      "name": "Investors Page",
+      "title": "Investor Relations - TeamX",
+      "titleLength": 26,
+      "hasTitle": true,
+      "metaDescription": "Investment opportunities and partnership information for TeamX Healthcare Consulting. Join us in transforming the healthcare industry.",
+      "metaDescriptionLength": 134,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/contact",
+      "name": "Contact Page",
+      "title": "Contact TeamX - Healthcare Consulting",
+      "titleLength": 37,
+      "hasTitle": true,
+      "metaDescription": "Get in touch with TeamX Healthcare Consulting to discuss your transformation needs. Schedule a consultation with our expert team.",
+      "metaDescriptionLength": 129,
+      "hasMetaDescription": true,
+      "hasMetaKeywords": true,
+      "hasViewportMeta": true,
+      "hasCanonical": true,
+      "hasOpenGraph": {
+        "hasOgTitle": true,
+        "hasOgDescription": true,
+        "hasOgImage": true,
+        "hasOgUrl": true,
+        "hasOgType": true
+      },
+      "hasStructuredData": false,
+      "h1Count": 0,
+      "h1Content": null,
+      "internalLinks": 0,
+      "externalLinks": 0,
+      "altTagsPresent": {
+        "total": 0,
+        "withAlt": 0,
+        "percentage": 100
+      },
+      "robotsDirective": "index, follow"
+    },
+    {
+      "page": "/robots.txt",
+      "name": "Robots.txt",
+      "exists": true,
+      "content": "User-Agent: *\nAllow: /\nDisallow: /private/\nDisallow: /admin/\n\nSitemap: https://teamx-healthcare.com/sitemap.xml\n"
+    },
+    {
+      "page": "/sitemap.xml",
+      "name": "Sitemap.xml",
+      "exists": true,
+      "urlCount": 10
+    }
+  ],
+  "performance": [
+    {
+      "page": "/",
+      "name": "Home Page",
+      "contentSize": 23151,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"10yjc3kgtuhhv3\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/about",
+      "name": "About Page",
+      "contentSize": 10415,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"izvwq5p7ft81b\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/services",
+      "name": "Services Page",
+      "contentSize": 10528,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"rf2x3724se84g\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/process",
+      "name": "Process Page",
+      "contentSize": 10372,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"kqlfp4k512804\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/case-studies",
+      "name": "Case Studies Page",
+      "contentSize": 10374,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"14r64hc9bns806\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/team",
+      "name": "Team Page",
+      "contentSize": 10339,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"ghiqe9ahk57z7\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/frameworks",
+      "name": "Frameworks Page",
+      "contentSize": 10445,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"gkdme8kb7p825\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/resources",
+      "name": "Resources Page",
+      "contentSize": 10235,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"3dhpnbl4rf7wb\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/investors",
+      "name": "Investors Page",
+      "contentSize": 10221,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"8tmru3iib87vx\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "page": "/contact",
+      "name": "Contact Page",
+      "contentSize": 10211,
+      "hasGzip": false,
+      "hasBr": false,
+      "cacheControl": "s-maxage=31536000",
+      "etag": "\"tmwd5py51c7vn\"",
+      "lastModified": "Not set",
+      "contentType": "text/html; charset=utf-8"
+    }
+  ],
+  "issues": [
+    {
+      "type": "Content Quality",
+      "severity": "Medium",
+      "page": "/",
+      "issue": "Critical page missing clear call-to-action elements"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "Content Quality",
+      "severity": "Medium",
+      "page": "/about",
+      "issue": "Critical page missing clear call-to-action elements"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/about",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/about",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "Content Quality",
+      "severity": "Medium",
+      "page": "/services",
+      "issue": "Critical page missing clear call-to-action elements"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/services",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/services",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/process",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/process",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/case-studies",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/case-studies",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/team",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/team",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/frameworks",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/frameworks",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/resources",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/resources",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/investors",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/investors",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    },
+    {
+      "type": "SEO Warning",
+      "severity": "Medium",
+      "page": "/contact",
+      "issue": "Should have exactly one H1 tag (found 0)"
+    },
+    {
+      "type": "Performance Warning",
+      "severity": "Low",
+      "page": "/contact",
+      "issue": "Content not compressed (missing gzip/brotli)"
+    }
+  ],
+  "recommendations": [
+    {
+      "category": "SEO",
+      "priority": "High",
+      "issue": "10 SEO issues found",
+      "recommendation": "Address missing titles, meta descriptions, and heading structure",
+      "topIssues": [
+        "Should have exactly one H1 tag (found 0)"
+      ]
+    },
+    {
+      "category": "Performance",
+      "priority": "Medium",
+      "issue": "10 performance issues found",
+      "recommendation": "Optimize large pages, enable compression, and implement caching",
+      "averageLoadTime": 35
+    },
+    {
+      "category": "Content",
+      "priority": "Medium",
+      "issue": "3 content quality issues found",
+      "recommendation": "Add clear call-to-actions and ensure healthcare terminology is present"
+    }
+  ]
+}

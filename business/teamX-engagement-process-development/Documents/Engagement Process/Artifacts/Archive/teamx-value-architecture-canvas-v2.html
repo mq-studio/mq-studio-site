@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamX Value Architecture Canvas V2.0</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+        .column {
+            border-right: 2px solid #e0e0e0;
+            min-height: 600px;
+        }
+        .column:last-child {
+            border-right: none;
+        }
+        .column-header {
+            padding: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid;
+            text-align: center;
+            color: white;
+        }
+        .col-1 .column-header { background: #3498db; border-color: #2980b9; }
+        .col-2 .column-header { background: #9b59b6; border-color: #8e44ad; }
+        .col-3 .column-header { background: #e74c3c; border-color: #c0392b; }
+        .col-4 .column-header { background: #27ae60; border-color: #229954; }
+        .section {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            min-height: 120px;
+            position: relative;
+        }
+        .section-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-content {
+            color: #555;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .ai-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+        .metric-tag {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #495057;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin: 3px 3px 0 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin-top: 10px;
+            font-size: 11px;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .new-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The TeamX Value Architecture Canvas™ V2.0</h1>
+            <div class="subtitle">AI-Native • Platform-Enabled • Outcome-Guaranteed</div>
+        </div>
+        
+        <div class="canvas-grid">
+            <!-- Column 1: Client Profile -->
+            <div class="column col-1">
+                <div class="column-header">CLIENT PROFILE (ICP)</div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">👤</span>
+                        Economic Buyer
+                    </div>
+                    <div class="section-content">
+                        Who is the specific individual we sell to? (Title, Role, Decision Authority)
+                        <div class="metric-tag">CFO</div>
+                        <div class="metric-tag">CPO</div>
+                        <div class="metric-tag">CEO</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🎯</span>
+                        Jobs to Be Done
+                    </div>
+                    <div class="section-content">
+                        Critical business objectives requiring transformation, not just improvement
+                        <div class="highlight">Focus: Transformation vs Optimization</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">💰</span>
+                        Cost of Inaction
+                        <span class="new-badge">ENHANCED</span>
+                    </div>
+                    <div class="section-content">
+                        Quantifiable 12-month financial impact of status quo
+                        <div class="metric-tag">Revenue at Risk</div>
+                        <div class="metric-tag">Market Share Loss</div>
+                        <div class="metric-tag">Margin Erosion</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">📊</span>
+                        Data Readiness
+                        <span class="new-badge">NEW</span>
+                    </div>
+                    <div class="section-content">
+                        Current data maturity and willingness to share for benchmarking
+                        <div class="metric-tag">API Access</div>
+                        <div class="metric-tag">Data Quality</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 2: Value Delivery Engine -->
+            <div class="column col-2">
+                <div class="column-header">VALUE DELIVERY ENGINE™</div>
+                
+                <div class="section">
+                    <div class="ai-badge">AI-POWERED</div>
+                    <div class="section-title">
+                        <span class="icon">⚙️</span>
+                        Proprietary Process
+                    </div>
+                    <div class="section-content">
+                        Named, trademarked methodology with AI augmentation
+                        <div class="metric-tag">40%+ AI-Augmented</div>
+                        <div class="metric-tag">Predictive Models</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🤖</span>
+                        AI & Automation Stack
+                        <span class="new-badge">ENHANCED</span>
+                    </div>
+                    <div class="section-content">
+                        GenAI tools, RPA, predictive analytics, autonomous agents
+                        <div class="highlight">Target: 60% Automation Rate</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">📈</span>
+                        Data Assets & Intelligence
+                    </div>
+                    <div class="section-content">
+                        Proprietary benchmarks, predictive models, network intelligence
+                        <div class="metric-tag">10K+ Data Points</div>
+                        <div class="metric-tag">Real-time Updates</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🌐</span>
+                        Platform Capabilities
+                        <span class="new-badge">NEW</span>
+                    </div>
+                    <div class="section-content">
+                        Self-service features, API ecosystem, partner integrations
+                        <div class="metric-tag">API-First</div>
+                        <div class="metric-tag">Multi-tenant</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 3: Value Proposition -->
+            <div class="column col-3">
+                <div class="column-header">VALUE PROPOSITION</div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">📊</span>
+                        Guaranteed Outcomes
+                        <span class="new-badge">ENHANCED</span>
+                    </div>
+                    <div class="section-content">
+                        Specific, measurable, guaranteed results with gain-sharing
+                        <div class="metric-tag">+25% Revenue</div>
+                        <div class="metric-tag">-30% Costs</div>
+                        <div class="metric-tag">2x Speed</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🛡️</span>
+                        Risk Mitigation
+                    </div>
+                    <div class="section-content">
+                        Quantified risk reduction with insurance-like guarantees
+                        <div class="highlight">Success-based fees up to 50%</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🚀</span>
+                        Speed to Value
+                        <span class="new-badge">NEW</span>
+                    </div>
+                    <div class="section-content">
+                        Time to first value delivery and full ROI realization
+                        <div class="metric-tag">30-day Quick Wins</div>
+                        <div class="metric-tag">90-day ROI</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🏆</span>
+                        Proof Points
+                    </div>
+                    <div class="section-content">
+                        Logos, case studies, real-time client value dashboards
+                        <div class="metric-tag">Fortune 500 Clients</div>
+                        <div class="metric-tag">3x ROI Average</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 4: Commercial Model -->
+            <div class="column col-4">
+                <div class="column-header">COMMERCIAL MODEL</div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">💎</span>
+                        Pricing Architecture
+                        <span class="new-badge">ENHANCED</span>
+                    </div>
+                    <div class="section-content">
+                        Multi-tier: Diagnostic, Transform, Subscribe, Success
+                        <div class="metric-tag">Usage-based</div>
+                        <div class="metric-tag">Outcome-based</div>
+                        <div class="metric-tag">Token Model</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">📈</span>
+                        Core Value Metric
+                    </div>
+                    <div class="section-content">
+                        Unit economics: Per outcome, per user, per API call
+                        <div class="highlight">Target ACV: $500K+</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🔄</span>
+                        Revenue Streams
+                        <span class="new-badge">ENHANCED</span>
+                    </div>
+                    <div class="section-content">
+                        Implementation, subscription, data products, success fees
+                        <div class="metric-tag">60% Recurring</div>
+                        <div class="metric-tag">25% Success-based</div>
+                        <div class="metric-tag">15% Data Products</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        <span class="icon">🌍</span>
+                        Network Effects
+                        <span class="new-badge">NEW</span>
+                    </div>
+                    <div class="section-content">
+                        Value increases with each client added to platform
+                        <div class="metric-tag">Benchmarking Pool</div>
+                        <div class="metric-tag">Peer Learning</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <strong>TeamX Insight:</strong> Top-quartile firms achieve 60%+ recurring revenue with 70%+ gross margins through platform models. 
+            Your opportunity: Shift from $150K project ACVs to $500K+ platform subscriptions with outcome guarantees.
+        </div>
+    </div>
+</body>
+</html>

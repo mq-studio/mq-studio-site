@@ -1,0 +1,237 @@
+{
+  "timestamp": "2025-08-27T17:14:49.082Z",
+  "summary": {
+    "totalComponents": 11,
+    "componentsWithIssues": 10,
+    "responsiveTestsPassed": 2,
+    "responsiveTestsTotal": 3,
+    "visualConsistencyScore": 3,
+    "visualConsistencyTotal": 4,
+    "totalIssues": 2
+  },
+  "components": [
+    {
+      "page": "/",
+      "component": "Hero",
+      "timestamp": "2025-08-27T17:14:49.148Z",
+      "results": {
+        "hasH1": false,
+        "hasH1Content": true,
+        "hasCTAButtons": false,
+        "hasStats": false,
+        "hasGradientBackground": true,
+        "hasAnimation": false,
+        "hasHeroSection": false,
+        "responsive": true,
+        "accessibility": {
+          "hasAriaHidden": false,
+          "hasProperHeading": true
+        }
+      }
+    },
+    {
+      "page": "/",
+      "component": "Services",
+      "timestamp": "2025-08-27T17:14:49.149Z",
+      "results": {
+        "hasServicesSection": true,
+        "hasServiceCards": true,
+        "hasHealthcareServices": true,
+        "responsive": true,
+        "hasIcons": true,
+        "hasDescriptions": true
+      }
+    },
+    {
+      "page": "/",
+      "component": "ProcessOverview",
+      "timestamp": "2025-08-27T17:14:49.149Z",
+      "results": {
+        "hasProcessSteps": false,
+        "hasTimeline": false,
+        "hasProcessNumbers": true,
+        "interactive": false,
+        "responsive": true
+      }
+    },
+    {
+      "page": "/",
+      "component": "CaseStudiesPreview",
+      "timestamp": "2025-08-27T17:14:49.149Z",
+      "results": {
+        "hasCaseStudies": false,
+        "hasResults": true,
+        "hasROIData": true,
+        "hasClientTestimonials": true,
+        "hasMetrics": true
+      }
+    },
+    {
+      "page": "/",
+      "component": "Team",
+      "timestamp": "2025-08-27T17:14:49.149Z",
+      "results": {
+        "hasTeamMembers": true,
+        "hasProfileImages": false,
+        "hasTeamBios": true,
+        "hasCredentials": false,
+        "responsive": true
+      }
+    },
+    {
+      "page": "/",
+      "component": "Testimonials",
+      "timestamp": "2025-08-27T17:14:49.149Z",
+      "results": {
+        "hasTestimonials": false,
+        "hasClientNames": true,
+        "hasRatings": false,
+        "hasCarousel": false,
+        "hasQuotes": true
+      }
+    },
+    {
+      "page": "/",
+      "component": "Contact",
+      "timestamp": "2025-08-27T17:14:49.149Z",
+      "results": {
+        "hasContactForm": true,
+        "hasFormFields": false,
+        "hasContactInfo": false,
+        "hasFormValidation": false,
+        "hasSubmitButton": false,
+        "responsive": true
+      }
+    },
+    {
+      "page": "/frameworks",
+      "component": "FrameworkGallery",
+      "timestamp": "2025-08-27T17:14:49.154Z",
+      "results": {
+        "hasFrameworkItems": true,
+        "hasFilteringCapability": false,
+        "hasFrameworkViewer": false,
+        "hasFrameworkFiles": false,
+        "interactive": false
+      }
+    },
+    {
+      "page": "/frameworks",
+      "component": "FrameworkViewer",
+      "timestamp": "2025-08-27T17:14:49.154Z",
+      "results": {
+        "tested": false,
+        "reason": "No specific test defined"
+      }
+    },
+    {
+      "page": "/contact",
+      "component": "Contact Form",
+      "timestamp": "2025-08-27T17:14:49.171Z",
+      "results": {
+        "hasNameField": false,
+        "hasEmailField": false,
+        "hasMessageField": false,
+        "hasRequiredFields": false,
+        "hasFormValidation": true,
+        "hasSuccessHandling": false,
+        "hasProperLabels": false
+      }
+    },
+    {
+      "page": "/contact",
+      "component": "Contact Information",
+      "timestamp": "2025-08-27T17:14:49.171Z",
+      "results": {
+        "tested": false,
+        "reason": "No specific test defined"
+      }
+    }
+  ],
+  "responsiveDesign": [
+    {
+      "test": "Viewport Meta Tag",
+      "passed": true,
+      "description": "Viewport meta tag present"
+    },
+    {
+      "test": "Responsive CSS Classes",
+      "passed": true,
+      "description": "Found 6 responsive CSS patterns",
+      "classesFound": 6
+    },
+    {
+      "test": "Mobile Navigation",
+      "passed": false,
+      "description": "No mobile menu elements found"
+    }
+  ],
+  "visualConsistency": [
+    {
+      "test": "Color Palette Consistency",
+      "passed": true,
+      "description": "Found 5/7 brand colors in use",
+      "colorsFound": 5
+    },
+    {
+      "test": "Typography Consistency",
+      "passed": true,
+      "description": "Found 8/10 typography classes",
+      "typographyFound": 8
+    },
+    {
+      "test": "Spacing Consistency",
+      "passed": true,
+      "description": "Found 7/9 spacing patterns",
+      "spacingFound": 7
+    },
+    {
+      "test": "Animation Consistency",
+      "passed": false,
+      "description": "Found 0/6 animation patterns",
+      "animationsFound": 0
+    }
+  ],
+  "interactions": [],
+  "issues": [
+    {
+      "type": "Component Error",
+      "component": "Hero",
+      "issue": "Missing H1 heading tag"
+    },
+    {
+      "type": "Component Warning",
+      "component": "Hero",
+      "issue": "Missing call-to-action buttons"
+    }
+  ],
+  "recommendations": [
+    {
+      "category": "Components",
+      "priority": "High",
+      "issue": "2 component issues found",
+      "recommendation": "Review component implementation and fix missing elements",
+      "affectedComponents": [
+        "Hero"
+      ]
+    },
+    {
+      "category": "Responsive Design",
+      "priority": "High",
+      "issue": "1 responsive design tests failed",
+      "recommendation": "Implement proper responsive breakpoints and mobile-first design",
+      "failedTests": [
+        "Mobile Navigation"
+      ]
+    },
+    {
+      "category": "Visual Consistency",
+      "priority": "Medium",
+      "issue": "1 visual consistency tests failed",
+      "recommendation": "Standardize color palette, typography, and spacing across all components",
+      "inconsistentAreas": [
+        "Animation Consistency"
+      ]
+    }
+  ]
+}

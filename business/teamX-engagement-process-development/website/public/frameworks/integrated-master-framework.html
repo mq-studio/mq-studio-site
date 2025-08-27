@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Healthcare Services Master Framework V5.0 - Complete System Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .framework-version {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .system-overview {
+            padding: 50px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .overview-title {
+            font-size: 2em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .system-pillar {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .system-pillar:hover {
+            transform: translateY(-5px);
+        }
+        
+        .system-pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .pillar-clinical::before { background: linear-gradient(90deg, #667eea, #764ba2); }
+        .pillar-operational::before { background: linear-gradient(90deg, #f093fb, #f5576c); }
+        .pillar-talent::before { background: linear-gradient(90deg, #4facfe, #00f2fe); }
+        .pillar-network::before { background: linear-gradient(90deg, #43e97b, #38f9d7); }
+        
+        .pillar-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .pillar-metrics {
+            display: grid;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+        
+        .metric-label {
+            color: #6c757d;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .value-chain {
+            padding: 50px;
+            background: white;
+        }
+        
+        .chain-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .chain-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .chain-node {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            margin: 0 10px;
+        }
+        
+        .chain-node::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #667eea;
+        }
+        
+        .chain-node:last-child::after {
+            display: none;
+        }
+        
+        .node-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .node-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .node-detail {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .integration-map {
+            padding: 50px;
+            background: #f8f9fa;
+        }
+        
+        .map-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .integration-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .integration-layer {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .layer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .layer-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .layer-status {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .status-operational { background: #d4edda; color: #155724; }
+        .status-building { background: #fff3cd; color: #856404; }
+        .status-planned { background: #cce5ff; color: #004085; }
+        
+        .layer-components {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .component-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .component-icon {
+            font-size: 1.5em;
+        }
+        
+        .component-info {
+            flex: 1;
+        }
+        
+        .component-name {
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.95em;
+        }
+        
+        .component-metric {
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        
+        .outcomes-dashboard {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 50px;
+        }
+        
+        .outcomes-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #155724;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .outcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .outcome-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .outcome-label {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .outcome-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+        
+        .outcome-trend {
+            font-size: 0.85em;
+            color: #155724;
+        }
+        
+        .execution-roadmap {
+            padding: 50px;
+            background: white;
+        }
+        
+        .roadmap-header {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .roadmap-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        .roadmap-quarter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .quarter-label {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .quarter-focus {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .quarter-milestones {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .investment-summary {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            padding: 40px;
+            margin: 40px;
+            border-radius: 15px;
+        }
+        
+        .investment-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #856404;
+        }
+        
+        .investment-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .invest-category {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .invest-label {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .invest-amount {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+        
+        .invest-detail {
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        
+        .footer {
+            background: #0f2027;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #4facfe;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin: 8px 0;
+            opacity: 0.8;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Integrated Healthcare Services Master Framework</h1>
+            <p class="header-subtitle">Complete System Architecture for Canadian Naturopathic Network Scaling</p>
+            <div class="framework-version">VERSION 5.0 - POST OPTIMIZATION</div>
+        </div>
+        
+        <!-- System Overview -->
+        <div class="system-overview">
+            <h2 class="overview-title">Four Pillars of Healthcare Scaling Excellence</h2>
+            
+            <div class="system-grid">
+                <div class="system-pillar pillar-clinical">
+                    <div class="pillar-icon">🏥</div>
+                    <div class="pillar-title">Clinical Excellence</div>
+                    <div class="pillar-metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Protocols</span>
+                            <span class="metric-value">60/40 Model</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Outcomes</span>
+                            <span class="metric-value">+22% Improvement</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">NPS Score</span>
+                            <span class="metric-value">72</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Quality Score</span>
+                            <span class="metric-value">94%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-pillar pillar-operational">
+                    <div class="pillar-icon">⚙️</div>
+                    <div class="pillar-title">Operational Alpha™</div>
+                    <div class="pillar-metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Automation</span>
+                            <span class="metric-value">40% → 85%</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Efficiency</span>
+                            <span class="metric-value">+167%</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Cost Savings</span>
+                            <span class="metric-value">$380K/yr</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Capacity</span>
+                            <span class="metric-value">+35%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-pillar pillar-talent">
+                    <div class="pillar-icon">👥</div>
+                    <div class="pillar-title">Talent Ecosystem</div>
+                    <div class="pillar-metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Model</span>
+                            <span class="metric-value">40/30/20/10</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Pipeline</span>
+                            <span class="metric-value">500/yr</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Retention</span>
+                            <span class="metric-value">85%</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Revenue</span>
+                            <span class="metric-value">$2.1M</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-pillar pillar-network">
+                    <div class="pillar-icon">🔗</div>
+                    <div class="pillar-title">Network Effects</div>
+                    <div class="pillar-metrics">
+                        <div class="metric-row">
+                            <span class="metric-label">Sites</span>
+                            <span class="metric-value">5 → 12</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Patients</span>
+                            <span class="metric-value">25,000+</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Data Value</span>
+                            <span class="metric-value">$2M/yr</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Network Value</span>
+                            <span class="metric-value">$42M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Value Chain -->
+        <div class="value-chain">
+            <h2 class="chain-title">Integrated Value Creation Chain</h2>
+            
+            <div class="chain-flow">
+                <div class="chain-node">
+                    <div class="node-title">Acquisition</div>
+                    <div class="node-value">$127</div>
+                    <div class="node-detail">Cost per patient</div>
+                </div>
+                
+                <div class="chain-node">
+                    <div class="node-title">Treatment</div>
+                    <div class="node-value">$165</div>
+                    <div class="node-detail">Average visit value</div>
+                </div>
+                
+                <div class="chain-node">
+                    <div class="node-title">Retention</div>
+                    <div class="node-value">75%</div>
+                    <div class="node-detail">Annual retention</div>
+                </div>
+                
+                <div class="chain-node">
+                    <div class="node-title">LTV</div>
+                    <div class="node-value">$3,450</div>
+                    <div class="node-detail">Lifetime value</div>
+                </div>
+                
+                <div class="chain-node">
+                    <div class="node-title">Network</div>
+                    <div class="node-value">27:1</div>
+                    <div class="node-detail">LTV:CAC ratio</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Integration Map -->
+        <div class="integration-map">
+            <h2 class="map-title">System Integration Architecture</h2>
+            
+            <div class="integration-matrix">
+                <div class="integration-layer">
+                    <div class="layer-header">
+                        <span class="layer-title">Technology Layer</span>
+                        <span class="layer-status status-operational">Operational</span>
+                    </div>
+                    <div class="layer-components">
+                        <div class="component-item">
+                            <span class="component-icon">💻</span>
+                            <div class="component-info">
+                                <div class="component-name">Jane App EMR</div>
+                                <div class="component-metric">2,847 patients active</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">📱</span>
+                            <div class="component-info">
+                                <div class="component-name">Doxy.me Virtual Care</div>
+                                <div class="component-metric">32% utilization</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">🤖</span>
+                            <div class="component-info">
+                                <div class="component-name">DeepScribe AI</div>
+                                <div class="component-metric">2.5 hrs saved/day</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">📊</span>
+                            <div class="component-info">
+                                <div class="component-name">Analytics Platform</div>
+                                <div class="component-metric">Real-time KPIs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-layer">
+                    <div class="layer-header">
+                        <span class="layer-title">Revenue Streams</span>
+                        <span class="layer-status status-building">Building</span>
+                    </div>
+                    <div class="layer-components">
+                        <div class="component-item">
+                            <span class="component-icon">🏥</span>
+                            <div class="component-info">
+                                <div class="component-name">Clinical Services</div>
+                                <div class="component-metric">$12-15M validated</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">🏢</span>
+                            <div class="component-info">
+                                <div class="component-name">Corporate Wellness</div>
+                                <div class="component-metric">$2-3M potential</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">🤝</span>
+                            <div class="component-info">
+                                <div class="component-name">Indigenous Partnerships</div>
+                                <div class="component-metric">$2.3M by Year 3</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">📊</span>
+                            <div class="component-info">
+                                <div class="component-name">Data Products</div>
+                                <div class="component-metric">$2M+ at scale</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-layer">
+                    <div class="layer-header">
+                        <span class="layer-title">Growth Engines</span>
+                        <span class="layer-status status-planned">Activating</span>
+                    </div>
+                    <div class="layer-components">
+                        <div class="component-item">
+                            <span class="component-icon">🚀</span>
+                            <div class="component-info">
+                                <div class="component-name">Provincial Expansion</div>
+                                <div class="component-metric">BC → AB → ON</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">🏪</span>
+                            <div class="component-info">
+                                <div class="component-name">Acquisitions</div>
+                                <div class="component-metric">8-12 targets</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">🎓</span>
+                            <div class="component-info">
+                                <div class="component-name">Training Institute</div>
+                                <div class="component-metric">100 grads/year</div>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-icon">🔄</span>
+                            <div class="component-info">
+                                <div class="component-name">Network Flywheel</div>
+                                <div class="component-metric">n² value creation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Outcomes Dashboard -->
+        <div class="outcomes-dashboard">
+            <h2 class="outcomes-title">Target Outcomes & Success Metrics</h2>
+            
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-icon">💰</div>
+                    <div class="outcome-label">Annual Revenue</div>
+                    <div class="outcome-value">$18M</div>
+                    <div class="outcome-trend">Year 2 target</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">📈</div>
+                    <div class="outcome-label">EBITDA Margin</div>
+                    <div class="outcome-value">12-16%</div>
+                    <div class="outcome-trend">Risk-adjusted</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">🏥</div>
+                    <div class="outcome-label">Locations</div>
+                    <div class="outcome-value">12+</div>
+                    <div class="outcome-trend">3 provinces</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">👥</div>
+                    <div class="outcome-label">Patients</div>
+                    <div class="outcome-value">25,000</div>
+                    <div class="outcome-trend">Active base</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">🎯</div>
+                    <div class="outcome-label">Success Probability</div>
+                    <div class="outcome-value">45-55%</div>
+                    <div class="outcome-trend">Conservative</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">⏱️</div>
+                    <div class="outcome-label">Timeline</div>
+                    <div class="outcome-value">24-30mo</div>
+                    <div class="outcome-trend">To scale</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">💸</div>
+                    <div class="outcome-label">Exit Multiple</div>
+                    <div class="outcome-value">8-12x</div>
+                    <div class="outcome-trend">EBITDA</div>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">🏆</div>
+                    <div class="outcome-label">Market Position</div>
+                    <div class="outcome-value">#1</div>
+                    <div class="outcome-trend">Canada</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Execution Roadmap -->
+        <div class="execution-roadmap">
+            <h2 class="roadmap-header">24-Month Execution Roadmap</h2>
+            
+            <div class="roadmap-timeline">
+                <div class="roadmap-quarter">
+                    <div class="quarter-label">Q1 2025</div>
+                    <div class="quarter-focus">Foundation & Validation</div>
+                    <div class="quarter-milestones">
+                        • BC optimization complete<br>
+                        • Technology deployment<br>
+                        • Team building<br>
+                        • Quick wins achieved<br>
+                        • $500K revenue/mo
+                    </div>
+                </div>
+                
+                <div class="roadmap-quarter">
+                    <div class="quarter-label">Q2-Q3 2025</div>
+                    <div class="quarter-focus">Expansion Launch</div>
+                    <div class="quarter-milestones">
+                        • Alberta entry<br>
+                        • First acquisition<br>
+                        • Corporate pilots<br>
+                        • Indigenous MOU<br>
+                        • $1M revenue/mo
+                    </div>
+                </div>
+                
+                <div class="roadmap-quarter">
+                    <div class="quarter-label">Q4 2025 - Q1 2026</div>
+                    <div class="quarter-focus">Network Activation</div>
+                    <div class="quarter-milestones">
+                        • Ontario launch<br>
+                        • 8+ locations<br>
+                        • Data products MVP<br>
+                        • Training institute<br>
+                        • $1.5M revenue/mo
+                    </div>
+                </div>
+                
+                <div class="roadmap-quarter">
+                    <div class="quarter-label">Q2-Q4 2026</div>
+                    <div class="quarter-focus">Scale & Exit Prep</div>
+                    <div class="quarter-milestones">
+                        • 12+ locations<br>
+                        • Network effects active<br>
+                        • EBITDA optimization<br>
+                        • Strategic options<br>
+                        • Exit ready
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Investment Summary -->
+        <div class="investment-summary">
+            <h2 class="investment-title">Total Investment Requirements</h2>
+            
+            <div class="investment-breakdown">
+                <div class="invest-category">
+                    <div class="invest-label">Initial Capital</div>
+                    <div class="invest-amount">$5.5-6.5M</div>
+                    <div class="invest-detail">Total requirement</div>
+                </div>
+                
+                <div class="invest-category">
+                    <div class="invest-label">Runway</div>
+                    <div class="invest-amount">24 months</div>
+                    <div class="invest-detail">Cash coverage</div>
+                </div>
+                
+                <div class="invest-category">
+                    <div class="invest-label">ROI</div>
+                    <div class="invest-amount">4-6x</div>
+                    <div class="invest-detail">Expected return</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Framework Components</h3>
+                    <ul>
+                        <li>✓ Master Optimization Canvas</li>
+                        <li>✓ Real-time Value Dashboard</li>
+                        <li>✓ Data Capital Framework</li>
+                        <li>✓ Operational Alpha Architecture</li>
+                        <li>✓ Talent-as-a-Product Model</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Strategic Initiatives</h3>
+                    <ul>
+                        <li>✓ Network Effects Amplification</li>
+                        <li>✓ Indigenous Partnerships</li>
+                        <li>✓ Provincial Scaling Strategy</li>
+                        <li>✓ 100-Day Sprint Plan</li>
+                        <li>✓ Acquisition Criteria</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Success Factors</h3>
+                    <ul>
+                        <li>✓ Evidence-based approach</li>
+                        <li>✓ Risk mitigation focus</li>
+                        <li>✓ Phased implementation</li>
+                        <li>✓ Clear decision gates</li>
+                        <li>✓ Conservative projections</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.1em;">
+                © 2025 TeamX Management Consulting | Healthcare Services Scaling Framework V5.0
+            </p>
+            <p style="margin-top: 10px; opacity: 0.7;">
+                Complete System Architecture for Canadian Healthcare Network Scaling
+            </p>
+        </div>
+    </div>
+</body>
+</html>

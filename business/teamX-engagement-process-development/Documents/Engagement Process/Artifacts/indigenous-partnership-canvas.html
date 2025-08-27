@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigenous Healthcare Partnership Framework - Reconciliation Through Wellness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f4e2d8 0%, #ba5370 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .acknowledgment {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .principles-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #fff5ee 0%, #faebd7 100%);
+        }
+        
+        .principles-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .principle-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #d2691e;
+        }
+        
+        .principle-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .principle-name {
+            font-weight: 600;
+            color: #8b4513;
+            margin-bottom: 10px;
+        }
+        
+        .principle-description {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .canvas-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #8b4513;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #d2691e;
+        }
+        
+        .partnership-models {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .model-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .model-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .model-potential {
+            font-weight: 600;
+            color: #27ae60;
+        }
+        
+        .model-description {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .model-requirements {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85em;
+        }
+        
+        .implementation-roadmap {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .roadmap-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+        }
+        
+        .roadmap-phases {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .roadmap-phase {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .phase-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #d2691e;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .phase-name {
+            font-weight: 600;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+        
+        .phase-timeline {
+            font-size: 0.9em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .phase-activities {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .phase-activities li {
+            margin: 5px 0;
+        }
+        
+        .success-metrics {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 40px;
+            margin: 30px 40px;
+            border-radius: 15px;
+        }
+        
+        .metrics-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #155724;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .metric-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .metric-target {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+        
+        .metric-detail {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .cultural-integration {
+            padding: 40px;
+            background: white;
+        }
+        
+        .integration-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .integration-area {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #d2691e;
+        }
+        
+        .area-name {
+            font-weight: 600;
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .area-elements {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .area-element {
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #34495e;
+        }
+        
+        .area-element:last-child {
+            border-bottom: none;
+        }
+        
+        .financial-model {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .financial-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+        }
+        
+        .revenue-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .revenue-stream {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stream-year {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .stream-amount {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        .stream-sources {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            text-align: left;
+        }
+        
+        .footer {
+            background: #8b4513;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Indigenous Healthcare Partnership Framework</h1>
+            <p class="header-subtitle">Reconciliation Through Culturally-Integrated Wellness Services</p>
+            <div class="acknowledgment">
+                We acknowledge that our clinics operate on the traditional territories of Indigenous peoples across Canada,
+                and we commit to meaningful partnership and reconciliation through healthcare equity.
+            </div>
+        </div>
+        
+        <!-- Guiding Principles -->
+        <div class="principles-section">
+            <h2 class="principles-title">Partnership Principles - The Medicine Wheel Approach</h2>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">🤝</div>
+                    <div class="principle-name">Respect</div>
+                    <div class="principle-description">Honor traditional healing practices and Indigenous knowledge systems</div>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">🌿</div>
+                    <div class="principle-name">Integration</div>
+                    <div class="principle-description">Blend traditional medicine with naturopathic approaches</div>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">👥</div>
+                    <div class="principle-name">Community</div>
+                    <div class="principle-description">Indigenous-led governance and decision-making</div>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">♻️</div>
+                    <div class="principle-name">Sustainability</div>
+                    <div class="principle-description">Long-term commitment to community wellness</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Partnership Models -->
+            <div class="canvas-section">
+                <h2 class="section-title">🏥 Partnership Models</h2>
+                
+                <div class="partnership-models">
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">On-Reserve Clinics</span>
+                            <span class="model-potential">$800K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Mobile and permanent clinic services directly in First Nations communities
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Requirements:</strong> Band council approval, NIHB coordination, cultural training, local hiring commitment
+                        </div>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">Urban Indigenous Centers</span>
+                            <span class="model-potential">$600K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Dedicated services within Friendship Centers in major cities
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Requirements:</strong> Partnership agreements, culturally safe spaces, Indigenous staff, flexible payment options
+                        </div>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">Traditional Healer Integration</span>
+                            <span class="model-potential">$400K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Collaborative care with Elders and traditional medicine practitioners
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Requirements:</strong> Elder advisory council, ceremony spaces, traditional medicine protocols, knowledge sharing agreements
+                        </div>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">Jordan's Principle Services</span>
+                            <span class="model-potential">$500K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Specialized pediatric and family wellness programs
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Requirements:</strong> Federal funding navigation, pediatric expertise, family-centered care models
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Funding Sources -->
+            <div class="canvas-section">
+                <h2 class="section-title">💰 Funding & Revenue Streams</h2>
+                
+                <div class="partnership-models">
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">NIHB Direct Billing</span>
+                            <span class="model-potential">$1.2M/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Non-Insured Health Benefits program for status First Nations and Inuit
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Coverage:</strong> Naturopathic visits, traditional medicine, mental health, transportation
+                        </div>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">Federal Grants</span>
+                            <span class="model-potential">$500K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Indigenous Services Canada health transformation funding
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Programs:</strong> Health transformation, mental wellness, substance use, chronic disease
+                        </div>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">Provincial Programs</span>
+                            <span class="model-potential">$300K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            Provincial Indigenous health initiatives and partnerships
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Focus:</strong> BC First Nations Health Authority, Ontario Indigenous programs
+                        </div>
+                    </div>
+                    
+                    <div class="model-card">
+                        <div class="model-header">
+                            <span class="model-name">Corporate Partnerships</span>
+                            <span class="model-potential">$200K/yr</span>
+                        </div>
+                        <div class="model-description">
+                            CSR funding from resource companies with Indigenous agreements
+                        </div>
+                        <div class="model-requirements">
+                            <strong>Sources:</strong> Mining companies, energy sector, banks with reconciliation commitments
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Implementation Roadmap -->
+        <div class="implementation-roadmap">
+            <h2 class="roadmap-title">Partnership Development Roadmap</h2>
+            
+            <div class="roadmap-phases">
+                <div class="roadmap-phase">
+                    <div class="phase-number">1</div>
+                    <div class="phase-name">Engagement</div>
+                    <div class="phase-timeline">Months 1-3</div>
+                    <ul class="phase-activities">
+                        <li>Elder consultations</li>
+                        <li>Community needs assessment</li>
+                        <li>Cultural safety training</li>
+                        <li>Relationship building</li>
+                    </ul>
+                </div>
+                
+                <div class="roadmap-phase">
+                    <div class="phase-number">2</div>
+                    <div class="phase-name">Co-Design</div>
+                    <div class="phase-timeline">Months 4-6</div>
+                    <ul class="phase-activities">
+                        <li>Service model development</li>
+                        <li>Partnership agreements</li>
+                        <li>Funding applications</li>
+                        <li>Staff recruitment</li>
+                    </ul>
+                </div>
+                
+                <div class="roadmap-phase">
+                    <div class="phase-number">3</div>
+                    <div class="phase-name">Pilot Launch</div>
+                    <div class="phase-timeline">Months 7-12</div>
+                    <ul class="phase-activities">
+                        <li>First clinic opening</li>
+                        <li>NIHB registration</li>
+                        <li>Traditional healer integration</li>
+                        <li>Community feedback loops</li>
+                    </ul>
+                </div>
+                
+                <div class="roadmap-phase">
+                    <div class="phase-number">4</div>
+                    <div class="phase-name">Scale & Sustain</div>
+                    <div class="phase-timeline">Year 2+</div>
+                    <ul class="phase-activities">
+                        <li>Multi-community expansion</li>
+                        <li>Program evaluation</li>
+                        <li>Knowledge sharing</li>
+                        <li>Long-term sustainability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Success Metrics -->
+        <div class="success-metrics">
+            <h2 class="metrics-title">Partnership Success Metrics</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Indigenous Patients Served</div>
+                    <div class="metric-target">3,000+</div>
+                    <div class="metric-detail">By Year 2</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Indigenous Staff</div>
+                    <div class="metric-target">40%</div>
+                    <div class="metric-detail">Of partnership team</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Communities Served</div>
+                    <div class="metric-target">8-10</div>
+                    <div class="metric-detail">First Nations & urban</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Cultural Safety Score</div>
+                    <div class="metric-target">90%+</div>
+                    <div class="metric-detail">Patient satisfaction</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Health Outcomes</div>
+                    <div class="metric-target">25%</div>
+                    <div class="metric-detail">Improvement in indicators</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Annual Revenue</div>
+                    <div class="metric-target">$2.3M</div>
+                    <div class="metric-detail">By Year 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cultural Integration -->
+        <div class="cultural-integration">
+            <h2 class="integration-title">Cultural Integration Framework</h2>
+            
+            <div class="integration-grid">
+                <div class="integration-area">
+                    <div class="area-name">Clinical Integration</div>
+                    <ul class="area-elements">
+                        <li class="area-element">Traditional medicine rooms with proper ventilation for smudging</li>
+                        <li class="area-element">Collaboration protocols with traditional healers</li>
+                        <li class="area-element">Integration of traditional plants and medicines</li>
+                        <li class="area-element">Ceremony and healing circle spaces</li>
+                        <li class="area-element">Extended appointment times for holistic care</li>
+                    </ul>
+                </div>
+                
+                <div class="integration-area">
+                    <div class="area-name">Operational Integration</div>
+                    <ul class="area-elements">
+                        <li class="area-element">Elder advisory council with decision-making authority</li>
+                        <li class="area-element">Indigenous hiring preferences and training programs</li>
+                        <li class="area-element">Flexible scheduling for cultural events and practices</li>
+                        <li class="area-element">Language services in local Indigenous languages</li>
+                        <li class="area-element">Community-based governance structures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Financial Model -->
+        <div class="financial-model">
+            <h2 class="financial-title">Three-Year Financial Projection</h2>
+            
+            <div class="revenue-breakdown">
+                <div class="revenue-stream">
+                    <div class="stream-year">Year 1</div>
+                    <div class="stream-amount">$450K</div>
+                    <div class="stream-sources">
+                        • NIHB setup: $200K<br>
+                        • Federal grants: $150K<br>
+                        • Pilot programs: $100K
+                    </div>
+                </div>
+                
+                <div class="revenue-stream">
+                    <div class="stream-year">Year 2</div>
+                    <div class="stream-amount">$1.4M</div>
+                    <div class="stream-sources">
+                        • NIHB billing: $800K<br>
+                        • Federal programs: $400K<br>
+                        • Provincial: $200K
+                    </div>
+                </div>
+                
+                <div class="revenue-stream">
+                    <div class="stream-year">Year 3</div>
+                    <div class="stream-amount">$2.3M</div>
+                    <div class="stream-sources">
+                        • NIHB expanded: $1.2M<br>
+                        • Grants: $700K<br>
+                        • Partnerships: $400K
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 TeamX Management Consulting | Indigenous Healthcare Partnership Framework</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Building Bridges Through Culturally-Integrated Healthcare</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Effects Amplification Canvas - Healthcare Ecosystem Flywheel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .flywheel-container {
+            padding: 60px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+        }
+        
+        .flywheel-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+        
+        .flywheel-diagram {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .flywheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .center-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .center-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .flywheel-node {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .flywheel-node:hover {
+            transform: scale(1.1);
+            z-index: 5;
+        }
+        
+        .node-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .node-label {
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        .node-metric {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+        
+        /* Position nodes in circle */
+        .node-1 { top: 20px; left: 50%; transform: translateX(-50%); }
+        .node-2 { top: 80px; right: 80px; }
+        .node-3 { top: 230px; right: 20px; }
+        .node-4 { bottom: 80px; right: 80px; }
+        .node-5 { bottom: 20px; left: 50%; transform: translateX(-50%); }
+        .node-6 { bottom: 80px; left: 80px; }
+        .node-7 { top: 230px; left: 20px; }
+        .node-8 { top: 80px; left: 80px; }
+        
+        .flywheel-arrow {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+        }
+        
+        .flywheel-arrow::after {
+            content: '→';
+            font-size: 2em;
+            color: #3498db;
+        }
+        
+        /* Arrow positions */
+        .arrow-1 { top: 60px; right: 180px; transform: rotate(45deg); }
+        .arrow-2 { top: 150px; right: 60px; transform: rotate(90deg); }
+        .arrow-3 { bottom: 150px; right: 60px; transform: rotate(135deg); }
+        .arrow-4 { bottom: 60px; right: 180px; transform: rotate(180deg); }
+        .arrow-5 { bottom: 60px; left: 180px; transform: rotate(225deg); }
+        .arrow-6 { bottom: 150px; left: 60px; transform: rotate(270deg); }
+        .arrow-7 { top: 150px; left: 60px; transform: rotate(315deg); }
+        .arrow-8 { top: 60px; left: 180px; transform: rotate(0deg); }
+        
+        .network-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 40px;
+            background: white;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+        
+        .metric-title {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .metric-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .metric-growth {
+            font-size: 0.85em;
+            color: #27ae60;
+        }
+        
+        .value-creation {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .value-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .value-layer {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .layer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .layer-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+        
+        .layer-value {
+            font-weight: 700;
+            color: #27ae60;
+            font-size: 1.1em;
+        }
+        
+        .layer-items {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .layer-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        .layer-item:last-child {
+            border-bottom: none;
+        }
+        
+        .network-formula {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 40px;
+            margin: 30px 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .formula-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #155724;
+            margin-bottom: 20px;
+        }
+        
+        .formula-equation {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #155724;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .formula-components {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .formula-component {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .component-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .component-value {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .growth-stages {
+            padding: 40px;
+            background: white;
+        }
+        
+        .stages-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .stages-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        
+        .growth-stage {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .stage-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .stage-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .stage-threshold {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .stage-effects {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            text-align: left;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Network Effects Amplification Canvas</h1>
+            <p class="header-subtitle">Building Exponential Value Through Healthcare Ecosystem Dynamics</p>
+        </div>
+        
+        <!-- Flywheel Diagram -->
+        <div class="flywheel-container">
+            <h2 class="flywheel-title">The Healthcare Network Flywheel</h2>
+            
+            <div class="flywheel-diagram">
+                <div class="flywheel-center">
+                    <div class="center-value">$42M</div>
+                    <div class="center-label">Network Value</div>
+                </div>
+                
+                <div class="flywheel-node node-1">
+                    <div class="node-icon">🏥</div>
+                    <div class="node-label">More Clinics</div>
+                    <div class="node-metric">5 → 12 sites</div>
+                </div>
+                
+                <div class="flywheel-node node-2">
+                    <div class="node-icon">👥</div>
+                    <div class="node-label">More Patients</div>
+                    <div class="node-metric">8K → 25K</div>
+                </div>
+                
+                <div class="flywheel-node node-3">
+                    <div class="node-icon">📊</div>
+                    <div class="node-label">Richer Data</div>
+                    <div class="node-metric">10K+ records</div>
+                </div>
+                
+                <div class="flywheel-node node-4">
+                    <div class="node-icon">🎯</div>
+                    <div class="node-label">Better Protocols</div>
+                    <div class="node-metric">85% accuracy</div>
+                </div>
+                
+                <div class="flywheel-node node-5">
+                    <div class="node-icon">📈</div>
+                    <div class="node-label">Higher Success</div>
+                    <div class="node-metric">+22% outcomes</div>
+                </div>
+                
+                <div class="flywheel-node node-6">
+                    <div class="node-icon">💰</div>
+                    <div class="node-label">Premium Pricing</div>
+                    <div class="node-metric">+15% rates</div>
+                </div>
+                
+                <div class="flywheel-node node-7">
+                    <div class="node-icon">🏆</div>
+                    <div class="node-label">Better Talent</div>
+                    <div class="node-metric">Top 20% NDs</div>
+                </div>
+                
+                <div class="flywheel-node node-8">
+                    <div class="node-icon">🚀</div>
+                    <div class="node-label">Faster Growth</div>
+                    <div class="node-metric">2x expansion</div>
+                </div>
+                
+                <!-- Arrows -->
+                <div class="flywheel-arrow arrow-1"></div>
+                <div class="flywheel-arrow arrow-2"></div>
+                <div class="flywheel-arrow arrow-3"></div>
+                <div class="flywheel-arrow arrow-4"></div>
+                <div class="flywheel-arrow arrow-5"></div>
+                <div class="flywheel-arrow arrow-6"></div>
+                <div class="flywheel-arrow arrow-7"></div>
+                <div class="flywheel-arrow arrow-8"></div>
+            </div>
+        </div>
+        
+        <!-- Network Metrics -->
+        <div class="network-metrics">
+            <div class="metric-card">
+                <div class="metric-title">Network Density</div>
+                <div class="metric-value">0.42</div>
+                <div class="metric-growth">↑ From 0.15</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Cross-Referrals</div>
+                <div class="metric-value">18%</div>
+                <div class="metric-growth">↑ 12% YoY</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Data Points/Patient</div>
+                <div class="metric-value">247</div>
+                <div class="metric-growth">↑ 85% increase</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Network NPS</div>
+                <div class="metric-value">72</div>
+                <div class="metric-growth">↑ From 58</div>
+            </div>
+        </div>
+        
+        <!-- Value Creation Layers -->
+        <div class="value-creation">
+            <h2 class="value-title">Three Layers of Network Value Creation</h2>
+            
+            <div class="value-grid">
+                <div class="value-layer">
+                    <div class="layer-header">
+                        <span class="layer-name">Direct Effects</span>
+                        <span class="layer-value">$8M</span>
+                    </div>
+                    <ul class="layer-items">
+                        <li class="layer-item">Shared infrastructure costs (-30%)</li>
+                        <li class="layer-item">Bulk purchasing power (15% savings)</li>
+                        <li class="layer-item">Centralized admin (40% reduction)</li>
+                        <li class="layer-item">Marketing efficiency (2x ROI)</li>
+                        <li class="layer-item">Technology amortization</li>
+                    </ul>
+                </div>
+                
+                <div class="value-layer">
+                    <div class="layer-header">
+                        <span class="layer-name">Indirect Effects</span>
+                        <span class="layer-value">$12M</span>
+                    </div>
+                    <ul class="layer-items">
+                        <li class="layer-item">Clinical best practices sharing</li>
+                        <li class="layer-item">Practitioner collaboration</li>
+                        <li class="layer-item">Patient flow optimization</li>
+                        <li class="layer-item">Brand strength amplification</li>
+                        <li class="layer-item">Talent attraction & retention</li>
+                    </ul>
+                </div>
+                
+                <div class="value-layer">
+                    <div class="layer-header">
+                        <span class="layer-name">Data Network Effects</span>
+                        <span class="layer-value">$22M</span>
+                    </div>
+                    <ul class="layer-items">
+                        <li class="layer-item">Predictive health models</li>
+                        <li class="layer-item">Personalized protocols</li>
+                        <li class="layer-item">Outcome benchmarking</li>
+                        <li class="layer-item">Research partnerships</li>
+                        <li class="layer-item">Insurance optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Network Value Formula -->
+        <div class="network-formula">
+            <h2 class="formula-title">Metcalfe's Law Applied to Healthcare Networks</h2>
+            
+            <div class="formula-equation">
+                Network Value = k × n² × q × d
+            </div>
+            
+            <div class="formula-components">
+                <div class="formula-component">
+                    <div class="component-label">k (constant)</div>
+                    <div class="component-value">$175K</div>
+                </div>
+                <div class="formula-component">
+                    <div class="component-label">n (nodes)</div>
+                    <div class="component-value">12 clinics</div>
+                </div>
+                <div class="formula-component">
+                    <div class="component-label">q (quality)</div>
+                    <div class="component-value">0.85</div>
+                </div>
+                <div class="formula-component">
+                    <div class="component-label">d (density)</div>
+                    <div class="component-value">0.42</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Growth Stages -->
+        <div class="growth-stages">
+            <h2 class="stages-title">Network Effect Activation Thresholds</h2>
+            
+            <div class="stages-timeline">
+                <div class="growth-stage">
+                    <div class="stage-number">1</div>
+                    <div class="stage-name">Foundation</div>
+                    <div class="stage-threshold">1-3 Clinics</div>
+                    <div class="stage-effects">
+                        • Basic economies of scale<br>
+                        • Limited data insights<br>
+                        • Local brand presence<br>
+                        • Manual processes
+                    </div>
+                </div>
+                
+                <div class="growth-stage">
+                    <div class="stage-number">2</div>
+                    <div class="stage-name">Activation</div>
+                    <div class="stage-threshold">4-6 Clinics</div>
+                    <div class="stage-effects">
+                        • Cross-referrals begin<br>
+                        • Data patterns emerge<br>
+                        • Regional recognition<br>
+                        • System standardization
+                    </div>
+                </div>
+                
+                <div class="growth-stage">
+                    <div class="stage-number">3</div>
+                    <div class="stage-name">Acceleration</div>
+                    <div class="stage-threshold">7-12 Clinics</div>
+                    <div class="stage-effects">
+                        • Network effects multiply<br>
+                        • AI/ML insights active<br>
+                        • Provincial dominance<br>
+                        • Platform economics
+                    </div>
+                </div>
+                
+                <div class="growth-stage">
+                    <div class="stage-number">4</div>
+                    <div class="stage-name">Dominance</div>
+                    <div class="stage-threshold">13+ Clinics</div>
+                    <div class="stage-effects">
+                        • Winner-take-most<br>
+                        • Data moat established<br>
+                        • National presence<br>
+                        • Ecosystem control
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 TeamX Management Consulting | Network Effects Amplification Framework</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Creating Exponential Value Through Healthcare Networks</p>
+        </div>
+    </div>
+</body>
+</html>
