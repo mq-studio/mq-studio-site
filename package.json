@@ -1,0 +1,16 @@
+{
+  "name": "@ichardart/code-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo with workspace optimization",
+  "workspaces": [
+    "clients/*",
+    "clients/moura_quayle/*",
+    "business/*",
+    "business/CHEEV/*",
+    "products/*",
+    "infra/mcp-servers/*"
+  ],
+  "author": "Richard Hart",
+  "license": "UNLICENSED"
+}

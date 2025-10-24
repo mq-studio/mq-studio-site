@@ -1,0 +1,282 @@
+DETAILED CODEBASE ARCHITECTURE DIAGRAM
+=====================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    MONOREPO ROOT (10.6 GB)                              │
+│                    /home/ichardart/code/                                │
+└─────────────────────────────────────────────────────────────────────────┘
+
+PRIMARY BRANCHES:
+
+┌──────────────────────────────┐  ┌──────────────────────┐  ┌────────────┐
+│   BUSINESS (9.1 GB - 85%)    │  │   INFRA (487 MB)     │  │ PRODUCTS   │
+│   /business/                 │  │   /infra/            │  │ /products/ │
+├──────────────────────────────┤  ├──────────────────────┤  ├────────────┤
+│                              │  │                      │  │            │
+│ ┌──CHEEV (8.5 GB)────────┐  │  │ ┌─MCP Servers────┐  │  │ ┌────────┐ │
+│ │                        │  │  │ │                │  │  │ │Agent   │ │
+│ │ ├─CHEEV-HUB (7.1GB)   │  │  │ │ ├─claude-      │  │  │ │Orches- │ │
+│ │ │ └─node_modules      │  │  │ │ │  projects-   │  │  │ │trator  │ │
+│ │ │                     │  │  │ │ │  access-mcp  │  │  │ └────────┘ │
+│ │ ├─CHEEV-SAAS (29MB)   │  │  │ │ │              │  │  │            │
+│ │ │ └─TypeScript build  │  │  │ │ ├─markdown-   │  │  │ ┌────────┐ │
+│ │ │                     │  │  │ │ │  formatting │  │  │ │Dog     │ │
+│ │ ├─CHEEV-IP (4.2MB)    │  │  │ │ │              │  │  │ │Patio   │ │
+│ │ │                     │  │  │ │ ├─wsl-helper  │  │  │ │Vancou- │ │
+│ │ ├─CHEEV-SPM-Govern   │  │  │ │ │              │  │  │ │ver     │ │
+│ │ │  (12MB)             │  │  │ │ ├─gemini-mcp  │  │  │ └────────┘ │
+│ │ │                     │  │  │ │ │              │  │  │            │
+│ │ └─docker, docs,       │  │  │ └──────────────┘  │  └────────────────┘
+│ │  git-hooks            │  │  │                   │
+│ │                       │  │  │ ┌─Core Systems──┐ │
+│ ├──DM Outreach (200MB) │  │  │ │                │ │
+│ │ └─NextJS+Firebase    │  │  │ ├─idp-          │ │
+│ │                      │  │  │ │  governance    │ │
+│ ├──TeamX Engagement    │  │  │ │                │ │
+│ │ (100MB)              │  │  │ ├─dev-env-cli   │ │
+│ │ └─NextJS+Docker      │  │  │ │                │ │
+│ │                      │  │  │ ├─dev-env-docs  │ │
+│ └──────────────────────┘  │  │ │                │ │
+│                           │  │ ├─security-     │ │
+│ (NOTE: Uses 4 external    │  │ │  tooling       │ │
+│  git submodules)          │  │ │                │ │
+│                           │  │ └────────────────┘ │
+└──────────────────────────┘  │                    │
+                              │ ┌─Protocols────────┐
+                              │ │                  │
+                              │ │├─A2A (Google)   │
+                              │ │                  │
+                              │ │├─BMAD Methodology
+                              │ │                  │
+                              │ └──────────────────┘
+                              │
+                              │ ┌─AI/Automation──┐
+                              │ │                │
+                              │ ├─agents         │
+                              │ ├─ai-assistance  │
+                              │ ├─collaboration  │
+                              │ └────────────────┘
+                              │
+                              │ ┌─Monitoring────┐
+                              │ │                │
+                              │ ├─monitoring    │
+                              │ ├─logs          │
+                              │ ├─validation    │
+                              │ ├─security/     │
+                              │ │ incidents      │
+                              │ └────────────────┘
+                              └──────────────────┘
+
+SECONDARY BRANCHES:
+
+┌──────────────────────────┐  ┌──────────────────────┐  ┌──────────────┐
+│  CLIENTS (86 MB)         │  │  EXPERIMENTS (631MB) │  │ WEB/OTHER    │
+│  /clients/               │  │  /experiments/       │  │              │
+├──────────────────────────┤  ├──────────────────────┤  ├──────────────┤
+│                          │  │                      │  │              │
+│ ┌─Moura Quayle (60MB)─┐ │  │ ┌─hello-react-    │ │  │ ┌──────────┐ │
+│ │                    │ │  │ │  firebase        │ │  │ │test-     │ │
+│ │ ├─website-mq-      │ │  │ │  (Git repo)      │ │  │ │project   │ │
+│ │ │  studio (PRIMARY) │ │  │ │                  │ │  │ └──────────┘ │
+│ │ │ └─Next.js 14 +    │ │  │ ├─colour-mixer   │ │  │              │
+│ │ │   React 18 +      │ │  │ │ (Git repo)      │ │  │ ┌──────────┐ │
+│ │ │   TypeScript      │ │  │ │                  │ │  │ │share/    │ │
+│ │ │ └─Testing, Jest   │ │  │ ├─curd-nerd-     │ │  │ │(images,  │ │
+│ │ │   Playwright      │ │  │ │  website        │ │  │ │docs)     │ │
+│ │ │                   │ │  │ │                  │ │  │ └──────────┘ │
+│ │ ├─archived/legacy   │ │  │ ├─claude-project │ │  │              │
+│ │ │ └─design docs     │ │  │ │                  │ │  │ ┌──────────┐ │
+│ │ │                   │ │  │ └──────────────────┘ │  │ │data/     │ │
+│ │ ├─moura-website-004 │ │  │                      │  │ └──────────┘ │
+│ │ └─archive/          │ │  │ (Learning projects)  │  │              │
+│ │                     │ │  │                      │  │ ┌──────────┐ │
+│ ├─Shufa & Leadership │ │  │                      │  │ │idp-venv/ │ │
+│ │ (20MB - Legacy)     │ │  │                      │  │ │(16 MB)   │ │
+│ │                     │ │  │                      │  │ └──────────┘ │
+│ └─MercFX (6MB)       │ │  │                      │  │              │
+│                      │ │  │                      │  │ ┌──────────┐ │
+│ NOTE: All coupled    │ │  │ NOTE: For reference  │  │ │.git/     │ │
+│  to main monorepo    │ │  │  only (archive)      │  │ │(main     │ │
+│                      │ │  │                      │  │ │ repo)    │ │
+└──────────────────────┘  └──────────────────────┘  └──────────────┘
+
+
+GIT REPOSITORY NESTING ANALYSIS
+===============================
+
+MAIN REPO ROOT
+├── .git (PRIMARY MONOREPO)
+│
+├── test-hooks/.git (Separate repo)
+│
+├── business/CHEEV/.git (Business unit)
+│   ├── CHEEV-IP/.git (submodule: git@github.com:rhart696/CHEEV-IP.git)
+│   ├── CHEEV-SAAS/.git (submodule: git@github.com:rhart696/CHEEV-SAAS.git)
+│   ├── CHEEV-SPM-GOVERNANCE/.git (submodule: git@github.com:rhart696/CHEEV-SPM-GOVERNANCE.git)
+│   └── CHEEV-HUB/.git (submodule: git@github.com:rhart696/CHEEV-HUB.git)
+│
+├── business/dm-outreach-agent/
+│   └── nextjs-firebase-ai-coding-template/.git (nested repo)
+│
+├── clients/moura_quayle/
+│   └── website-mq-studio/.git (Client project)
+│
+├── clients/shufa-and-leadership/.git (Legacy client)
+│
+├── products/agent-orchestrator/.git (Product)
+├── products/dog-patio-vancouver/.git (Product)
+│
+├── experiments/hello-react-firebase/.git (Learning)
+├── experiments/rhart696-colour-mixer-app/.git (Learning)
+│
+├── web/test-project/.git (Test project)
+│
+└── infra/ (Infrastructure repos)
+    ├── A2A/.git (Agent2Agent protocol)
+    ├── A2A-upstream/.git (submodule: https://github.com/google/A2A.git)
+    ├── BMAD-METHOD/.git (Methodology)
+    ├── dev-env-cli/.git (CLI tool)
+    ├── dev-env-docs/.git (Documentation)
+    ├── mcp-server/.git (MCP server)
+    ├── claude-code-router-integration/.git (Router)
+    ├── dev-tools/shotgun-code/.git (Code tool)
+    └── security-tooling/.git (Security tools)
+
+TOTAL: 16 nested git repositories
+
+
+DEPENDENCY MAP
+==============
+
+CLIENT PROJECTS
+└── MQ Studio
+    ├── Depends on: /infra/idp-governance/
+    ├── Depends on: /infra/dev-env-docs/
+    └── Depends on: /share/
+
+BUSINESS PROJECTS
+├── CHEEV Suite
+│   ├── CHEEV-HUB (parent)
+│   ├── CHEEV-SAAS (depends on framework)
+│   ├── CHEEV-IP (legal integration)
+│   └── CHEEV-SPM-Governance (shared governance)
+│
+├── DM Outreach
+│   └── Depends on: /infra/idp-governance/
+│
+└── TeamX Engagement
+    └── Depends on: /infra/idp-governance/
+
+PRODUCT PROJECTS
+├── Agent Orchestrator
+│   ├── Depends on: A2A protocol
+│   └── Depends on: /infra/idp-governance/
+│
+└── Dog Patio Vancouver
+    └── Depends on: /infra/tools/
+
+INFRASTRUCTURE
+├── MCP Servers
+│   ├── All depend on: /infra/mcp-core/
+│   └── All depend on: /infra/mcp-config/
+│
+├── Protocols
+│   ├── A2A (Agent coordination)
+│   └── BMAD (Validation methodology)
+│
+├── Governance
+│   └── Referenced by: All projects
+│
+└── Development Tools
+    └── Referenced by: All developers
+
+
+TECHNOLOGY STACK BREAKDOWN
+==========================
+
+FRONTEND:
+├── Next.js 14.2.5 (MQ Studio, DM Outreach, TeamX, Dog Patio)
+├── React 18+ (multiple projects)
+├── TypeScript (primary language)
+├── Jest + Playwright (testing)
+└── CSS/Tailwind CSS (styling)
+
+BACKEND:
+├── Node.js (primary)
+├── Python (MCP servers, utilities)
+├── Express.js (implied via Next.js)
+└── Firebase (AI/Outreach projects)
+
+INFRASTRUCTURE:
+├── Docker (containerization)
+├── Docker Compose (orchestration)
+├── MCP Protocol (Model Context Protocol)
+├── Git Hooks (governance enforcement)
+└── VS Code Dev Containers
+
+BUILD & DEPLOYMENT:
+├── npm (package management)
+├── TypeScript compiler
+├── Makefile (CHEEV, Agent Orchestrator)
+├── Docker images
+└── GitHub Actions (CI/CD)
+
+GOVERNANCE:
+├── Git hooks (pre-commit validation)
+├── BMAD methodology
+├── A2A protocol
+└── IDP governance framework
+
+
+SIZE BREAKDOWN BY MAJOR COMPONENT
+==================================
+
+CHEEV Business Suite:           8.5 GB (80%)
+├── CHEEV-HUB:                 7.1 GB
+├── CHEEV-SAAS:               29 MB
+├── CHEEV-SPM-Gov:            12 MB
+└── CHEEV-IP:                  4.2 MB
+
+Experiments:                    631 MB (6%)
+Infrastructure:                487 MB (5%)
+Products:                       220 MB (2%)
+  ├── Dog Patio Vancouver:     220 MB
+  └── Agent Orchestrator:      Minimal
+  
+Clients:                         86 MB (<1%)
+  ├── MQ Studio:               60 MB
+  ├── Shufa & Leadership:      20 MB
+  └── MercFX:                   6 MB
+
+Virtual Environments:           16 MB
+Other (share, data, etc):       2.1 MB
+
+TOTAL: ~10.6 GB
+
+
+KEY METRICS
+===========
+
+Source Code Files:              ~159,500
+├── TypeScript/JavaScript:     ~85,000
+├── Python:                    ~15,000
+├── Markdown/Documentation:    ~8,000
+├── Configuration:             ~5,000
+├── Images/Assets:             ~7,500
+├── Node Modules:              ~25,000+
+└── Other:                     ~13,000
+
+Dependency Directories:         363+
+├── node_modules:              Multiple per project
+├── venv directories:          Multiple per project
+└── .uv-cache/:               Present in some projects
+
+Git Repositories:               16 nested repos
+Submodules:                     9 total
+  ├── Main repo:               1 (A2A-upstream)
+  ├── CHEEV repo:              4 (CHEEV-*)
+  └── A2A repo:                1 (A2A)
+
+Makefiles:                      2 (CHEEV, Agent Orchestrator)
+Docker Files:                   Multiple projects
+

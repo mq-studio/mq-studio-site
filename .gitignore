@@ -247,3 +247,18 @@ infra/browser-automation/e2b_venv/
 clients/shufa-and-leadership/
 infra/claude-code-router-integration/
 infra/mcp-servers/mcp-crawl4ai-install/mcp-crawl4ai-rag/
+
+# Large files and archives
+experiments-archive-*.tar.gz
+*.jpeg
+*.jpg
+*.png
+*.mp4
+*.mov
+*.zip
+*.tar.gz
+
+# Embedded git repositories (to be handled as submodules)
+business/CHEEV/
+business/dm-outreach-agent/nextjs-firebase-ai-coding-template/
+infra/BMAD-METHOD/
