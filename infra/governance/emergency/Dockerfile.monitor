@@ -1,9 +1,0 @@
-FROM node:18-alpine
-RUN addgroup -g 1001 -S monitor && adduser -S monitor -u 1001 -G monitor
-WORKDIR /app
-COPY monitor-package.json ./package.json
-RUN npm install --production
-COPY monitor.js .
-USER monitor
-EXPOSE 3099
-CMD ["node", "monitor.js"]

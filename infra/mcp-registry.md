@@ -12,6 +12,7 @@ This document maintains a registry of all MCP servers in the infrastructure, the
 | GitHub MCP | ~/code/infra/mcp-servers/github-mcp | GitHub integration | Active | GitHub PAT |
 | Weather MCP | ~/code/infra/mcp-servers/weather-mcp | Weather data retrieval | Active | Python runtime |
 | Task Master MCP | ~/code/infra/mcp-servers/claude-task-master | Task management | Active | None |
+| Chrome DevTools MCP | ~/.local/share/mcp-servers/chrome-devtools-mcp | Browser automation & debugging | Partial (pending Chrome install) | Chrome, Xvfb, Node.js 20+ |
 
 ## Configuration
 
@@ -38,6 +39,7 @@ All servers are accessible through the MCP Server Hub, which provides the follow
 | GitHub MCP | GitHub Personal Access Token | Requires specific permissions |
 | Weather MCP | None | Public API |
 | Task Master MCP | None | Local operation only |
+| Chrome DevTools MCP | None | Sandboxed with --isolated flag |
 
 ## Maintenance Schedule
 
@@ -51,6 +53,7 @@ All servers are accessible through the MCP Server Hub, which provides the follow
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2025-09-29 | Added Chrome DevTools MCP (browser automation) | Claude Code |
 | YYYY-MM-DD | Initial consolidation | Richard Hart |
 
 ## Troubleshooting
@@ -60,3 +63,5 @@ All servers are accessible through the MCP Server Hub, which provides the follow
 | GitHub authentication fails | Check token permissions and validity |
 | MCP Server Hub fails to start | Check port 3000 is not in use |
 | Weather MCP returns errors | Verify Python environment is correctly set up |
+| Chrome DevTools MCP fails to start | Ensure Chrome is installed: `sudo apt-get install google-chrome-stable` |
+| Xvfb display errors | Check Xvfb is running on :99: `pgrep Xvfb` |

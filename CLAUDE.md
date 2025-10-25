@@ -1,12 +1,12 @@
 # IDP Development Environment Context
 
-## 🔄 LIVE STATUS CHECK (Last Updated: 2025-10-24 14:15:05)
+## 🔄 LIVE STATUS CHECK (Last Updated: 2025-10-25 05:30:25)
 
 ### Governance-Compliant Servers
 - **fetch-mcp-governance**: ❌ Directory not found (Risk: Low)
-- **wsl-helper-mcp**: ⚠️ Dependencies missing (run: pip install -r requirements.txt) (Risk: Medium)
+- **wsl-helper-mcp**: ⚠️ Cannot verify Python dependencies (Risk: Medium)
 - **markdown-formatting-mcp**: ⚠️ Dependencies missing (run: pip install -r requirements.txt) (Risk: Low)
-- **claude-projects-access-mcp**: ⚠️ Version conflicts (check package.json) (Risk: Medium)
+- **claude-projects-access-mcp**: ⚠️ Dependency check timeout (Risk: Medium)
 
 ### Cline Compliance
 - ✅ All servers compliant
@@ -18,4 +18,4 @@
 - **Governance**: ✅ Active
 
 
-## 🔄 LIVE STATUS CHECK (Last Updated: 2025-10-24 14:00:07)
+## 🔄 LIVE STATUS CHECK (Last Updated: 2025-10-25 05:15:04)

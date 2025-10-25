@@ -4,13 +4,22 @@
   "private": true,
   "description": "Monorepo with workspace optimization",
   "workspaces": [
-    "clients/*",
-    "clients/moura_quayle/*",
-    "business/*",
-    "business/CHEEV/*",
-    "products/*",
-    "infra/mcp-servers/*"
+    "clients/moura_quayle/website-mq-studio",
+    "business/dm-outreach-agent/nextjs-firebase-ai-coding-template/front",
+    "business/dm-outreach-agent/nextjs-firebase-ai-coding-template/back",
+    "business/teamX-engagement-process-development/website"
   ],
+  "comments": {
+    "excluded_nested_workspaces": [
+      "business/CHEEV/CHEEV-SAAS - manages own workspace",
+      "products/dog-patio-vancouver - manages own workspace"
+    ],
+    "excluded_non_npm_projects": [
+      "products/agent-orchestrator - Python project",
+      "clients/mercfx - no package.json yet",
+      "clients/shufa-and-leadership - no package.json yet"
+    ]
+  },
   "author": "Richard Hart",
   "license": "UNLICENSED"
 }

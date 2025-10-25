@@ -1,7 +1,7 @@
 {
   "refresh_history": [
     {
-      "timestamp": "2025-08-06T12:45:01.402872",
+      "timestamp": "2025-10-25T00:45:02.178168",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -12,7 +12,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T13:00:02.154421",
+      "timestamp": "2025-10-25T01:00:01.671233",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -23,7 +23,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T13:15:02.207252",
+      "timestamp": "2025-10-25T01:15:01.281742",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -34,7 +34,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T13:30:02.334533",
+      "timestamp": "2025-10-25T01:30:02.518322",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -45,7 +45,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T13:45:02.466357",
+      "timestamp": "2025-10-25T01:45:02.696761",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -56,7 +56,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T14:00:01.369670",
+      "timestamp": "2025-10-25T02:00:03.245887",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -67,7 +67,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T14:15:02.126645",
+      "timestamp": "2025-10-25T02:15:02.801100",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -78,7 +78,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T14:30:02.163826",
+      "timestamp": "2025-10-25T02:30:02.535620",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -89,7 +89,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T14:45:02.253005",
+      "timestamp": "2025-10-25T02:45:02.920598",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -100,7 +100,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T15:00:02.347631",
+      "timestamp": "2025-10-25T03:00:02.285475",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -111,7 +111,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T15:15:02.190297",
+      "timestamp": "2025-10-25T03:15:02.639594",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -122,7 +122,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T15:30:06.631229",
+      "timestamp": "2025-10-25T03:30:03.030423",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -133,7 +133,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T15:45:02.002832",
+      "timestamp": "2025-10-25T03:45:03.401759",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -144,7 +144,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T16:00:04.373766",
+      "timestamp": "2025-10-25T04:00:02.888664",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -155,7 +155,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T16:15:06.710416",
+      "timestamp": "2025-10-25T04:15:02.482744",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -166,7 +166,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T16:30:07.178893",
+      "timestamp": "2025-10-25T04:30:02.670612",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -177,7 +177,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T16:45:02.470570",
+      "timestamp": "2025-10-25T04:45:03.606439",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -188,7 +188,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T17:00:03.156547",
+      "timestamp": "2025-10-25T05:00:03.626571",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -199,7 +199,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T17:15:02.300612",
+      "timestamp": "2025-10-25T05:15:03.214944",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -210,7 +210,7 @@
       }
     },
     {
-      "timestamp": "2025-08-06T17:30:01.543072",
+      "timestamp": "2025-10-25T05:30:05.832361",
       "claude_code": {
         "success": true,
         "message": "Claude Code context refreshed"
@@ -222,7 +222,7 @@
     }
   ],
   "last_refresh": {
-    "timestamp": "2025-08-06T17:30:01.543072",
+    "timestamp": "2025-10-25T05:30:05.832361",
     "claude_code": {
       "success": true,
       "message": "Claude Code context refreshed"
