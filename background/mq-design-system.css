@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MQ Studio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="./mq-design-system.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand"><span class="seal"></span> MQ Studio</div>
+      <nav>
+        <a href="#">About</a> · <a href="#">Published Works</a> · <a href="#">Artworks</a> · <a href="#">Musings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-6">
+    <h1>Welcome to MQ Studio</h1>
+    <p>Experiences, experiments, rough drafts, and finished works—side by side.</p>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:1rem 0 2rem">
+      <a class="btn">Explore MQ Studio</a>
+      <a class="btn secondary">About Moura &amp; David</a>
+    </div>
+
+    <section class="grid cols-3 py-8">
+      <div class="card">
+        <img class="media" src="Blossoms.jpg" alt="Watercolour blossoms" />
+        <div class="body">
+          <h3>Boundaries in Motion</h3>
+          <p class="meta">Watercolour · Intent: edges as connections</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="body">
+          <h3>Designed Leadership in Practice</h3>
+          <p class="meta">Essay · 2025</p>
+          <p>How fit, scale, and context guide action in complex systems.</p>
+          <a class="btn ghost" href="#">Read excerpt</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="body">
+          <h3>Musing: Fit, Scale &amp; Context</h3>
+          <p class="meta">90s audio + transcript</p>
+          <a class="btn" href="#">Listen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* MQ Studio Colors - Primary Palette */
+  --rice-paper: #FDFCF8;
+  --ink-black: #1A1A1A;
+  --moura-teal: #00A8A8;
+  --scholar-blue: #2C5985;
+  --vibrant-magenta: #D33479;  /* Updated to more visible magenta */
+  --spring-yellow: #F4B942;
+  --sage-wisdom: #7A9A82;
+  --shufa-red: #8D2305;
+
+  /* Neutral Colors */
+  --light-gray: #D8D5CC;
+  --border: #E5E5E5;
+  --studio-cream: #FFF8F0;
+  --charcoal-wash: #4A4A4A;
+  --muted-foreground: #6B6B6B;
+}
+
+body {
+  background-color: var(--rice-paper);
+  color: var(--ink-black);
+}
+
+/* Focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--moura-teal);
+  outline-offset: 2px;
+}
+
+/* Base typography classes */
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-lora {
+  font-family: var(--font-lora), serif;
+}
+
+/* Search highlighting */
+mark {
+  background-color: rgba(244, 185, 66, 0.3); /* Spring Yellow with transparency */
+  color: var(--ink-black);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Watercolor texture overlay */
+.watercolor-texture {
+  /* Ensure texture doesn't interfere with interactions */
+  user-select: none;
+  touch-action: none;
+}
+
+/* Image gallery and zoom enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .watercolor-texture,
+  .transition-transform,
+  .transition-opacity {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Smooth scrolling for lightbox */
+.lightbox-open {
+  overflow: hidden;
+}
+
+/* Prevent text selection during drag */
+.dragging {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Publications View Transitions */
+.publications-grid {
+  transition: all 200ms ease-in-out;
+}
+
+.publications-grid--full {
+  @apply grid-cols-1 gap-8;
+}
+
+.publications-grid--moderate {
+  @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.publications-grid--compact {
+  @apply grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4;
+}
+
+/* Publication Card Transitions */
+.publication-card {
+  transition: all 200ms ease-in-out;
+}
+
+.publication-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print Styles - Default to Full View */
+@media print {
+  .publications-grid {
+    @apply grid-cols-1 !important;
+  }
+
+  .publication-card {
+    page-break-inside: avoid;
+  }
+
+  button,
+  .view-switcher {
+    display: none !important;
+  }
+}

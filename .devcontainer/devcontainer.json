@@ -1,0 +1,48 @@
+{
+  "name": "Website MQ Studio Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "remoteEnv": {
+    "TESTSPRITE_API_KEY": "${localEnv:TESTSPRITE_API_KEY}",
+    "NODE_ENV": "development"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "vscode.typescript-language-features"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "typescript.preferences.includePackageJsonAutoImports": "on"
+      }
+    }
+  },
+  "forwardPorts": [3100, 8080],
+  "portsAttributes": {
+    "3100": {
+      "label": "Next.js Dev Server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "onCreateCommand": [
+    "chmod +x .devcontainer/startup.sh",
+    ".devcontainer/startup.sh"
+  ],
+  "postCreateCommand": [
+    "curl -LsSf https://astral.sh/uv/install.sh | sh",
+    "export PATH=\"$HOME/.local/bin:$PATH\"",
+    "echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.bashrc",
+    "npm install -g @testsprite/testsprite-mcp@latest || echo 'Testsprite install failed, continuing...'"
+  ],
+  "postStartCommand": "npm run dev",
+  "remoteUser": "node"
+}

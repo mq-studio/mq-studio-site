@@ -1,0 +1,62 @@
+// Asset management utilities for Vercel Blob Storage
+import { put, list, del } from '@vercel/blob';
+
+export interface AssetMetadata {
+  filename: string;
+  contentType: string;
+  size: number;
+  category: 'artwork' | 'audio' | 'publication' | 'background' | 'other';
+  alt?: string;
+  description?: string;
+}
+
+/**
+ * Upload asset to Blob storage
+ */
+export async function uploadAsset(
+  file: File | Buffer,
+  metadata: AssetMetadata
+): Promise<string> {
+  const pathname = `assets/${metadata.category}/${metadata.filename}`;
+
+  const blob = await put(pathname, file, {
+    access: 'public',
+    addRandomSuffix: false,
+  });
+
+  return blob.url;
+}
+
+/**
+ * List assets by category
+ */
+export async function listAssets(category?: string): Promise<string[]> {
+  const prefix = category ? `assets/${category}/` : 'assets/';
+  const { blobs } = await list({ prefix });
+
+  return blobs.map(blob => blob.url);
+}
+
+/**
+ * Delete asset from storage
+ */
+export async function deleteAsset(url: string): Promise<void> {
+  await del(url);
+}
+
+/**
+ * Get optimized image URL with transformations
+ * For production use with image optimization service
+ */
+export function getOptimizedImageUrl(
+  baseUrl: string,
+  options: {
+    width?: number;
+    height?: number;
+    format?: 'webp' | 'avif' | 'jpg' | 'png';
+    quality?: number;
+  } = {}
+): string {
+  // For now return base URL - integrate with image optimization later
+  return baseUrl;
+}

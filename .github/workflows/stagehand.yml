@@ -1,0 +1,50 @@
+name: Stagehand Tests
+
+on:
+  pull_request:
+
+jobs:
+  stagehand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run lint and unit tests
+        run: npm run verify
+        env:
+          CI: true
+
+      - name: Load secrets from 1Password
+        uses: 1password/load-secrets-action@v1
+        with:
+          export-env: true
+          secrets: |
+            ANTHROPIC_API_KEY=op://Development/MQ Studio API Keys/anthropic_api_key
+        env:
+          OP_CONNECT_HOST: ${{ secrets.OP_CONNECT_HOST }} # Required GitHub secret
+          OP_CONNECT_TOKEN: ${{ secrets.OP_CONNECT_TOKEN }} # Required GitHub secret
+          # Add OP_CONNECT_CA_CERT or OP_CONNECT_CREDENTIAL if your Connect server needs them
+
+      - name: Run Stagehand tests
+        run: npm run test:stagehand
+        env:
+          CI: true
+
+      - name: Upload Stagehand artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stagehand-test-results
+          path: test-results/
+          if-no-files-found: ignore

@@ -1,0 +1,64 @@
+{
+  "name": "Website MQ Studio - GitHub Codespaces",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "remoteEnv": {
+    "TESTSPRITE_API_KEY": "${localEnv:TESTSPRITE_API_KEY}",
+    "NODE_ENV": "development"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "vscode.typescript-language-features",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "typescript.preferences.includePackageJsonAutoImports": "on",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "CLAUDE.md"
+      ]
+    }
+  },
+  "forwardPorts": [3100, 8080],
+  "portsAttributes": {
+    "3100": {
+      "label": "Next.js Dev Server",
+      "onAutoForward": "openBrowser",
+      "visibility": "public"
+    },
+    "8080": {
+      "label": "Secondary Port",
+      "visibility": "private"
+    }
+  },
+  "onCreateCommand": {
+    "install-deps": "npm ci",
+    "install-python-deps": "pip install -r requirements.txt || echo 'No Python requirements found'"
+  },
+  "postCreateCommand": {
+    "install-uv": "curl -LsSf https://astral.sh/uv/install.sh | sh && echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.bashrc",
+    "install-testsprite": "npm install -g @testsprite/testsprite-mcp@latest || echo 'Testsprite install failed, continuing...'",
+    "verify-setup": "npm run verify || echo 'Verification completed with warnings'"
+  },
+  "postStartCommand": "npm run dev",
+  "remoteUser": "node",
+  "waitFor": "postCreateCommand"
+}

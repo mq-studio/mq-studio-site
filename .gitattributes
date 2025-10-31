@@ -1,0 +1,26 @@
+# Git LFS Configuration for mq-studio-site
+# Only track files that are truly large (>50MB recommended for LFS)
+
+# If you have specific large optimized images over 50MB, uncomment and adjust:
+# public/images/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+# public/images/**/*.png filter=lfs diff=lfs merge=lfs -text
+# public/publications/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+
+# Line endings
+* text=auto
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+
+# Binary files
+*.jpg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.mp4 binary
+*.webm binary

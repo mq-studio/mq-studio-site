@@ -1,0 +1,216 @@
+/**
+ * Musings Loader Utility
+ *
+ * Loads and combines current musings with archived blog posts
+ * from the WordPress import (2009-2017).
+ *
+ * Follows project priorities:
+ * 1. Great aesthetic design (preserve content quality)
+ * 2. Great visitor experience (unified, searchable content)
+ * 3. Great admin experience (simple, maintainable)
+ */
+
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
+
+export interface Musing {
+  slug: string;
+  title: string;
+  date: string;
+  author: string;
+  category?: string;
+  excerpt?: string;
+  content: string;
+  audioUrl?: string;
+  // Legacy-specific fields
+  legacy?: boolean;
+  originalUrl?: string;
+  originalDate?: string;
+  era?: 'early' | 'middle' | 'late';
+}
+
+/**
+ * Get all musings from a directory
+ */
+async function getMusingsFromDirectory(
+  dirPath: string,
+  isLegacy: boolean = false
+): Promise<Musing[]> {
+  const musings: Musing[] = [];
+
+  // Check if directory exists
+  if (!fs.existsSync(dirPath)) {
+    console.log(`Directory not found: ${dirPath}`);
+    return musings;
+  }
+
+  // Get all files and subdirectories
+  const items = fs.readdirSync(dirPath, { withFileTypes: true });
+
+  for (const item of items) {
+    const itemPath = path.join(dirPath, item.name);
+
+    if (item.isDirectory()) {
+      // Recursively get musings from subdirectories (for archive years)
+      const subMusings = await getMusingsFromDirectory(itemPath, isLegacy);
+      musings.push(...subMusings);
+    } else if (item.name.endsWith('.md') || item.name.endsWith('.mdx')) {
+      // Read and parse the file
+      const fileContents = fs.readFileSync(itemPath, 'utf8');
+      const { data, content } = matter(fileContents);
+
+      // Process markdown to HTML
+      const processedContent = await remark()
+        .use(html)
+        .process(content);
+      const contentHtml = processedContent.toString();
+
+      // Determine era for legacy posts based on year
+      let era: 'early' | 'middle' | 'late' | undefined;
+      if (isLegacy && data.date) {
+        const year = new Date(data.date).getFullYear();
+        if (year <= 2011) era = 'early';
+        else if (year <= 2014) era = 'middle';
+        else era = 'late';
+      }
+
+      // Create musing object
+      const musing: Musing = {
+        slug: data.slug || item.name.replace(/\.(md|mdx)$/, ''),
+        title: data.title || 'Untitled',
+        date: data.date || 'unknown',
+        author: data.author || 'Moura Quayle',
+        category: data.category,
+        excerpt: data.excerpt || content.substring(0, 200) + '...',
+        content: contentHtml,
+        audioUrl: data.audioUrl,
+        // Add legacy fields if applicable
+        ...(isLegacy && {
+          legacy: true,
+          originalUrl: data.originalUrl,
+          originalDate: data.date,
+          era
+        })
+      };
+
+      musings.push(musing);
+    }
+  }
+
+  return musings;
+}
+
+/**
+ * Get all musings (current + archive)
+ */
+export async function getAllMusings(): Promise<Musing[]> {
+  const contentDir = path.join(process.cwd(), 'content', 'musings');
+
+  // Get current musings (exclude archive folder)
+  const currentMusings = await getMusingsFromDirectory(contentDir, false);
+
+  // Filter out archive entries from current
+  const filteredCurrent = currentMusings.filter(m =>
+    !m.slug.includes('archive')
+  );
+
+  // Get archive musings
+  const archiveDir = path.join(contentDir, 'archive');
+  const archiveMusings = await getMusingsFromDirectory(archiveDir, true);
+
+  // Combine and sort by date (newest first)
+  const allMusings = [...filteredCurrent, ...archiveMusings].sort((a, b) => {
+    // Handle 'unknown' dates
+    if (a.date === 'unknown') return 1;
+    if (b.date === 'unknown') return -1;
+
+    // Sort by date descending
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
+  return allMusings;
+}
+
+/**
+ * Get current musings only (non-archive)
+ */
+export async function getCurrentMusings(): Promise<Musing[]> {
+  const contentDir = path.join(process.cwd(), 'content', 'musings');
+  const currentMusings = await getMusingsFromDirectory(contentDir, false);
+
+  // Filter out archive entries
+  return currentMusings.filter(m => !m.slug.includes('archive'));
+}
+
+/**
+ * Get archive musings only (legacy blog posts)
+ */
+export async function getArchiveMusings(): Promise<Musing[]> {
+  const archiveDir = path.join(process.cwd(), 'content', 'musings', 'archive');
+  return getMusingsFromDirectory(archiveDir, true);
+}
+
+/**
+ * Get a single musing by slug
+ */
+export async function getMusingBySlug(slug: string): Promise<Musing | null> {
+  const allMusings = await getAllMusings();
+  return allMusings.find(m => m.slug === slug) || null;
+}
+
+/**
+ * Get musings by era (for archive posts)
+ */
+export async function getMusingsByEra(
+  era: 'early' | 'middle' | 'late'
+): Promise<Musing[]> {
+  const archiveMusings = await getArchiveMusings();
+  return archiveMusings.filter(m => m.era === era);
+}
+
+/**
+ * Search musings by keyword
+ */
+export async function searchMusings(query: string): Promise<Musing[]> {
+  const allMusings = await getAllMusings();
+  const lowercaseQuery = query.toLowerCase();
+
+  return allMusings.filter(musing =>
+    musing.title.toLowerCase().includes(lowercaseQuery) ||
+    musing.content.toLowerCase().includes(lowercaseQuery) ||
+    (musing.excerpt && musing.excerpt.toLowerCase().includes(lowercaseQuery)) ||
+    (musing.category && musing.category.toLowerCase().includes(lowercaseQuery))
+  );
+}
+
+/**
+ * Get statistics about the musings collection
+ */
+export async function getMusingsStats() {
+  const current = await getCurrentMusings();
+  const archive = await getArchiveMusings();
+
+  // Count by year
+  const yearCounts: Record<string, number> = {};
+  [...current, ...archive].forEach(musing => {
+    if (musing.date && musing.date !== 'unknown') {
+      const year = new Date(musing.date).getFullYear().toString();
+      yearCounts[year] = (yearCounts[year] || 0) + 1;
+    }
+  });
+
+  return {
+    total: current.length + archive.length,
+    current: current.length,
+    archive: archive.length,
+    byYear: yearCounts,
+    eras: {
+      early: archive.filter(m => m.era === 'early').length,
+      middle: archive.filter(m => m.era === 'middle').length,
+      late: archive.filter(m => m.era === 'late').length
+    }
+  };
+}

@@ -1,0 +1,150 @@
+{
+  "extraction_date": "2025-10-29",
+  "original_total": "7.0 MB",
+  "images": [
+    {
+      "original_file": "hero-image-1.png",
+      "name": "Left Panel Image",
+      "original_dimensions": "4000x2092",
+      "original_size_kb": 1695.4,
+      "original_format": "PNG",
+      "variants": [
+        {
+          "size": "web",
+          "dimensions": "2000x1046",
+          "webp": {
+            "file": "hero-image-1-web.webp",
+            "size_kb": 35.6
+          },
+          "jpeg": {
+            "file": "hero-image-1-web.jpg",
+            "size_kb": 73.5
+          },
+          "recommended": "webp"
+        },
+        {
+          "size": "thumb",
+          "dimensions": "800x418",
+          "webp": {
+            "file": "hero-image-1-thumb.webp",
+            "size_kb": 12.0
+          },
+          "jpeg": {
+            "file": "hero-image-1-thumb.jpg",
+            "size_kb": 21.9
+          },
+          "recommended": "webp"
+        },
+        {
+          "size": "original",
+          "dimensions": "4000x2092",
+          "webp": {
+            "file": "hero-image-1-original.webp",
+            "size_kb": 84.1
+          },
+          "jpeg": {
+            "file": "hero-image-1-original.jpg",
+            "size_kb": 188.9
+          },
+          "recommended": "webp"
+        }
+      ]
+    },
+    {
+      "original_file": "hero-image-2.jpeg",
+      "name": "Center Panel Image",
+      "original_dimensions": "2666x3655",
+      "original_size_kb": 3848.5,
+      "original_format": "JPEG",
+      "variants": [
+        {
+          "size": "web",
+          "dimensions": "1333x1827",
+          "webp": {
+            "file": "hero-image-2-web.webp",
+            "size_kb": 300.7
+          },
+          "jpeg": {
+            "file": "hero-image-2-web.jpg",
+            "size_kb": 417.8
+          },
+          "recommended": "webp"
+        },
+        {
+          "size": "thumb",
+          "dimensions": "533x731",
+          "webp": {
+            "file": "hero-image-2-thumb.webp",
+            "size_kb": 53.9
+          },
+          "jpeg": {
+            "file": "hero-image-2-thumb.jpg",
+            "size_kb": 75.5
+          },
+          "recommended": "webp"
+        },
+        {
+          "size": "original",
+          "dimensions": "2666x3655",
+          "webp": {
+            "file": "hero-image-2-original.webp",
+            "size_kb": 924.5
+          },
+          "jpeg": {
+            "file": "hero-image-2-original.jpg",
+            "size_kb": 1528.0
+          },
+          "recommended": "webp"
+        }
+      ]
+    },
+    {
+      "original_file": "hero-image-3.png",
+      "name": "Right Panel Image",
+      "original_dimensions": "768x1344",
+      "original_size_kb": 1615.3,
+      "original_format": "PNG",
+      "variants": [
+        {
+          "size": "web",
+          "dimensions": "768x1344",
+          "webp": {
+            "file": "hero-image-3-web.webp",
+            "size_kb": 116.1
+          },
+          "jpeg": {
+            "file": "hero-image-3-web.jpg",
+            "size_kb": 159.7
+          },
+          "recommended": "webp"
+        },
+        {
+          "size": "thumb",
+          "dimensions": "230x403",
+          "webp": {
+            "file": "hero-image-3-thumb.webp",
+            "size_kb": 7.1
+          },
+          "jpeg": {
+            "file": "hero-image-3-thumb.jpg",
+            "size_kb": 13.3
+          },
+          "recommended": "webp"
+        },
+        {
+          "size": "original",
+          "dimensions": "768x1344",
+          "webp": {
+            "file": "hero-image-3-original.webp",
+            "size_kb": 116.1
+          },
+          "jpeg": {
+            "file": "hero-image-3-original.jpg",
+            "size_kb": 159.7
+          },
+          "recommended": "webp"
+        }
+      ]
+    }
+  ]
+}
