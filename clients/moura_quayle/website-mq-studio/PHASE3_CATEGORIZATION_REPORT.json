@@ -1,0 +1,900 @@
+{
+  "processed": 74,
+  "skipped": 2,
+  "errors": 0,
+  "categories": {
+    "thinking": 39,
+    "feeling": 6,
+    "doing": 29
+  },
+  "details": [
+    {
+      "skipped": false,
+      "title": "A Bright Green Future",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 6,
+        "feeling": 1,
+        "doing": 12
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Adapting to Climate Change…global perspectives",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 11,
+        "feeling": 0,
+        "doing": 6
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Batteries — owning or renting?",
+      "oldCategory": "Uncategorized",
+      "newCategory": "feeling",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 2,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Climate Implications for the World’s Oceans",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 5,
+        "feeling": 1,
+        "doing": 4
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Driving Tech Innovation and Economic Growth",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 5,
+        "feeling": 1,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Experience Design – Making Meaning",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 12,
+        "feeling": 5,
+        "doing": 6
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Governors’ Global Climate Summit 2: the road to Copenhagen",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 7,
+        "feeling": 1,
+        "doing": 7
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Hello world!",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 0,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Hello world!",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Human-Centred Design – recycling the water hyacynth",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 1,
+        "feeling": 0,
+        "doing": 18
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Jasper Innovation Forum — the framework model",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 21,
+        "feeling": 3,
+        "doing": 5
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Liveable Cities — open for business",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Longevity and implications for next generation communities",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 4,
+        "feeling": 0,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "MQ Notes from BC Business Council Summit: Part 1",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 3,
+        "feeling": 0,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "MQ Summary of BCBC Summit:  Part 2",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 7,
+        "feeling": 0,
+        "doing": 11
+      }
+    },
+    {
+      "skipped": false,
+      "title": "MQ Summary of BCBC Summit: Part 3",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 6,
+        "feeling": 0,
+        "doing": 8
+      }
+    },
+    {
+      "skipped": false,
+      "title": "National and Sub-National Cooperation – road to Copenhagen",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 7,
+        "feeling": 1,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Next Generation Communities – Jasper Innovation Forum",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 10,
+        "feeling": 1,
+        "doing": 5
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Next Steps for next generation communities…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 13,
+        "feeling": 2,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Opportunities for Industry in a Carbon-Constrained World",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 8,
+        "feeling": 1,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Outlook 2020:  Positioning for Prosperity – a new BC Economy",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 7,
+        "feeling": 6,
+        "doing": 7
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Practivism…design's role in creating social change",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 3,
+        "feeling": 1,
+        "doing": 16
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Reflections on Educating the Heart",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Resilient Cities — conference coming up!",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 14
+      }
+    },
+    {
+      "skipped": false,
+      "title": "SI2 Social Innovation and Social Institutions",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 11,
+        "feeling": 7,
+        "doing": 7
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Social Innovation and Knowledge Mobility",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 21,
+        "feeling": 2,
+        "doing": 9
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Speaking Up and Speaking Out",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 3,
+        "feeling": 0,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Sustainability Innovators — a new set of business competencies?",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 16,
+        "feeling": 1,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "The Bold New Economy – a Resilient Cities Panel",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 13,
+        "feeling": 0,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Thomas Homer-Dixon:  Innovation, Adaptation, and Resilience in a new world",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 11,
+        "feeling": 1,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Vancouver’s Greenest City Action Team:  Reflections on engaging people and change",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 8,
+        "feeling": 0,
+        "doing": 20
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Why Women Mean Business: Understanding the Emergence of our Next Economic Revolution",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 2,
+        "feeling": 1,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Working Collaboratively and Listening Appreciatively",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 6,
+        "feeling": 1,
+        "doing": 4
+      }
+    },
+    {
+      "skipped": false,
+      "title": "World Studio…social change in action",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 4,
+        "feeling": 0,
+        "doing": 13
+      }
+    },
+    {
+      "skipped": false,
+      "title": "2010:  an exciting year of managing change",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 5,
+        "feeling": 1,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "A snooker comeback…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Action Plan on Innovation, the Environment and the Economy",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 6,
+        "feeling": 1,
+        "doing": 14
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Action Plan on Ocean Conservation and Coastal Climate Change Adaptation",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 8,
+        "feeling": 0,
+        "doing": 4
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Advent of the bike cafe…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 2,
+        "feeling": 1,
+        "doing": 6
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Angling and Casting in San Francisco",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 1,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Another San Francisco urban publicway…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "feeling",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 3,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Battersea Contemporary Art Fair",
+      "oldCategory": "Uncategorized",
+      "newCategory": "feeling",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 0,
+        "feeling": 8,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Being at the meridien…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 1,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Business education meets fashion",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 1,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Dateline London…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Ever heard of Grace Hopper?",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 4,
+        "feeling": 1,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Exploratorium…making science relevant",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 3,
+        "feeling": 0,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Franklin Farm — a Hampshire haven",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "London vignettes…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 1,
+        "feeling": 0,
+        "doing": 9
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Master's of the New Universe",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 12,
+        "feeling": 1,
+        "doing": 6
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Milano",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 2,
+        "feeling": 0,
+        "doing": 4
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Mind the Gap",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 2,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Pacific Coast Collaborative Action — Vision 2030",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 7,
+        "feeling": 0,
+        "doing": 9
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Reading a new city…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 3,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "SF Movie menus…reserve seats + wine + dine",
+      "oldCategory": "Uncategorized",
+      "newCategory": "feeling",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 2,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "The London Cab and the London Cabbies",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "The path to good food…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "feeling",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 4,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "The Turf Tavern and the ghost of Inspector Morse…",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Time for a women and men in leadership forum?",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Atelier — food design at its best",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Copenhagen vignettes",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 2
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Dash +D'Bree…Melbourne Comedy Festival",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Nation Re-building…planning & dialogue",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "high",
+      "scores": {
+        "thinking": 17,
+        "feeling": 1,
+        "doing": 9
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Soft power",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 1,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "St. Petersburg: a surprising Port experience",
+      "oldCategory": "Uncategorized",
+      "newCategory": "feeling",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 3,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "USCGC Hamilton — on its last run",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 0,
+        "doing": 1
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Planta Point: the Beach House",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 0,
+        "feeling": 1,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Planta Point:  the story",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 4,
+        "feeling": 3,
+        "doing": 3
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Planta Road: The Brown House",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "From Greenways-Publicways to the Resilient City",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 0,
+        "doing": 0
+      }
+    },
+    {
+      "skipped": false,
+      "title": "CUP Blog: Designed Leadership:  Principle 1:  Make Values Explicit",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 3,
+        "feeling": 1,
+        "doing": 14
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Designed Leadership by Moura Quayle",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "medium",
+      "scores": {
+        "thinking": 3,
+        "feeling": 0,
+        "doing": 9
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Introduction to the Principles of Designed Leadership",
+      "oldCategory": "Uncategorized",
+      "newCategory": "doing",
+      "confidence": "high",
+      "scores": {
+        "thinking": 4,
+        "feeling": 5,
+        "doing": 19
+      }
+    },
+    {
+      "skipped": false,
+      "title": "Photos from Designed Leadership Book Launches",
+      "oldCategory": "Uncategorized",
+      "newCategory": "thinking",
+      "confidence": "low",
+      "scores": {
+        "thinking": 1,
+        "feeling": 0,
+        "doing": 0
+      }
+    }
+  ]
+}
