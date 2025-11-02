@@ -2,6 +2,28 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Repository Information
+
+**Repository Type**: PRODUCTION
+**GitHub**: mq-studio/mq-studio-site
+**Vercel**: Connected (auto-deploys on push to main)
+**Status**: Live production code
+
+### CRITICAL - Before ANY git push:
+
+1. Verify you are in the PRODUCTION repository
+2. Confirm: `cat .REPO_TYPE` should show "PRODUCTION"
+3. Understand: Push triggers immediate deployment to live site
+4. Test: Changes must be tested before pushing
+
+### Development Workflow
+
+- **Dev repo**: `/home/ichardart/code/clients/moura_quayle/website-mq-studio`
+- **Prod repo**: `/home/ichardart/code/clients/moura_quayle/migration-to-github/repos/mq-studio-site`
+- **Process**: Dev → Test → Port → Push to prod
+
+---
+
 ## Repository Overview
 
 MQ Studio is a living, digital studio website for Professor Moura Quayle, designed as a space where governance papers, watercolours, calligraphy, and musings coexist. The site reflects an interconnected practice of thinking, feeling, and doing.
