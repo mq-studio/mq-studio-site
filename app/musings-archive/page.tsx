@@ -8,6 +8,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import ArchiveFilterClient from './archive-filter-client';
 
+// Force dynamic rendering to ensure client component interactivity
+export const dynamic = 'force-dynamic';
+
 type ArchivePost = {
   year: string;
   filename: string;
