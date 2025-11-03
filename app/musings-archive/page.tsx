@@ -1,15 +1,26 @@
 /**
- * Test page to view the imported archive
+ * Archive musings page with category filtering
  * Access at: http://localhost:3100/musings-archive
  */
 
 import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import ArchiveFilterClient from './archive-filter-client';
+
+type ArchivePost = {
+  year: string;
+  filename: string;
+  title: string;
+  date: string;
+  slug: string;
+  category?: string;
+  legacy?: boolean;
+};
 
 async function getArchivePosts() {
   const archiveDir = path.join(process.cwd(), 'content', 'musings', 'archive');
-  const posts = [];
+  const posts: ArchivePost[] = [];
 
   try {
     const years = await fs.readdir(archiveDir);
@@ -33,6 +44,7 @@ async function getArchivePosts() {
             title: data.title || file,
             date: data.date || 'unknown',
             slug: data.slug || file.replace('.mdx', ''),
+            category: data.category || undefined,
             legacy: data.legacy || false
           });
         }
@@ -52,67 +64,25 @@ async function getArchivePosts() {
 export default async function MusingsArchivePage() {
   const archivePosts = await getArchivePosts();
 
-  // Group posts by year
-  const postsByYear = archivePosts.reduce((acc, post) => {
-    if (!acc[post.year]) acc[post.year] = [];
-    acc[post.year].push(post);
-    return acc;
-  }, {} as Record<string, typeof archivePosts>);
+  // Count categories
+  const categoryCounts = {
+    thinking: archivePosts.filter(p => p.category === 'thinking').length,
+    feeling: archivePosts.filter(p => p.category === 'feeling').length,
+    doing: archivePosts.filter(p => p.category === 'doing').length,
+  };
 
   return (
-    <div className="min-h-screen bg-white p-8">
-      <h1 className="text-4xl font-bold mb-8">
-        Imported Archive Posts ({archivePosts.length} total)
-      </h1>
-
-      <div className="mb-8 p-4 bg-green-50 border border-green-200 rounded">
-        <p className="text-green-800 font-semibold">
-          ✅ Import Successful! All WordPress posts are here.
+    <div className="min-h-screen bg-white">
+      <div className="p-8 max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold mb-2">Musings Archive</h1>
+        <p className="text-gray-600 mb-8">
+          {archivePosts.length} posts spanning {new Set(archivePosts.map(p => p.year)).size} years
         </p>
-        <p className="text-green-700 mt-2">
-          Navigate to http://localhost:3100/musings-archive to see this page.
-        </p>
-      </div>
 
-      {Object.entries(postsByYear)
-        .sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
-        .map(([year, posts]) => {
-          const postsArray = Array.isArray(posts) ? posts : [];
-          return (
-            <div key={year} className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-blue-600">
-                {year} ({postsArray.length} posts)
-              </h2>
-              <ul className="space-y-2">
-                {postsArray.map(post => (
-                <li key={post.slug} className="p-3 bg-gray-50 rounded">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="font-semibold">{post.title}</h3>
-                      <p className="text-sm text-gray-600">
-                        Date: {post.date} | File: {post.filename}
-                      </p>
-                    </div>
-                    {post.legacy && (
-                      <span className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded">
-                        Legacy
-                      </span>
-                    )}
-                  </div>
-                </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
-
-      <div className="mt-12 p-4 bg-gray-100 rounded">
-        <h3 className="font-bold mb-2">Next Steps:</h3>
-        <ol className="list-decimal list-inside space-y-1">
-          <li>To integrate with main musings page, update /app/musings/page.tsx</li>
-          <li>Or rename /app/musings/enhanced-page.tsx to page.tsx</li>
-          <li>The enhanced content service in /lib/content/ has all the integration code</li>
-        </ol>
+        <ArchiveFilterClient
+          posts={archivePosts}
+          categoryCounts={categoryCounts}
+        />
       </div>
     </div>
   );
