@@ -5,6 +5,7 @@ import Link from 'next/link';
 import RecentContent from '@/components/content/RecentContent';
 import SearchBar from '@/components/search/SearchBar';
 import AboutSection from '@/components/about/AboutSection';
+import Footer from '@/components/footer/Footer';
 
 export default function Home() {
   return (
@@ -177,14 +178,7 @@ export default function Home() {
         </aside>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-24 border-t border-[var(--border)] py-8">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="font-lora text-sm text-[var(--muted-foreground)]">
-            © 2025 Moura Quayle. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
