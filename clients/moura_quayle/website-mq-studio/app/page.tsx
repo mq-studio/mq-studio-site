@@ -5,7 +5,6 @@ import Link from 'next/link';
 import RecentContent from '@/components/content/RecentContent';
 import SearchBar from '@/components/search/SearchBar';
 import AboutSection from '@/components/about/AboutSection';
-import Footer from '@/components/footer/Footer';
 
 export default function Home() {
   return (
@@ -177,8 +176,6 @@ export default function Home() {
           </div>
         </aside>
       </main>
-
-      <Footer />
     </>
   );
 }
