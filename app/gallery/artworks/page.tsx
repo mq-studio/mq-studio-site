@@ -74,6 +74,8 @@ function ArtworkGalleryContent() {
               <span className="mx-2">·</span>
               <Link href="/gallery/publications" className="hover:text-[var(--moura-teal)]">Publications</Link>
               <span className="mx-2">·</span>
+              <Link href="/musings" className="hover:text-[var(--moura-teal)]">Musings</Link>
+              <span className="mx-2">·</span>
               <Link href="/search" className="hover:text-[var(--moura-teal)]">Search</Link>
             </nav>
           </div>

@@ -1,6 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
 import RecentContent from '@/components/content/RecentContent';
 import SearchBar from '@/components/search/SearchBar';
+import AboutSection from '@/components/about/AboutSection';
 
 export default function Home() {
   return (
@@ -9,10 +13,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div className="mb-2 sm:mb-0">
-              <div className="flex items-center gap-3 font-montserrat font-semibold text-lg">
+              <Link href="/" className="flex items-center gap-3 font-montserrat font-semibold text-lg">
                 <span className="w-6 h-6 bg-gradient-to-br from-[var(--moura-teal)] to-[var(--scholar-blue)] rounded-full"></span>
                 MQ STUDIO
-              </div>
+              </Link>
               <div className="font-lora text-sm text-[var(--charcoal-wash)] mt-1">
                 Feeling · Thinking · Doing
               </div>
@@ -31,7 +35,7 @@ export default function Home() {
       </header>
 
       <main className="max-w-7xl mx-auto px-6">
-        {/* Three-Column Hero with Gradient Accents */}
+        {/* Three-Column Hero with Gradient Accents - V1 Design */}
         <section className="py-12">
           <div className="text-center mb-8">
             <p className="font-lora text-lg text-[var(--charcoal-wash)] mb-2">
@@ -65,12 +69,12 @@ export default function Home() {
                   <p className="font-lora text-sm mb-4 opacity-90">
                     Academic papers, research, and intellectual explorations
                   </p>
-                  <a
+                  <Link
                     href="/gallery/publications"
                     className="inline-block px-4 py-2 bg-[var(--scholar-blue)] text-white rounded-md hover:bg-opacity-90 transition-all text-sm font-montserrat"
                   >
                     Explore Publications →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -93,12 +97,12 @@ export default function Home() {
                   <p className="font-lora text-sm mb-4 opacity-90">
                     Watercolors, calligraphy, and visual expressions
                   </p>
-                  <a
+                  <Link
                     href="/gallery/artworks"
                     className="inline-block px-4 py-2 bg-[var(--vibrant-magenta)] text-white rounded-md hover:bg-opacity-90 transition-all text-sm font-montserrat"
                   >
                     Explore Artworks →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -121,12 +125,12 @@ export default function Home() {
                   <p className="font-lora text-sm mb-4 opacity-90">
                     Leadership initiatives and collaborative ventures
                   </p>
-                  <a
+                  <Link
                     href="/gallery/publications?category=landscape"
                     className="inline-block px-4 py-2 bg-[var(--moura-teal)] text-white rounded-md hover:bg-opacity-90 transition-all text-sm font-montserrat"
                   >
                     Explore Projects →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -141,99 +145,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Search Bar - Prominent */}
+        {/* About Section - Introduction to Moura */}
+        <AboutSection />
+
+        {/* Search Bar */}
         <section className="py-8 border-t border-b border-[var(--border)]">
           <div className="max-w-2xl mx-auto">
             <SearchBar placeholder="Search publications, artworks, musings..." />
           </div>
         </section>
 
-        {/* Three Entry Points: Feeling, Thinking, Doing */}
-        <section className="py-16">
-          <h2 className="font-montserrat text-2xl font-semibold text-center mb-12 text-[var(--ink-black)]">
-            Explore the Studio
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Feeling - Art */}
-            <div className="group cursor-pointer">
-              <div className="bg-gradient-to-br from-[var(--studio-cream)] to-white rounded-lg p-8 h-full border border-[var(--border)] hover:border-[var(--vibrant-magenta)] transition-all hover:shadow-lg">
-                <h3 className="font-montserrat text-xl font-semibold mb-3 text-[var(--vibrant-magenta)]">
-                  Feeling
-                </h3>
-                <p className="font-lora text-[var(--charcoal-wash)] mb-4">
-                  Watercolors, calligraphy, and visual expressions that capture emotion and beauty
-                </p>
-                <div className="space-y-2 text-sm">
-                  <a href="/gallery/artworks?tag=watercolour" className="block hover:text-[var(--vibrant-magenta)] transition-colors">
-                    → Watercolor Gallery
-                  </a>
-                  <a href="/gallery/artworks?tag=shufa" className="block hover:text-[var(--vibrant-magenta)] transition-colors">
-                    → Shufa Calligraphy
-                  </a>
-                  <a href="/gallery/artworks?tag=mixed media" className="block hover:text-[var(--vibrant-magenta)] transition-colors">
-                    → Mixed Media Works
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Thinking - Academia */}
-            <div className="group cursor-pointer">
-              <div className="bg-gradient-to-br from-[var(--studio-cream)] to-white rounded-lg p-8 h-full border border-[var(--border)] hover:border-[var(--scholar-blue)] transition-all hover:shadow-lg">
-                <h3 className="font-montserrat text-xl font-semibold mb-3 text-[var(--scholar-blue)]">
-                  Thinking
-                </h3>
-                <p className="font-lora text-[var(--charcoal-wash)] mb-4">
-                  Academic papers, research, and intellectual explorations in governance and design
-                </p>
-                <div className="space-y-2 text-sm">
-                  <a href="/gallery/publications?category=academic" className="block hover:text-[var(--scholar-blue)] transition-colors">
-                    → Academic Papers
-                  </a>
-                  <a href="/gallery/publications?category=book-chapter" className="block hover:text-[var(--scholar-blue)] transition-colors">
-                    → Book Chapters
-                  </a>
-                  <a href="/gallery/publications?category=policy" className="block hover:text-[var(--scholar-blue)] transition-colors">
-                    → Policy Documents
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Doing - Leadership/Projects */}
-            <div className="group cursor-pointer">
-              <div className="bg-gradient-to-br from-[var(--studio-cream)] to-white rounded-lg p-8 h-full border border-[var(--border)] hover:border-[var(--moura-teal)] transition-all hover:shadow-lg">
-                <h3 className="font-montserrat text-xl font-semibold mb-3 text-[var(--moura-teal)]">
-                  Doing
-                </h3>
-                <p className="font-lora text-[var(--charcoal-wash)] mb-4">
-                  Leadership initiatives, landscape design projects, and collaborative ventures
-                </p>
-                <div className="space-y-2 text-sm">
-                  <a href="/gallery/publications?category=landscape" className="block hover:text-[var(--moura-teal)] transition-colors">
-                    → Landscape Design
-                  </a>
-                  <a href="/gallery/publications?category=governance" className="block hover:text-[var(--moura-teal)] transition-colors">
-                    → Governance Projects
-                  </a>
-                  <a href="/gallery/publications?category=design" className="block hover:text-[var(--moura-teal)] transition-colors">
-                    → Collaborations
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Recent Additions */}
-        <section className="py-16 border-t border-[var(--border)]">
+        <section className="py-16">
           <h2 className="font-montserrat text-2xl font-semibold text-center mb-12 text-[var(--ink-black)]">
             Recent Additions to the Studio
           </h2>
           <RecentContent />
         </section>
 
-        {/* Marginalia Section - David's Voice */}
+        {/* Marginalia Section */}
         <aside className="py-8 border-t border-[var(--border)]">
           <div className="max-w-4xl mx-auto px-8 border-l-4 border-[var(--vibrant-magenta)]">
             <p className="font-lora italic text-[var(--charcoal-wash)]">
@@ -246,15 +176,6 @@ export default function Home() {
           </div>
         </aside>
       </main>
-
-      {/* Footer */}
-      <footer className="mt-24 border-t border-[var(--border)] py-8">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="font-lora text-sm text-[var(--muted-foreground)]">
-            © 2025 Moura Quayle. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </>
   );
 }
