@@ -7,11 +7,45 @@ interface PressItem {
   publication: string;
   date: string;
   url: string;
-  type: 'interview' | 'review' | 'article' | 'announcement';
+  type: 'interview' | 'review' | 'article' | 'announcement' | 'featured';
   excerpt?: string;
 }
 
 const pressItems: PressItem[] = [
+  // Featured Writing
+  {
+    title: 'How the mindset of designers can make us better leaders',
+    publication: 'The Conversation',
+    date: 'February 27, 2018',
+    url: 'https://theconversation.com/how-the-mindset-of-designers-can-make-us-better-leaders-94564',
+    type: 'featured',
+    excerpt: 'Design thinking offers leaders a way to navigate complexity and embrace ambiguity. By learning from how designers approach problems, leaders can develop more adaptive and human-centered practices.'
+  },
+  {
+    title: 'Introduction to the Principles of Designed Leadership',
+    publication: 'Columbia University Press Blog',
+    date: 'July 19, 2017',
+    url: 'https://cupblog.org/2017/07/19/introduction-to-the-principles-of-designed-leadership/',
+    type: 'featured',
+    excerpt: 'Strategic design offers leaders a framework for transformation, combining critical and creative thinking to address complex organizational challenges.'
+  },
+  {
+    title: 'Designed Leadership: Principle 1 - Make Values Explicit',
+    publication: 'Columbia University Press Blog',
+    date: 'August 28, 2017',
+    url: 'https://cupblog.org/2017/08/28/designed-leadership-principle-1-make-values-explicit/',
+    type: 'featured',
+    excerpt: 'The first principle of designed leadership: articulating organizational values clearly and consistently to guide decision-making and build trust.'
+  },
+  {
+    title: 'Designed Leadership: Principle 2 & 3 - Know Place and Experience, Value Diversity',
+    publication: 'Columbia University Press Blog',
+    date: 'October 27, 2017',
+    url: 'https://cupblog.org/2017/10/27/designed-leadership-principle-2-know-place-and-experience-and-principle-3-value-diversity/',
+    type: 'featured',
+    excerpt: 'Understanding context and embracing diverse perspectives are essential to effective leadership in complex environments.'
+  },
+
   // Book Reviews
   {
     title: 'Designed Leadership',
@@ -120,6 +154,7 @@ const pressItems: PressItem[] = [
 ];
 
 export default function PressPage() {
+  const featured = pressItems.filter(item => item.type === 'featured');
   const reviews = pressItems.filter(item => item.type === 'review');
   const interviews = pressItems.filter(item => item.type === 'interview');
   const articles = pressItems.filter(item => item.type === 'article');
@@ -161,11 +196,60 @@ export default function PressPage() {
           <h1 className="font-montserrat text-4xl font-bold mb-4 text-[var(--ink-black)]">
             Press & Recognition
           </h1>
-          <p className="font-lora text-lg text-[var(--charcoal-wash)] leading-relaxed">
+          <p className="font-lora text-lg text-[var(--charcoal-wash)] leading-relaxed mb-6">
             Media coverage, interviews, and professional reviews of Moura Quayle's work in
             leadership, design, governance, and academia.
           </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://scholar.google.com/citations?user=ZZPdS_8AAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--scholar-blue)] text-white font-montserrat text-sm font-medium rounded-lg hover:bg-[var(--moura-teal)] transition-colors duration-300"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/>
+              </svg>
+              View Full Bibliography (Google Scholar)
+            </a>
+          </div>
         </div>
+
+        {/* Featured Writing */}
+        {featured.length > 0 && (
+          <section className="mb-16">
+            <h2 className="font-montserrat text-2xl font-semibold mb-6 text-[var(--moura-teal)] border-b border-[var(--border)] pb-2">
+              Featured Writing
+            </h2>
+            <div className="space-y-6">
+              {featured.map((item, index) => (
+                <article key={index} className="bg-gradient-to-br from-white to-[var(--studio-cream)] p-6 rounded-lg border border-[var(--border)] hover:shadow-md transition-shadow">
+                  <h3 className="font-montserrat text-xl font-semibold mb-2 text-[var(--ink-black)]">
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--moura-teal)] transition-colors">
+                      {item.title}
+                    </a>
+                  </h3>
+                  <div className="font-montserrat text-sm text-[var(--muted-foreground)] mb-3">
+                    {item.publication} · {item.date}
+                  </div>
+                  {item.excerpt && (
+                    <p className="font-lora text-[var(--charcoal-wash)] leading-relaxed mb-3">
+                      {item.excerpt}
+                    </p>
+                  )}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-montserrat text-sm text-[var(--moura-teal)] hover:text-[var(--scholar-blue)] transition-colors"
+                  >
+                    Read article →
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Book Reviews */}
         {reviews.length > 0 && (
