@@ -98,6 +98,7 @@ const projectItems: ProjectItem[] = [
   {
     title: 'Women in Design Leadership Initiative',
     organization: 'Various Organizations',
+    url: '#',
     description: 'Mentorship and advocacy for women in design professions and leadership roles.'
   }
 ];

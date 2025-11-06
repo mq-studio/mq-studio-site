@@ -197,7 +197,7 @@ export default function PressPage() {
             Press & Recognition
           </h1>
           <p className="font-lora text-lg text-[var(--charcoal-wash)] leading-relaxed mb-6">
-            Media coverage, interviews, and professional reviews of Moura Quayle's work in
+            Media coverage, interviews, and professional reviews of Moura Quayle&apos;s work in
             leadership, design, governance, and academia.
           </p>
           <div className="flex items-center gap-4">
