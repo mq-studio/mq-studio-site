@@ -17,6 +17,8 @@ const navigationLinks: FooterLink[] = [
   { label: 'Gallery', href: '/gallery/artworks' },
   { label: 'Publications', href: '/gallery/publications' },
   { label: 'Musings', href: '/musings' },
+  { label: 'Press', href: '/press' },
+  { label: 'Projects', href: '/projects' },
   { label: 'Search', href: '/search' },
 ];
 
