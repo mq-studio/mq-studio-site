@@ -28,6 +28,10 @@ export default function Home() {
               <span className="mx-2">·</span>
               <a href="/musings" className="hover:text-[var(--moura-teal)] transition-colors">Musings</a>
               <span className="mx-2">·</span>
+              <a href="/press" className="hover:text-[var(--moura-teal)] transition-colors">Press</a>
+              <span className="mx-2">·</span>
+              <a href="/projects" className="hover:text-[var(--moura-teal)] transition-colors">Projects</a>
+              <span className="mx-2">·</span>
               <a href="/search" className="hover:text-[var(--moura-teal)] transition-colors">Search</a>
             </nav>
           </div>

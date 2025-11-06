@@ -139,11 +139,15 @@ export default async function MusingsPageWithArchive() {
               MQ STUDIO
             </Link>
             <nav className="font-montserrat text-sm">
-              <Link href="/" className="hover:text-[var(--moura-teal)]">Home</Link>
-              <span className="mx-2">·</span>
               <Link href="/gallery/artworks" className="hover:text-[var(--moura-teal)]">Artworks</Link>
               <span className="mx-2">·</span>
               <Link href="/gallery/publications" className="hover:text-[var(--moura-teal)]">Publications</Link>
+              <span className="mx-2">·</span>
+              <Link href="/musings" className="text-[var(--moura-teal)]">Musings</Link>
+              <span className="mx-2">·</span>
+              <Link href="/press" className="hover:text-[var(--moura-teal)]">Press</Link>
+              <span className="mx-2">·</span>
+              <Link href="/projects" className="hover:text-[var(--moura-teal)]">Projects</Link>
               <span className="mx-2">·</span>
               <Link href="/search" className="hover:text-[var(--moura-teal)]">Search</Link>
             </nav>
