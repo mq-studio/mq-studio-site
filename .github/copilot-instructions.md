@@ -8,7 +8,7 @@ This file provides repository-wide guidance for GitHub Copilot and other AI codi
 
 **Tech Stack**:
 - Next.js 14.2.5 (App Router)
-- React 18
+- React 18.x
 - TypeScript 5.9.2
 - Tailwind CSS 3.4.1
 - MDX for content (via gray-matter 4.0.3)
@@ -141,7 +141,7 @@ Currently using Git-based workflow:
 - Manual validation required before commit
 
 **Pre-commit validation checklist**:
-1. `npm run lint` must pass (currently has 2 warnings that are acceptable)
+1. `npm run lint` must pass
 2. `npm run build` must complete without errors (may fail in restricted environments)
 3. `npx tsc --noEmit` must show no type errors
 4. `npm run test:unit` should pass (if tests exist for changed code)
@@ -231,11 +231,26 @@ Currently using Git-based workflow:
 
 ### Design System
 **Bright Academia** theme:
-- Colors: Rice Paper (#FDFCF8), Ink Black (#1A1A1A), Moura Teal (#00A8A8), Scholar Blue (#2C5985), Vibrant Magenta (#D33479)
-- Typography: Montserrat (headings), Lora (body)
-- Custom Tailwind configuration in `tailwind.config.ts` (fonts)
-- Design tokens defined in `src/design/tokens.ts` (colors, spacing, borders)
-- CSS custom properties in `app/globals.css` (color variables)
+- **Primary Colors**: 
+  - Rice Paper (#FDFCF8) - Background
+  - Ink Black (#1A1A1A) - Primary text
+  - Moura Teal (#00A8A8) - Interactive elements
+- **Category Colors**:
+  - Scholar Blue (#2C5985) - "Thinking" category
+  - Living Pink (#E91E63) - "Feeling" category
+  - Vibrant Magenta (#D33479) - Accents
+- **Additional Palette**:
+  - Shufa Red (#8D2305) - Calligraphy accents
+  - Studio Cream (#FFF8F0) - Neutral background
+  - Charcoal Wash (#4A4A4A) - Secondary text
+  - Light Gray (#D8D5CC) - Borders
+  - Spring Yellow (#F4B942) - Highlights
+  - Sage Wisdom (#7A9A82) - Natural elements
+- **Typography**: Montserrat (headings), Lora (body)
+- **Configuration Files**:
+  - `tailwind.config.ts` - Tailwind font configuration
+  - `src/design/tokens.ts` - TypeScript design tokens (colors, spacing, borders)
+  - `app/globals.css` - CSS custom properties (color variables)
 
 ### Accessibility Requirements
 - WCAG AA compliance mandatory
