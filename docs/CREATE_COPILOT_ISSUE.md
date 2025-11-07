@@ -5,7 +5,7 @@ This guide explains how to create a GitHub issue for setting up GitHub Copilot i
 ## Why This Issue is Needed
 
 The repository currently has AI assistant instruction files for:
-- **Claude Code**: `CLAUDE.md` 
+- **Claude Code**: `CLAUDE.md`
 - **Gemini CLI**: `GEMINI.md`
 
 However, there is no instruction file for **GitHub Copilot**. According to the repository's template system (see `templates/plan-template.md`), Copilot instructions should be stored at `.github/copilot-instructions.md`.
@@ -134,6 +134,6 @@ When someone works on this issue, they should:
 
 ## Related Documentation
 - `CLAUDE.md` - Existing Claude Code instructions
-- `GEMINI.md` - Existing Gemini CLI instructions  
+- `GEMINI.md` - Existing Gemini CLI instructions
 - `templates/plan-template.md` - References Copilot instructions
 - `README.md` - General project documentation
