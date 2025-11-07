@@ -1,0 +1,18 @@
+# User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mq-studio-site.vercel.app/sitemap.xml
+
+# Disallow API routes
+User-agent: *
+Disallow: /api/
+
+# Disallow internal directories
+User-agent: *
+Disallow: /_next/
+Disallow: /background_assets/original/
+
+# Allow everything else
+User-agent: *
+Allow: /
