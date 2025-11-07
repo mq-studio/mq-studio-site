@@ -16,10 +16,7 @@ export default function ProjectPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProject();
-  }, [slug]);
-
-  const fetchProject = async () => {
+    const fetchProject = async () => {
     try {
       const response = await fetch('/api/content', {
         method: 'POST',
@@ -59,6 +56,9 @@ export default function ProjectPage() {
       setLoading(false);
     }
   };
+
+    fetchProject();
+  }, [slug, router]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
