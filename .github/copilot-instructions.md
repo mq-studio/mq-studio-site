@@ -127,7 +127,7 @@ npm run test:all      # Run all tests (unit + stagehand)
 Key Config Files:
 - next.config.js      # Next.js configuration
 - tailwind.config.ts  # Tailwind customization (Bright Academia design system)
-- tsconfig.json       # TypeScript config (strict mode enabled)
+- tsconfig.json       # TypeScript config (strict mode disabled)
 - .eslintrc.json      # Linting rules
 - jest.config.unit.cjs # Jest unit test configuration
 - jest.config.stagehand.js # Stagehand browser test configuration
@@ -173,7 +173,7 @@ Currently using Git-based workflow:
 - Required frontmatter: `title`, `date`, `medium`, `description`
 
 ### Code Style
-- **TypeScript**: Strict mode enabled, full type annotations required
+- **TypeScript**: TypeScript enabled (strict mode currently disabled), type annotations recommended
 - **Styling**: Tailwind CSS for all styling (avoid inline styles and custom CSS unless necessary)
 - **Component Architecture**: Component-first, functional components with hooks
 - **File Naming**: 
@@ -231,10 +231,11 @@ Currently using Git-based workflow:
 
 ### Design System
 **Bright Academia** theme:
-- Colors: Rice Paper (#FDFCF8), Ink Black (#1A1A1A), Moura Teal (#00A8A8)
+- Colors: Rice Paper (#FDFCF8), Ink Black (#1A1A1A), Moura Teal (#00A8A8), Scholar Blue (#2C5985), Vibrant Magenta (#D33479)
 - Typography: Montserrat (headings), Lora (body)
-- Custom Tailwind configuration in `tailwind.config.ts`
-- Design tokens in `src/design/`
+- Custom Tailwind configuration in `tailwind.config.ts` (fonts)
+- Design tokens defined in `src/design/tokens.ts` (colors, spacing, borders)
+- CSS custom properties in `app/globals.css` (color variables)
 
 ### Accessibility Requirements
 - WCAG AA compliance mandatory
