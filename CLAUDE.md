@@ -4,23 +4,64 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Information
 
-**Repository Type**: PRODUCTION
-**GitHub**: mq-studio/mq-studio-site
-**Vercel**: Connected (auto-deploys on push to main)
-**Status**: Live production code
+**Repository Type**: DEVELOPMENT (with production deployment capability)
+**Local Path**: `/home/ichardart/code/clients/moura_quayle/website-mq-studio/`
+**This is a standalone git repository with dual remote configuration**
 
-### CRITICAL - Before ANY git push:
+### Git Configuration
 
-1. Verify you are in the PRODUCTION repository
-2. Confirm: `cat .REPO_TYPE` should show "PRODUCTION"
-3. Understand: Push triggers immediate deployment to live site
-4. Test: Changes must be tested before pushing
+This repository uses **multiple git remotes** to manage development and production:
+
+```bash
+origin      → https://github.com/mq-studio/mq-studio-dev.git      # Development
+production  → https://github.com/mq-studio/mq-studio-site.git     # Production
+```
+
+**Current remote:** `git remote -v` to verify
 
 ### Development Workflow
 
-- **Dev repo**: `/home/ichardart/code/clients/moura_quayle/website-mq-studio`
-- **Prod repo**: `/home/ichardart/code/clients/moura_quayle/migration-to-github/repos/mq-studio-site`
-- **Process**: Dev → Test → Port → Push to prod
+**Daily Development (Safe to Experiment)**
+```bash
+# Push to development repository
+git push origin main                    # → mq-studio-dev
+```
+
+- Safe to experiment and test new features
+- Breaking changes OK
+- Iterate on designs freely
+- Does NOT affect production
+
+**Production Deployment (Careful!)**
+```bash
+# Test first
+npm run build
+npm run lint
+npx tsc --noEmit
+
+# Push to production repository
+git push production main                # → mq-studio-site → Vercel
+```
+
+- Only push tested, stable code
+- Triggers automatic Vercel deployment
+- Live site updates immediately
+- Review carefully before pushing
+
+### Repository Structure
+
+**This Directory**: Development workspace
+- Single source of truth for all work
+- Contains experiments, features, and production-ready code
+- Push to `origin` for dev, `production` for deployment
+
+**Related Repositories**:
+- `mq-studio/mq-studio-dev` (PRIVATE) - Development repository
+- `mq-studio/mq-studio-site` (PUBLIC) - Production repository (auto-deploys to Vercel)
+- `mq-studio/mq-studio-knowledge` (PRIVATE) - Documentation
+- `mq-studio/mq-studio-assets` (PRIVATE) - Original media files
+
+**For detailed git workflow**: See [DEV_PRODUCTION_WORKFLOW.md](DEV_PRODUCTION_WORKFLOW.md) and [GIT_SETUP_COMPLETE.md](GIT_SETUP_COMPLETE.md)
 
 ---
 
