@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 interface FooterLink {
@@ -22,7 +20,7 @@ const navigationLinks: FooterLink[] = [
   { label: 'Search', href: '/search' },
 ];
 
-const getSocialLinks = (): SocialLink[] => [
+const socialLinks: SocialLink[] = [
   {
     platform: 'LinkedIn',
     url: 'https://www.linkedin.com/in/moura-quayle-61907010/',
@@ -40,11 +38,9 @@ const getSocialLinks = (): SocialLink[] => [
   },
 ];
 
-const getContactEmail = (): string => 'moura@mouraquayle.ca';
+const contactEmail = 'moura@mouraquayle.ca';
 
 export default function Footer() {
-  const socialLinks = getSocialLinks();
-  const contactEmail = getContactEmail();
 
   return (
     <footer className="mt-24 border-t border-[var(--border)] py-12 bg-gradient-to-br from-[var(--rice-paper)] to-[var(--studio-cream)]">

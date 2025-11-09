@@ -27,8 +27,9 @@ export default function SearchBar({
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  // Debounced search function
+  // Debounced search function with abort controller
   const debounceTimeout = useRef<NodeJS.Timeout>();
+  const abortControllerRef = useRef<AbortController>();
 
   const fetchSuggestions = useCallback(async (searchQuery: string) => {
     if (searchQuery.trim().length < 2) {
@@ -37,16 +38,29 @@ export default function SearchBar({
       return;
     }
 
+    // Cancel previous request if it exists
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    // Create new abort controller for this request
+    abortControllerRef.current = new AbortController();
+
     setLoading(true);
     try {
-      const response = await fetch(`/api/content?search=${encodeURIComponent(searchQuery)}`);
+      const response = await fetch(`/api/content?search=${encodeURIComponent(searchQuery)}`, {
+        signal: abortControllerRef.current.signal,
+      });
       if (response.ok) {
         const results: SearchResult[] = await response.json();
         setSuggestions(results.slice(0, 5)); // Show top 5 suggestions
         setShowSuggestions(true);
       }
     } catch (error) {
-      console.error('Error fetching suggestions:', error);
+      // Ignore abort errors
+      if (error instanceof Error && error.name !== 'AbortError') {
+        console.error('Error fetching suggestions:', error);
+      }
     } finally {
       setLoading(false);
     }
