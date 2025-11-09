@@ -17,10 +17,7 @@ export default function ArtworkPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchArtwork();
-  }, [slug]);
-
-  const fetchArtwork = async () => {
+    const fetchArtwork = async () => {
     try {
       // Fetch artwork by slug
       const response = await fetch('/api/content', {
@@ -61,6 +58,9 @@ export default function ArtworkPage() {
       setLoading(false);
     }
   };
+
+    fetchArtwork();
+  }, [slug, router]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
