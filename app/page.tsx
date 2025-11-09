@@ -67,8 +67,8 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white pointer-events-auto">
                   <h2 className="font-montserrat text-3xl font-bold mb-2">Thinking</h2>
                   <p className="font-lora text-sm mb-4 opacity-90">
                     Academic papers, research, and intellectual explorations
@@ -95,8 +95,8 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white pointer-events-auto">
                   <h2 className="font-montserrat text-3xl font-bold mb-2">Feeling</h2>
                   <p className="font-lora text-sm mb-4 opacity-90">
                     Watercolors, calligraphy, and visual expressions
@@ -123,8 +123,8 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white pointer-events-auto">
                   <h2 className="font-montserrat text-3xl font-bold mb-2">Doing</h2>
                   <p className="font-lora text-sm mb-4 opacity-90">
                     Leadership initiatives and collaborative ventures
