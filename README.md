@@ -167,6 +167,12 @@ npm run start
 
 For issues or questions, please file an issue in this repository.
 
+### Creating Issues
+
+For guidance on creating specific issues, see:
+- [How to Create "Set up Copilot Instructions" Issue](docs/CREATE_COPILOT_ISSUE.md)
+- [Copilot Issue Template](docs/COPILOT_ISSUE_TEMPLATE.md)
+
 ---
 
 **MQ Studio** - Living Digital Studio for Professor Moura Quayle
