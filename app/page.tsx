@@ -1,10 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import RecentContent from '@/components/content/RecentContent';
-import SearchBar from '@/components/search/SearchBar';
 import AboutSection from '@/components/about/AboutSection';
 import { contentService } from '@/lib/content/content-service';
+
+// Lazy-load SearchBar component to reduce initial bundle
+const SearchBar = dynamic(() => import('@/components/search/SearchBar'), {
+  loading: () => <SearchBarSkeleton />,
+  ssr: false, // SearchBar has client-side interactions, load after hydration
+});
 
 // Server-side data fetching with ISR
 async function getRecentContent() {
@@ -197,6 +203,17 @@ export default async function Home() {
         </aside>
       </main>
     </>
+  );
+}
+
+// Loading skeleton for SearchBar
+function SearchBarSkeleton() {
+  return (
+    <div className="relative">
+      <div className="w-full pl-12 pr-4 py-4 rounded-lg border border-[var(--border)] bg-gray-100 animate-pulse">
+        <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+      </div>
+    </div>
   );
 }
 
