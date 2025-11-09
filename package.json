@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0 --port 3100",
-    "build": "next build",
+    "build": "npm run generate:sitemap && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -12,7 +12,10 @@
     "test:stagehand": "node tests/stagehand/run-tests.js",
     "test:unit": "jest -c jest.config.unit.cjs --runInBand",
     "test:all": "npm run test:unit && node tests/stagehand/run-tests.js",
-    "verify": "npm run lint && npm run test:unit"
+    "verify": "npm run lint && npm run test:unit",
+    "validate:content": "node scripts/validate-content.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "prebuild": "npm run validate:content"
   },
   "dependencies": {
     "@browserbasehq/stagehand": "^2.5.0",
