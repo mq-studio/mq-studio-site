@@ -1,12 +1,26 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import RecentContent from '@/components/content/RecentContent';
 import SearchBar from '@/components/search/SearchBar';
 import AboutSection from '@/components/about/AboutSection';
+import { contentService } from '@/lib/content/content-service';
 
-export default function Home() {
+// Server-side data fetching with ISR
+async function getRecentContent() {
+  try {
+    const content = await contentService.getRecentContent(6);
+    return content;
+  } catch (error) {
+    console.error('Error fetching recent content:', error);
+    return [];
+  }
+}
+
+export const revalidate = 3600; // ISR: Revalidate every hour (3600 seconds)
+
+export default async function Home() {
+  const recentContent = await getRecentContent();
   return (
     <>
       <header className="border-b border-gray-200">
@@ -164,7 +178,9 @@ export default function Home() {
           <h2 className="font-montserrat text-2xl font-semibold text-center mb-12 text-[var(--ink-black)]">
             Recent Additions to the Studio
           </h2>
-          <RecentContent />
+          <Suspense fallback={<RecentContentSkeleton />}>
+            <RecentContent content={recentContent} />
+          </Suspense>
         </section>
 
         {/* Marginalia Section */}
@@ -181,5 +197,24 @@ export default function Home() {
         </aside>
       </main>
     </>
+  );
+}
+
+// Loading skeleton for RecentContent
+function RecentContentSkeleton() {
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[...Array(6)].map((_, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-lg p-6 border border-[var(--border)] animate-pulse"
+        >
+          <div className="h-4 bg-gray-200 rounded w-1/3 mb-2"></div>
+          <div className="h-6 bg-gray-200 rounded mb-2"></div>
+          <div className="h-20 bg-gray-200 rounded mb-3"></div>
+          <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+        </div>
+      ))}
+    </div>
   );
 }

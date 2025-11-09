@@ -4,14 +4,21 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Content } from '@/lib/types/content';
 
-export default function RecentContent() {
-  const [content, setContent] = useState<Content[]>([]);
-  const [loading, setLoading] = useState(true);
+interface RecentContentProps {
+  content?: Content[]; // Optional - for server component usage
+}
+
+export default function RecentContent({ content: propContent }: RecentContentProps) {
+  const [fetchedContent, setFetchedContent] = useState<Content[]>([]);
+  const [loading, setLoading] = useState(!propContent);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchRecentContent();
-  }, []);
+    // Only fetch if content wasn't provided as prop (client component usage)
+    if (!propContent) {
+      fetchRecentContent();
+    }
+  }, [propContent]);
 
   const fetchRecentContent = async () => {
     try {
@@ -26,13 +33,16 @@ export default function RecentContent() {
       }
 
       const data = await response.json();
-      setContent(data);
+      setFetchedContent(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
   };
+
+  // Use prop content if provided, otherwise use fetched content
+  const content = propContent || fetchedContent;
 
   const getContentTypeLabel = (type: string) => {
     switch (type) {
@@ -88,7 +98,8 @@ export default function RecentContent() {
     }
   };
 
-  if (loading) {
+  // Loading state (only for client-side fetching)
+  if (loading && !propContent) {
     return (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[...Array(6)].map((_, i) => (
@@ -106,7 +117,8 @@ export default function RecentContent() {
     );
   }
 
-  if (error) {
+  // Error state (only for client-side fetching)
+  if (error && !propContent) {
     return (
       <div className="text-center py-12">
         <p className="text-[var(--muted-foreground)]">
